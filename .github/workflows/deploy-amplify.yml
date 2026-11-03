@@ -1,0 +1,42 @@
+name: Deploy FCC to AWS Amplify
+
+on:
+  push:
+    branches:
+      - main
+
+  repository_dispatch:
+    types:
+      - sveltia-cms-publish
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: amplify-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Trigger AWS Amplify Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Amplify Build
+        env:
+          AMPLIFY_WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
+        run: |
+          if [ -z "$AMPLIFY_WEBHOOK_URL" ]; then
+            echo "Amplify webhook secret is missing"
+            exit 1
+          fi
+
+          echo "Triggering AWS Amplify deployment..."
+
+          curl --fail --silent --show-error \
+            --request POST \
+            "$AMPLIFY_WEBHOOK_URL"
+
+          echo "Amplify build triggered successfully."
