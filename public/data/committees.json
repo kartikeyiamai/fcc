@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "slug": "digital-lending",
+      "code": "DL-01",
+      "name": "Digital Lending",
+      "href": "/committees/digital-lending",
+      "description": "Growth and fair regulation for P2P, SME, personal and other digital lending.",
+      "chair_name": "Vibhav Hathi",
+      "chair_role": "Chair · Co-Founder, OneCard"
+    },
+    {
+      "slug": "regtech",
+      "code": "RT-02",
+      "name": "RegTech",
+      "href": "/committees/regtech",
+      "description": "KYC, AML, data protection and cyber resilience for the compliance tech ecosystem.",
+      "chair_name": "Ajay Rajan",
+      "chair_role": "Chair · MD & CEO, Protean e-Gov"
+    },
+    {
+      "slug": "wealthtech",
+      "code": "WT-03",
+      "name": "WealthTech",
+      "href": "/committees/wealthtech",
+      "description": "Investor access, mutual funds, settlement and onboarding across India's investments ecosystem.",
+      "chair_name": "Srinivas Jain",
+      "chair_role": "Chair · Executive Director, SBI Funds"
+    },
+    {
+      "slug": "insurtech",
+      "code": "IT-04",
+      "name": "InsurTech",
+      "href": "/committees/insurtech",
+      "description": "Life, general and health insurance, and aggregators, in a digital-first market.",
+      "chair_name": "Sarbvir Singh",
+      "chair_role": "Chair · Joint Group CEO, PB Fintech"
+    },
+    {
+      "slug": "credit-bureau",
+      "code": "CB-05",
+      "name": "Credit Bureau",
+      "href": "/committees/credit-bureau",
+      "description": "Credit information, inclusion and prudent lending through advocacy.",
+      "chair_name": "Open for nominations",
+      "chair_role": "Chair to be announced"
+    }
+  ],
+  "page": {
+    "title": "Committees",
+    "description": "Five sector committees lead FCC's work, each bringing together member companies to share best practice, discuss industry issues and shape representations."
+  }
+}

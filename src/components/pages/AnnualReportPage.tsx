@@ -1,4 +1,8 @@
-export function AnnualReportPage() {
+import type { AnnualReportsContent } from "@/lib/cms-types";
+
+export function AnnualReportPage({ content }: { content: AnnualReportsContent }) {
+  const featured = content.items.find((item) => item.featured) || content.items[0];
+
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,8 +12,8 @@ export function AnnualReportPage() {
               <a href="/">Home</a> <span>/</span> <a href="/about">About</a> <span>/</span>Annual
               Reports
             </div>{" "}
-            <h1>Annual Reports</h1>{" "}
-            <p>A yearly look at FCC's representations, events, research and member activity.</p>
+            <h1>{content.page.title}</h1>{" "}
+            <p>{content.page.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">
@@ -71,185 +75,83 @@ export function AnnualReportPage() {
       </section>
       <section>
         <div className="wrap split" style={{ alignItems: "start" }}>
-          <div className="reveal">
-            <a
-              href="https://www.fintechcouncil.in/pdf/PCI-FCC-ANNUAL%20REPORT-2023-24.pdf"
-              target="_blank"
-              rel="noopener"
-              className="cover"
-              style={{ maxWidth: "340px" }}
-            >
-              <div className="book b1" style={{ aspectRatio: "3/4" }}>
-                <span className="kind">PCI · FCC · Latest</span>{" "}
-                <h4 style={{ fontSize: "1.6rem" }}>Annual Report 2023–24</h4>{" "}
-                <span className="yr">Fintech Convergence Council</span>{" "}
-                <svg viewBox="0 0 100 100" fill="none" stroke="#fff" strokeWidth="3">
-                  <circle cx="50" cy="50" r="40"></circle> <circle cx="50" cy="50" r="24"></circle>{" "}
-                  <circle cx="50" cy="50" r="8" fill="#fff"></circle>
-                </svg>
-              </div>{" "}
-              <div className="meta">
-                <span>Latest edition</span>{" "}
-                <span className="link-arrow">
-                  Download PDF{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
+          {featured ? (
+            <div className="reveal">
+              <a
+                href={featured.document_url || "#"}
+                target="_blank"
+                rel="noopener"
+                className="cover"
+                style={{ maxWidth: "340px" }}
+              >
+                <div className="book b1" style={{ aspectRatio: "3/4" }}>
+                  <span className="kind">{featured.description}</span>{" "}
+                  <h4 style={{ fontSize: "1.6rem" }}>{featured.title}</h4>{" "}
+                  <span className="yr">Fintech Convergence Council</span>{" "}
+                  <svg viewBox="0 0 100 100" fill="none" stroke="#fff" strokeWidth="3">
+                    <circle cx="50" cy="50" r="40"></circle>{" "}
+                    <circle cx="50" cy="50" r="24"></circle>{" "}
+                    <circle cx="50" cy="50" r="8" fill="#fff"></circle>
                   </svg>
-                </span>
-              </div>
-            </a>
-          </div>
+                </div>{" "}
+                <div className="meta">
+                  <span>Latest edition</span>{" "}
+                  <span className="link-arrow">
+                    Download PDF{" "}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+          ) : null}
           <div className="reveal">
             <span className="eyebrow">All editions</span> <h2>Our year in review</h2>{" "}
             <p className="lead" style={{ marginBottom: "24px" }}>
               Reports are published jointly with the Payments Council of India (PCI).
             </p>
             <div style={{ display: "grid", gap: "12px" }}>
-              <a
-                href="https://www.fintechcouncil.in/pdf/PCI-FCC-ANNUAL%20REPORT-2023-24.pdf"
-                target="_blank"
-                rel="noopener"
-                className="rep"
-              >
-                <div className="doc">PDF</div>{" "}
-                <div>
-                  <h4>Annual Report 2023–24</h4> <p>PCI · FCC</p>
-                </div>{" "}
-                <span className="go link-arrow">
-                  Download{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
-                  </svg>
-                </span>
-              </a>{" "}
-              <a
-                href="https://www.fintechcouncil.in/pdf/annual-report-22-23.pdf"
-                target="_blank"
-                rel="noopener"
-                className="rep"
-              >
-                <div className="doc">PDF</div>{" "}
-                <div>
-                  <h4>Annual Report 2022–23</h4> <p>PCI · FCC</p>
-                </div>{" "}
-                <span className="go link-arrow">
-                  Download{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
-                  </svg>
-                </span>
-              </a>{" "}
-              <a
-                href="https://www.fintechcouncil.in/pdf/annual-report-21-22.pdf"
-                target="_blank"
-                rel="noopener"
-                className="rep"
-              >
-                <div className="doc">PDF</div>{" "}
-                <div>
-                  <h4>Annual Report 2021–22</h4> <p>PCI · FCC</p>
-                </div>{" "}
-                <span className="go link-arrow">
-                  Download{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
-                  </svg>
-                </span>
-              </a>{" "}
-              <a
-                href="https://www.fintechcouncil.in/pdf/PCI_FCC_Annual_Report2019_20R30_6_20.pdf"
-                target="_blank"
-                rel="noopener"
-                className="rep"
-              >
-                <div className="doc">PDF</div>{" "}
-                <div>
-                  <h4>Annual Report 2019–20</h4> <p>PCI · FCC</p>
-                </div>{" "}
-                <span className="go link-arrow">
-                  Download{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
-                  </svg>
-                </span>
-              </a>{" "}
-              <a
-                href="https://www.fintechcouncil.in/pdf/PCI_FCC_Annual_Report_2018_2019.pdf"
-                target="_blank"
-                rel="noopener"
-                className="rep"
-              >
-                <div className="doc">PDF</div>{" "}
-                <div>
-                  <h4>Annual Report 2018–19</h4> <p>PCI · FCC</p>
-                </div>{" "}
-                <span className="go link-arrow">
-                  Download{" "}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
-                  </svg>
-                </span>
-              </a>
+              {content.items.map((report) => (
+                <a
+                  key={report.year}
+                  href={report.document_url || "#"}
+                  target="_blank"
+                  rel="noopener"
+                  className="rep"
+                >
+                  <div className="doc">PDF</div>{" "}
+                  <div>
+                    <h4>{report.title}</h4> <p>{report.description}</p>
+                  </div>{" "}
+                  <span className="go link-arrow">
+                    Download{" "}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path>
+                    </svg>
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
         </div>

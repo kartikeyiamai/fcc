@@ -1,4 +1,6 @@
-export function LiveEventsPage() {
+import type { LiveEventsContent } from "@/lib/cms-types";
+
+export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,11 +10,8 @@ export function LiveEventsPage() {
               <a href="/">Home</a> <span>/</span> <a href="/live-events">Events</a> <span>/</span>
               Live Events
             </div>{" "}
-            <h1>Live Events</h1>{" "}
-            <p>
-              The Global Fintech Fest, industry delegations and in-person moments that bring the
-              ecosystem together.
-            </p>
+            <h1>{content.page.title}</h1>{" "}
+            <p>{content.page.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">

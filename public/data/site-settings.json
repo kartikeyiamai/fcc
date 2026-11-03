@@ -1,0 +1,269 @@
+{
+  "site_title": "FCC — Fintech Convergence Council",
+  "site_description": "Fintech Convergence Council (FCC) — the industry voice for regulated financial service providers and fintech companies in India.",
+  "brand_name": "Fintech Convergence Council",
+  "brand_tagline": "An IAMAI initiative · Since 2018",
+  "brand_mark": "FCC",
+  "contact_email": "info@fintechcouncil.in",
+  "contact_phone": "022-61766666",
+  "contact_phone_href": "tel:02261766666",
+  "address_lines": [
+    "301-A, Godrej Two, Pirojshanagar,",
+    "Vikhroli, Mumbai 400079"
+  ],
+  "member_cta_label": "Become a Member",
+  "member_cta_href": "/apply-membership",
+  "social": [
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/company/69219060/",
+      "icon": "in"
+    },
+    {
+      "label": "X",
+      "href": "https://twitter.com/FCCUpdates",
+      "icon": "𝕏"
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/Fintech-Convergence-Council-FCC-442712016473770/",
+      "icon": "f"
+    }
+  ],
+  "footer_blurb": "Bringing policymakers, regulators and the fintech industry together to grow financial services across India.",
+  "footer_copyright": "© 2026 Fintech Convergence Council. All rights reserved.",
+  "footer_note": "An initiative of the Internet and Mobile Association of India",
+  "newsletter_placeholder": "Get FCC updates",
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/",
+      "match": [
+        "/"
+      ]
+    },
+    {
+      "label": "About",
+      "href": "/about",
+      "children": [
+        {
+          "label": "About Us",
+          "href": "/about",
+          "small": "Who we are and how we work"
+        },
+        {
+          "label": "Governing Council",
+          "href": "/about#council",
+          "small": "Leadership of FCC"
+        },
+        {
+          "label": "Annual Reports",
+          "href": "/annual-report",
+          "small": "Our year in review"
+        }
+      ],
+      "match": [
+        "/about",
+        "/annual-report"
+      ]
+    },
+    {
+      "label": "Committees",
+      "href": "/committees",
+      "children": [
+        {
+          "label": "Digital Lending",
+          "href": "/committees/digital-lending",
+          "small": "DL-01"
+        },
+        {
+          "label": "RegTech",
+          "href": "/committees/regtech",
+          "small": "RT-02"
+        },
+        {
+          "label": "WealthTech",
+          "href": "/committees/wealthtech",
+          "small": "WT-03"
+        },
+        {
+          "label": "InsurTech",
+          "href": "/committees/insurtech",
+          "small": "IT-04"
+        },
+        {
+          "label": "Credit Bureau",
+          "href": "/committees/credit-bureau",
+          "small": "CB-05"
+        }
+      ],
+      "match": [
+        "/committees"
+      ]
+    },
+    {
+      "label": "Membership",
+      "href": "/members",
+      "children": [
+        {
+          "label": "Our Members",
+          "href": "/members",
+          "small": "175+ companies"
+        },
+        {
+          "label": "Membership Benefits",
+          "href": "/membership-benefits",
+          "small": "What you get"
+        },
+        {
+          "label": "Apply for Membership",
+          "href": "/apply-membership",
+          "small": "Join the council"
+        }
+      ],
+      "match": [
+        "/members",
+        "/membership-benefits",
+        "/apply-membership"
+      ]
+    },
+    {
+      "label": "Partnership",
+      "href": "/partners",
+      "children": [
+        {
+          "label": "Our Partners",
+          "href": "/partners",
+          "small": "Who we work with"
+        },
+        {
+          "label": "Partnership Benefits",
+          "href": "/partnership-benefits",
+          "small": "Why partner with FCC"
+        },
+        {
+          "label": "Apply for Partnership",
+          "href": "/apply-partnership",
+          "small": "Start a conversation"
+        }
+      ],
+      "match": [
+        "/partners",
+        "/partnership-benefits",
+        "/apply-partnership"
+      ]
+    },
+    {
+      "label": "Policy & Research",
+      "href": "/policy",
+      "children": [
+        {
+          "label": "Policy",
+          "href": "/policy",
+          "small": "Representations to regulators"
+        },
+        {
+          "label": "Research",
+          "href": "/research",
+          "small": "Reports and whitepapers"
+        }
+      ],
+      "match": [
+        "/policy",
+        "/research"
+      ]
+    },
+    {
+      "label": "Events",
+      "href": "/live-events",
+      "children": [
+        {
+          "label": "Live Events",
+          "href": "/live-events",
+          "small": "GFF and in-person events"
+        },
+        {
+          "label": "Virtual Events",
+          "href": "/virtual-events",
+          "small": "Webinars and knowledge sessions"
+        }
+      ],
+      "match": [
+        "/live-events",
+        "/virtual-events"
+      ]
+    },
+    {
+      "label": "Contact",
+      "href": "/contact",
+      "match": [
+        "/contact"
+      ]
+    }
+  ],
+  "footer_columns": [
+    {
+      "title": "About",
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Governing Council",
+          "href": "/about#council"
+        },
+        {
+          "label": "Annual Reports",
+          "href": "/annual-report"
+        },
+        {
+          "label": "Committees",
+          "href": "/committees"
+        }
+      ]
+    },
+    {
+      "title": "Work",
+      "links": [
+        {
+          "label": "Policy",
+          "href": "/policy"
+        },
+        {
+          "label": "Research",
+          "href": "/research"
+        },
+        {
+          "label": "Live Events",
+          "href": "/live-events"
+        },
+        {
+          "label": "Virtual Events",
+          "href": "/virtual-events"
+        }
+      ]
+    },
+    {
+      "title": "Join",
+      "links": [
+        {
+          "label": "Our Members",
+          "href": "/members"
+        },
+        {
+          "label": "Membership Benefits",
+          "href": "/membership-benefits"
+        },
+        {
+          "label": "Apply for Membership",
+          "href": "/apply-membership"
+        },
+        {
+          "label": "Partnerships",
+          "href": "/partners"
+        }
+      ]
+    }
+  ]
+}

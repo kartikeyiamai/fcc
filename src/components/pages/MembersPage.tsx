@@ -1,4 +1,6 @@
-export function MembersPage() {
+import type { MembersContent } from "@/lib/cms-types";
+
+export function MembersPage({ content }: { content: MembersContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,11 +10,8 @@ export function MembersPage() {
               <a href="/">Home</a> <span>/</span> <a href="/members">Membership</a> <span>/</span>
               Our Members
             </div>{" "}
-            <h1>Our Members</h1>{" "}
-            <p>
-              175+ companies across lending, payments, insurance, investments, credit information
-              and RegTech make up the council.
-            </p>
+            <h1>{content.page?.title || "Our Members"}</h1>{" "}
+            <p>{content.page?.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">

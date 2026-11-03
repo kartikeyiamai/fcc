@@ -1,23 +1,38 @@
 ﻿import type React from "react";
-export function HomePage() {
+import type { CommitteeItem, HomepageContent } from "@/lib/cms-types";
+
+export function HomePage({
+  content,
+  committees,
+}: {
+  content: HomepageContent;
+  committees: CommitteeItem[];
+}) {
+  const hero = content.hero;
+  const about = content.about_teaser;
+  const committeesSection = content.committees_section;
+  const howWeWork = content.how_we_work;
+  const policy = content.policy_section;
+  const events = content.events_section;
+  const research = content.research_section;
+  const membersSection = content.members_section;
+  const cta = content.cta;
+
   return (
     <>
       <section className="hero grid-bg">
         <div className="wrap">
           <div>
             <span className="pill">
-              <i></i>The industry voice of Indian fintech
+              <i></i>{hero.badge}
             </span>
             <h1>
-              Where finance and technology <em>converge</em> to shape policy.
+              {hero.heading_before} <em>{hero.heading_emphasis}</em> {hero.heading_after}
             </h1>
-            <p>
-              FCC brings together policymakers, regulators and 175+ fintech companies to build a
-              fair policy environment and widen access to financial services across India.
-            </p>
+            <p>{hero.description}</p>
             <div className="actions">
-              <a href="/apply-membership" className="btn btn-light">
-                Join the Council{" "}
+              <a href={hero.primary_cta_href} className="btn btn-light">
+                {hero.primary_cta_label}{" "}
                 <svg
                   width="16"
                   height="16"
@@ -32,20 +47,17 @@ export function HomePage() {
                   <path d="M5 12h14M13 6l6 6-6 6"></path>
                 </svg>
               </a>{" "}
-              <a href="/policy" className="btn btn-ghost">
-                See our policy work
+              <a href={hero.secondary_cta_href} className="btn btn-ghost">
+                {hero.secondary_cta_label}
               </a>
             </div>
             <div className="hero-trust">
-              <div>
-                <b>175+</b>member companies
-              </div>{" "}
-              <div>
-                <b>5</b>sector committees
-              </div>{" "}
-              <div>
-                <b>7</b>regulators engaged
-              </div>
+              {hero.trust.map((item) => (
+                <div key={item.label}>
+                  <b>{item.value}</b>
+                  {item.label}
+                </div>
+              ))}
             </div>
           </div>
           <div className="hero-art">
@@ -530,27 +542,19 @@ export function HomePage() {
       <div className="stats">
         <div className="wrap">
           <div className="grid">
-            <div className="stat">
-              <b>
-                175 <sup>+</sup>
-              </b>{" "}
-              <span>Member companies</span> <i className="bar" style={{ ["--p" as any]: "88%" } as React.CSSProperties}></i>
-            </div>
-            <div className="stat">
-              <b>5</b> <span>Sector committees</span>{" "}
-              <i className="bar" style={{ ["--p" as any]: "50%" } as React.CSSProperties}></i>
-            </div>
-            <div className="stat">
-              <b>
-                43 <sup>+</sup>
-              </b>{" "}
-              <span>Representations &amp; sessions</span>{" "}
-              <i className="bar" style={{ ["--p" as any]: "70%" } as React.CSSProperties}></i>
-            </div>
-            <div className="stat">
-              <b>38</b> <span>Virtual sessions since 2024</span>{" "}
-              <i className="bar" style={{ ["--p" as any]: "62%" } as React.CSSProperties}></i>
-            </div>
+            {content.stats.map((stat) => (
+              <div className="stat" key={stat.label}>
+                <b>
+                  {stat.value}
+                  {stat.suffix ? <sup>{stat.suffix}</sup> : null}
+                </b>{" "}
+                <span>{stat.label}</span>{" "}
+                <i
+                  className="bar"
+                  style={{ ["--p" as string]: stat.bar } as React.CSSProperties}
+                ></i>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -558,19 +562,15 @@ export function HomePage() {
       <section>
         <div className="wrap split">
           <div className="reveal">
-            <span className="eyebrow">About FCC</span>{" "}
-            <h2>The next phase of fintech growth comes from working together.</h2>
-            <p className="lead">
-              FCC started as IAMAI's fintech committee and launched as the Fintech Convergence
-              Council in 2018. Today it brings banks, NBFCs, insurers, investment platforms and
-              fintechs into one room, and carries their shared view to regulators.
-            </p>
+            <span className="eyebrow">{about.eyebrow}</span>{" "}
+            <h2>{about.heading}</h2>
+            <p className="lead">{about.lead}</p>
             <div style={{ marginTop: "26px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
-              <a href="/about" className="btn btn-outline">
-                About us
+              <a href={about.primary_cta_href} className="btn btn-outline">
+                {about.primary_cta_label}
               </a>{" "}
-              <a href="/annual-report" className="btn btn-outline">
-                Annual reports
+              <a href={about.secondary_cta_href} className="btn btn-outline">
+                {about.secondary_cta_label}
               </a>
             </div>
           </div>
@@ -1002,141 +1002,42 @@ export function HomePage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Committees</span>{" "}
-              <h2>Five committees, one shared agenda</h2>{" "}
-              <p className="lead">
-                Each committee leads the council's work in a fast-moving part of financial services.
-              </p>
+              <span className="eyebrow">{committeesSection.eyebrow}</span>{" "}
+              <h2>{committeesSection.heading}</h2>{" "}
+              <p className="lead">{committeesSection.lead}</p>
             </div>{" "}
-            <a href="/committees" className="btn btn-outline">
-              All committees
+            <a href={committeesSection.cta_href} className="btn btn-outline">
+              {committeesSection.cta_label}
             </a>
           </div>
           <div className="cards5 reveal">
-            <a href="/committees/digital-lending" className="ccard">
-              <span className="code">DL-01</span>{" "}
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="18" height="12" rx="2"></rect>{" "}
-                  <path d="M3 10h18M7 15h3"></path>
-                </svg>
-              </div>{" "}
-              <h3>Digital Lending</h3>{" "}
-              <p>Growth and fair regulation for P2P, SME, personal and other digital lending.</p>{" "}
-              <div className="chair">
-                <b>Vibhav Hathi</b>Chair · Co-Founder, OneCard
-              </div>
-            </a>{" "}
-            <a href="/committees/regtech" className="ccard">
-              <span className="code">RT-02</span>{" "}
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="5" y="11" width="14" height="10" rx="2"></rect>{" "}
-                  <path d="M8 11V7a4 4 0 0 1 8 0v4M12 15v2"></path>
-                </svg>
-              </div>{" "}
-              <h3>RegTech</h3>{" "}
-              <p>
-                KYC, AML, data protection and cyber resilience for the compliance tech ecosystem.
-              </p>{" "}
-              <div className="chair">
-                <b>Ajay Rajan</b>Chair · MD &amp; CEO, Protean e-Gov
-              </div>
-            </a>{" "}
-            <a href="/committees/wealthtech" className="ccard">
-              <span className="code">WT-03</span>{" "}
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M3 17l6-6 4 4 8-8M15 7h6v6"></path>
-                </svg>
-              </div>{" "}
-              <h3>WealthTech</h3>{" "}
-              <p>
-                Investor access, mutual funds, settlement and onboarding across India&#x27;s
-                investments ecosystem.
-              </p>{" "}
-              <div className="chair">
-                <b>Srinivas Jain</b>Chair · Executive Director, SBI Funds
-              </div>
-            </a>{" "}
-            <a href="/committees/insurtech" className="ccard">
-              <span className="code">IT-04</span>{" "}
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path>{" "}
-                  <path d="M9 12l2 2 4-4"></path>
-                </svg>
-              </div>{" "}
-              <h3>InsurTech</h3>{" "}
-              <p>Life, general and health insurance, and aggregators, in a digital-first market.</p>{" "}
-              <div className="chair">
-                <b>Sarbvir Singh</b>Chair · Joint Group CEO, PB Fintech
-              </div>
-            </a>{" "}
-            <a href="/committees/credit-bureau" className="ccard">
-              <span className="code">CB-05</span>{" "}
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>{" "}
-                  <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path>
-                </svg>
-              </div>{" "}
-              <h3>Credit Bureau</h3>{" "}
-              <p>Credit information, inclusion and prudent lending through advocacy.</p>{" "}
-              <div className="chair">
-                <b>Open for nominations</b>Chair to be announced
-              </div>
-            </a>
+            {committees.map((committee) => (
+              <a href={committee.href} className="ccard" key={committee.slug}>
+                <span className="code">{committee.code}</span>{" "}
+                <div className="icon-box">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                    <path d="M3 10h18M7 15h3"></path>
+                  </svg>
+                </div>{" "}
+                <h3>{committee.name}</h3>{" "}
+                <p>{committee.description}</p>{" "}
+                <div className="chair">
+                  <b>{committee.chair_name}</b>
+                  {committee.chair_role}
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -1145,8 +1046,8 @@ export function HomePage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">How we work</span>{" "}
-              <h2>From member input to policy outcome</h2>
+              <span className="eyebrow">{howWeWork.eyebrow}</span>{" "}
+              <h2>{howWeWork.heading}</h2>
             </div>
           </div>
           <div className="flow reveal">
@@ -1232,7 +1133,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">What's happening</span> <h2>Our policy work</h2>{" "}
+              <span className="eyebrow">{policy.eyebrow}</span> <h2>{policy.heading}</h2>{" "}
               <p className="lead">
                 Recent representations, industry feedback and knowledge sessions. Filter by
                 regulator.
@@ -1481,7 +1382,7 @@ export function HomePage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Events</span> <h2>Where the ecosystem meets</h2>{" "}
+              <span className="eyebrow">{events.eyebrow}</span> <h2>{events.heading}</h2>{" "}
               <p className="lead">
                 FCC co-hosts the Global Fintech Fest and runs a year-round calendar of virtual
                 knowledge sessions.
@@ -2086,7 +1987,7 @@ export function HomePage() {
           <div className="sec-head">
             <div>
               <span className="eyebrow">Research</span>{" "}
-              <h2>Reports that track India's fintech story</h2>
+              <h2>{research.heading}</h2>
             </div>{" "}
             <a href="/research" className="btn btn-outline">
               All research
@@ -2243,7 +2144,7 @@ export function HomePage() {
           <div className="sec-head">
             <div>
               <span className="eyebrow">Our members</span>{" "}
-              <h2>Trusted across financial services</h2>{" "}
+              <h2>{membersSection.heading}</h2>{" "}
               <p className="lead">
                 Lenders, banks, insurers, investment platforms, bureaus and RegTech firms shape the
                 council's work.
@@ -3159,26 +3060,22 @@ export function HomePage() {
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Have a seat at the table where fintech policy is shaped.</h2>{" "}
-              <p>
-                Join FCC as a member, or partner with us on events, research and industry
-                programmes.
-              </p>
+              <span className="eyebrow">{cta.eyebrow}</span>{" "}
+              <h2>{cta.heading}</h2>{" "}
+              <p>{cta.description}</p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a href={cta.primary_cta_href} className="btn btn-light">
+                  {cta.primary_cta_label}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a href={cta.secondary_cta_href} className="btn btn-ghost">
+                  {cta.secondary_cta_label}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {cta.benefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
             </ul>
           </div>
         </div>

@@ -1,0 +1,495 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: kartikeyiamai/fcc
+  branch: main
+  skip_ci: true
+  auth_methods: [token]
+
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: http://localhost:3000
+display_url: http://localhost:3000
+logo_url: /admin/index.html
+
+collections:
+  - name: site_settings
+    label: Site Settings
+    files:
+      - name: site_settings
+        label: Site Settings
+        file: public/data/site-settings.json
+        fields:
+          - { label: Site Title, name: site_title, widget: string }
+          - { label: Site Description, name: site_description, widget: text }
+          - { label: Brand Name, name: brand_name, widget: string }
+          - { label: Brand Tagline, name: brand_tagline, widget: string }
+          - { label: Brand Mark, name: brand_mark, widget: string }
+          - { label: Contact Email, name: contact_email, widget: string }
+          - { label: Contact Phone, name: contact_phone, widget: string }
+          - { label: Contact Phone Href, name: contact_phone_href, widget: string }
+          - label: Address Lines
+            name: address_lines
+            widget: list
+            field: { label: Line, name: line, widget: string }
+          - { label: Member CTA Label, name: member_cta_label, widget: string }
+          - { label: Member CTA Href, name: member_cta_href, widget: string }
+          - label: Social Links
+            name: social
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: href, widget: string }
+              - { label: Icon Text, name: icon, widget: string }
+          - { label: Footer Blurb, name: footer_blurb, widget: text }
+          - { label: Footer Copyright, name: footer_copyright, widget: string }
+          - { label: Footer Note, name: footer_note, widget: string }
+          - { label: Newsletter Placeholder, name: newsletter_placeholder, widget: string }
+          - label: Navigation
+            name: navigation
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Href, name: href, widget: string }
+              - label: Active Match Paths
+                name: match
+                widget: list
+                field: { label: Path, name: path, widget: string }
+                required: false
+              - label: Children
+                name: children
+                widget: list
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+                  - { label: Small Text, name: small, widget: string, required: false }
+          - label: Footer Columns
+            name: footer_columns
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+
+  - name: homepage
+    label: Homepage
+    files:
+      - name: homepage
+        label: Homepage
+        file: public/data/homepage.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: Heading Before Emphasis, name: heading_before, widget: string }
+              - { label: Heading Emphasis, name: heading_emphasis, widget: string }
+              - { label: Heading After Emphasis, name: heading_after, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+              - label: Trust Stats
+                name: trust
+                widget: list
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+          - label: Stats
+            name: stats
+            widget: list
+            fields:
+              - { label: Value, name: value, widget: string }
+              - { label: Suffix, name: suffix, widget: string, required: false }
+              - { label: Label, name: label, widget: string }
+              - { label: Bar Width, name: bar, widget: string }
+          - label: About Teaser
+            name: about_teaser
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+          - label: Committees Section
+            name: committees_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA Href, name: cta_href, widget: string }
+          - label: How We Work
+            name: how_we_work
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+          - label: Policy Section
+            name: policy_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA Href, name: cta_href, widget: string }
+          - label: Events Section
+            name: events_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA Href, name: cta_href, widget: string }
+              - label: Flagship Event
+                name: flagship
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Location, name: location, widget: string }
+                  - { label: URL, name: href, widget: string }
+                  - { label: CTA Label, name: cta_label, widget: string }
+          - label: Research Section
+            name: research_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA Href, name: cta_href, widget: string }
+          - label: Members Section
+            name: members_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - { label: CTA Label, name: cta_label, widget: string }
+              - { label: CTA Href, name: cta_href, widget: string }
+          - label: Bottom CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+              - label: Benefits
+                name: benefits
+                widget: list
+                field: { label: Benefit, name: benefit, widget: string }
+
+  - name: about
+    label: About FCC
+    files:
+      - name: about
+        label: About FCC
+        file: public/data/about.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Overview
+            name: overview
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - { label: Vision, name: vision, widget: text }
+          - { label: Mission, name: mission, widget: text }
+          - label: Pillars
+            name: pillars
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+              - label: Items
+                name: items
+                widget: list
+                required: false
+                field: { label: Item, name: item, widget: string }
+          - label: Journey
+            name: journey
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - label: Milestones
+                name: milestones
+                widget: list
+                fields:
+                  - { label: Year, name: year, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+          - label: Governing Council
+            name: council
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead, name: lead, widget: text }
+              - label: Members
+                name: members
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Role, name: role, widget: string }
+
+  - name: members
+    label: Members
+    files:
+      - name: members
+        label: Members
+        file: public/data/members.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Members
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Organization Name, name: name, widget: string }
+              - { label: Logo Filename, name: logo_filename, widget: string, required: false }
+              - { label: Website, name: website, widget: string, required: false }
+              - { label: Membership Category, name: category, widget: string, required: false }
+              - { label: Description, name: description, widget: text, required: false }
+
+  - name: partners
+    label: Partners
+    files:
+      - name: partners
+        label: Partners
+        file: public/data/partners.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Partners
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Partner Name, name: name, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Website, name: website, widget: string, required: false }
+              - { label: Partnership Category, name: category, widget: string, required: false }
+              - { label: Logo, name: logo, widget: image, required: false }
+
+  - name: committees
+    label: Committees
+    files:
+      - name: committees
+        label: Committees
+        file: public/data/committees.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Committees
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Slug, name: slug, widget: string }
+              - { label: Code, name: code, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Href, name: href, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Chair Name, name: chair_name, widget: string }
+              - { label: Chair Role, name: chair_role, widget: string }
+
+  - name: live_events
+    label: Live Events
+    files:
+      - name: live_events
+        label: Live Events
+        file: public/data/live-events.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Flagship
+            name: flagship
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Location, name: location, widget: string }
+              - { label: URL, name: href, widget: string }
+              - { label: CTA Label, name: cta_label, widget: string }
+          - label: Events
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Year, name: year, widget: string }
+              - { label: Date Label, name: date_label, widget: string }
+              - { label: Location, name: location, widget: string }
+              - { label: Link, name: href, widget: string }
+              - { label: Cover Image, name: cover_image, widget: image, required: false }
+              - { label: Registration Link, name: registration_link, widget: string, required: false }
+              - label: Status
+                name: status
+                widget: select
+                required: false
+                options: [upcoming, past, live]
+
+  - name: virtual_events
+    label: Virtual Events
+    files:
+      - name: virtual_events
+        label: Virtual Events
+        file: public/data/virtual-events.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Events
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Day, name: day, widget: string }
+              - { label: Month / Year, name: month, widget: string }
+              - { label: Time Label, name: time, widget: string }
+              - { label: Year Tag, name: year_tag, widget: string }
+              - { label: Cover Image, name: cover_image, widget: image, required: false }
+              - { label: Registration Link, name: registration_link, widget: string, required: false }
+
+  - name: publications
+    label: Research & Publications
+    files:
+      - name: publications
+        label: Research & Publications
+        file: public/data/publications.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Publications
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Kind / Category, name: kind, widget: string }
+              - { label: Year Label, name: year_label, widget: string }
+              - { label: Document or External Link, name: href, widget: string }
+              - { label: Cover Variant, name: cover_variant, widget: string, required: false }
+              - { label: Cover Image, name: cover_image, widget: image, required: false }
+              - { label: Publication Date, name: publication_date, widget: datetime, required: false }
+              - { label: Description, name: description, widget: text, required: false }
+
+  - name: annual_reports
+    label: Annual Reports
+    files:
+      - name: annual_reports
+        label: Annual Reports
+        file: public/data/annual-reports.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Reports
+            name: items
+            widget: list
+            summary: "{{fields.title}} ({{fields.year}})"
+            fields:
+              - { label: Report Title, name: title, widget: string }
+              - { label: Year, name: year, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Cover Image, name: cover_image, widget: image, required: false }
+              - { label: PDF / Document Link, name: document_url, widget: string, required: false }
+              - { label: Featured, name: featured, widget: boolean, required: false }
+
+  - name: contact
+    label: Contact
+    files:
+      - name: contact
+        label: Contact
+        file: public/data/contact.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Channels
+            name: channels
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Email, name: email, widget: string }
+          - label: Office
+            name: office
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Address Lines
+                name: lines
+                widget: list
+                field: { label: Line, name: line, widget: string }
+              - { label: Phone, name: phone, widget: string }
+              - { label: Phone Href, name: phone_href, widget: string }
+              - { label: Contact Person, name: contact_person, widget: string }
+              - { label: Contact Email, name: contact_email, widget: string }
+              - { label: Maps URL, name: maps_url, widget: string }

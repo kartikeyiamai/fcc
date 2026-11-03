@@ -1,4 +1,6 @@
-export function CommitteesPage() {
+import type { CommitteesContent } from "@/lib/cms-types";
+
+export function CommitteesPage({ content }: { content: CommitteesContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -7,11 +9,8 @@ export function CommitteesPage() {
             <div className="crumbs">
               <a href="/">Home</a> <span>/</span>Committees
             </div>{" "}
-            <h1>Committees</h1>{" "}
-            <p>
-              Five sector committees lead FCC's work, each bringing together member companies to
-              share best practice, discuss industry issues and shape representations.
-            </p>
+            <h1>{content.page?.title || "Committees"}</h1>{" "}
+            <p>{content.page?.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">

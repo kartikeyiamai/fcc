@@ -1,0 +1,44 @@
+{
+  "page": {
+    "title": "Live Events",
+    "description": "The Global Fintech Fest, industry delegations and in-person moments that bring the ecosystem together."
+  },
+  "flagship": {
+    "label": "Flagship event",
+    "title": "Global Fintech Fest",
+    "description": "One of the world's largest fintech gatherings, bringing regulators, banks, fintechs and investors together in Mumbai every year.",
+    "location": "Jio World Centre, Mumbai",
+    "href": "https://globalfintechfest.com/",
+    "cta_label": "Visit website →"
+  },
+  "items": [
+    {
+      "title": "Mission Trip to Japan",
+      "year": "2025",
+      "date_label": "12–16 May",
+      "location": "Tokyo, Japan",
+      "href": "https://globalfintechfest.com/"
+    },
+    {
+      "title": "India's Innovation for the World",
+      "year": "2024",
+      "date_label": "19 Dec",
+      "location": "India",
+      "href": "/live-events"
+    },
+    {
+      "title": "Global Fintech Fest 2024",
+      "year": "2024",
+      "date_label": "28–30 Aug",
+      "location": "Jio World Centre, Mumbai",
+      "href": "https://globalfintechfest.com/"
+    },
+    {
+      "title": "Global Fintech Fest 2023",
+      "year": "2023",
+      "date_label": "5–7 Sep",
+      "location": "Jio World Centre, Mumbai",
+      "href": "https://globalfintechfest.com/2023/"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
-export function AboutPage() {
+import type { AboutContent } from "@/lib/cms-types";
+
+export function AboutPage({ content }: { content: AboutContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -7,11 +9,8 @@ export function AboutPage() {
             <div className="crumbs">
               <a href="/">Home</a> <span>/</span>About
             </div>{" "}
-            <h1>About FCC</h1>{" "}
-            <p>
-              An industry council that brings policymakers, regulators and fintech companies
-              together to grow financial services and widen inclusion across India.
-            </p>
+            <h1>{content.hero.title}</h1>{" "}
+            <p>{content.hero.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">
@@ -65,19 +64,17 @@ export function AboutPage() {
       <section id="overview">
         <div className="wrap split">
           <div className="reveal">
-            <span className="eyebrow">Who we are</span>{" "}
-            <h2>One voice for India's converging financial ecosystem</h2>
-            <p className="lead">
-              FCC began in 2017 as the fintech committee of the Internet and Mobile Association of
-              India (IAMAI) and launched as the Fintech Convergence Council in September 2018. It
-              now represents more than 175 companies across lending, payments, insurance,
-              investments, credit information and RegTech.
-            </p>
-            <p className="lead" style={{ marginTop: "14px" }}>
-              We work with central and state government departments, regulators, law enforcement
-              agencies and Digital Public Infrastructure providers, alongside other industry
-              associations.
-            </p>
+            <span className="eyebrow">{content.overview.eyebrow}</span>{" "}
+            <h2>{content.overview.heading}</h2>
+            {content.overview.paragraphs.map((paragraph, index) => (
+              <p
+                className="lead"
+                key={paragraph.slice(0, 24)}
+                style={index > 0 ? { marginTop: "14px" } : undefined}
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
           <div className="bridge reveal">
             <svg
@@ -524,10 +521,7 @@ export function AboutPage() {
                 </svg>
               </div>{" "}
               <span className="eyebrow">Vision</span>{" "}
-              <h3 style={{ fontSize: "1.35rem", marginTop: "8px" }}>
-                Grow fintech and expand financial services to support financial inclusion and a
-                digitally empowered India.
-              </h3>
+              <h3 style={{ fontSize: "1.35rem", marginTop: "8px" }}>{content.vision}</h3>
             </div>
             <div className="card" style={{ borderTop: "4px solid var(--charcoal)" }}>
               <div className="icon-box dark" style={{ marginBottom: "16px" }}>
@@ -548,10 +542,7 @@ export function AboutPage() {
               <span className="eyebrow" style={{ color: "var(--charcoal)" }}>
                 Mission
               </span>{" "}
-              <h3 style={{ fontSize: "1.35rem", marginTop: "8px" }}>
-                Find and build opportunities for collaboration and convergence among financial
-                services players, and drive market expansion.
-              </h3>
+              <h3 style={{ fontSize: "1.35rem", marginTop: "8px" }}>{content.mission}</h3>
             </div>
           </div>
         </div>
@@ -648,7 +639,7 @@ export function AboutPage() {
       <section className="bg-soft" id="journey">
         <div className="wrap split" style={{ alignItems: "start" }}>
           <div>
-            <span className="eyebrow">Our journey</span> <h2>From a committee to the council</h2>{" "}
+            <span className="eyebrow">Our journey</span> <h2>{content.journey.heading}</h2>{" "}
             <p className="lead">Key moments in FCC's story so far.</p>
           </div>
           <div className="timeline reveal">
@@ -708,7 +699,7 @@ export function AboutPage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Governing Council</span> <h2>Led by the industry</h2>{" "}
+              <span className="eyebrow">Governing Council</span> <h2>{content.council.heading}</h2>{" "}
               <p className="lead">
                 FCC is governed by a seven-member Executive Council drawn from its member companies.
               </p>

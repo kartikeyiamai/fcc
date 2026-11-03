@@ -1,4 +1,6 @@
-﻿export function ContactPage() {
+﻿import type { ContactContent } from "@/lib/cms-types";
+
+export function ContactPage({ content }: { content: ContactContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -7,11 +9,8 @@
             <div className="crumbs">
               <a href="/">Home</a> <span>/</span>Contact
             </div>{" "}
-            <h1>Contact Us</h1>{" "}
-            <p>
-              Questions about membership, committees, events or partnerships? We'd love to hear from
-              you.
-            </p>
+            <h1>{content.hero.title}</h1>{" "}
+            <p>{content.hero.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">
@@ -47,158 +46,47 @@
       <section>
         <div className="wrap">
           <div className="grid-4 reveal">
-            <a
-              href="mailto:info@fintechcouncil.in"
-              className="card"
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-            >
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>{" "}
-                  <path d="M3 7l9 6 9-6"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <b
-                  style={{
-                    fontSize: ".8rem",
-                    color: "var(--muted)",
-                    fontFamily: "var(--mono)",
-                    textTransform: "uppercase",
-                    letterSpacing: ".06em",
-                  }}
-                >
-                  General enquiries
-                </b>{" "}
-                <div style={{ fontWeight: "700", fontSize: ".92rem", wordBreak: "break-all" }}>
-                  info@fintechcouncil.in
+            {content.channels.map((channel) => (
+              <a
+                key={channel.email}
+                href={`mailto:${channel.email}`}
+                className="card"
+                style={{ display: "flex", flexDirection: "column", gap: "12px" }}
+              >
+                <div className="icon-box">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="M3 7l9 6 9-6"></path>
+                  </svg>
                 </div>
-              </div>
-            </a>{" "}
-            <a
-              href="mailto:swati.s@fintechcouncil.in"
-              className="card"
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-            >
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="8" r="3"></circle> <circle cx="17" cy="10" r="2.5"></circle>{" "}
-                  <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.5-4.5 3-4.5S21 17.5 21 20"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <b
-                  style={{
-                    fontSize: ".8rem",
-                    color: "var(--muted)",
-                    fontFamily: "var(--mono)",
-                    textTransform: "uppercase",
-                    letterSpacing: ".06em",
-                  }}
-                >
-                  Membership & committees
-                </b>{" "}
-                <div style={{ fontWeight: "700", fontSize: ".92rem", wordBreak: "break-all" }}>
-                  swati.s@fintechcouncil.in
+                <div>
+                  <b
+                    style={{
+                      fontSize: ".8rem",
+                      color: "var(--muted)",
+                      fontFamily: "var(--mono)",
+                      textTransform: "uppercase",
+                      letterSpacing: ".06em",
+                    }}
+                  >
+                    {channel.label}
+                  </b>
+                  <div style={{ fontWeight: "700", fontSize: ".92rem", wordBreak: "break-all" }}>
+                    {channel.email}
+                  </div>
                 </div>
-              </div>
-            </a>{" "}
-            <a
-              href="mailto:s.yashaswi@fintechcouncil.in"
-              className="card"
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-            >
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <b
-                  style={{
-                    fontSize: ".8rem",
-                    color: "var(--muted)",
-                    fontFamily: "var(--mono)",
-                    textTransform: "uppercase",
-                    letterSpacing: ".06em",
-                  }}
-                >
-                  Partnerships
-                </b>{" "}
-                <div style={{ fontWeight: "700", fontSize: ".92rem", wordBreak: "break-all" }}>
-                  s.yashaswi@fintechcouncil.in
-                </div>
-              </div>
-            </a>{" "}
-            <a
-              href="mailto:register@fintechcouncil.in"
-              className="card"
-              style={{ display: "flex", flexDirection: "column", gap: "12px" }}
-            >
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <b
-                  style={{
-                    fontSize: ".8rem",
-                    color: "var(--muted)",
-                    fontFamily: "var(--mono)",
-                    textTransform: "uppercase",
-                    letterSpacing: ".06em",
-                  }}
-                >
-                  Event registrations
-                </b>{" "}
-                <div style={{ fontWeight: "700", fontSize: ".92rem", wordBreak: "break-all" }}>
-                  register@fintechcouncil.in
-                </div>
-              </div>
-            </a>
+              </a>
+            ))}
           </div>
         </div>
       </section>

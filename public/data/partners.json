@@ -1,0 +1,20 @@
+{
+  "page": {
+    "title": "Our Partners",
+    "description": "Organisations that work with FCC on events, programmes, research and knowledge exchange."
+  },
+  "items": [
+    {
+      "name": "Global Fintech Fest",
+      "description": "Flagship industry gathering co-hosted with FCC.",
+      "website": "https://globalfintechfest.com/",
+      "category": "Events"
+    },
+    {
+      "name": "IAMAI",
+      "description": "Internet and Mobile Association of India — parent initiative of FCC.",
+      "website": "https://www.iamai.in/",
+      "category": "Association"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "Research",
+    "description": "Reports, whitepapers and event reports that track how India's fintech sector is growing."
+  },
+  "items": [
+    {
+      "title": "Building Bridges for the Next Decade of Finance",
+      "kind": "FCC · Report",
+      "year_label": "FCC × IAMAI",
+      "href": "https://www.fintechcouncil.in/images/Building%20Bridges%20for%20the%20Next%20Decade%20of%20Finance.pdf",
+      "cover_variant": "b1"
+    },
+    {
+      "title": "UPI for Her",
+      "kind": "FCC · Report",
+      "year_label": "FCC × IAMAI",
+      "href": "https://www.fintechcouncil.in/images/UPI%20for%20Her.pdf",
+      "cover_variant": "b2"
+    },
+    {
+      "title": "Mapping the FinTech Innovation Landscape in India",
+      "kind": "FCC · Report",
+      "year_label": "FCC × IAMAI",
+      "href": "https://www.fintechcouncil.in/images/Mapping%20the%20FinTech%20Innovation%20Landscape%20in%20India%20and%20comparing%20it%20with%20global%20trends.pdf",
+      "cover_variant": "b3"
+    },
+    {
+      "title": "SuperApps: Breaking down barriers, building bridges",
+      "kind": "FCC · Report",
+      "year_label": "FCC × IAMAI",
+      "href": "https://www.fintechcouncil.in/images/4.pdf",
+      "cover_variant": "b4"
+    }
+  ]
+}

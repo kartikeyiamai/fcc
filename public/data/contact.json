@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "title": "Contact Us",
+    "description": "Questions about membership, committees, events or partnerships? We'd love to hear from you."
+  },
+  "channels": [
+    {
+      "label": "General enquiries",
+      "email": "info@fintechcouncil.in"
+    },
+    {
+      "label": "Membership & committees",
+      "email": "swati.s@fintechcouncil.in"
+    },
+    {
+      "label": "Partnerships",
+      "email": "s.yashaswi@fintechcouncil.in"
+    },
+    {
+      "label": "Event registrations",
+      "email": "register@fintechcouncil.in"
+    }
+  ],
+  "office": {
+    "title": "Office",
+    "lines": [
+      "Fintech Convergence Council",
+      "301-A, Godrej Two, Pirojshanagar,",
+      "Vikhroli, Mumbai, Maharashtra 400079"
+    ],
+    "phone": "022-61766666",
+    "phone_href": "tel:02261766666",
+    "contact_person": "Sandeep Jhingran",
+    "contact_email": "sandeep@fintechcouncil.in",
+    "maps_url": "https://maps.google.com/?q=Godrej+Two+Pirojshanagar+Vikhroli+Mumbai"
+  }
+}

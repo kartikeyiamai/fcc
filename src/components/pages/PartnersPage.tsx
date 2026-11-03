@@ -1,4 +1,6 @@
-export function PartnersPage() {
+import type { PartnersContent } from "@/lib/cms-types";
+
+export function PartnersPage({ content }: { content: PartnersContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,11 +10,8 @@ export function PartnersPage() {
               <a href="/">Home</a> <span>/</span> <a href="/partners">Partnership</a> <span>/</span>
               Our Partners
             </div>{" "}
-            <h1>Our Partners</h1>{" "}
-            <p>
-              Organisations that work with FCC on events, programmes, research and knowledge
-              exchange.
-            </p>
+            <h1>{content.page.title}</h1>{" "}
+            <p>{content.page.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">
@@ -73,6 +72,18 @@ export function PartnersPage() {
             </a>
           </div>
           <div className="mgrid reveal">
+            {content.items.map((partner) => (
+              <a
+                key={partner.name}
+                className="mtile"
+                href={partner.website || "#"}
+                target={partner.website ? "_blank" : undefined}
+                rel={partner.website ? "noopener" : undefined}
+              >
+                <div className="mono-av">{partner.name.slice(0, 2).toUpperCase()}</div>
+                <span>{partner.name}</span>
+              </a>
+            ))}
             <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
               <div className="mono-av" style={{ background: "#fff" }}>
                 <svg

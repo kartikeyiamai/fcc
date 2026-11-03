@@ -1,76 +1,5 @@
 import Link from "next/link";
-
-type NavItem = {
-  href: string;
-  label: string;
-  match?: string[];
-  children?: { href: string; label: string; small: string }[];
-};
-
-const NAV: NavItem[] = [
-  { href: "/", label: "Home", match: ["/"] },
-  {
-    href: "/about",
-    label: "About",
-    match: ["/about", "/annual-report"],
-    children: [
-      { href: "/about", label: "About Us", small: "Who we are and how we work" },
-      { href: "/about#council", label: "Governing Council", small: "Leadership of FCC" },
-      { href: "/annual-report", label: "Annual Reports", small: "Our year in review" },
-    ],
-  },
-  {
-    href: "/committees",
-    label: "Committees",
-    match: ["/committees"],
-    children: [
-      { href: "/committees/digital-lending", label: "Digital Lending", small: "DL-01" },
-      { href: "/committees/regtech", label: "RegTech", small: "RT-02" },
-      { href: "/committees/wealthtech", label: "WealthTech", small: "WT-03" },
-      { href: "/committees/insurtech", label: "InsurTech", small: "IT-04" },
-      { href: "/committees/credit-bureau", label: "Credit Bureau", small: "CB-05" },
-    ],
-  },
-  {
-    href: "/members",
-    label: "Membership",
-    match: ["/members", "/membership-benefits", "/apply-membership"],
-    children: [
-      { href: "/members", label: "Our Members", small: "175+ companies" },
-      { href: "/membership-benefits", label: "Membership Benefits", small: "What you get" },
-      { href: "/apply-membership", label: "Apply for Membership", small: "Join the council" },
-    ],
-  },
-  {
-    href: "/partners",
-    label: "Partnership",
-    match: ["/partners", "/partnership-benefits", "/apply-partnership"],
-    children: [
-      { href: "/partners", label: "Our Partners", small: "Who we work with" },
-      { href: "/partnership-benefits", label: "Partnership Benefits", small: "Why partner with FCC" },
-      { href: "/apply-partnership", label: "Apply for Partnership", small: "Start a conversation" },
-    ],
-  },
-  {
-    href: "/policy",
-    label: "Policy & Research",
-    match: ["/policy", "/research"],
-    children: [
-      { href: "/policy", label: "Policy", small: "Representations to regulators" },
-      { href: "/research", label: "Research", small: "Reports and whitepapers" },
-    ],
-  },
-  {
-    href: "/live-events",
-    label: "Events",
-    match: ["/live-events", "/virtual-events"],
-    children: [
-      { href: "/live-events", label: "Live Events", small: "GFF and in-person events" },
-      { href: "/virtual-events", label: "Virtual Events", small: "Webinars and knowledge sessions" },
-    ],
-  },
-  { href: "/contact", label: "Contact", match: ["/contact"] },
-];
+import type { NavItem, SiteSettings } from "@/lib/cms-types";
 
 function Chevron() {
   return (
@@ -87,38 +16,44 @@ function isActive(active: string, item: NavItem) {
   return item.match.some((m) => active === m || active.startsWith(`${m}/`));
 }
 
-export function SiteHeader({ active }: { active: string }) {
+export function SiteHeader({ active, settings }: { active: string; settings: SiteSettings }) {
+  const linkedIn = settings.social.find((s) => s.label.toLowerCase() === "linkedin");
+  const x = settings.social.find((s) => s.label.toLowerCase() === "x");
+  const facebook = settings.social.find((s) => s.label.toLowerCase() === "facebook");
+
   return (
     <header className="nav">
       <div className="row1">
         <div className="wrap">
           <Link href="/" className="brand" aria-label="FCC home">
-            <div className="brand-mark">FCC</div>
+            <div className="brand-mark">{settings.brand_mark}</div>
             <div className="brand-text">
-              <strong>Fintech Convergence Council</strong>
-              <span>An IAMAI initiative · Since 2018</span>
+              <strong>{settings.brand_name}</strong>
+              <span>{settings.brand_tagline}</span>
             </div>
           </Link>
           <div className="hdr-right">
             <div className="hdr-links">
-              <a href="mailto:info@fintechcouncil.in">info@fintechcouncil.in</a>
+              <a href={`mailto:${settings.contact_email}`}>{settings.contact_email}</a>
               <span>·</span>
-              <a href="https://linkedin.com/company/69219060/" target="_blank" rel="noopener">
-                LinkedIn
-              </a>
-              <a href="https://twitter.com/FCCUpdates" target="_blank" rel="noopener">
-                X
-              </a>
-              <a
-                href="https://www.facebook.com/Fintech-Convergence-Council-FCC-442712016473770/"
-                target="_blank"
-                rel="noopener"
-              >
-                Facebook
-              </a>
+              {linkedIn ? (
+                <a href={linkedIn.href} target="_blank" rel="noopener">
+                  LinkedIn
+                </a>
+              ) : null}
+              {x ? (
+                <a href={x.href} target="_blank" rel="noopener">
+                  X
+                </a>
+              ) : null}
+              {facebook ? (
+                <a href={facebook.href} target="_blank" rel="noopener">
+                  Facebook
+                </a>
+              ) : null}
             </div>
-            <Link href="/apply-membership" className="btn btn-primary btn-sm nav-cta">
-              Become a Member
+            <Link href={settings.member_cta_href} className="btn btn-primary btn-sm nav-cta">
+              {settings.member_cta_label}
             </Link>
           </div>
         </div>
@@ -126,19 +61,19 @@ export function SiteHeader({ active }: { active: string }) {
       <nav className="mainnav" aria-label="Main">
         <div className="wrap">
           <ul className="menu">
-            {NAV.map((item) => (
+            {settings.navigation.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className={isActive(active, item) ? "active" : undefined}>
                   {item.label}
-                  {item.children ? <Chevron /> : null}
+                  {item.children?.length ? <Chevron /> : null}
                 </Link>
-                {item.children ? (
+                {item.children?.length ? (
                   <ul className="dropdown">
                     {item.children.map((child) => (
                       <li key={child.href}>
                         <Link href={child.href}>
                           {child.label}
-                          <small>{child.small}</small>
+                          {child.small ? <small>{child.small}</small> : null}
                         </Link>
                       </li>
                     ))}

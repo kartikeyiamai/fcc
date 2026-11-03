@@ -1,0 +1,39 @@
+{
+  "page": {
+    "title": "Annual Reports",
+    "description": "A yearly look at FCC's representations, events, research and member activity."
+  },
+  "items": [
+    {
+      "title": "Annual Report 2023–24",
+      "year": "2023–24",
+      "description": "PCI · FCC · Latest",
+      "document_url": "https://www.fintechcouncil.in/pdf/PCI-FCC-ANNUAL%20REPORT-2023-24.pdf",
+      "featured": true
+    },
+    {
+      "title": "Annual Report 2022–23",
+      "year": "2022–23",
+      "description": "PCI · FCC",
+      "document_url": "https://www.fintechcouncil.in/pdf/annual-report-22-23.pdf"
+    },
+    {
+      "title": "Annual Report 2021–22",
+      "year": "2021–22",
+      "description": "PCI · FCC",
+      "document_url": "https://www.fintechcouncil.in/pdf/annual-report-21-22.pdf"
+    },
+    {
+      "title": "Annual Report 2019–20",
+      "year": "2019–20",
+      "description": "PCI · FCC",
+      "document_url": "https://www.fintechcouncil.in/pdf/PCI_FCC_Annual_Report2019_20R30_6_20.pdf"
+    },
+    {
+      "title": "Annual Report 2018–19",
+      "year": "2018–19",
+      "description": "PCI · FCC",
+      "document_url": "https://www.fintechcouncil.in/pdf/PCI_FCC_Annual_Report_2018_2019.pdf"
+    }
+  ]
+}

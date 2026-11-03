@@ -1,0 +1,141 @@
+{
+  "hero": {
+    "badge": "The industry voice of Indian fintech",
+    "heading_before": "Where finance and technology",
+    "heading_emphasis": "converge",
+    "heading_after": "to shape policy.",
+    "description": "FCC brings together policymakers, regulators and 175+ fintech companies to build a fair policy environment and widen access to financial services across India.",
+    "primary_cta_label": "Join the Council",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "See our policy work",
+    "secondary_cta_href": "/policy",
+    "trust": [
+      {
+        "value": "175+",
+        "label": "member companies"
+      },
+      {
+        "value": "5",
+        "label": "sector committees"
+      },
+      {
+        "value": "7",
+        "label": "regulators engaged"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "value": "175",
+      "suffix": "+",
+      "label": "Member companies",
+      "bar": "88%"
+    },
+    {
+      "value": "5",
+      "suffix": "",
+      "label": "Sector committees",
+      "bar": "50%"
+    },
+    {
+      "value": "43",
+      "suffix": "+",
+      "label": "Representations & sessions",
+      "bar": "70%"
+    },
+    {
+      "value": "38",
+      "suffix": "",
+      "label": "Virtual sessions since 2024",
+      "bar": "62%"
+    }
+  ],
+  "about_teaser": {
+    "eyebrow": "About FCC",
+    "heading": "The next phase of fintech growth comes from working together.",
+    "lead": "FCC started as IAMAI's fintech committee and launched as the Fintech Convergence Council in 2018. Today it brings banks, NBFCs, insurers, investment platforms and fintechs into one room, and carries their shared view to regulators.",
+    "primary_cta_label": "About us",
+    "primary_cta_href": "/about",
+    "secondary_cta_label": "Annual reports",
+    "secondary_cta_href": "/annual-report"
+  },
+  "committees_section": {
+    "eyebrow": "Committees",
+    "heading": "Five committees, one shared agenda",
+    "lead": "Each committee leads the council's work in a fast-moving part of financial services.",
+    "cta_label": "All committees",
+    "cta_href": "/committees"
+  },
+  "how_we_work": {
+    "eyebrow": "How we work",
+    "heading": "From member input to policy outcome",
+    "steps": [
+      {
+        "title": "Listen",
+        "description": "Committees surface the issues members face on the ground."
+      },
+      {
+        "title": "Consolidate",
+        "description": "We build one industry position from many voices."
+      },
+      {
+        "title": "Represent",
+        "description": "Submissions and consultations with regulators and government."
+      },
+      {
+        "title": "Inform",
+        "description": "Webinars and reports bring the outcome back to members."
+      }
+    ]
+  },
+  "policy_section": {
+    "eyebrow": "What's happening",
+    "heading": "Our policy work",
+    "lead": "Recent representations, industry feedback and knowledge sessions. Filter by regulator.",
+    "cta_label": "Policy hub",
+    "cta_href": "/policy"
+  },
+  "events_section": {
+    "eyebrow": "Events",
+    "heading": "Where the ecosystem meets",
+    "lead": "FCC co-hosts the Global Fintech Fest and runs a year-round calendar of virtual knowledge sessions.",
+    "cta_label": "All events",
+    "cta_href": "/live-events",
+    "flagship": {
+      "label": "Flagship event",
+      "title": "Global Fintech Fest",
+      "description": "One of the world's largest fintech gatherings, bringing regulators, banks, fintechs and investors together in Mumbai every year.",
+      "location": "Jio World Centre, Mumbai",
+      "href": "https://globalfintechfest.com/",
+      "cta_label": "Visit website →"
+    }
+  },
+  "research_section": {
+    "eyebrow": "Research",
+    "heading": "Reports that track India's fintech story",
+    "cta_label": "All research",
+    "cta_href": "/research"
+  },
+  "members_section": {
+    "eyebrow": "Our members",
+    "heading": "Trusted across financial services",
+    "lead": "Lenders, banks, insurers, investment platforms, bureaus and RegTech firms shape the council's work.",
+    "cta_label": "Member directory",
+    "cta_href": "/members"
+  },
+  "cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Have a seat at the table where fintech policy is shaped.",
+    "description": "Join FCC as a member, or partner with us on events, research and industry programmes.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
+}

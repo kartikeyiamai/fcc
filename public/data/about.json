@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": "About FCC",
+    "description": "An industry council that brings policymakers, regulators and fintech companies together to grow financial services and widen inclusion across India."
+  },
+  "overview": {
+    "eyebrow": "Overview",
+    "heading": "One voice for India's converging financial ecosystem",
+    "paragraphs": [
+      "FCC began in 2017 as the fintech committee of the Internet and Mobile Association of India (IAMAI) and launched as the Fintech Convergence Council in September 2018. It now represents more than 175 companies across lending, payments, insurance, investments, credit information and RegTech.",
+      "We work with central and state government departments, regulators, law enforcement agencies and Digital Public Infrastructure providers, alongside other industry associations."
+    ]
+  },
+  "vision": "Grow fintech and expand financial services to support financial inclusion and a digitally empowered India.",
+  "mission": "Find and build opportunities for collaboration and convergence among financial services players, and drive market expansion.",
+  "pillars": [
+    {
+      "title": "Advocacy",
+      "items": [
+        "Review regulatory, legal and policy developments, including drafts",
+        "Submit feedback on papers released for public comment",
+        "Share proactive opinions with lawmakers",
+        "Work with government and regulators on a fair policy environment",
+        "Collaborate with other associations"
+      ]
+    },
+    {
+      "title": "Convergence & collaboration",
+      "description": "We find opportunities for large financial institutions in banking, payments, insurance and investments to work with fintech companies, so both sides grow faster."
+    },
+    {
+      "title": "Development",
+      "description": "Through committees, best-practice sharing, industry discussions and knowledge sessions, we help the sector mature and reach more people."
+    }
+  ],
+  "journey": {
+    "heading": "From a committee to the council",
+    "lead": "Key moments in FCC's story so far.",
+    "milestones": [
+      {
+        "year": "2017",
+        "title": "Fintech committee at IAMAI",
+        "description": "Industry members come together under IAMAI to discuss fintech policy."
+      },
+      {
+        "year": "2018",
+        "title": "FCC launches",
+        "description": "The Fintech Convergence Council is launched on 19 September at The St. Regis, Mumbai."
+      },
+      {
+        "year": "2020",
+        "title": "First Global Fintech Fest",
+        "description": "GFF debuts as a virtual event and becomes the flagship of India's fintech calendar."
+      },
+      {
+        "year": "2022",
+        "title": "GFF moves to Jio World Centre",
+        "description": "The festival grows into one of the world's largest fintech gatherings."
+      },
+      {
+        "year": "2025",
+        "title": "Mission trip to Japan",
+        "description": "An industry delegation visits Tokyo to build cross-border fintech ties."
+      },
+      {
+        "year": "2026",
+        "title": "175+ members, 5 committees",
+        "description": "A regular calendar of representations, webinars and research."
+      }
+    ]
+  },
+  "council": {
+    "heading": "Led by the industry",
+    "lead": "FCC is governed by a seven-member Executive Council drawn from its member companies.",
+    "members": [
+      {
+        "name": "Vibhav Hathi",
+        "role": "Chair · Co-Founder, OneCard"
+      },
+      {
+        "name": "Praveena Rai",
+        "role": "Council Member"
+      },
+      {
+        "name": "Ajay Rajan",
+        "role": "MD & CEO, Protean e-Gov"
+      },
+      {
+        "name": "Miten Sampat",
+        "role": "Council Member"
+      },
+      {
+        "name": "Srinivas Jain",
+        "role": "Executive Director, SBI Funds"
+      },
+      {
+        "name": "Deval Sheth",
+        "role": "Council Member"
+      },
+      {
+        "name": "Sarbvir Singh",
+        "role": "Joint Group CEO, PB Fintech"
+      }
+    ]
+  }
+}

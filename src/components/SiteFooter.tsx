@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { FormEvent } from "react";
+import type { SiteSettings } from "@/lib/cms-types";
 
-export function SiteFooter() {
+export function SiteFooter({ settings }: { settings: SiteSettings }) {
   function onSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const input = e.currentTarget.querySelector("input");
@@ -18,103 +19,54 @@ export function SiteFooter() {
         <div className="foot">
           <div>
             <Link href="/" className="brand">
-              <div className="brand-mark">FCC</div>
+              <div className="brand-mark">{settings.brand_mark}</div>
               <div className="brand-text">
-                <strong>Fintech Convergence Council</strong>
+                <strong>{settings.brand_name}</strong>
                 <span>An IAMAI initiative</span>
               </div>
             </Link>
-            <p style={{ marginTop: 16, maxWidth: 300 }}>
-              Bringing policymakers, regulators and the fintech industry together to grow financial
-              services across India.
-            </p>
+            <p style={{ marginTop: 16, maxWidth: 300 }}>{settings.footer_blurb}</p>
             <div className="soc">
-              <a
-                href="https://linkedin.com/company/69219060/"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener"
-              >
-                in
-              </a>
-              <a href="https://twitter.com/FCCUpdates" aria-label="X" target="_blank" rel="noopener">
-                𝕏
-              </a>
-              <a
-                href="https://www.facebook.com/Fintech-Convergence-Council-FCC-442712016473770/"
-                aria-label="Facebook"
-                target="_blank"
-                rel="noopener"
-              >
-                f
-              </a>
+              {settings.social.map((s) => (
+                <a key={s.label} href={s.href} aria-label={s.label} target="_blank" rel="noopener">
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
-          <div>
-            <h5>About</h5>
-            <ul>
-              <li>
-                <Link href="/about">About Us</Link>
-              </li>
-              <li>
-                <Link href="/about#council">Governing Council</Link>
-              </li>
-              <li>
-                <Link href="/annual-report">Annual Reports</Link>
-              </li>
-              <li>
-                <Link href="/committees">Committees</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5>Work</h5>
-            <ul>
-              <li>
-                <Link href="/policy">Policy</Link>
-              </li>
-              <li>
-                <Link href="/research">Research</Link>
-              </li>
-              <li>
-                <Link href="/live-events">Live Events</Link>
-              </li>
-              <li>
-                <Link href="/virtual-events">Virtual Events</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5>Join</h5>
-            <ul>
-              <li>
-                <Link href="/members">Our Members</Link>
-              </li>
-              <li>
-                <Link href="/membership-benefits">Membership Benefits</Link>
-              </li>
-              <li>
-                <Link href="/apply-membership">Apply for Membership</Link>
-              </li>
-              <li>
-                <Link href="/partners">Partnerships</Link>
-              </li>
-            </ul>
-          </div>
+          {settings.footer_columns.map((col) => (
+            <div key={col.title}>
+              <h5>{col.title}</h5>
+              <ul>
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
           <div>
             <h5>Contact</h5>
             <p>
-              301-A, Godrej Two, Pirojshanagar,
-              <br />
-              Vikhroli, Mumbai 400079
+              {settings.address_lines.map((line, i) => (
+                <span key={line}>
+                  {line}
+                  {i < settings.address_lines.length - 1 ? <br /> : null}
+                </span>
+              ))}
             </p>
             <p style={{ marginTop: 10 }}>
-              <a href="tel:02261766666">022-61766666</a>
+              <a href={settings.contact_phone_href}>{settings.contact_phone}</a>
               <br />
-              <a href="mailto:info@fintechcouncil.in">info@fintechcouncil.in</a>
+              <a href={`mailto:${settings.contact_email}`}>{settings.contact_email}</a>
             </p>
             <form className="newsletter" onSubmit={onSubscribe}>
-              <input type="email" placeholder="Get FCC updates" aria-label="Email" />
+              <input
+                type="email"
+                placeholder={settings.newsletter_placeholder}
+                aria-label="Email"
+              />
               <button type="submit" className="btn btn-primary btn-sm">
                 Subscribe
               </button>
@@ -122,8 +74,8 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="foot-bottom">
-          <span>© 2026 Fintech Convergence Council. All rights reserved.</span>
-          <span>An initiative of the Internet and Mobile Association of India</span>
+          <span>{settings.footer_copyright}</span>
+          <span>{settings.footer_note}</span>
         </div>
       </div>
     </footer>

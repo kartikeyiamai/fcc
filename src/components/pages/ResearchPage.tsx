@@ -1,4 +1,6 @@
-export function ResearchPage() {
+import type { PublicationsContent } from "@/lib/cms-types";
+
+export function ResearchPage({ content }: { content: PublicationsContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,11 +10,8 @@ export function ResearchPage() {
               <a href="/">Home</a> <span>/</span> <a href="/policy">Policy &amp; Research</a>{" "}
               <span>/</span>Research
             </div>{" "}
-            <h1>Research</h1>{" "}
-            <p>
-              Reports, whitepapers and event reports that track how India's fintech sector is
-              growing.
-            </p>
+            <h1>{content.page.title}</h1>{" "}
+            <p>{content.page.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">

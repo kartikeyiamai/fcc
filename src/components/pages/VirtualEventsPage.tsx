@@ -1,4 +1,6 @@
-export function VirtualEventsPage() {
+import type { VirtualEventsContent } from "@/lib/cms-types";
+
+export function VirtualEventsPage({ content }: { content: VirtualEventsContent }) {
   return (
     <>
       <section className="page-hero grid-bg">
@@ -8,11 +10,8 @@ export function VirtualEventsPage() {
               <a href="/">Home</a> <span>/</span> <a href="/live-events">Events</a> <span>/</span>
               Virtual Events
             </div>{" "}
-            <h1>Virtual Events</h1>{" "}
-            <p>
-              Webinars and knowledge sessions where members hear directly from regulators, experts
-              and peers on the rules that shape their business.
-            </p>
+            <h1>{content.page.title}</h1>{" "}
+            <p>{content.page.description}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">

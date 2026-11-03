@@ -1,0 +1,36 @@
+{
+  "page": {
+    "title": "Virtual Events",
+    "description": "Webinars and knowledge sessions where members hear directly from regulators, experts and peers on the rules that shape their business."
+  },
+  "items": [
+    {
+      "title": "Role of AI in transforming insurance processing",
+      "day": "02",
+      "month": "Apr 2026",
+      "time": "3:30–4:30 PM IST · Virtual",
+      "year_tag": "y2026"
+    },
+    {
+      "title": "Alternative Investment Funds in India: FY 2025 in review",
+      "day": "17",
+      "month": "Mar 2026",
+      "time": "3:00 PM IST · Virtual",
+      "year_tag": "y2026"
+    },
+    {
+      "title": "Evolving GST implementation: law and practice",
+      "day": "16",
+      "month": "Mar 2026",
+      "time": "3:00–4:30 PM IST · Virtual",
+      "year_tag": "y2026"
+    },
+    {
+      "title": "RE–LSP compliance essentials",
+      "day": "13",
+      "month": "Mar 2026",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2026"
+    }
+  ]
+}
