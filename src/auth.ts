@@ -49,6 +49,40 @@ runAuthDiagnostic();
 // Normalize issuer URL by removing any trailing slashes
 const normalizedIssuer = process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER?.replace(/\/+$/, "");
 
+/**
+ * Constructs the tenant-specific Microsoft Entra logout URL using URLSearchParams.
+ * Reads the tenant ID from AUTH_MICROSOFT_ENTRA_ID_TENANT_ID or extracts it from the issuer URL.
+ * Redirects back to postLogoutRedirectUri (defaults to /cms-login).
+ */
+export function getMicrosoftLogoutUrl(postLogoutRedirectUri?: string): string {
+  const issuer = process.env.AUTH_MICROSOFT_ENTRA_ID_ISSUER || "";
+  let tenantId = process.env.AUTH_MICROSOFT_ENTRA_ID_TENANT_ID;
+
+  if (!tenantId && issuer) {
+    try {
+      const parsed = new URL(issuer);
+      const segments = parsed.pathname.split("/").filter(Boolean);
+      if (segments.length > 0) {
+        tenantId = segments[0];
+      }
+    } catch {
+      // Ignore URL parsing errors
+    }
+  }
+
+  const tid = tenantId || "common";
+  const logoutBase = `https://login.microsoftonline.com/${tid}/oauth2/v2.0/logout`;
+  const url = new URL(logoutBase);
+
+  const fallbackUri =
+    process.env.NEXTAUTH_URL
+      ? `${process.env.NEXTAUTH_URL.replace(/\/+$/, "")}/cms-login`
+      : "http://localhost:3000/cms-login";
+
+  url.searchParams.set("post_logout_redirect_uri", postLogoutRedirectUri || fallbackUri);
+  return url.toString();
+}
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   debug: process.env.NODE_ENV === "development",

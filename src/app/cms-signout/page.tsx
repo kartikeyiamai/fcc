@@ -1,16 +1,27 @@
 /**
- * /cms-signout — Sign-out page for Sveltia CMS users.
- * Terminates the NextAuth session and purges local CMS client state.
+ * /cms-signout — Complete Sign-out for FCC CMS users.
+ *
+ * 1. Purges local Sveltia CMS authentication state (`sveltia-cms.user`) and temporary flags (`fcc_auto_auth`).
+ * 2. Clears the Auth.js session and session cookies server-side via `signOut`.
+ * 3. Redirects to Microsoft Entra tenant-specific logout endpoint:
+ *    `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/logout?post_logout_redirect_uri=...`
+ * 4. Microsoft Entra clears the user session and returns them to `/cms-login`.
  */
-import { signOut } from "@/auth";
+import { signOut, getMicrosoftLogoutUrl } from "@/auth";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign out — FCC CMS",
+  title: "Signing out — FCC CMS",
   robots: "noindex",
 };
 
 export default function CmsSignOutPage() {
+  async function performSignOut() {
+    "use server";
+    const logoutUrl = getMicrosoftLogoutUrl();
+    await signOut({ redirectTo: logoutUrl });
+  }
+
   return (
     <div
       style={{
@@ -29,10 +40,27 @@ export default function CmsSignOutPage() {
           boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
           padding: "48px 40px",
           width: "100%",
-          maxWidth: "380px",
+          maxWidth: "400px",
           textAlign: "center",
         }}
       >
+        <div
+          style={{
+            width: "36px",
+            height: "36px",
+            border: "3px solid #e5e7eb",
+            borderTopColor: "#BF1A1F",
+            borderRadius: "50%",
+            animation: "spin 0.8s linear infinite",
+            margin: "0 auto 20px",
+          }}
+        />
+        <style>{`
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+
         <h1
           style={{
             fontSize: "1.25rem",
@@ -41,24 +69,21 @@ export default function CmsSignOutPage() {
             fontWeight: 700,
           }}
         >
-          Sign out of FCC CMS
+          Signing out of FCC CMS
         </h1>
         <p
+          id="signout-status-text"
           style={{
             color: "#6b7280",
             fontSize: "0.875rem",
             marginBottom: "28px",
+            lineHeight: 1.5,
           }}
         >
-          You will terminate your CMS session and be returned to the sign-in page.
+          Terminating your CMS and Microsoft Entra session&hellip;
         </p>
-        <form
-          id="signout-form"
-          action={async () => {
-            "use server";
-            await signOut({ redirectTo: "/cms-login" });
-          }}
-        >
+
+        <form id="signout-form" action={performSignOut}>
           <button
             id="signout-btn"
             type="submit"
@@ -71,9 +96,10 @@ export default function CmsSignOutPage() {
               fontSize: "0.9375rem",
               fontWeight: 600,
               cursor: "pointer",
+              transition: "opacity 0.2s",
             }}
           >
-            Sign out
+            Complete Sign Out
           </button>
         </form>
       </div>
@@ -82,17 +108,29 @@ export default function CmsSignOutPage() {
         dangerouslySetInnerHTML={{
           __html: `
             (function () {
-              var btn = document.getElementById('signout-btn');
-              var form = document.getElementById('signout-form');
-              if (!btn || !form) return;
+              // 1. Purge Sveltia CMS authentication credentials and auto-auth flag
+              try {
+                localStorage.removeItem('sveltia-cms.user');
+                sessionStorage.removeItem('fcc_auto_auth');
+              } catch (e) {}
 
-              btn.addEventListener('click', function () {
-                // Clear any stored Sveltia CMS user or session state
-                try {
-                  localStorage.removeItem('sveltia-cms.user');
-                  sessionStorage.clear();
-                } catch (e) {}
-              });
+              var form = document.getElementById('signout-form');
+              var btn = document.getElementById('signout-btn');
+
+              // 2. Automatically submit the form to clear Auth.js and redirect to Microsoft Entra logout
+              if (form) {
+                if (btn) {
+                  btn.disabled = true;
+                  btn.style.opacity = '0.7';
+                  btn.textContent = 'Redirecting to Microsoft logout...';
+                }
+
+                if (typeof form.requestSubmit === 'function') {
+                  form.requestSubmit();
+                } else {
+                  form.submit();
+                }
+              }
             })();
           `,
         }}

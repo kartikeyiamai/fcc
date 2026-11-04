@@ -17,6 +17,94 @@
           }
         }, false);
 
+        // =========================================================================
+        // Intercept Sveltia's Profile Menu "Sign Out" Action
+        // =========================================================================
+        var isSigningOut = false;
+
+        function isSignOutElement(node) {
+          if (!node || node.nodeType !== 1) return false;
+
+          var text = (node.textContent || '').trim().toLowerCase();
+          var label = (node.getAttribute && node.getAttribute('aria-label') || '').trim().toLowerCase();
+          var title = (node.getAttribute && node.getAttribute('title') || '').trim().toLowerCase();
+          var combined = text + ' ' + label + ' ' + title;
+
+          // Strict exclusion: Do not intercept Settings, Preferences, Shortcuts, or Help
+          if (
+            combined.indexOf('setting') !== -1 ||
+            combined.indexOf('shortcut') !== -1 ||
+            combined.indexOf('preference') !== -1 ||
+            combined.indexOf('help') !== -1
+          ) {
+            return false;
+          }
+
+          // Exact match for sign out / log out
+          if (
+            text === 'sign out' ||
+            text === 'sign-out' ||
+            text === 'log out' ||
+            text === 'logout' ||
+            label === 'sign out' ||
+            label === 'log out'
+          ) {
+            return true;
+          }
+
+          // Role menuitem, button, link, or listitem checking for leading "sign out" or "log out"
+          var role = (node.getAttribute && node.getAttribute('role') || node.tagName.toLowerCase());
+          if (role === 'menuitem' || role === 'button' || role === 'a' || role === 'li') {
+            if (/^(sign|log)\s*out\b/i.test(text) || /^(sign|log)\s*out\b/i.test(label)) {
+              return true;
+            }
+          }
+
+          return false;
+        }
+
+        document.addEventListener(
+          'click',
+          function (event) {
+            var path = event.composedPath ? event.composedPath() : [];
+            if (!path || path.length === 0) {
+              var curr = event.target;
+              while (curr && curr !== document) {
+                path.push(curr);
+                curr = curr.parentElement;
+              }
+            }
+
+            for (var i = 0; i < path.length; i++) {
+              if (isSignOutElement(path[i])) {
+                // Intercept before Sveltia's internal GitHub-only logout fires
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+
+                if (isSigningOut) return;
+                isSigningOut = true;
+
+                console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_SIGNOUT_INTERCEPTED');
+
+                // 1. Purge Sveltia CMS credentials and auto-auth flag
+                try {
+                  localStorage.removeItem('sveltia-cms.user');
+                  sessionStorage.removeItem('fcc_auto_auth');
+                } catch (e) {}
+
+                // 2. Navigate to combined sign-out route (Auth.js + Microsoft Entra logout)
+                window.location.href = '/cms-signout';
+                return;
+              }
+            }
+          },
+          true // useCapture = true: runs before element-level click listeners
+        );
+
+        // =========================================================================
+        // One-Click Login Coordinator
+        // =========================================================================
         var autoAuth = false;
         try {
           autoAuth = sessionStorage.getItem('fcc_auto_auth') === '1';

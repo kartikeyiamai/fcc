@@ -25,6 +25,15 @@ export const authConfig = {
 
       return true;
     },
+    redirect({ url, baseUrl }) {
+      // Allow Microsoft Entra logout endpoint redirects
+      if (url.startsWith("https://login.microsoftonline.com/")) {
+        return url;
+      }
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    },
   },
   providers: [],
   session: { strategy: "jwt" },
