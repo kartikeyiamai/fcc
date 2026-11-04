@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/admin/api/cms-auth/:path*",
+        destination: "/api/cms-auth/:path*",
+      },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

@@ -6,7 +6,13 @@ backend:
   repo: kartikeyiamai/fcc
   branch: main
   skip_ci: true
-  auth_methods: [token]
+  auth_methods:
+    - oauth
+  # OAuth broker: validates Microsoft session then returns GitHub token via postMessage.
+  # For local development: http://localhost:3000/api/cms-auth
+  # For production: https://<your-domain>/api/cms-auth
+  base_url: http://localhost:3000/api/cms-auth
+  auth_endpoint: auth
 
 media_folder: public/uploads
 public_folder: /uploads

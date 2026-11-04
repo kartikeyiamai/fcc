@@ -7,6 +7,146 @@
     <title>FCC Content Admin · Sveltia CMS</title>
   </head>
   <body>
+    <script>
+      (function () {
+        // Safe diagnostic listener for Sveltia token handoff
+        window.addEventListener('message', function (event) {
+          if (event.origin !== window.location.origin) return;
+          if (typeof event.data === 'string' && event.data.indexOf('authorization:github:success') === 0) {
+            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_AUTH_SUCCESS_RECEIVED');
+          }
+        }, false);
+
+        var autoAuth = false;
+        try {
+          autoAuth = sessionStorage.getItem('fcc_auto_auth') === '1';
+        } catch (e) {}
+
+        if (!autoAuth) return;
+
+        console.log('[CMS_AUTH_DIAGNOSTIC] CMS_AUTO_AUTH_STARTED');
+
+        var hasTriggered = false;
+        var observer = null;
+        var pollTimer = null;
+        var attempts = 0;
+        var maxAttempts = 450; // Poll for up to 45 seconds (450 * 100ms) to allow CDN script load
+
+        function findGitHubButton() {
+          var candidates = Array.from(
+            document.querySelectorAll('button, [role="button"], a, input[type="button"], input[type="submit"]')
+          );
+
+          // Priority 1: Button whose text, label or title contains both 'github' and ('sign in' or 'login')
+          for (var i = 0; i < candidates.length; i++) {
+            var el = candidates[i];
+            var text = (el.textContent || '').trim().toLowerCase();
+            var label = (el.getAttribute('aria-label') || '').trim().toLowerCase();
+            var title = (el.getAttribute('title') || '').trim().toLowerCase();
+            var combined = text + ' ' + label + ' ' + title;
+
+            if (
+              combined.indexOf('github') !== -1 &&
+              (combined.indexOf('sign in') !== -1 ||
+                combined.indexOf('sign-in') !== -1 ||
+                combined.indexOf('log in') !== -1 ||
+                combined.indexOf('login') !== -1)
+            ) {
+              return el;
+            }
+          }
+
+          // Priority 2: Any button or role=button whose text or label contains 'github'
+          for (var j = 0; j < candidates.length; j++) {
+            var el2 = candidates[j];
+            var text2 = (el2.textContent || '').trim().toLowerCase();
+            var label2 = (el2.getAttribute('aria-label') || '').trim().toLowerCase();
+            var title2 = (el2.getAttribute('title') || '').trim().toLowerCase();
+            var combined2 = text2 + ' ' + label2 + ' ' + title2;
+
+            if (combined2.indexOf('github') !== -1) {
+              return el2;
+            }
+          }
+
+          // Priority 3: Button containing an SVG with GitHub/Octocat icon
+          var svgs = document.querySelectorAll('button svg, [role="button"] svg');
+          for (var k = 0; k < svgs.length; k++) {
+            var svg = svgs[k];
+            var svgHtml = (svg.outerHTML || '').toLowerCase();
+            if (svgHtml.indexOf('github') !== -1 || svgHtml.indexOf('octocat') !== -1) {
+              var parent = svg.closest('button, [role="button"], a');
+              if (parent) return parent;
+            }
+          }
+
+          return null;
+        }
+
+        function cleanup() {
+          if (observer) {
+            try { observer.disconnect(); } catch (e) {}
+            observer = null;
+          }
+          if (pollTimer) {
+            clearInterval(pollTimer);
+            pollTimer = null;
+          }
+        }
+
+        function tryTriggerAuth() {
+          if (hasTriggered) return;
+
+          var btn = findGitHubButton();
+          if (btn) {
+            hasTriggered = true;
+            cleanup();
+
+            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_FOUND');
+
+            // Programmatically click Sveltia's GitHub sign-in button
+            // Sveltia will invoke window.open(authUrl, 'auth', ...) which navigates the already-open 'auth' popup
+            btn.click();
+            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_CLICKED');
+
+            // Clear the auto-auth flag only after successfully triggering the broker flow
+            try {
+              sessionStorage.removeItem('fcc_auto_auth');
+            } catch (e) {}
+          }
+        }
+
+        // 1. Check immediately
+        tryTriggerAuth();
+
+        // 2. Use MutationObserver to react instantaneously when Sveltia injects DOM
+        if (typeof MutationObserver !== 'undefined' && document.documentElement) {
+          observer = new MutationObserver(function () {
+            tryTriggerAuth();
+          });
+          observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+          });
+        }
+
+        // 3. Fallback bounded polling timer (up to 45s)
+        pollTimer = setInterval(function () {
+          attempts++;
+          tryTriggerAuth();
+
+          if (attempts >= maxAttempts) {
+            cleanup();
+            if (!hasTriggered) {
+              console.warn('[CMS_AUTH_DIAGNOSTIC] Auto-auth timed out waiting for Sveltia GitHub login button');
+              try {
+                sessionStorage.removeItem('fcc_auto_auth');
+              } catch (e) {}
+            }
+          }
+        }, 100);
+      })();
+    </script>
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   </body>
 </html>
