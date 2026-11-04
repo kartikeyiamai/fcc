@@ -31,6 +31,7 @@
  */
 
 import { auth } from "@/auth";
+import { getAppOrigin } from "@/lib/origin";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextRequest } from "next/server";
@@ -59,9 +60,10 @@ export async function GET(request: NextRequest) {
   });
 
   // 4. Redirect to our own callback endpoint with the state param.
-  //    We bypass the real GitHub OAuth round-trip and go directly to our
-  //    callback, which will validate the state and issue the postMessage response.
-  const callbackUrl = new URL("/api/cms-auth/callback", request.url);
+  //    We safely resolve the origin using getAppOrigin to avoid internal localhost
+  //    or misconfigured proxy hostnames.
+  const appOrigin = getAppOrigin(request);
+  const callbackUrl = new URL("/api/cms-auth/callback", appOrigin);
   callbackUrl.searchParams.set("state", state);
 
   return redirect(callbackUrl.toString());

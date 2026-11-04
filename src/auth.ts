@@ -5,6 +5,7 @@
 import NextAuth from "next-auth";
 import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id";
 import { authConfig } from "./auth.config";
+import { getAppOrigin } from "./lib/origin";
 
 // Safe diagnostic to inspect environment variable readiness without printing secrets
 function runAuthDiagnostic() {
@@ -74,10 +75,7 @@ export function getMicrosoftLogoutUrl(postLogoutRedirectUri?: string): string {
   const logoutBase = `https://login.microsoftonline.com/${tid}/oauth2/v2.0/logout`;
   const url = new URL(logoutBase);
 
-  const fallbackUri =
-    process.env.NEXTAUTH_URL
-      ? `${process.env.NEXTAUTH_URL.replace(/\/+$/, "")}/cms-login`
-      : "http://localhost:3000/cms-login";
+  const fallbackUri = `${getAppOrigin()}/cms-login`;
 
   url.searchParams.set("post_logout_redirect_uri", postLogoutRedirectUri || fallbackUri);
   return url.toString();

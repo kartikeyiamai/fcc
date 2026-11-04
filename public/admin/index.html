@@ -7,235 +7,286 @@
     <title>FCC CMS</title>
     <link rel="icon" type="image/svg+xml" href="/fcc-logo.svg" />
   </head>
-  <body>
+  <body style="margin: 0; background: #f9fafb;">
+    <div id="cms-loading" style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #374151;">
+      <div style="font-weight: 800; font-size: 1.75rem; color: #BF1A1F; margin-bottom: 6px; letter-spacing: -0.5px;">FCC CMS</div>
+      <div style="font-size: 0.875rem; color: #6b7280; margin-bottom: 20px;">Fintech Convergence Council</div>
+      <div style="width: 36px; height: 36px; border: 3px solid #e5e7eb; border-top-color: #BF1A1F; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+      <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+    </div>
+
     <script>
       (function () {
-        // Safe diagnostic listener for Sveltia token handoff
-        window.addEventListener('message', function (event) {
-          if (event.origin !== window.location.origin) return;
-          if (typeof event.data === 'string' && event.data.indexOf('authorization:github:success') === 0) {
-            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_AUTH_SUCCESS_RECEIVED');
-          }
-        }, false);
-
         // =========================================================================
-        // Intercept Sveltia's Profile Menu "Sign Out" Action
+        // Defense-in-depth: Verify Microsoft Entra session before loading Sveltia CMS.
+        // Static assets in public/admin served by CloudFront/S3 may bypass SSR middleware.
+        // Unauthenticated visitors are immediately redirected to /cms-login.
         // =========================================================================
-        var isSigningOut = false;
+        fetch('/api/auth/session', { cache: 'no-store' })
+          .then(function (res) {
+            if (!res.ok) throw new Error('Session check failed');
+            return res.json();
+          })
+          .then(function (session) {
+            if (!session || !session.user) {
+              console.log('[CMS_AUTH_DIAGNOSTIC] NO_SESSION_REDIRECTING_TO_LOGIN');
+              var target = '/cms-login?callbackUrl=' + encodeURIComponent(window.location.href);
+              window.location.replace(target);
+              return;
+            }
 
-        function isSignOutElement(node) {
-          if (!node || node.nodeType !== 1) return false;
+            console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ACTIVE_MOUNTING_CMS');
+            initSveltiaCMS();
+          })
+          .catch(function () {
+            console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ERROR_REDIRECTING_TO_LOGIN');
+            var target = '/cms-login?callbackUrl=' + encodeURIComponent(window.location.href);
+            window.location.replace(target);
+          });
 
-          var text = (node.textContent || '').trim().toLowerCase();
-          var label = (node.getAttribute && node.getAttribute('aria-label') || '').trim().toLowerCase();
-          var title = (node.getAttribute && node.getAttribute('title') || '').trim().toLowerCase();
-          var combined = text + ' ' + label + ' ' + title;
+        function initSveltiaCMS() {
+          // Safe diagnostic listener for Sveltia token handoff
+          window.addEventListener('message', function (event) {
+            if (event.origin !== window.location.origin) return;
+            if (typeof event.data === 'string' && event.data.indexOf('authorization:github:success') === 0) {
+              console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_AUTH_SUCCESS_RECEIVED');
+            }
+          }, false);
 
-          // Strict exclusion: Do not intercept Settings, Preferences, Shortcuts, or Help
-          if (
-            combined.indexOf('setting') !== -1 ||
-            combined.indexOf('shortcut') !== -1 ||
-            combined.indexOf('preference') !== -1 ||
-            combined.indexOf('help') !== -1
-          ) {
+          // =========================================================================
+          // Intercept Sveltia's Profile Menu "Sign Out" Action
+          // =========================================================================
+          var isSigningOut = false;
+
+          function isSignOutElement(node) {
+            if (!node || node.nodeType !== 1) return false;
+
+            var text = (node.textContent || '').trim().toLowerCase();
+            var label = (node.getAttribute && node.getAttribute('aria-label') || '').trim().toLowerCase();
+            var title = (node.getAttribute && node.getAttribute('title') || '').trim().toLowerCase();
+            var combined = text + ' ' + label + ' ' + title;
+
+            // Strict exclusion: Do not intercept Settings, Preferences, Shortcuts, or Help
+            if (
+              combined.indexOf('setting') !== -1 ||
+              combined.indexOf('shortcut') !== -1 ||
+              combined.indexOf('preference') !== -1 ||
+              combined.indexOf('help') !== -1
+            ) {
+              return false;
+            }
+
+            // Exact match for sign out / log out
+            if (
+              text === 'sign out' ||
+              text === 'sign-out' ||
+              text === 'log out' ||
+              text === 'logout' ||
+              label === 'sign out' ||
+              label === 'log out'
+            ) {
+              return true;
+            }
+
+            // Role menuitem, button, link, or listitem checking for leading "sign out" or "log out"
+            var role = (node.getAttribute && node.getAttribute('role') || node.tagName.toLowerCase());
+            if (role === 'menuitem' || role === 'button' || role === 'a' || role === 'li') {
+              if (/^(sign|log)\s*out\b/i.test(text) || /^(sign|log)\s*out\b/i.test(label)) {
+                return true;
+              }
+            }
+
             return false;
           }
 
-          // Exact match for sign out / log out
-          if (
-            text === 'sign out' ||
-            text === 'sign-out' ||
-            text === 'log out' ||
-            text === 'logout' ||
-            label === 'sign out' ||
-            label === 'log out'
-          ) {
-            return true;
-          }
-
-          // Role menuitem, button, link, or listitem checking for leading "sign out" or "log out"
-          var role = (node.getAttribute && node.getAttribute('role') || node.tagName.toLowerCase());
-          if (role === 'menuitem' || role === 'button' || role === 'a' || role === 'li') {
-            if (/^(sign|log)\s*out\b/i.test(text) || /^(sign|log)\s*out\b/i.test(label)) {
-              return true;
-            }
-          }
-
-          return false;
-        }
-
-        document.addEventListener(
-          'click',
-          function (event) {
-            var path = event.composedPath ? event.composedPath() : [];
-            if (!path || path.length === 0) {
-              var curr = event.target;
-              while (curr && curr !== document) {
-                path.push(curr);
-                curr = curr.parentElement;
+          document.addEventListener(
+            'click',
+            function (event) {
+              var path = event.composedPath ? event.composedPath() : [];
+              if (!path || path.length === 0) {
+                var curr = event.target;
+                while (curr && curr !== document) {
+                  path.push(curr);
+                  curr = curr.parentElement;
+                }
               }
-            }
 
-            for (var i = 0; i < path.length; i++) {
-              if (isSignOutElement(path[i])) {
-                // Intercept before Sveltia's internal GitHub-only logout fires
-                event.preventDefault();
-                event.stopPropagation();
-                event.stopImmediatePropagation();
+              for (var i = 0; i < path.length; i++) {
+                if (isSignOutElement(path[i])) {
+                  // Intercept before Sveltia's internal GitHub-only logout fires
+                  event.preventDefault();
+                  event.stopPropagation();
+                  event.stopImmediatePropagation();
 
-                if (isSigningOut) return;
-                isSigningOut = true;
+                  if (isSigningOut) return;
+                  isSigningOut = true;
 
-                console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_SIGNOUT_INTERCEPTED');
+                  console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_SIGNOUT_INTERCEPTED');
 
-                // 1. Purge Sveltia CMS credentials and auto-auth flag
-                try {
-                  localStorage.removeItem('sveltia-cms.user');
-                  sessionStorage.removeItem('fcc_auto_auth');
-                } catch (e) {}
+                  // 1. Purge Sveltia CMS credentials and auto-auth flag
+                  try {
+                    localStorage.removeItem('sveltia-cms.user');
+                    sessionStorage.removeItem('fcc_auto_auth');
+                  } catch (e) {}
 
-                // 2. Navigate to combined sign-out route (Auth.js + Microsoft Entra logout)
-                window.location.href = '/cms-signout';
-                return;
+                  // 2. Navigate to combined sign-out route (Auth.js + Microsoft Entra logout)
+                  window.location.href = '/cms-signout';
+                  return;
+                }
               }
-            }
-          },
-          true // useCapture = true: runs before element-level click listeners
-        );
-
-        // =========================================================================
-        // One-Click Login Coordinator
-        // =========================================================================
-        var autoAuth = false;
-        try {
-          autoAuth = sessionStorage.getItem('fcc_auto_auth') === '1';
-        } catch (e) {}
-
-        if (!autoAuth) return;
-
-        console.log('[CMS_AUTH_DIAGNOSTIC] CMS_AUTO_AUTH_STARTED');
-
-        var hasTriggered = false;
-        var observer = null;
-        var pollTimer = null;
-        var attempts = 0;
-        var maxAttempts = 450; // Poll for up to 45 seconds (450 * 100ms) to allow CDN script load
-
-        function findGitHubButton() {
-          var candidates = Array.from(
-            document.querySelectorAll('button, [role="button"], a, input[type="button"], input[type="submit"]')
+            },
+            true // useCapture = true: runs before element-level click listeners
           );
 
-          // Priority 1: Button whose text, label or title contains both 'github' and ('sign in' or 'login')
-          for (var i = 0; i < candidates.length; i++) {
-            var el = candidates[i];
-            var text = (el.textContent || '').trim().toLowerCase();
-            var label = (el.getAttribute('aria-label') || '').trim().toLowerCase();
-            var title = (el.getAttribute('title') || '').trim().toLowerCase();
-            var combined = text + ' ' + label + ' ' + title;
+          // =========================================================================
+          // One-Click Login Coordinator
+          // =========================================================================
+          var autoAuth = false;
+          try {
+            autoAuth = sessionStorage.getItem('fcc_auto_auth') === '1';
+          } catch (e) {}
 
-            if (
-              combined.indexOf('github') !== -1 &&
-              (combined.indexOf('sign in') !== -1 ||
-                combined.indexOf('sign-in') !== -1 ||
-                combined.indexOf('log in') !== -1 ||
-                combined.indexOf('login') !== -1)
-            ) {
-              return el;
+          var hasTriggered = false;
+          var observer = null;
+          var pollTimer = null;
+          var attempts = 0;
+          var maxAttempts = 450; // Poll for up to 45 seconds (450 * 100ms) to allow CDN script load
+
+          function findGitHubButton() {
+            var candidates = Array.from(
+              document.querySelectorAll('button, [role="button"], a, input[type="button"], input[type="submit"]')
+            );
+
+            // Priority 1: Button whose text, label or title contains both 'github' and ('sign in' or 'login')
+            for (var i = 0; i < candidates.length; i++) {
+              var el = candidates[i];
+              var text = (el.textContent || '').trim().toLowerCase();
+              var label = (el.getAttribute('aria-label') || '').trim().toLowerCase();
+              var title = (el.getAttribute('title') || '').trim().toLowerCase();
+              var combined = text + ' ' + label + ' ' + title;
+
+              if (
+                combined.indexOf('github') !== -1 &&
+                (combined.indexOf('sign in') !== -1 ||
+                  combined.indexOf('sign-in') !== -1 ||
+                  combined.indexOf('log in') !== -1 ||
+                  combined.indexOf('login') !== -1)
+              ) {
+                return el;
+              }
+            }
+
+            // Priority 2: Any button or role=button whose text or label contains 'github'
+            for (var j = 0; j < candidates.length; j++) {
+              var el2 = candidates[j];
+              var text2 = (el2.textContent || '').trim().toLowerCase();
+              var label2 = (el2.getAttribute('aria-label') || '').trim().toLowerCase();
+              var title2 = (el2.getAttribute('title') || '').trim().toLowerCase();
+              var combined2 = text2 + ' ' + label2 + ' ' + title2;
+
+              if (combined2.indexOf('github') !== -1) {
+                return el2;
+              }
+            }
+
+            // Priority 3: Button containing an SVG with GitHub/Octocat icon
+            var svgs = document.querySelectorAll('button svg, [role="button"] svg');
+            for (var k = 0; k < svgs.length; k++) {
+              var svg = svgs[k];
+              var svgHtml = (svg.outerHTML || '').toLowerCase();
+              if (svgHtml.indexOf('github') !== -1 || svgHtml.indexOf('octocat') !== -1) {
+                var parent = svg.closest('button, [role="button"], a');
+                if (parent) return parent;
+              }
+            }
+
+            return null;
+          }
+
+          function cleanup() {
+            if (observer) {
+              try { observer.disconnect(); } catch (e) {}
+              observer = null;
+            }
+            if (pollTimer) {
+              clearInterval(pollTimer);
+              pollTimer = null;
             }
           }
 
-          // Priority 2: Any button or role=button whose text or label contains 'github'
-          for (var j = 0; j < candidates.length; j++) {
-            var el2 = candidates[j];
-            var text2 = (el2.textContent || '').trim().toLowerCase();
-            var label2 = (el2.getAttribute('aria-label') || '').trim().toLowerCase();
-            var title2 = (el2.getAttribute('title') || '').trim().toLowerCase();
-            var combined2 = text2 + ' ' + label2 + ' ' + title2;
+          function tryTriggerAuth() {
+            if (!autoAuth || hasTriggered) return;
 
-            if (combined2.indexOf('github') !== -1) {
-              return el2;
-            }
-          }
+            var btn = findGitHubButton();
+            if (btn) {
+              hasTriggered = true;
+              cleanup();
 
-          // Priority 3: Button containing an SVG with GitHub/Octocat icon
-          var svgs = document.querySelectorAll('button svg, [role="button"] svg');
-          for (var k = 0; k < svgs.length; k++) {
-            var svg = svgs[k];
-            var svgHtml = (svg.outerHTML || '').toLowerCase();
-            if (svgHtml.indexOf('github') !== -1 || svgHtml.indexOf('octocat') !== -1) {
-              var parent = svg.closest('button, [role="button"], a');
-              if (parent) return parent;
-            }
-          }
+              console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_FOUND');
 
-          return null;
-        }
+              // Programmatically click Sveltia's GitHub sign-in button
+              // Sveltia will invoke window.open(authUrl, 'auth', ...) which navigates the already-open 'auth' popup
+              btn.click();
+              console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_CLICKED');
 
-        function cleanup() {
-          if (observer) {
-            try { observer.disconnect(); } catch (e) {}
-            observer = null;
-          }
-          if (pollTimer) {
-            clearInterval(pollTimer);
-            pollTimer = null;
-          }
-        }
-
-        function tryTriggerAuth() {
-          if (hasTriggered) return;
-
-          var btn = findGitHubButton();
-          if (btn) {
-            hasTriggered = true;
-            cleanup();
-
-            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_FOUND');
-
-            // Programmatically click Sveltia's GitHub sign-in button
-            // Sveltia will invoke window.open(authUrl, 'auth', ...) which navigates the already-open 'auth' popup
-            btn.click();
-            console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_LOGIN_BUTTON_CLICKED');
-
-            // Clear the auto-auth flag only after successfully triggering the broker flow
-            try {
-              sessionStorage.removeItem('fcc_auto_auth');
-            } catch (e) {}
-          }
-        }
-
-        // 1. Check immediately
-        tryTriggerAuth();
-
-        // 2. Use MutationObserver to react instantaneously when Sveltia injects DOM
-        if (typeof MutationObserver !== 'undefined' && document.documentElement) {
-          observer = new MutationObserver(function () {
-            tryTriggerAuth();
-          });
-          observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-          });
-        }
-
-        // 3. Fallback bounded polling timer (up to 45s)
-        pollTimer = setInterval(function () {
-          attempts++;
-          tryTriggerAuth();
-
-          if (attempts >= maxAttempts) {
-            cleanup();
-            if (!hasTriggered) {
-              console.warn('[CMS_AUTH_DIAGNOSTIC] Auto-auth timed out waiting for Sveltia GitHub login button');
+              // Clear the auto-auth flag only after successfully triggering the broker flow
               try {
                 sessionStorage.removeItem('fcc_auto_auth');
               } catch (e) {}
             }
           }
-        }, 100);
+
+          if (autoAuth) {
+            console.log('[CMS_AUTH_DIAGNOSTIC] CMS_AUTO_AUTH_STARTED');
+
+            // 1. Check immediately
+            tryTriggerAuth();
+
+            // 2. Use MutationObserver to react instantaneously when Sveltia injects DOM
+            if (typeof MutationObserver !== 'undefined' && document.documentElement) {
+              observer = new MutationObserver(function () {
+                tryTriggerAuth();
+              });
+              observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+              });
+            }
+
+            // 3. Fallback bounded polling timer (up to 45s)
+            pollTimer = setInterval(function () {
+              attempts++;
+              tryTriggerAuth();
+
+              if (attempts >= maxAttempts) {
+                cleanup();
+                if (!hasTriggered) {
+                  console.warn('[CMS_AUTH_DIAGNOSTIC] Auto-auth timed out waiting for Sveltia GitHub login button');
+                  try {
+                    sessionStorage.removeItem('fcc_auto_auth');
+                  } catch (e) {}
+                }
+              }
+            }, 100);
+          }
+
+          // Dynamically load Sveltia CMS script now that user session is verified
+          var script = document.createElement('script');
+          script.src = 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
+          script.onload = function () {
+            // Remove loading screen once Sveltia script has loaded
+            var loadingEl = document.getElementById('cms-loading');
+            if (loadingEl) {
+              setTimeout(function () {
+                if (loadingEl && loadingEl.parentNode) {
+                  loadingEl.parentNode.removeChild(loadingEl);
+                }
+              }, 400);
+            }
+          };
+          document.body.appendChild(script);
+        }
       })();
     </script>
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
   </body>
 </html>

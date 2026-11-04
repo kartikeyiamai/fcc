@@ -19,14 +19,14 @@ backend:
   # OAuth broker: validates Microsoft session then returns GitHub token via postMessage.
   # For local development: http://localhost:3000/api/cms-auth
   # For production: https://<your-domain>/api/cms-auth
-  base_url: https://main.d2fqkkj8q9kcbn.amplifyapp.com/api/cms-auth
+  base_url: https://main.d2fqkki8q9kcbn.amplifyapp.com/api/cms-auth
   auth_endpoint: auth
 
 media_folder: public/uploads
 public_folder: /uploads
 
-site_url: https://main.d2fqkkj8q9kcbn.amplifyapp.com
-display_url: https://main.d2fqkkj8q9kcbn.amplifyapp.com
+site_url: https://main.d2fqkki8q9kcbn.amplifyapp.com
+display_url: https://main.d2fqkki8q9kcbn.amplifyapp.com
 
 collections:
   - name: site_settings
