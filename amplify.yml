@@ -1,0 +1,28 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Ensure Node.js 20+ is active (required by Next.js 16 and React 19)
+        - nvm use 20 || true
+        - node -v
+        - npm -v
+        # Deterministic, clean dependency installation
+        - npm ci --cache .npm --prefer-offline
+    build:
+      commands:
+        # Forward required server-side environment variables from Amplify build environment into .env.production
+        # Reference: https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+        - env | grep -E '^(AUTH_|CMS_GITHUB_TOKEN|NEXTAUTH_URL|NEXT_PUBLIC_)' >> .env.production || true
+        # Build Next.js application
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .next/cache/**/*
+      - .npm/**/*
+      - node_modules/**/*
+
