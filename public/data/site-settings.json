@@ -2,7 +2,7 @@
   "site_title": "FCC — Fintech Convergence Council",
   "site_description": "Fintech Convergence Council (FCC) — the industry voice for regulated financial service providers and fintech companies in India.",
   "brand_name": "Fintech Convergence Council",
-  "brand_tagline": "An IAMAI initiative · Since 2018",
+  "brand_tagline": "An IAMAI initiative · Since 2016",
   "brand_mark": "FCC",
   "contact_email": "info@fintechcouncil.in",
   "contact_phone": "022-61766666",
@@ -40,11 +40,16 @@
       "href": "/",
       "match": [
         "/"
-      ]
+      ],
+      "children": []
     },
     {
       "label": "About",
       "href": "/about",
+      "match": [
+        "/about",
+        "/annual-report"
+      ],
       "children": [
         {
           "label": "About Us",
@@ -61,15 +66,14 @@
           "href": "/annual-report",
           "small": "Our year in review"
         }
-      ],
-      "match": [
-        "/about",
-        "/annual-report"
       ]
     },
     {
       "label": "Committees",
       "href": "/committees",
+      "match": [
+        "/committees"
+      ],
       "children": [
         {
           "label": "Digital Lending",
@@ -96,14 +100,16 @@
           "href": "/committees/credit-bureau",
           "small": "CB-05"
         }
-      ],
-      "match": [
-        "/committees"
       ]
     },
     {
       "label": "Membership",
       "href": "/members",
+      "match": [
+        "/members",
+        "/membership-benefits",
+        "/apply-membership"
+      ],
       "children": [
         {
           "label": "Our Members",
@@ -120,16 +126,16 @@
           "href": "/apply-membership",
           "small": "Join the council"
         }
-      ],
-      "match": [
-        "/members",
-        "/membership-benefits",
-        "/apply-membership"
       ]
     },
     {
       "label": "Partnership",
       "href": "/partners",
+      "match": [
+        "/partners",
+        "/partnership-benefits",
+        "/apply-partnership"
+      ],
       "children": [
         {
           "label": "Our Partners",
@@ -146,16 +152,15 @@
           "href": "/apply-partnership",
           "small": "Start a conversation"
         }
-      ],
-      "match": [
-        "/partners",
-        "/partnership-benefits",
-        "/apply-partnership"
       ]
     },
     {
       "label": "Policy & Research",
       "href": "/policy",
+      "match": [
+        "/policy",
+        "/research"
+      ],
       "children": [
         {
           "label": "Policy",
@@ -167,15 +172,15 @@
           "href": "/research",
           "small": "Reports and whitepapers"
         }
-      ],
-      "match": [
-        "/policy",
-        "/research"
       ]
     },
     {
       "label": "Events",
       "href": "/live-events",
+      "match": [
+        "/live-events",
+        "/virtual-events"
+      ],
       "children": [
         {
           "label": "Live Events",
@@ -187,10 +192,6 @@
           "href": "/virtual-events",
           "small": "Webinars and knowledge sessions"
         }
-      ],
-      "match": [
-        "/live-events",
-        "/virtual-events"
       ]
     },
     {
@@ -198,7 +199,8 @@
       "href": "/contact",
       "match": [
         "/contact"
-      ]
+      ],
+      "children": []
     }
   ],
   "footer_columns": [
