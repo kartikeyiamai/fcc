@@ -6,7 +6,7 @@
   "items": [
     {
       "name": "ALT.DRX",
-      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
+      "logo": "",
       "logo_filename": "alt-drx.jpg",
       "website": "",
       "category": "",
@@ -14,7 +14,7 @@
     },
     {
       "name": "Ambak",
-      "logo": "/uploads/unnamed.jpg",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
       "logo_filename": "ambak.png",
       "website": "",
       "category": "",
@@ -22,7 +22,7 @@
     },
     {
       "name": "Angel One",
-      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg",
+      "logo": "",
       "logo_filename": "angelone-new.jpeg",
       "website": "",
       "category": "",
