@@ -6,7 +6,7 @@
   "items": [
     {
       "name": "ALT.DRX",
-      "logo": "",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
       "logo_filename": "alt-drx.jpg",
       "website": "",
       "category": "",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Axio",
-      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
+      "logo": "",
       "logo_filename": "Axio.jpg",
       "website": "",
       "category": "",
