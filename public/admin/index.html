@@ -270,9 +270,9 @@
             }, 100);
           }
 
-          // Dynamically load Sveltia CMS script now that user session is verified
+          // Dynamically load customized local Sveltia CMS bundle (with mobile promo infobar removed)
           var script = document.createElement('script');
-          script.src = 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
+          script.src = '/admin/vendor/sveltia-cms/sveltia-cms.js';
           script.onload = function () {
             // Remove loading screen once Sveltia script has loaded
             var loadingEl = document.getElementById('cms-loading');

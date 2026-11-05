@@ -507,3 +507,12 @@ collections:
               - { label: Contact Person, name: contact_person, widget: string }
               - { label: Contact Email, name: contact_email, widget: string }
               - { label: Maps URL, name: maps_url, widget: string }
+
+
+media_libraries:
+  aws_s3:
+    access_key_id: AKIA6FR5GLJO5SZQKZKL
+    bucket: fcc-cms-media
+    region: ap-southeast-2
+    prefix: cms-uploads/
+    force_path_style: false
