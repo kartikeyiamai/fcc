@@ -80,8 +80,8 @@ export function SiteInteractions() {
       if (az) az.innerHTML = "";
       const tiles = FCC_MEMBERS.map((m) => {
         const n = m.name;
-        const logo = m.logo?.trim();
-        const fName = m.logo_filename?.trim();
+        const logo = (m.logo || "").trim();
+        const fName = (m.logo_filename || "").trim();
 
         const a = document.createElement("div");
         a.className = "mtile";
@@ -93,37 +93,29 @@ export function SiteInteractions() {
         av.className = "mono-av";
         av.textContent = initials(n);
 
-        // Resolve logo source with priority:
-        // 1. member.logo (full S3 https URL or /uploads/... path)
-        // 2. member.logo_filename (legacy fintechcouncil.in URL)
+        // Fallback order:
+        // 1. Non-empty member.logo (full S3 https URL or /uploads/... path)
+        // 2. Non-empty member.logo_filename (legacy fintechcouncil.in URL)
+        // 3. 2-letter initials
         let imgSrc = "";
         if (logo) {
-          if (/^https?:\/\//i.test(logo)) {
-            imgSrc = logo;
-          } else {
-            imgSrc = logo.startsWith("/") ? logo : `/${logo}`;
-          }
+          imgSrc = /^https?:\/\//i.test(logo) ? logo : (logo.startsWith("/") ? logo : `/${logo}`);
         } else if (fName) {
           imgSrc = base + encodeURIComponent(fName);
         }
 
-        // Show initials by default
-        lg.appendChild(av);
-
         if (imgSrc) {
-          const im = new Image();
+          const im = document.createElement("img");
           im.alt = n;
-          im.loading = "lazy";
           im.src = imgSrc;
-          im.onload = () => {
-            lg.innerHTML = "";
-            lg.appendChild(im);
-          };
           im.onerror = () => {
-            // Restore initials placeholder on load failure
+            // Restore initials placeholder on image load failure
             lg.innerHTML = "";
             lg.appendChild(av);
           };
+          lg.appendChild(im);
+        } else {
+          lg.appendChild(av);
         }
 
         const s = document.createElement("span");
