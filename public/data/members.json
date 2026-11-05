@@ -6,6 +6,7 @@
   "items": [
     {
       "name": "ALT.DRX",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
       "logo_filename": "alt-drx.jpg",
       "website": "",
       "category": "",
@@ -13,6 +14,7 @@
     },
     {
       "name": "Ambak",
+      "logo": "",
       "logo_filename": "ambak.png",
       "website": "",
       "category": "",
@@ -20,6 +22,7 @@
     },
     {
       "name": "Angel One",
+      "logo": "",
       "logo_filename": "angelone-new.jpeg",
       "website": "",
       "category": "",
@@ -27,6 +30,7 @@
     },
     {
       "name": "Arya.ai",
+      "logo": "",
       "logo_filename": "arya.jfif",
       "website": "",
       "category": "",
@@ -34,6 +38,7 @@
     },
     {
       "name": "Aska",
+      "logo": "",
       "logo_filename": "aska.png",
       "website": "",
       "category": "",
@@ -41,6 +46,7 @@
     },
     {
       "name": "Assetgro",
+      "logo": "",
       "logo_filename": "Assetgro.jpg",
       "website": "",
       "category": "",
@@ -48,6 +54,7 @@
     },
     {
       "name": "Axio",
+      "logo": "",
       "logo_filename": "Axio.jpg",
       "website": "",
       "category": "",
@@ -55,6 +62,7 @@
     },
     {
       "name": "Backspace Tech",
+      "logo": "",
       "logo_filename": "backspace.jpg",
       "website": "",
       "category": "",
@@ -62,6 +70,7 @@
     },
     {
       "name": "Bankify",
+      "logo": "",
       "logo_filename": "Bankify.jpg",
       "website": "",
       "category": "",
@@ -69,6 +78,7 @@
     },
     {
       "name": "Bima Plan",
+      "logo": "",
       "logo_filename": "Bimaplan.jpg",
       "website": "",
       "category": "",
@@ -76,6 +86,7 @@
     },
     {
       "name": "Bitsyyloan",
+      "logo": "",
       "logo_filename": "bitsyyloan.png",
       "website": "",
       "category": "",
@@ -83,6 +94,7 @@
     },
     {
       "name": "Biz2x",
+      "logo": "",
       "logo_filename": "biz2x.jpeg",
       "website": "",
       "category": "",
@@ -90,6 +102,7 @@
     },
     {
       "name": "Bondbazaar",
+      "logo": "",
       "logo_filename": "bondbazaar.jpeg",
       "website": "",
       "category": "",
@@ -97,6 +110,7 @@
     },
     {
       "name": "BuddyLoan",
+      "logo": "",
       "logo_filename": "Buddy-loan.jpg",
       "website": "",
       "category": "",
@@ -104,6 +118,7 @@
     },
     {
       "name": "Bureau.Id",
+      "logo": "",
       "logo_filename": "Burera.jpg",
       "website": "",
       "category": "",
@@ -111,6 +126,7 @@
     },
     {
       "name": "Butter Money",
+      "logo": "",
       "logo_filename": "butttermoney.png",
       "website": "",
       "category": "",
@@ -118,6 +134,7 @@
     },
     {
       "name": "Care Pay",
+      "logo": "",
       "logo_filename": "carepay.jpg",
       "website": "",
       "category": "",
@@ -125,6 +142,7 @@
     },
     {
       "name": "Cashe",
+      "logo": "",
       "logo_filename": "Cash.jpg",
       "website": "",
       "category": "",
@@ -132,6 +150,7 @@
     },
     {
       "name": "Castler",
+      "logo": "",
       "logo_filename": "Castler.jpg",
       "website": "",
       "category": "",
@@ -139,6 +158,7 @@
     },
     {
       "name": "Cherry",
+      "logo": "",
       "logo_filename": "cherry.jpg",
       "website": "",
       "category": "",
@@ -146,6 +166,7 @@
     },
     {
       "name": "CIBIL",
+      "logo": "",
       "logo_filename": "cibil.jpg",
       "website": "",
       "category": "",
@@ -153,6 +174,7 @@
     },
     {
       "name": "Ckers",
+      "logo": "",
       "logo_filename": "ckers.png",
       "website": "",
       "category": "",
@@ -160,6 +182,7 @@
     },
     {
       "name": "Credilio",
+      "logo": "",
       "logo_filename": "Credilo.jpg",
       "website": "",
       "category": "",
@@ -167,6 +190,7 @@
     },
     {
       "name": "Credit Mantri",
+      "logo": "",
       "logo_filename": "creditmantri.png",
       "website": "",
       "category": "",
@@ -174,6 +198,7 @@
     },
     {
       "name": "Credit Saison India",
+      "logo": "",
       "logo_filename": "credit-saison-india.jpeg",
       "website": "",
       "category": "",
@@ -181,6 +206,7 @@
     },
     {
       "name": "Creditt",
+      "logo": "",
       "logo_filename": "creditt.png",
       "website": "",
       "category": "",
@@ -188,6 +214,7 @@
     },
     {
       "name": "Credresolve",
+      "logo": "",
       "logo_filename": "credresolve.png",
       "website": "",
       "category": "",
@@ -195,6 +222,7 @@
     },
     {
       "name": "CRIF High Mark",
+      "logo": "",
       "logo_filename": "Crif.jpg",
       "website": "",
       "category": "",
@@ -202,6 +230,7 @@
     },
     {
       "name": "Curie Money",
+      "logo": "",
       "logo_filename": "curie.jfif",
       "website": "",
       "category": "",
@@ -209,6 +238,7 @@
     },
     {
       "name": "Data Science Wizard",
+      "logo": "",
       "logo_filename": "Data-Science-Wizard.png",
       "website": "",
       "category": "",
@@ -216,6 +246,7 @@
     },
     {
       "name": "Decentro",
+      "logo": "",
       "logo_filename": "decentro.jpg",
       "website": "",
       "category": "",
@@ -223,6 +254,7 @@
     },
     {
       "name": "Deepvue",
+      "logo": "",
       "logo_filename": "Deepvue.png",
       "website": "",
       "category": "",
@@ -230,6 +262,7 @@
     },
     {
       "name": "Dhan",
+      "logo": "",
       "logo_filename": "dhan.webp",
       "website": "",
       "category": "",
@@ -237,6 +270,7 @@
     },
     {
       "name": "Digio",
+      "logo": "",
       "logo_filename": "digio.jpeg",
       "website": "",
       "category": "",
@@ -244,6 +278,7 @@
     },
     {
       "name": "Digiqt",
+      "logo": "",
       "logo_filename": "Digiqt.jpg",
       "website": "",
       "category": "",
@@ -251,6 +286,7 @@
     },
     {
       "name": "DMI Finance",
+      "logo": "",
       "logo_filename": "DMI-Capital.jpg",
       "website": "",
       "category": "",
@@ -258,6 +294,7 @@
     },
     {
       "name": "Doqfy",
+      "logo": "",
       "logo_filename": "doqfy.jpg",
       "website": "",
       "category": "",
@@ -265,6 +302,7 @@
     },
     {
       "name": "Drip Capital",
+      "logo": "",
       "logo_filename": "dripc.jpeg",
       "website": "",
       "category": "",
@@ -272,6 +310,7 @@
     },
     {
       "name": "Easemydeal",
+      "logo": "",
       "logo_filename": "easemydeal.jpeg",
       "website": "",
       "category": "",
@@ -279,6 +318,7 @@
     },
     {
       "name": "Eliteeye Consulting",
+      "logo": "",
       "logo_filename": "Eliteeye.png",
       "website": "",
       "category": "",
@@ -286,6 +326,7 @@
     },
     {
       "name": "Emudhra",
+      "logo": "",
       "logo_filename": "e-mudhra.jpeg",
       "website": "",
       "category": "",
@@ -293,6 +334,7 @@
     },
     {
       "name": "EnKash",
+      "logo": "",
       "logo_filename": "enkash.jpg",
       "website": "",
       "category": "",
@@ -300,6 +342,7 @@
     },
     {
       "name": "Equifax",
+      "logo": "",
       "logo_filename": "equifax.jpg",
       "website": "",
       "category": "",
@@ -307,6 +350,7 @@
     },
     {
       "name": "ET Money",
+      "logo": "",
       "logo_filename": "Et-money.jpg",
       "website": "",
       "category": "",
@@ -314,6 +358,7 @@
     },
     {
       "name": "Experian",
+      "logo": "",
       "logo_filename": "Experiab.jpg",
       "website": "",
       "category": "",
@@ -321,6 +366,7 @@
     },
     {
       "name": "Facctum",
+      "logo": "",
       "logo_filename": "facctum.png",
       "website": "",
       "category": "",
@@ -328,6 +374,7 @@
     },
     {
       "name": "Faircent",
+      "logo": "",
       "logo_filename": "Faircent.jpg",
       "website": "",
       "category": "",
@@ -335,6 +382,7 @@
     },
     {
       "name": "Falcon",
+      "logo": "",
       "logo_filename": "falcon.jpg",
       "website": "",
       "category": "",
@@ -342,6 +390,7 @@
     },
     {
       "name": "Fampay",
+      "logo": "",
       "logo_filename": "fampay.jpg",
       "website": "",
       "category": "",
@@ -349,6 +398,7 @@
     },
     {
       "name": "Fatakpay",
+      "logo": "",
       "logo_filename": "fatakpay.png",
       "website": "",
       "category": "",
@@ -356,6 +406,7 @@
     },
     {
       "name": "Finart",
+      "logo": "",
       "logo_filename": "Fi.jpg",
       "website": "",
       "category": "",
@@ -363,6 +414,7 @@
     },
     {
       "name": "FINB",
+      "logo": "",
       "logo_filename": "FINB.png",
       "website": "",
       "category": "",
@@ -370,6 +422,7 @@
     },
     {
       "name": "Finbox",
+      "logo": "",
       "logo_filename": "Finbox.jpg",
       "website": "",
       "category": "",
@@ -377,6 +430,7 @@
     },
     {
       "name": "Finnup Solutions",
+      "logo": "",
       "logo_filename": "Finnup.jpg",
       "website": "",
       "category": "",
@@ -384,6 +438,7 @@
     },
     {
       "name": "Finsall",
+      "logo": "",
       "logo_filename": "finsall.jpeg",
       "website": "",
       "category": "",
@@ -391,6 +446,7 @@
     },
     {
       "name": "Fintoo",
+      "logo": "",
       "logo_filename": "Fintoo.jpg",
       "website": "",
       "category": "",
@@ -398,6 +454,7 @@
     },
     {
       "name": "Fios",
+      "logo": "",
       "logo_filename": "fios.jpg",
       "website": "",
       "category": "",
@@ -405,6 +462,7 @@
     },
     {
       "name": "Flexiloans",
+      "logo": "",
       "logo_filename": "Flexiloan.jpg",
       "website": "",
       "category": "",
@@ -412,6 +470,7 @@
     },
     {
       "name": "Flexpay",
+      "logo": "",
       "logo_filename": "Flexpay.jpg",
       "website": "",
       "category": "",
@@ -419,6 +478,7 @@
     },
     {
       "name": "Flywire",
+      "logo": "",
       "logo_filename": "flywire.jpeg",
       "website": "",
       "category": "",
@@ -426,6 +486,7 @@
     },
     {
       "name": "FPL",
+      "logo": "",
       "logo_filename": "FPL.jpg",
       "website": "",
       "category": "",
@@ -433,6 +494,7 @@
     },
     {
       "name": "Freo",
+      "logo": "",
       "logo_filename": "Freo.jpg",
       "website": "",
       "category": "",
@@ -440,6 +502,7 @@
     },
     {
       "name": "Ginteja",
+      "logo": "",
       "logo_filename": "ginteja.jpeg",
       "website": "",
       "category": "",
@@ -447,6 +510,7 @@
     },
     {
       "name": "GoCredit",
+      "logo": "",
       "logo_filename": "GoCredit.png",
       "website": "",
       "category": "",
@@ -454,6 +518,7 @@
     },
     {
       "name": "Gridlines",
+      "logo": "",
       "logo_filename": "gridlines.png",
       "website": "",
       "category": "",
@@ -461,6 +526,7 @@
     },
     {
       "name": "Grip",
+      "logo": "",
       "logo_filename": "grip.jpeg",
       "website": "",
       "category": "",
@@ -468,6 +534,7 @@
     },
     {
       "name": "Gromo",
+      "logo": "",
       "logo_filename": "gromo.png",
       "website": "",
       "category": "",
@@ -475,6 +542,7 @@
     },
     {
       "name": "Groww",
+      "logo": "",
       "logo_filename": "Groww.jpg",
       "website": "",
       "category": "",
@@ -482,6 +550,7 @@
     },
     {
       "name": "Huey Tech",
+      "logo": "",
       "logo_filename": "hueytech.png",
       "website": "",
       "category": "",
@@ -489,6 +558,7 @@
     },
     {
       "name": "Hyperverge",
+      "logo": "",
       "logo_filename": "Hyderverge.jpg",
       "website": "",
       "category": "",
@@ -496,6 +566,7 @@
     },
     {
       "name": "ICICI Lombard",
+      "logo": "",
       "logo_filename": "icicilombard.png",
       "website": "",
       "category": "",
@@ -503,6 +574,7 @@
     },
     {
       "name": "ICICI Securities",
+      "logo": "",
       "logo_filename": "ICICI-secuirties.jpg",
       "website": "",
       "category": "",
@@ -510,6 +582,7 @@
     },
     {
       "name": "IDfy",
+      "logo": "",
       "logo_filename": "IDFY.jpg",
       "website": "",
       "category": "",
@@ -517,6 +590,7 @@
     },
     {
       "name": "IDIGICLOUD",
+      "logo": "",
       "logo_filename": "idigi_logo.jpg",
       "website": "",
       "category": "",
@@ -524,6 +598,7 @@
     },
     {
       "name": "India P2P",
+      "logo": "",
       "logo_filename": "indiap2p.png",
       "website": "",
       "category": "",
@@ -531,6 +606,7 @@
     },
     {
       "name": "Indiagold",
+      "logo": "",
       "logo_filename": "indiagold.jpg",
       "website": "",
       "category": "",
@@ -538,6 +614,7 @@
     },
     {
       "name": "Indifi",
+      "logo": "",
       "logo_filename": "Indifi.jpg",
       "website": "",
       "category": "",
@@ -545,6 +622,7 @@
     },
     {
       "name": "INDMoney",
+      "logo": "",
       "logo_filename": "ind-money.jpg",
       "website": "",
       "category": "",
@@ -552,6 +630,7 @@
     },
     {
       "name": "Indus Net Technologies",
+      "logo": "",
       "logo_filename": "int.jpg",
       "website": "",
       "category": "",
@@ -559,6 +638,7 @@
     },
     {
       "name": "Insurance Dekho",
+      "logo": "",
       "logo_filename": "Insurance-dekho.jpg",
       "website": "",
       "category": "",
@@ -566,6 +646,7 @@
     },
     {
       "name": "Intellewings",
+      "logo": "",
       "logo_filename": "intellewings.png",
       "website": "",
       "category": "",
@@ -573,6 +654,7 @@
     },
     {
       "name": "Iserveu",
+      "logo": "",
       "logo_filename": "iserveu.jpeg",
       "website": "",
       "category": "",
@@ -580,6 +662,7 @@
     },
     {
       "name": "JAR",
+      "logo": "",
       "logo_filename": "jar.jpeg",
       "website": "",
       "category": "",
@@ -587,6 +670,7 @@
     },
     {
       "name": "JISA",
+      "logo": "",
       "logo_filename": "jisa_softech_logo.jfif",
       "website": "",
       "category": "",
@@ -594,6 +678,7 @@
     },
     {
       "name": "Jocata",
+      "logo": "",
       "logo_filename": "jocata.png",
       "website": "",
       "category": "",
@@ -601,6 +686,7 @@
     },
     {
       "name": "Karma Life",
+      "logo": "",
       "logo_filename": "karma.jpg",
       "website": "",
       "category": "",
@@ -608,6 +694,7 @@
     },
     {
       "name": "Kissht",
+      "logo": "",
       "logo_filename": "kissht.jpeg",
       "website": "",
       "category": "",
@@ -615,6 +702,7 @@
     },
     {
       "name": "Kreditbee",
+      "logo": "",
       "logo_filename": "Kreditbee.jpg",
       "website": "",
       "category": "",
@@ -622,6 +710,7 @@
     },
     {
       "name": "Kuhoo",
+      "logo": "",
       "logo_filename": "kuhoo.png",
       "website": "",
       "category": "",
@@ -629,6 +718,7 @@
     },
     {
       "name": "KYCKART",
+      "logo": "",
       "logo_filename": "kyckart.png",
       "website": "",
       "category": "",
@@ -636,6 +726,7 @@
     },
     {
       "name": "Lark",
+      "logo": "",
       "logo_filename": "Lark.png",
       "website": "",
       "category": "",
@@ -643,6 +734,7 @@
     },
     {
       "name": "Leadsquared",
+      "logo": "",
       "logo_filename": "leadsquared.png",
       "website": "",
       "category": "",
@@ -650,6 +742,7 @@
     },
     {
       "name": "Lei Register",
+      "logo": "",
       "logo_filename": "Lei register.png",
       "website": "",
       "category": "",
@@ -657,6 +750,7 @@
     },
     {
       "name": "Lendbox",
+      "logo": "",
       "logo_filename": "Lendbox.jpg",
       "website": "",
       "category": "",
@@ -664,6 +758,7 @@
     },
     {
       "name": "Lendenclub",
+      "logo": "",
       "logo_filename": "lenden.jpg",
       "website": "",
       "category": "",
@@ -671,6 +766,7 @@
     },
     {
       "name": "Lendingkart",
+      "logo": "",
       "logo_filename": "Lendingkart.jpg",
       "website": "",
       "category": "",
@@ -678,6 +774,7 @@
     },
     {
       "name": "Lexcomply",
+      "logo": "",
       "logo_filename": "LEX.jpg",
       "website": "",
       "category": "",
@@ -685,6 +782,7 @@
     },
     {
       "name": "LexisNexis",
+      "logo": "",
       "logo_filename": "LexisNexis.jpg",
       "website": "",
       "category": "",
@@ -692,6 +790,7 @@
     },
     {
       "name": "Liquify",
+      "logo": "",
       "logo_filename": "liquify.jpeg",
       "website": "",
       "category": "",
@@ -699,6 +798,7 @@
     },
     {
       "name": "Liquiloans",
+      "logo": "",
       "logo_filename": "Liquiloan.jpg",
       "website": "",
       "category": "",
@@ -706,6 +806,7 @@
     },
     {
       "name": "Loantap",
+      "logo": "",
       "logo_filename": "LoanTap.jpg",
       "website": "",
       "category": "",
@@ -713,6 +814,7 @@
     },
     {
       "name": "Lombard",
+      "logo": "",
       "logo_filename": "Lombard.jpg",
       "website": "",
       "category": "",
@@ -720,6 +822,7 @@
     },
     {
       "name": "LXME",
+      "logo": "",
       "logo_filename": "lxme.jpg",
       "website": "",
       "category": "",
@@ -727,6 +830,7 @@
     },
     {
       "name": "Magicbricks",
+      "logo": "",
       "logo_filename": "Magic_Bricks_logo.png",
       "website": "",
       "category": "",
@@ -734,6 +838,7 @@
     },
     {
       "name": "Mahindra Finance",
+      "logo": "",
       "logo_filename": "mahindra-finance.png",
       "website": "",
       "category": "",
@@ -741,6 +846,7 @@
     },
     {
       "name": "MCX",
+      "logo": "",
       "logo_filename": "mcx.jpeg",
       "website": "",
       "category": "",
@@ -748,6 +854,7 @@
     },
     {
       "name": "Minasa",
+      "logo": "",
       "logo_filename": "minasa.jfif",
       "website": "",
       "category": "",
@@ -755,6 +862,7 @@
     },
     {
       "name": "Mindgate",
+      "logo": "",
       "logo_filename": "mindgate.png",
       "website": "",
       "category": "",
@@ -762,6 +870,7 @@
     },
     {
       "name": "MLNO",
+      "logo": "",
       "logo_filename": "mlno.jpeg",
       "website": "",
       "category": "",
@@ -769,6 +878,7 @@
     },
     {
       "name": "Moneyview",
+      "logo": "",
       "logo_filename": "Moneyview.jpg",
       "website": "",
       "category": "",
@@ -776,6 +886,7 @@
     },
     {
       "name": "Multipl",
+      "logo": "",
       "logo_filename": "multipl.jpg",
       "website": "",
       "category": "",
@@ -783,6 +894,7 @@
     },
     {
       "name": "Muthoot Fincorp",
+      "logo": "",
       "logo_filename": "muthoot.png",
       "website": "",
       "category": "",
@@ -790,6 +902,7 @@
     },
     {
       "name": "My Mudra",
+      "logo": "",
       "logo_filename": "My Mudra.png",
       "website": "",
       "category": "",
@@ -797,6 +910,7 @@
     },
     {
       "name": "Navi",
+      "logo": "",
       "logo_filename": "navi.png",
       "website": "",
       "category": "",
@@ -804,6 +918,7 @@
     },
     {
       "name": "Neokred",
+      "logo": "",
       "logo_filename": "NeoKred.jpg",
       "website": "",
       "category": "",
@@ -811,6 +926,7 @@
     },
     {
       "name": "Nerve",
+      "logo": "",
       "logo_filename": "nerve.jpeg",
       "website": "",
       "category": "",
@@ -818,6 +934,7 @@
     },
     {
       "name": "NeuralDefend",
+      "logo": "",
       "logo_filename": "NeuralDefend.png",
       "website": "",
       "category": "",
@@ -825,6 +942,7 @@
     },
     {
       "name": "New India Assurance",
+      "logo": "",
       "logo_filename": "nia.jpeg",
       "website": "",
       "category": "",
@@ -832,6 +950,7 @@
     },
     {
       "name": "Ninjacart",
+      "logo": "",
       "logo_filename": "ninja.jpg",
       "website": "",
       "category": "",
@@ -839,6 +958,7 @@
     },
     {
       "name": "Nivesh",
+      "logo": "",
       "logo_filename": "nivesh.jpg",
       "website": "",
       "category": "",
@@ -846,6 +966,7 @@
     },
     {
       "name": "Niyara Capital",
+      "logo": "",
       "logo_filename": "niyara.jpg",
       "website": "",
       "category": "",
@@ -853,6 +974,7 @@
     },
     {
       "name": "Niyo",
+      "logo": "",
       "logo_filename": "Niyo.jpg",
       "website": "",
       "category": "",
@@ -860,6 +982,7 @@
     },
     {
       "name": "NJOCATA",
+      "logo": "",
       "logo_filename": "njocata.jpg",
       "website": "",
       "category": "",
@@ -867,6 +990,7 @@
     },
     {
       "name": "Northern Arc",
+      "logo": "",
       "logo_filename": "NorthernArc.png",
       "website": "",
       "category": "",
@@ -874,6 +998,7 @@
     },
     {
       "name": "OkCredit",
+      "logo": "",
       "logo_filename": "okcredit.jpg",
       "website": "",
       "category": "",
@@ -881,6 +1006,7 @@
     },
     {
       "name": "Ola Financial",
+      "logo": "",
       "logo_filename": "ola2.jpg",
       "website": "",
       "category": "",
@@ -888,6 +1014,7 @@
     },
     {
       "name": "One Score",
+      "logo": "",
       "logo_filename": "one-score.jpg",
       "website": "",
       "category": "",
@@ -895,6 +1022,7 @@
     },
     {
       "name": "Onsurity",
+      "logo": "",
       "logo_filename": "Onsurity.jpg",
       "website": "",
       "category": "",
@@ -902,6 +1030,7 @@
     },
     {
       "name": "Open",
+      "logo": "",
       "logo_filename": "open.jpg",
       "website": "",
       "category": "",
@@ -909,6 +1038,7 @@
     },
     {
       "name": "OPL",
+      "logo": "",
       "logo_filename": "OPL.jpg",
       "website": "",
       "category": "",
@@ -916,6 +1046,7 @@
     },
     {
       "name": "Paisabazaar",
+      "logo": "",
       "logo_filename": "Paisabazaar.jpg",
       "website": "",
       "category": "",
@@ -923,6 +1054,7 @@
     },
     {
       "name": "Parrami",
+      "logo": "",
       "logo_filename": "parrami.png",
       "website": "",
       "category": "",
@@ -930,6 +1062,7 @@
     },
     {
       "name": "Payme",
+      "logo": "",
       "logo_filename": "Payme.jpg",
       "website": "",
       "category": "",
@@ -937,6 +1070,7 @@
     },
     {
       "name": "Paysprint",
+      "logo": "",
       "logo_filename": "Paysprint.jpg",
       "website": "",
       "category": "",
@@ -944,6 +1078,7 @@
     },
     {
       "name": "Paytm",
+      "logo": "",
       "logo_filename": "paytm.jfif",
       "website": "",
       "category": "",
@@ -951,6 +1086,7 @@
     },
     {
       "name": "PensionBox",
+      "logo": "",
       "logo_filename": "PensionBox.png",
       "website": "",
       "category": "",
@@ -958,6 +1094,7 @@
     },
     {
       "name": "Perfios",
+      "logo": "",
       "logo_filename": "perfios.png",
       "website": "",
       "category": "",
@@ -965,6 +1102,7 @@
     },
     {
       "name": "PhonePe",
+      "logo": "",
       "logo_filename": "phonepe.png",
       "website": "",
       "category": "",
@@ -972,6 +1110,7 @@
     },
     {
       "name": "Piramal Finance",
+      "logo": "",
       "logo_filename": "piramal.png",
       "website": "",
       "category": "",
@@ -979,6 +1118,7 @@
     },
     {
       "name": "Predixion AI",
+      "logo": "",
       "logo_filename": "predixion-ai.png",
       "website": "",
       "category": "",
@@ -986,6 +1126,7 @@
     },
     {
       "name": "Profintech Technologies",
+      "logo": "",
       "logo_filename": "profintech.jpg",
       "website": "",
       "category": "",
@@ -993,6 +1134,7 @@
     },
     {
       "name": "Progcap",
+      "logo": "",
       "logo_filename": "Progcap.jpg",
       "website": "",
       "category": "",
@@ -1000,6 +1142,7 @@
     },
     {
       "name": "Protectt",
+      "logo": "",
       "logo_filename": "protectt.svg",
       "website": "",
       "category": "",
@@ -1007,6 +1150,7 @@
     },
     {
       "name": "Prove",
+      "logo": "",
       "logo_filename": "prove.jpg",
       "website": "",
       "category": "",
@@ -1014,6 +1158,7 @@
     },
     {
       "name": "Quicklend",
+      "logo": "",
       "logo_filename": "Quicklend.png",
       "website": "",
       "category": "",
@@ -1021,6 +1166,7 @@
     },
     {
       "name": "Razorpay",
+      "logo": "",
       "logo_filename": "RazorPay.jpg",
       "website": "",
       "category": "",
@@ -1028,6 +1174,7 @@
     },
     {
       "name": "Recordent",
+      "logo": "",
       "logo_filename": "Recordent.jpg",
       "website": "",
       "category": "",
@@ -1035,6 +1182,7 @@
     },
     {
       "name": "Recqarz",
+      "logo": "",
       "logo_filename": "recqarz.jpeg",
       "website": "",
       "category": "",
@@ -1042,6 +1190,7 @@
     },
     {
       "name": "Ruloans",
+      "logo": "",
       "logo_filename": "Ruloans.png",
       "website": "",
       "category": "",
@@ -1049,6 +1198,7 @@
     },
     {
       "name": "Rupeek",
+      "logo": "",
       "logo_filename": "rupeek.jfif",
       "website": "",
       "category": "",
@@ -1056,6 +1206,7 @@
     },
     {
       "name": "RupeeRedee",
+      "logo": "",
       "logo_filename": "RupeeRedee.jpg",
       "website": "",
       "category": "",
@@ -1063,6 +1214,7 @@
     },
     {
       "name": "Sahibandu",
+      "logo": "",
       "logo_filename": "sahibandu.jpg",
       "website": "",
       "category": "",
@@ -1070,6 +1222,7 @@
     },
     {
       "name": "Satmat Technologies",
+      "logo": "",
       "logo_filename": "satmat-technologies.jpeg",
       "website": "",
       "category": "",
@@ -1077,6 +1230,7 @@
     },
     {
       "name": "SaveIn",
+      "logo": "",
       "logo_filename": "savein.jpg",
       "website": "",
       "category": "",
@@ -1084,6 +1238,7 @@
     },
     {
       "name": "SBI Funds",
+      "logo": "",
       "logo_filename": "sbi-funds.jfif",
       "website": "",
       "category": "",
@@ -1091,6 +1246,7 @@
     },
     {
       "name": "SBI General Insurance",
+      "logo": "",
       "logo_filename": "SBI-General.jpg",
       "website": "",
       "category": "",
@@ -1098,6 +1254,7 @@
     },
     {
       "name": "Scapia",
+      "logo": "",
       "logo_filename": "scapia.jpeg",
       "website": "",
       "category": "",
@@ -1105,6 +1262,7 @@
     },
     {
       "name": "Scripbox",
+      "logo": "",
       "logo_filename": "Scripbox.jpg",
       "website": "",
       "category": "",
@@ -1112,6 +1270,7 @@
     },
     {
       "name": "Settle",
+      "logo": "",
       "logo_filename": "settle.jpeg",
       "website": "",
       "category": "",
@@ -1119,6 +1278,7 @@
     },
     {
       "name": "Setu",
+      "logo": "",
       "logo_filename": "Setu.jpg",
       "website": "",
       "category": "",
@@ -1126,6 +1286,7 @@
     },
     {
       "name": "Signzy",
+      "logo": "",
       "logo_filename": "Signzy.jpg",
       "website": "",
       "category": "",
@@ -1133,6 +1294,7 @@
     },
     {
       "name": "SilverBullet",
+      "logo": "",
       "logo_filename": "silverbullet.jpeg",
       "website": "",
       "category": "",
@@ -1140,6 +1302,7 @@
     },
     {
       "name": "Simpl",
+      "logo": "",
       "logo_filename": "Simpl.jpg",
       "website": "",
       "category": "",
@@ -1147,6 +1310,7 @@
     },
     {
       "name": "Slice",
+      "logo": "",
       "logo_filename": "Slice.jpg",
       "website": "",
       "category": "",
@@ -1154,6 +1318,7 @@
     },
     {
       "name": "SMFG",
+      "logo": "",
       "logo_filename": "SMFG.jpg",
       "website": "",
       "category": "",
@@ -1161,6 +1326,7 @@
     },
     {
       "name": "Snapmint",
+      "logo": "",
       "logo_filename": "Snapmint.jpg",
       "website": "",
       "category": "",
@@ -1168,6 +1334,7 @@
     },
     {
       "name": "Stockgro",
+      "logo": "",
       "logo_filename": "stockgrow.jpg",
       "website": "",
       "category": "",
@@ -1175,6 +1342,7 @@
     },
     {
       "name": "Stride One",
+      "logo": "",
       "logo_filename": "stride-one.png",
       "website": "",
       "category": "",
@@ -1182,6 +1350,7 @@
     },
     {
       "name": "Sub K Impact",
+      "logo": "",
       "logo_filename": "Sub-K-Impact.jpg",
       "website": "",
       "category": "",
@@ -1189,6 +1358,7 @@
     },
     {
       "name": "Sumsub",
+      "logo": "",
       "logo_filename": "sumsub.jpeg",
       "website": "",
       "category": "",
@@ -1196,6 +1366,7 @@
     },
     {
       "name": "Tally Capital",
+      "logo": "",
       "logo_filename": "tally-capital.jpeg",
       "website": "",
       "category": "",
@@ -1203,6 +1374,7 @@
     },
     {
       "name": "Tata Capital Housing Finance",
+      "logo": "",
       "logo_filename": "Tata_Capital.jpg",
       "website": "",
       "category": "",
@@ -1210,6 +1382,7 @@
     },
     {
       "name": "Tazapay",
+      "logo": "",
       "logo_filename": "tazapay.png",
       "website": "",
       "category": "",
@@ -1217,6 +1390,7 @@
     },
     {
       "name": "Techurate Systems",
+      "logo": "",
       "logo_filename": "techurate.png",
       "website": "",
       "category": "",
@@ -1224,6 +1398,7 @@
     },
     {
       "name": "Tide",
+      "logo": "",
       "logo_filename": "tide.jpg",
       "website": "",
       "category": "",
@@ -1231,6 +1406,7 @@
     },
     {
       "name": "Timble Tech",
+      "logo": "",
       "logo_filename": "timbletech.jpg",
       "website": "",
       "category": "",
@@ -1238,6 +1414,7 @@
     },
     {
       "name": "TIREN",
+      "logo": "",
       "logo_filename": "TIREN.png",
       "website": "",
       "category": "",
@@ -1245,6 +1422,7 @@
     },
     {
       "name": "Trackwizz",
+      "logo": "",
       "logo_filename": "TSS-Consultancy.jpg",
       "website": "",
       "category": "",
@@ -1252,6 +1430,7 @@
     },
     {
       "name": "Trust Group",
+      "logo": "",
       "logo_filename": "trust.png",
       "website": "",
       "category": "",
@@ -1259,6 +1438,7 @@
     },
     {
       "name": "UNI",
+      "logo": "",
       "logo_filename": "uni.jpg",
       "website": "",
       "category": "",
@@ -1266,6 +1446,7 @@
     },
     {
       "name": "UTI Mutual Fund",
+      "logo": "",
       "logo_filename": "uti.png",
       "website": "",
       "category": "",
@@ -1273,6 +1454,7 @@
     },
     {
       "name": "Utimaco",
+      "logo": "",
       "logo_filename": "Utimaco.jpg",
       "website": "",
       "category": "",
@@ -1280,6 +1462,7 @@
     },
     {
       "name": "Vance",
+      "logo": "",
       "logo_filename": "Vance.jpg",
       "website": "",
       "category": "",
@@ -1287,6 +1470,7 @@
     },
     {
       "name": "Vayana",
+      "logo": "",
       "logo_filename": "vayana.jpg",
       "website": "",
       "category": "",
@@ -1294,6 +1478,7 @@
     },
     {
       "name": "Velocity",
+      "logo": "",
       "logo_filename": "velocity.jpg",
       "website": "",
       "category": "",
@@ -1301,6 +1486,7 @@
     },
     {
       "name": "Vested Finance",
+      "logo": "",
       "logo_filename": "vested.jpg",
       "website": "",
       "category": "",
@@ -1308,6 +1494,7 @@
     },
     {
       "name": "Vidyuttech",
+      "logo": "",
       "logo_filename": "vidyuttech.jpg",
       "website": "",
       "category": "",
@@ -1315,6 +1502,7 @@
     },
     {
       "name": "Viva Money",
+      "logo": "",
       "logo_filename": "Viva.jpg",
       "website": "",
       "category": "",
@@ -1322,6 +1510,7 @@
     },
     {
       "name": "Vivifi",
+      "logo": "",
       "logo_filename": "vivifi.jpg",
       "website": "",
       "category": "",
@@ -1329,6 +1518,7 @@
     },
     {
       "name": "Vivriti Capital",
+      "logo": "",
       "logo_filename": "vivriti.jpg",
       "website": "",
       "category": "",
@@ -1336,6 +1526,7 @@
     },
     {
       "name": "Wegofin",
+      "logo": "",
       "logo_filename": "wegofin.jpeg",
       "website": "",
       "category": "",
@@ -1343,6 +1534,7 @@
     },
     {
       "name": "WeRize",
+      "logo": "",
       "logo_filename": "werize.jpg",
       "website": "",
       "category": "",
@@ -1350,6 +1542,7 @@
     },
     {
       "name": "Whatsloan",
+      "logo": "",
       "logo_filename": "whatsloan.jpg",
       "website": "",
       "category": "",
@@ -1357,6 +1550,7 @@
     },
     {
       "name": "Yes Bank",
+      "logo": "",
       "logo_filename": "yes-bank.jpg",
       "website": "",
       "category": "",
@@ -1364,6 +1558,7 @@
     },
     {
       "name": "Zaggle",
+      "logo": "",
       "logo_filename": "zaggle.jpg",
       "website": "",
       "category": "",
@@ -1371,6 +1566,7 @@
     },
     {
       "name": "Zerodha",
+      "logo": "",
       "logo_filename": "Zerodha.jpg",
       "website": "",
       "category": "",
@@ -1378,6 +1574,7 @@
     },
     {
       "name": "Zigram",
+      "logo": "",
       "logo_filename": "zigram.png",
       "website": "",
       "category": "",
@@ -1385,6 +1582,7 @@
     },
     {
       "name": "Zolve",
+      "logo": "",
       "logo_filename": "Zolve.jpg",
       "website": "",
       "category": "",
@@ -1392,6 +1590,7 @@
     },
     {
       "name": "Zoop",
+      "logo": "",
       "logo_filename": "zoop.jpg",
       "website": "",
       "category": "",
@@ -1399,6 +1598,7 @@
     },
     {
       "name": "Zoven",
+      "logo": "",
       "logo_filename": "zoven.png",
       "website": "",
       "category": "",
