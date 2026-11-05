@@ -108,10 +108,15 @@ export default function CmsSignOutPage() {
         dangerouslySetInnerHTML={{
           __html: `
             (function () {
-              // 1. Purge Sveltia CMS authentication credentials and auto-auth flag
+              // 1. Purge Sveltia CMS authentication credentials, S3 secret key, and auto-auth flag
               try {
                 localStorage.removeItem('sveltia-cms.user');
                 sessionStorage.removeItem('fcc_auto_auth');
+                var prefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
+                if (prefs && prefs.apiKeys && prefs.apiKeys.aws_s3) {
+                  delete prefs.apiKeys.aws_s3;
+                  localStorage.setItem('sveltia-cms.prefs', JSON.stringify(prefs));
+                }
               } catch (e) {}
 
               var form = document.getElementById('signout-form');

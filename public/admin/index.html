@@ -35,8 +35,35 @@
               return;
             }
 
-            console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ACTIVE_MOUNTING_CMS');
-            initSveltiaCMS();
+            console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ACTIVE_PREPARING_CMS');
+
+            // Securely retrieve AWS S3 credentials and populate into Sveltia prefs
+            // before loading the Sveltia script so Sveltia reads them directly on startup.
+            return fetch('/api/cms-s3-credentials', { credentials: 'include', cache: 'no-store' })
+              .then(function (res) {
+                if (res.ok) {
+                  return res.json();
+                }
+                return null;
+              })
+              .then(function (data) {
+                if (data && data.secretAccessKey) {
+                  try {
+                    var prefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
+                    if (!prefs || typeof prefs !== 'object') prefs = {};
+                    if (!prefs.apiKeys || typeof prefs.apiKeys !== 'object') prefs.apiKeys = {};
+                    prefs.apiKeys.aws_s3 = data.secretAccessKey;
+                    localStorage.setItem('sveltia-cms.prefs', JSON.stringify(prefs));
+                  } catch (e) {
+                    console.warn('[CMS_S3] Failed to store S3 credentials into localStorage:', e);
+                  }
+                }
+                initSveltiaCMS();
+              })
+              .catch(function (err) {
+                console.warn('[CMS_S3] Could not fetch S3 credentials:', err);
+                initSveltiaCMS();
+              });
           })
           .catch(function () {
             console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ERROR_REDIRECTING_TO_LOGIN');
@@ -123,10 +150,15 @@
 
                   console.log('[CMS_AUTH_DIAGNOSTIC] SVELTIA_SIGNOUT_INTERCEPTED');
 
-                  // 1. Purge Sveltia CMS credentials and auto-auth flag
+                  // 1. Purge Sveltia CMS credentials, S3 secret key, and auto-auth flag
                   try {
                     localStorage.removeItem('sveltia-cms.user');
                     sessionStorage.removeItem('fcc_auto_auth');
+                    var prefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
+                    if (prefs && prefs.apiKeys && prefs.apiKeys.aws_s3) {
+                      delete prefs.apiKeys.aws_s3;
+                      localStorage.setItem('sveltia-cms.prefs', JSON.stringify(prefs));
+                    }
                   } catch (e) {}
 
                   // 2. Navigate to combined sign-out route (Auth.js + Microsoft Entra logout)

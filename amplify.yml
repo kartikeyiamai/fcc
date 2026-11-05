@@ -16,7 +16,7 @@ frontend:
     build:
       commands:
         # Make required server-side variables available to Next.js SSR
-        - env | grep -E '^(AUTH_SECRET|AUTH_URL|AUTH_TRUST_HOST|AUTH_MICROSOFT_ENTRA_ID_ID|AUTH_MICROSOFT_ENTRA_ID_SECRET|AUTH_MICROSOFT_ENTRA_ID_ISSUER|CMS_GITHUB_TOKEN|NEXTAUTH_URL|NEXT_PUBLIC_)' > .env.production || true
+        - env | grep -E '^(AUTH_SECRET|AUTH_URL|AUTH_TRUST_HOST|AUTH_MICROSOFT_ENTRA_ID_ID|AUTH_MICROSOFT_ENTRA_ID_SECRET|AUTH_MICROSOFT_ENTRA_ID_ISSUER|CMS_GITHUB_TOKEN|CMS_S3_SECRET_ACCESS_KEY|NEXTAUTH_URL|NEXT_PUBLIC_)' > .env.production || true
 
         # Build Next.js
         - npm run build
