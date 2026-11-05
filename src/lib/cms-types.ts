@@ -168,7 +168,8 @@ export type CommitteesContent = {
 
 export type MemberItem = {
   name: string;
-  logo_filename: string;
+  logo?: string;
+  logo_filename?: string;
   website?: string;
   category?: string;
   description?: string;

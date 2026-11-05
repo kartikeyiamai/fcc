@@ -78,7 +78,11 @@ export function SiteInteractions() {
       // Clear any prior tiles (Strict Mode remount)
       mg.innerHTML = "";
       if (az) az.innerHTML = "";
-      const tiles = FCC_MEMBERS.map(([n, fName]) => {
+      const tiles = FCC_MEMBERS.map((m) => {
+        const n = m.name;
+        const logo = m.logo?.trim();
+        const fName = m.logo_filename?.trim();
+
         const a = document.createElement("div");
         a.className = "mtile";
         a.dataset.n = n.toLowerCase();
@@ -88,17 +92,40 @@ export function SiteInteractions() {
         const av = document.createElement("div");
         av.className = "mono-av";
         av.textContent = initials(n);
-        if (fName) {
+
+        // Resolve logo source with priority:
+        // 1. member.logo (full S3 https URL or /uploads/... path)
+        // 2. member.logo_filename (legacy fintechcouncil.in URL)
+        let imgSrc = "";
+        if (logo) {
+          if (/^https?:\/\//i.test(logo)) {
+            imgSrc = logo;
+          } else {
+            imgSrc = logo.startsWith("/") ? logo : `/${logo}`;
+          }
+        } else if (fName) {
+          imgSrc = base + encodeURIComponent(fName);
+        }
+
+        // Show initials by default
+        lg.appendChild(av);
+
+        if (imgSrc) {
           const im = new Image();
           im.alt = n;
           im.loading = "lazy";
-          im.src = base + encodeURIComponent(fName);
+          im.src = imgSrc;
           im.onload = () => {
             lg.innerHTML = "";
             lg.appendChild(im);
           };
-          lg.appendChild(av);
-        } else lg.appendChild(av);
+          im.onerror = () => {
+            // Restore initials placeholder on load failure
+            lg.innerHTML = "";
+            lg.appendChild(av);
+          };
+        }
+
         const s = document.createElement("span");
         s.textContent = n;
         a.append(lg, s);

@@ -300,6 +300,13 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: Organization Name, name: name, widget: string }
+              - label: Logo
+                name: logo
+                widget: image
+                required: false
+                choose_url: false
+                media_library:
+                  name: aws_s3
               - { label: Logo Filename, name: logo_filename, widget: string, required: false }
               - { label: Website, name: website, widget: string, required: false }
               - { label: Membership Category, name: category, widget: string, required: false }

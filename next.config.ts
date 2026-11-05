@@ -4,6 +4,14 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fcc-cms-media.s3.ap-southeast-2.amazonaws.com",
+      },
+    ],
+  },
   async redirects() {
     return [
       {
