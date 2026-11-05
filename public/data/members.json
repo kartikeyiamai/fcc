@@ -6,7 +6,7 @@
   "items": [
     {
       "name": "ALT.DRX",
-      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
+      "logo": "",
       "logo_filename": "alt-drx.jpg",
       "website": "",
       "category": "",
@@ -14,7 +14,7 @@
     },
     {
       "name": "Ambak",
-      "logo": "",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
       "logo_filename": "ambak.png",
       "website": "",
       "category": "",
