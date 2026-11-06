@@ -35,8 +35,8 @@ export async function loadSiteSettings(): Promise<SiteSettings> {
           return {
             ...child,
             small: child.small
-              ? child.small.replace(/\b\d+(\+)?\s*companies/i, `${memberCount}+ companies`)
-              : `${memberCount}+ companies`,
+              ? child.small.replace(/\b\d+(\+)?\s*companies/i, `${memberCount} companies`)
+              : `${memberCount} companies`,
           };
         }
         return child;
@@ -66,8 +66,8 @@ export async function loadMembers(): Promise<MembersContent> {
   const memberCount = Array.isArray(members?.items) ? members.items.length : 200;
   const rawDesc = members.page?.description || "";
   const dynamicDescription = rawDesc
-    ? rawDesc.replace(/\b\d+(\+)?\s*companies/i, `${memberCount}+ companies`)
-    : `${memberCount}+ companies across lending, payments, insurance, investments, credit information and RegTech make up the council`;
+    ? rawDesc.replace(/\b\d+(\+)?\s*companies/i, `${memberCount} companies`)
+    : `${memberCount} companies across lending, payments, insurance, investments, credit information and RegTech make up the council`;
 
   return {
     ...members,
