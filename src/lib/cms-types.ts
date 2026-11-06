@@ -180,15 +180,17 @@ export type MembersContent = {
   items: MemberItem[];
 };
 
+export type PartnerItem = {
+  name: string;
+  description?: string;
+  website?: string;
+  category?: string;
+  logo?: string;
+};
+
 export type PartnersContent = {
-  page: { title: string; description: string };
-  items: {
-    name: string;
-    description: string;
-    website: string;
-    category: string;
-    logo?: string;
-  }[];
+  page: { title: string; description?: string };
+  items: PartnerItem[];
 };
 
 export type LiveEventsContent = {

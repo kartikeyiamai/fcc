@@ -1,4 +1,64 @@
-import type { PartnersContent } from "@/lib/cms-types";
+"use client";
+
+import { useState } from "react";
+import type { PartnersContent, PartnerItem } from "@/lib/cms-types";
+
+function getInitials(name: string): string {
+  const words = (name || "")
+    .replace(/[^A-Za-z0-9 ]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  if (words.length > 1) {
+    return (words[0][0] + words[1][0]).toUpperCase();
+  }
+  return (words[0] || name || "").slice(0, 2).toUpperCase();
+}
+
+function PartnerTile({ partner }: { partner: PartnerItem }) {
+  const [imgError, setImgError] = useState(false);
+  const rawLogo = (partner.logo || "").trim();
+  const imgSrc = rawLogo
+    ? /^https?:\/\//i.test(rawLogo)
+      ? rawLogo
+      : rawLogo.startsWith("/")
+      ? rawLogo
+      : `/${rawLogo}`
+    : "";
+
+  const tileContent = (
+    <>
+      <div className="logo">
+        {imgSrc && !imgError ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={imgSrc}
+            alt={partner.name}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="mono-av">{getInitials(partner.name)}</div>
+        )}
+      </div>
+      <span>{partner.name}</span>
+    </>
+  );
+
+  if (partner.website) {
+    return (
+      <a
+        className="mtile"
+        href={partner.website}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {tileContent}
+      </a>
+    );
+  }
+
+  return <div className="mtile">{tileContent}</div>;
+}
 
 export function PartnersPage({ content }: { content: PartnersContent }) {
   return (
@@ -64,7 +124,7 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
               <span className="eyebrow">Partner network</span>{" "}
               <h2>Building the ecosystem together</h2>{" "}
               <p className="lead">
-                Partner logos are shared here and on FCC's LinkedIn as part of every partnership.
+                Partner logos are shared here and on FCC&apos;s LinkedIn as part of every partnership.
               </p>
             </div>{" "}
             <a href="/apply-partnership" className="btn btn-primary">
@@ -72,246 +132,9 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
             </a>
           </div>
           <div className="mgrid reveal">
-            {content.items.map((partner) => (
-              <a
-                key={partner.name}
-                className="mtile"
-                href={partner.website || "#"}
-                target={partner.website ? "_blank" : undefined}
-                rel={partner.website ? "noopener" : undefined}
-              >
-                <div className="mono-av">{partner.name.slice(0, 2).toUpperCase()}</div>
-                <span>{partner.name}</span>
-              </a>
+            {(content?.items || []).map((partner) => (
+              <PartnerTile key={partner.name} partner={partner} />
             ))}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>{" "}
-            <div className="mtile" style={{ borderStyle: "dashed", background: "var(--bg)" }}>
-              <div className="mono-av" style={{ background: "#fff" }}>
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <span style={{ color: "var(--muted)" }}>Partner logo</span>
-            </div>
           </div>
         </div>
       </section>
@@ -834,7 +657,7 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
             </div>{" "}
             <div style={{ position: "relative" }}>
               <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Let's build something for the ecosystem.</h2>{" "}
+              <h2>Let&apos;s build something for the ecosystem.</h2>{" "}
               <p>
                 Partner with FCC to reach 175+ member companies through events, programmes and
                 knowledge sessions.

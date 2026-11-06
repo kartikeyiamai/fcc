@@ -334,7 +334,13 @@ collections:
               - { label: Description, name: description, widget: text }
               - { label: Website, name: website, widget: string, required: false }
               - { label: Partnership Category, name: category, widget: string, required: false }
-              - { label: Logo, name: logo, widget: image, required: false }
+              - label: Logo
+                name: logo
+                widget: image
+                required: false
+                choose_url: false
+                media_library:
+                  name: aws_s3
 
   - name: committees
     label: Committees
