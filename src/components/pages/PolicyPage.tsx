@@ -1,3 +1,138 @@
+import Link from "next/link";
+
+interface PolicyRepresentation {
+  id: string;
+  regulator: string;
+  dataR: string;
+  title: string;
+  tag: string;
+  paragraphs: string[];
+}
+
+const POLICY_REPRESENTATIONS: PolicyRepresentation[] = [
+  {
+    id: "fintech-lsps",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Fintech LSPs: The case for a better data access framework",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The concept note discusses the rapid growth of India's fintech sector and the importance of a clear and consistent data access framework for fintech companies.",
+      "Fintech companies are playing a crucial role in improving access to credit and enabling greater participation in the economy, particularly for underserved segments. However, certain restrictions under RBI guidelines on digital lending are impacting the ability of fintech companies to collect customer data, which is crucial for their growth and ability to innovate. The note proposes suggestions that may allow fintech LSPs to access data while balancing the regulatory objective to safeguard consumer interests and manage data privacy risks. The note also discusses the role of fintech LSPs, customer expectations from them, and the importance of personalized services and data security measures. The proposed suggestions prioritize data privacy and protection and aim to balance the needs of Fintech LSPs with the concerns of regulators.",
+    ],
+  },
+  {
+    id: "fldg",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "FLDG- A lever for financial inclusion",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The Fintech Convergence Council's Lending Council in India has identified First Loan Default Guarantee (FLDG) as a concern area in the lending industry.",
+      "The council has suggested mitigants to address the concerns, including linking FLDG to the underlying portfolio pool and capping it at 10% of receivables, ensuring FLDG is backed by cash or cash equivalent collateral for enforceability, and requiring disclosure of FLDG arrangements by Regulated Entities (REs) to regulators on a quarterly basis. The proposed mitigants aim to promote responsible growth, better financial inclusion, and credit expansion in India's aspirational economy.",
+    ],
+  },
+  {
+    id: "execution-only-platforms",
+    regulator: "SEBI",
+    dataR: "SEBI wealth",
+    title: "Framework for platforms providing “execution-only” services in direct plans of Mutual Funds",
+    tag: "Representation · SEBI · WealthTech",
+    paragraphs: [
+      "The (SEBI) has released a Consultation Paper on a regulatory framework for platforms providing execution-only services in direct plans of Mutual Funds.",
+      "The paper proposes Approach 2, which would require EOPs to obtain registration from AMFI and act as agents of AMC. The EOPs may receive a transaction-based fee from the AMC and a minimum-flat fee should be defined to cover platform costs. The proposal to allow EOPs to provide both financial and non-financial services is deemed appropriate. Cybersecurity-related requirements are sufficient, but data protection and KYC requirements should be established. Data sharing among divisions of a body corporate should be encouraged, and transparency and grievance redressal norms are adequate. EOPs should be allowed to connect through any exchange platform, and the EOP code should be considered for transaction-based fees.",
+    ],
+  },
+  {
+    id: "guidelines-digital-lending",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Guidelines on Digital Lending - Industry Representation",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The Reserve Bank of India (RBI) has released the 'Guidelines on Digital Lending,' which provide regulatory oversight on digital lending practices and offer clarity on operational and regulatory aspects concerning the digital lending arena.",
+      "The Guidelines have been positively received by the industry as a progressive step towards regulating the digital lending space while prioritizing customer protection at all levels. However, the industry is facing implementation challenges with certain clauses of the Guidelines, and they are seeking RBI's guidance to navigate through these changes. Some of the matters requiring consideration include implementation timelines, scope of digital lending, storage of data in servers located in India, loan disbursals, servicing, and repayment, digitally signed documents, and loss-sharing arrangement in case of default. The industry requests an extension of at least 6 months to comply with the Guidelines' requirements and seeks clarification on several clauses, including the scope of lending service providers and the retention of processing fees. The industry is excited about having an established regulatory environment governing digital lending in the future and is willing to support RBI in designing innovative use cases within the regulatory boundaries.",
+    ],
+  },
+  {
+    id: "msme-lending",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Industry Challenges and recommendations in MSME lending",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The Fintech Convergence Council (FCC), representing the MSME lending ecosystem, expresses its gratitude to the Reserve Bank of India for its support of fintech and the expansion of financial services.",
+      "While fintech has contributed to increased access to financial services, it has also presented the MSME sector with a unique opportunity for growth. FCC recommends that the RBI consider several critical issues affecting the sustainability and expansion of MSME lending, including concerns about FLDG arrangements, borrower classification in case of delinquencies, and co-lending arrangements between two REs. To address these concerns, FCC proposes several mitigants, such as linking FLDG to the underlying portfolio pool, requiring FLDG to be backed by collateral, and creating specific disclosures and monitoring mechanisms. FCC also requests clarification on co-lending arrangements between two REs and suggests incorporating loss sharing arrangements in case of default into the Digital Lending Circular.",
+    ],
+  },
+  {
+    id: "two-factor-authentication",
+    regulator: "SEBI",
+    dataR: "SEBI wealth",
+    title: "Industry recommendation on ‘Two-Factor Authentication for transactions in units of Mutual Funds’",
+    tag: "Representation · SEBI · WealthTech",
+    paragraphs: [
+      "The Securities and Exchange Board of India (SEBI) has mandated Two-Factor Authentication (2FA) for online subscription transactions of units of Mutual Funds from April 1, 2023, to ensure investor safety and security.",
+      "While the industry appreciates SEBI's investor-first approach, they, with the help of fintech convergence council have requested a review of the Circular to simplify the transaction experience for investors in specific scenarios. The industry has adopted all measures outlined by SEBI in its extant regulations regarding the implementation of the 2FA mechanism. The industry recommends exempting the 2FA mandate for net banking and UPI facilitated orders and enabling a 'time-window' for investors to undertake multiple orders within a single login session for MF Orders under OTM to improve efficiency and facilitate a seamless investor experience.",
+    ],
+  },
+  {
+    id: "digital-financial-service-providers",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Introduction of Regulatory Framework for Digital Financial Service Providers",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The FinTech Convergence Council (FCC) has put forward a regulatory framework for Digital Financial Service Providers (DFSPs) in India, which includes all FinTech entities involved in managing savings and current bank accounts in partnership with RBI licensed banks.",
+      "This framework is intended to set standards for good conduct, enable monitoring of DFSPs, and establish a fully regulated environment in the future. The proposed framework includes key components such as applicability to all DFSPs in India, adherence to principles such as good governance, transparency, customer protection, compliance, risk management, and information security, as well as compliance with Know Your Customer (KYC) norms and outsourcing guidelines. Additionally, it includes grievance redressal and disclosure mechanisms for customers, ensuring information security and partner bank visibility. The FCC also proposes to introduce a new concept of Digital Business Correspondent (Digital BC) by amending the current Business Correspondent Guidelines to expand digital banking services and enhance customer satisfaction.",
+    ],
+  },
+  {
+    id: "irdai-recommendations",
+    regulator: "IRDAI",
+    dataR: "IRDAI insur",
+    title: "Key Industry Recommendations for IRDAI's consideration",
+    tag: "Representation · IRDAI · InsurTech",
+    paragraphs: [
+      "The Insurance Regulatory and Development Authority of India (IRDAI) has taken proactive measures to encourage the growth of Insurance Technology (InsurTech) in India, leading to advancements in the sector through the use of artificial intelligence, big data, and the internet of things.",
+      "InsurTech players have successfully catered to the personalized needs of India's relatively underpenetrated insurance market, but their growth and innovation have been constrained due to the highly regulated nature of the industry. The FinTech Convergence Council suggests various recommendations for IRDAI's consideration, including relaxing the regulations around Point-of Sale Person (POSP) onboarding and permissible activities, enabling the Managing General Agent (MGA) model, and allowing Insurance Brokers to undertake Aadhaar Authentication for Insurance Companies. Other recommendations include the creation of a claims repository, the need for flexibility in the expense of management, and the removal of caps on commissions for various voluntary pure risk products and de-tariffed premiums",
+    ],
+  },
+  {
+    id: "lending-against-e-gold",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Representation against RBI regulations for Lending against e-Gold",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The representation highlights the restrictions imposed by the Reserve Bank of India (RBI) on lending against e-gold, as the current regulations only allow lending against gold jewelry.",
+      "The representation recommends increasing the limit of loan against coins to 100 grams and allowing e-gold loans up to 100 grams. This move is expected to encourage young investors to invest in smaller quantities of gold and subsequently borrow loans against such gold digitally with an e pledge form. The representation further suggests enabling FinTechs to work with RBI and SEBI to build e-gold loan products and integrating blockchain technology to trace, buy, sell, stock, pledge, accept, and release gold. The recommendations are expected to enhance and further e gold investments, increase liquidity, and help financial institutions enter first-level secured loans without physical infrastructure. The representation believes that e-gold loans offer convenience for consumers, safety for lenders, and can help further financial inclusion, especially for the rural population.",
+    ],
+  },
+  {
+    id: "p2p-lending",
+    regulator: "RBI",
+    dataR: "RBI lend",
+    title: "Representation on industry Concerns regarding Peer-to-Peer (P2P) Lending",
+    tag: "Representation · RBI · Digital Lending",
+    paragraphs: [
+      "The Fintech Convergence Council (FCC), representing the P2P lending ecosystem, expresses its gratitude to the Reserve Bank of India for its support of fintech and the expansion of financial services.",
+      "The P2P lending landscape in India has experienced significant growth, driven by technological advancements and supportive regulations from the Reserve Bank of India (RBI). With an estimated market size projected to reach $10.5 billion by 2026, the sector has transformed traditional borrowing, providing individuals and SMEs with faster and more cost-effective access to credit. The recommendations presented to the RBI include advocating for instant loan disbursals by placing responsibility on P2P platforms, proposing secured lending options to cater to borrowers with weak credit profiles, seeking tax concessions to categorize P2P lenders as debt-fund investors, and urging an increase in lending limits for both lenders and borrowers. These proposals aim to streamline operations, enhance financial inclusion, and stimulate economic growth through increased investments in P2P lending.",
+    ],
+  },
+  {
+    id: "nomination-mutual-fund",
+    regulator: "SEBI",
+    dataR: "SEBI wealth",
+    title: "Representation on Nomination for Mutual Fund Unit Holders",
+    tag: "Representation · SEBI · WealthTech",
+    paragraphs: [
+      "The Fintech Convergence Council (FCC) has raised concerns regarding the implementation of SEBI's circular on the subject of Nomination for Mutual Fund Unit Holders,",
+      "as operational clarity is still awaited from the Association of Mutual Funds in India (AMFI) despite an interim note issued by RTAs. The guidelines issued by RTAs have some operational challenges and may result in customer inconvenience and higher operational costs. The FCC requests clarifications on the definition of e-signatures, a list of authorized non-Aadhaar based e-sign providers, and an additional 30-day period for implementation to allow time for substantial IT changes to comply with proposed norms.",
+    ],
+  },
+];
+
 export function PolicyPage() {
   return (
     <>
@@ -5,12 +140,12 @@ export function PolicyPage() {
         <div className="wrap">
           <div>
             <div className="crumbs">
-              <a href="/">Home</a> <span>/</span> <a href="/policy">Policy &amp; Research</a>{" "}
+              <Link href="/">Home</Link> <span>/</span> <Link href="/policy">Policy &amp; Research</Link>{" "}
               <span>/</span>Policy
             </div>{" "}
             <h1>Policy</h1>{" "}
             <p>
-              How FCC carries the industry's voice to regulators and government: representations,
+              How FCC carries the industry&apos;s voice to regulators and government: representations,
               consultation responses and concept notes.
             </p>
           </div>{" "}
@@ -161,7 +296,7 @@ export function PolicyPage() {
             <div>
               <span className="eyebrow">Concept notes</span> <h2>Key representations</h2>{" "}
               <p className="lead">
-                In-depth notes setting out the industry's position on major regulatory questions.
+                In-depth notes setting out the industry&apos;s position on major regulatory questions.
               </p>
             </div>
           </div>
@@ -180,317 +315,42 @@ export function PolicyPage() {
             </button>
           </div>
           <div id="notes" style={{ display: "grid", gap: "12px" }}>
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Fintech LSPs: the case for a better data access framework</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
+            {POLICY_REPRESENTATIONS.map((rep) => (
+              <div className="rep" data-r={rep.dataR} key={rep.id}>
+                <div className="doc">{rep.regulator}</div>{" "}
+                <div className="rep-main">
+                  <h4>{rep.title}</h4>{" "}
+                  <p>{rep.tag}</p>
+                  <div className="rep-details">
+                    {rep.paragraphs.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </div>{" "}
+                <button
+                  type="button"
+                  className="go rep-toggle"
+                  aria-expanded="false"
+                  aria-label={`Read more about ${rep.title}`}
                 >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>FLDG: a lever for financial inclusion</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="SEBI wealth">
-              <div className="doc">SEBI</div>{" "}
-              <div>
-                <h4>
-                  Framework for platforms providing execution-only services in direct plans of
-                  mutual funds
-                </h4>{" "}
-                <p>Representation · SEBI · WealthTech</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Guidelines on digital lending: industry representation</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Industry challenges and recommendations in MSME lending</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="SEBI wealth">
-              <div className="doc">SEBI</div>{" "}
-              <div>
-                <h4>Two-factor authentication for mutual fund unit transactions</h4>{" "}
-                <p>Representation · SEBI · WealthTech</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Regulatory framework for Digital Financial Service Providers</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="IRDAI insur">
-              <div className="doc">IRDAI</div>{" "}
-              <div>
-                <h4>Key industry recommendations for IRDAI&#x27;s consideration</h4>{" "}
-                <p>Representation · IRDAI · InsurTech</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Representation against RBI regulations for lending against e-gold</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="RBI lend">
-              <div className="doc">RBI</div>{" "}
-              <div>
-                <h4>Industry concerns regarding peer-to-peer (P2P) lending</h4>{" "}
-                <p>Representation · RBI · Digital Lending</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>{" "}
-            <div className="rep" data-r="SEBI wealth">
-              <div className="doc">SEBI</div>{" "}
-              <div>
-                <h4>Nomination for mutual fund unit holders</h4>{" "}
-                <p>Representation · SEBI · WealthTech</p>
-              </div>{" "}
-              <a
-                href="https://www.fintechcouncil.in/policy.php"
-                target="_blank"
-                rel="noopener"
-                className="go link-arrow"
-              >
-                Read{" "}
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </a>
-            </div>
+                  <span className="rep-toggle-label">Read More</span>{" "}
+                  <svg
+                    className="rep-chevron"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </section>

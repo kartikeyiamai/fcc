@@ -175,6 +175,20 @@ export function SiteInteractions() {
       cleanups.push(() => f.removeEventListener("submit", onSubmit));
     });
 
+    const onRepClick = (e: MouseEvent) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>(".rep-toggle");
+      if (!btn) return;
+      e.preventDefault();
+      const rep = btn.closest<HTMLElement>(".rep");
+      if (!rep) return;
+      const isExpanded = rep.classList.toggle("expanded");
+      btn.setAttribute("aria-expanded", String(isExpanded));
+      const label = btn.querySelector<HTMLElement>(".rep-toggle-label");
+      if (label) label.textContent = isExpanded ? "Close" : "Read More";
+    };
+    document.addEventListener("click", onRepClick);
+    cleanups.push(() => document.removeEventListener("click", onRepClick));
+
     return () => cleanups.forEach((fn) => fn());
   }, []);
 
