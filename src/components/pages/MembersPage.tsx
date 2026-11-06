@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { MembersContent } from "@/lib/cms-types";
 
 export function MembersPage({ content }: { content: MembersContent }) {
@@ -7,7 +8,7 @@ export function MembersPage({ content }: { content: MembersContent }) {
         <div className="wrap">
           <div>
             <div className="crumbs">
-              <a href="/">Home</a> <span>/</span> <a href="/members">Membership</a> <span>/</span>
+              <Link href="/">Home</Link> <span>/</span> <Link href="/members">Membership</Link> <span>/</span>
               Our Members
             </div>{" "}
             <h1>{content.page?.title || "Our Members"}</h1>{" "}
@@ -104,7 +105,7 @@ export function MembersPage({ content }: { content: MembersContent }) {
               <input
                 id="msearch"
                 type="search"
-                placeholder="Search 200 members by name…"
+                placeholder={`Search ${content.items?.length || 200} members by name…`}
                 aria-label="Search members"
               />
             </div>{" "}
@@ -112,7 +113,10 @@ export function MembersPage({ content }: { content: MembersContent }) {
               Become a member
             </a>
           </div>
-          <div className="az" id="az"></div> <div className="count-line" id="mcount"></div>
+          <div className="az" id="az"></div>{" "}
+          <div className="count-line" id="mcount">
+            {`Showing ${content.items?.length || 200} of ${content.items?.length || 200} members`}
+          </div>
           <div className="mgrid" id="mgrid"></div>
         </div>
       </section>

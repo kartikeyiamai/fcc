@@ -322,7 +322,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;backgroun
 .timeline{position:relative;display:grid;gap:0}
 .timeline::before{content:"";position:absolute;left:110px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--red),var(--line))}
 .tl{display:grid;grid-template-columns:110px 1fr;gap:32px;padding-bottom:30px;position:relative}
-.tl .yr{font-family:var(--mono);font-weight:700;color:var(--red);text-align:right;padding-right:6px}
+.tl .yr{font-family:var(--mono);font-weight:700;color:var(--red);text-align:right;padding-right:18px}
 .tl .body{position:relative}
 .tl .body::before{content:"";position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--red)}
 .tl h4{font-size:1.02rem}
