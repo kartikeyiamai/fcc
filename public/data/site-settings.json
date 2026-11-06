@@ -77,28 +77,23 @@
       "children": [
         {
           "label": "Digital Lending",
-          "href": "/committees/digital-lending",
-          "small": "DL-01"
+          "href": "/committees/digital-lending"
         },
         {
           "label": "RegTech",
-          "href": "/committees/regtech",
-          "small": "RT-02"
+          "href": "/committees/regtech"
         },
         {
           "label": "WealthTech",
-          "href": "/committees/wealthtech",
-          "small": "WT-03"
+          "href": "/committees/wealthtech"
         },
         {
           "label": "InsurTech",
-          "href": "/committees/insurtech",
-          "small": "IT-04"
+          "href": "/committees/insurtech"
         },
         {
           "label": "Credit Bureau",
-          "href": "/committees/credit-bureau",
-          "small": "CB-05"
+          "href": "/committees/credit-bureau"
         }
       ]
     },
