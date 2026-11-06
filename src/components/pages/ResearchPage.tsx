@@ -918,7 +918,7 @@ export function ResearchPage({ content }: { content: PublicationsContent }) {
                 Annual reports
               </a>{" "}
               <a
-                href="http://iamai.in/introductionres"
+                href="https://www.iamai.in/search"
                 target="_blank"
                 rel="noopener"
                 className="btn btn-primary"
