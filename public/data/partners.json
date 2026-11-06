@@ -8,13 +8,15 @@
       "name": "Global Fintech Fest",
       "description": "Flagship industry gathering co-hosted with FCC.",
       "website": "https://globalfintechfest.com/",
-      "category": "Events"
+      "category": "Events",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg"
     },
     {
       "name": "IAMAI",
       "description": "Internet and Mobile Association of India — parent initiative of FCC.",
       "website": "https://www.iamai.in/",
-      "category": "Association"
+      "category": "Association",
+      "logo": ""
     }
   ]
 }
