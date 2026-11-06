@@ -486,7 +486,7 @@ export function AboutPage({ content }: { content: AboutContent }) {
                 ● inputs &amp; positions →
               </text>{" "}
               <text
-                x="520"
+                x="475"
                 y="340"
                 fill="#222"
                 fontFamily="JetBrains Mono"

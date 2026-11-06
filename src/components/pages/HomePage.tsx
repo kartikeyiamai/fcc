@@ -1,4 +1,4 @@
-﻿import type React from "react";
+import type React from "react";
 import type { CommitteeItem, HomepageContent } from "@/lib/cms-types";
 
 export function HomePage({
@@ -984,7 +984,7 @@ export function HomePage({
                 ● inputs &amp; positions →
               </text>{" "}
               <text
-                x="520"
+                x="475"
                 y="340"
                 fill="#222"
                 fontFamily="JetBrains Mono"
