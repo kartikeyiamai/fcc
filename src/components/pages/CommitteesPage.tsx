@@ -91,18 +91,6 @@ export function CommitteesPage({ content }: { content: CommitteesContent }) {
                   position: "relative",
                 }}
               >
-                <span
-                  className="mono"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "18px",
-                    color: "rgba(255,255,255,.7)",
-                    fontSize: ".72rem",
-                  }}
-                >
-                  DL-01
-                </span>{" "}
                 <svg viewBox="0 0 300 240" aria-hidden="true">
                   <circle
                     cx="150"
@@ -259,18 +247,6 @@ export function CommitteesPage({ content }: { content: CommitteesContent }) {
                   position: "relative",
                 }}
               >
-                <span
-                  className="mono"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "18px",
-                    color: "rgba(255,255,255,.7)",
-                    fontSize: ".72rem",
-                  }}
-                >
-                  RT-02
-                </span>{" "}
                 <svg viewBox="0 0 300 240" aria-hidden="true">
                   <circle
                     cx="150"
@@ -410,18 +386,6 @@ export function CommitteesPage({ content }: { content: CommitteesContent }) {
                   position: "relative",
                 }}
               >
-                <span
-                  className="mono"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "18px",
-                    color: "rgba(255,255,255,.7)",
-                    fontSize: ".72rem",
-                  }}
-                >
-                  WT-03
-                </span>{" "}
                 <svg viewBox="0 0 300 240" aria-hidden="true">
                   <circle
                     cx="150"
@@ -608,18 +572,6 @@ export function CommitteesPage({ content }: { content: CommitteesContent }) {
                   position: "relative",
                 }}
               >
-                <span
-                  className="mono"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "18px",
-                    color: "rgba(255,255,255,.7)",
-                    fontSize: ".72rem",
-                  }}
-                >
-                  IT-04
-                </span>{" "}
                 <svg viewBox="0 0 300 240" aria-hidden="true">
                   <circle
                     cx="150"
@@ -763,18 +715,6 @@ export function CommitteesPage({ content }: { content: CommitteesContent }) {
                   position: "relative",
                 }}
               >
-                <span
-                  className="mono"
-                  style={{
-                    position: "absolute",
-                    top: "16px",
-                    left: "18px",
-                    color: "rgba(255,255,255,.7)",
-                    fontSize: ".72rem",
-                  }}
-                >
-                  CB-05
-                </span>{" "}
                 <svg viewBox="0 0 300 240" aria-hidden="true">
                   <circle
                     cx="150"

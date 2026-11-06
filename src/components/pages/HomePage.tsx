@@ -1013,7 +1013,6 @@ export function HomePage({
           <div className="cards5 reveal">
             {committees.map((committee) => (
               <a href={committee.href} className="ccard" key={committee.slug}>
-                <span className="code">{committee.code}</span>{" "}
                 <div className="icon-box">
                   <svg
                     width="22"
@@ -1813,7 +1812,7 @@ export function HomePage({
               <div style={{ position: "relative" }}>
                 <small>Flagship event</small> <h3>Global Fintech Fest</h3>{" "}
                 <p style={{ maxWidth: "420px", opacity: ".92" }}>
-                  One of the world's largest fintech gatherings, bringing regulators, banks,
+                  One of the world&apos;s largest fintech gatherings, bringing regulators, banks,
                   fintechs and investors together in Mumbai every year.
                 </p>
               </div>{" "}
@@ -2147,7 +2146,7 @@ export function HomePage({
               <h2>{membersSection.heading}</h2>{" "}
               <p className="lead">
                 Lenders, banks, insurers, investment platforms, bureaus and RegTech firms shape the
-                council's work.
+                council&apos;s work.
               </p>
             </div>{" "}
             <a href="/members" className="btn btn-outline">
