@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { LiveEventsContent } from "@/lib/cms-types";
 
 export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
@@ -7,7 +8,8 @@ export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
         <div className="wrap">
           <div>
             <div className="crumbs">
-              <a href="/">Home</a> <span>/</span> <a href="/live-events">Events</a> <span>/</span>
+              <Link href="/">Home</Link> <span>/</span> <Link href="/live-events">Events</Link>{" "}
+              <span>/</span>
               Live Events
             </div>{" "}
             <h1>{content.page.title}</h1>{" "}
@@ -568,7 +570,7 @@ export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
               <div style={{ position: "relative" }}>
                 <small>Flagship · Co-hosted by FCC</small> <h3>Global Fintech Fest</h3>{" "}
                 <p style={{ maxWidth: "440px", opacity: ".92" }}>
-                  Since its first edition in 2020, GFF has grown into one of the world's largest
+                  Since its first edition in 2020, GFF has grown into one of the world&apos;s largest
                   fintech gatherings, bringing regulators, banks, fintechs and investors together in
                   Mumbai.
                 </p>
@@ -639,107 +641,32 @@ export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
         <div className="wrap split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">Timeline</span> <h2>Every live event</h2>{" "}
-            <p className="lead">From FCC's launch in 2018 to its latest delegations abroad.</p>
+            <p className="lead">From FCC&apos;s launch in 2018 to its latest delegations abroad.</p>
           </div>
           <div className="timeline reveal">
-            <div className="tl">
-              <div className="yr">2025</div>{" "}
-              <div className="body">
-                <span className="tag g" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Industry delegation
-                </span>{" "}
-                <h4>
-                  <a href="https://globalfintechfest.com/" target="_blank" rel="noopener">
-                    Mission Trip to Japan ↗
-                  </a>
-                </h4>{" "}
-                <p>12–16 May 2025 · Tokyo, Japan</p>
+            {(content.items || []).map((item, idx) => (
+              <div className="tl" key={`${item.year}-${idx}`}>
+                <div className="yr">{item.year}</div>{" "}
+                <div className="body">
+                  <span
+                    className={item.tag_style ? `tag ${item.tag_style}` : "tag"}
+                    style={{ marginBottom: "6px", display: "inline-block" }}
+                  >
+                    {item.tag || "Flagship"}
+                  </span>{" "}
+                  <h4>
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener">
+                        {item.title}
+                      </a>
+                    ) : (
+                      item.title
+                    )}
+                  </h4>{" "}
+                  <p>{item.date_venue || [item.date_label, item.location].filter(Boolean).join(" · ")}</p>
+                </div>
               </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2024</div>{" "}
-              <div className="body">
-                <span className="tag g" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Showcase
-                </span>{" "}
-                <h4>India&#x27;s Innovation for the World</h4> <p>19 Dec 2024 · India</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2024</div>{" "}
-              <div className="body">
-                <span className="tag" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Flagship
-                </span>{" "}
-                <h4>
-                  <a href="https://globalfintechfest.com/" target="_blank" rel="noopener">
-                    Global Fintech Fest 2024 ↗
-                  </a>
-                </h4>{" "}
-                <p>28–30 Aug 2024 · Jio World Centre, Mumbai</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2023</div>{" "}
-              <div className="body">
-                <span className="tag" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Flagship
-                </span>{" "}
-                <h4>
-                  <a href="https://globalfintechfest.com/2023/" target="_blank" rel="noopener">
-                    Global Fintech Fest 2023 ↗
-                  </a>
-                </h4>{" "}
-                <p>5–7 Sep 2023 · Jio World Centre, Mumbai</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2022</div>{" "}
-              <div className="body">
-                <span className="tag" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Flagship
-                </span>{" "}
-                <h4>
-                  <a href="https://www.globalfintechfest.com/2022/" target="_blank" rel="noopener">
-                    Global Fintech Fest 2022 ↗
-                  </a>
-                </h4>{" "}
-                <p>20–22 Sep 2022 · Mumbai</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2021</div>{" "}
-              <div className="body">
-                <span className="tag" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Flagship
-                </span>{" "}
-                <h4>
-                  <a href="https://www.globalfintechfest.com/2021/" target="_blank" rel="noopener">
-                    Global Fintech Fest 2021 ↗
-                  </a>
-                </h4>{" "}
-                <p>28–30 Sep 2021 · Virtual</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2020</div>{" "}
-              <div className="body">
-                <span className="tag" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Flagship · First edition
-                </span>{" "}
-                <h4>Global Fintech Fest 2020</h4> <p>22–23 Jul 2020 · Virtual</p>
-              </div>
-            </div>{" "}
-            <div className="tl">
-              <div className="yr">2018</div>{" "}
-              <div className="body">
-                <span className="tag g" style={{ marginBottom: "6px", display: "inline-block" }}>
-                  Milestone
-                </span>{" "}
-                <h4>Launch of Fintech Convergence Council</h4>{" "}
-                <p>19 Sep 2018 · The St. Regis, Mumbai</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

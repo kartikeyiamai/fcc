@@ -391,23 +391,23 @@ collections:
               - { label: Location, name: location, widget: string }
               - { label: URL, name: href, widget: string }
               - { label: CTA Label, name: cta_label, widget: string }
-          - label: Events
+          - label: Timeline Events
             name: items
             widget: list
-            summary: "{{fields.title}}"
+            summary: "{{fields.year}}: {{fields.title}}"
             fields:
-              - { label: Title, name: title, widget: string }
               - { label: Year, name: year, widget: string }
-              - { label: Date Label, name: date_label, widget: string }
-              - { label: Location, name: location, widget: string }
-              - { label: Link, name: href, widget: string }
-              - { label: Cover Image, name: cover_image, widget: image, required: false }
-              - { label: Registration Link, name: registration_link, widget: string, required: false }
-              - label: Status
-                name: status
+              - { label: Tag, name: tag, widget: string, default: "FLAGSHIP" }
+              - label: Tag Color
+                name: tag_style
                 widget: select
                 required: false
-                options: [upcoming, past, live]
+                options:
+                  - { label: "Red (Default)", value: "" }
+                  - { label: "Green (Delegation / Showcase / Milestone)", value: "g" }
+              - { label: Title, name: title, widget: string }
+              - { label: Date and Venue, name: date_venue, widget: string }
+              - { label: Link, name: href, widget: string, required: false }
 
   - name: virtual_events
     label: Virtual Events

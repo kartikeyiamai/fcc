@@ -193,16 +193,21 @@ export type PartnersContent = {
   items: PartnerItem[];
 };
 
+export type LiveEventItem = {
+  year: string;
+  tag?: string;
+  tag_style?: string;
+  title: string;
+  date_venue?: string;
+  date_label?: string;
+  location?: string;
+  href?: string;
+};
+
 export type LiveEventsContent = {
   page: { title: string; description: string };
   flagship: HomepageContent["events_section"]["flagship"];
-  items: {
-    title: string;
-    year: string;
-    date_label: string;
-    location: string;
-    href: string;
-  }[];
+  items: LiveEventItem[];
 };
 
 export type VirtualEventsContent = {

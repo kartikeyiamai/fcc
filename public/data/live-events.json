@@ -13,32 +13,84 @@
   },
   "items": [
     {
-      "title": "Mission Trip to Japan",
+      "year": "2026",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2026 ↗",
+      "date_venue": "8–11 Sep 2026 · Jio World Centre & Trident, BKC, Mumbai",
+      "href": "https://globalfintechfest.com/"
+    },
+    {
       "year": "2025",
-      "date_label": "12–16 May",
-      "location": "Tokyo, Japan",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2025 ↗",
+      "date_venue": "7–9 Oct 2025 · Jio World Centre, Mumbai",
       "href": "https://globalfintechfest.com/"
     },
     {
+      "year": "2025",
+      "tag": "Industry delegation",
+      "tag_style": "g",
+      "title": "Mission Trip to Japan ↗",
+      "date_venue": "12–16 May 2025 · Tokyo, Japan",
+      "href": "https://globalfintechfest.com/"
+    },
+    {
+      "year": "2024",
+      "tag": "Showcase",
+      "tag_style": "g",
       "title": "India's Innovation for the World",
-      "year": "2024",
-      "date_label": "19 Dec",
-      "location": "India",
-      "href": "/live-events"
+      "date_venue": "19 Dec 2024 · India",
+      "href": ""
     },
     {
-      "title": "Global Fintech Fest 2024",
       "year": "2024",
-      "date_label": "28–30 Aug",
-      "location": "Jio World Centre, Mumbai",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2024 ↗",
+      "date_venue": "28–30 Aug 2024 · Jio World Centre, Mumbai",
       "href": "https://globalfintechfest.com/"
     },
     {
-      "title": "Global Fintech Fest 2023",
       "year": "2023",
-      "date_label": "5–7 Sep",
-      "location": "Jio World Centre, Mumbai",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2023 ↗",
+      "date_venue": "5–7 Sep 2023 · Jio World Centre, Mumbai",
       "href": "https://globalfintechfest.com/2023/"
+    },
+    {
+      "year": "2022",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2022 ↗",
+      "date_venue": "20–22 Sep 2022 · Mumbai",
+      "href": "https://www.globalfintechfest.com/2022/"
+    },
+    {
+      "year": "2021",
+      "tag": "FLAGSHIP",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2021 ↗",
+      "date_venue": "28–30 Sep 2021 · Virtual",
+      "href": "https://www.globalfintechfest.com/2021/"
+    },
+    {
+      "year": "2020",
+      "tag": "Flagship · First edition",
+      "tag_style": "",
+      "title": "Global Fintech Fest 2020",
+      "date_venue": "22–23 Jul 2020 · Virtual",
+      "href": ""
+    },
+    {
+      "year": "2018",
+      "tag": "Milestone",
+      "tag_style": "g",
+      "title": "Launch of Fintech Convergence Council",
+      "date_venue": "19 Sep 2018 · The St. Regis, Mumbai",
+      "href": ""
     }
   ]
 }
