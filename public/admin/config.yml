@@ -6,7 +6,7 @@
 app_title: FCC CMS
 
 logo:
-  src: /fcc-logo.svg
+  src: /FCC-Logo-main.png
   show_in_header: true
 
 backend:

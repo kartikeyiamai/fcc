@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    FCC — Fintech Convergence Council · Design system
    Brand colours taken from fintechcouncil.in
    ========================================================= */
@@ -46,6 +46,7 @@ section{padding:88px 0}
 header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:#fff;box-shadow:0 1px 0 var(--line)}
 .row1 .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
 .brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand-logo{height:42px;width:auto;max-width:140px;object-fit:contain;display:block}
 .brand-mark{width:42px;height:42px;border-radius:11px;background:var(--red);display:grid;place-items:center;color:#fff;font-weight:800;font-size:.9rem;position:relative;letter-spacing:.02em}
 .brand-mark::after{content:"";position:absolute;right:-4px;bottom:-4px;width:14px;height:14px;border-radius:50%;background:var(--grey);border:3px solid #fff}
 .brand-text strong{display:block;color:var(--charcoal);font-size:.94rem;line-height:1.1;white-space:nowrap}
@@ -370,6 +371,7 @@ footer a:hover{color:var(--red-bright)}
 footer .brand-text strong{color:#fff;font-weight:700;font-size:.94rem}
 footer .brand-text span{color:#999;font-weight:400;font-size:.7rem}
 footer .brand-mark::after{border-color:#1A1A1A}
+footer .brand-logo{background:#fff;padding:4px 8px;border-radius:8px;height:42px;width:auto;max-width:140px;object-fit:contain;display:block}
 .newsletter{display:flex;margin-top:14px;background:#262626;border-radius:999px;padding:4px;border:1px solid #333}
 .newsletter input{flex:1;background:transparent;border:0;color:#fff;padding:8px 14px;font:inherit;font-size:.85rem;font-weight:400;min-width:0}
 .newsletter input:focus{outline:0}

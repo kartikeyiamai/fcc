@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { NavItem, SiteSettings } from "@/lib/cms-types";
 
 function Chevron() {
@@ -26,7 +27,14 @@ export function SiteHeader({ active, settings }: { active: string; settings: Sit
       <div className="row1">
         <div className="wrap">
           <Link href="/" className="brand" aria-label="FCC home">
-            <div className="brand-mark">{settings.brand_mark}</div>
+            <Image
+              src="/FCC-Logo-main.png"
+              alt={settings.brand_name || "FCC"}
+              width={95}
+              height={42}
+              className="brand-logo"
+              priority
+            />
             <div className="brand-text">
               <strong>{settings.brand_name}</strong>
               <span>{settings.brand_tagline}</span>

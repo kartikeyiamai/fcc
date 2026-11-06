@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FormEvent } from "react";
 import type { SiteSettings } from "@/lib/cms-types";
 
@@ -18,8 +19,14 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
       <div className="wrap">
         <div className="foot">
           <div>
-            <Link href="/" className="brand">
-              <div className="brand-mark">{settings.brand_mark}</div>
+            <Link href="/" className="brand" aria-label="FCC home">
+              <Image
+                src="/FCC-Logo-main.png"
+                alt={settings.brand_name || "FCC"}
+                width={95}
+                height={42}
+                className="brand-logo"
+              />
               <div className="brand-text">
                 <strong>{settings.brand_name}</strong>
                 <span>An IAMAI initiative</span>
