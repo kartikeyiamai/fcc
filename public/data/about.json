@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "About FCC",
-    "description": "An industry council that brings policymakers, regulators and fintech companies together to grow financial services and widen inclusion across India.\nthis is to test everything."
+    "description": "An industry council that brings policymakers, regulators and fintech companies together to grow financial services and widen inclusion across India."
   },
   "overview": {
     "eyebrow": "Overview",
@@ -22,7 +22,8 @@
         "Submit feedback on papers released for public comment",
         "Share proactive opinions with lawmakers",
         "Work with government and regulators on a fair policy environment",
-        "Collaborate with other associations"
+        "Collaborate with other associations",
+        "this is for testing the new item creation"
       ]
     },
     {
