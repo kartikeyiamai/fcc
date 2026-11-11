@@ -1,4 +1,8 @@
 {
+  "page": {
+    "title": "Committees",
+    "description": "Five sector committees lead FCC's work, each bringing together member companies to share best practice, discuss industry issues and shape representations."
+  },
   "items": [
     {
       "slug": "digital-lending",
@@ -44,10 +48,15 @@
       "description": "Credit information, inclusion and prudent lending through advocacy.",
       "chair_name": "Open for nominations",
       "chair_role": "Chair to be announced"
+    },
+    {
+      "slug": "test-committee",
+      "code": "CB-06",
+      "name": "Test Committee",
+      "href": "/Test Committee",
+      "description": "this is for testing the committee listing",
+      "chair_name": "Himanshu",
+      "chair_role": "PMO"
     }
-  ],
-  "page": {
-    "title": "Committees",
-    "description": "Five sector committees lead FCC's work, each bringing together member companies to share best practice, discuss industry issues and shape representations."
-  }
+  ]
 }
