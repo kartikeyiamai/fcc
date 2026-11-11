@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "About FCC",
-    "description": "An industry council that brings policymakers, regulators and fintech companies together to grow financial services and widen inclusion across India."
+    "description": "An industry council that brings policymakers, regulators and fintech companies together to grow financial services and widen inclusion across India.\nthis is to test everything."
   },
   "overview": {
     "eyebrow": "Overview",
@@ -16,6 +16,7 @@
   "pillars": [
     {
       "title": "Advocacy",
+      "description": "",
       "items": [
         "Review regulatory, legal and policy developments, including drafts",
         "Submit feedback on papers released for public comment",
@@ -26,11 +27,13 @@
     },
     {
       "title": "Convergence & collaboration",
-      "description": "We find opportunities for large financial institutions in banking, payments, insurance and investments to work with fintech companies, so both sides grow faster."
+      "description": "We find opportunities for large financial institutions in banking, payments, insurance and investments to work with fintech companies, so both sides grow faster.",
+      "items": []
     },
     {
       "title": "Development",
-      "description": "Through committees, best-practice sharing, industry discussions and knowledge sessions, we help the sector mature and reach more people."
+      "description": "Through committees, best-practice sharing, industry discussions and knowledge sessions, we help the sector mature and reach more people.",
+      "items": []
     }
   ],
   "journey": {
