@@ -77,23 +77,28 @@
       "children": [
         {
           "label": "Digital Lending",
-          "href": "/committees/digital-lending"
+          "href": "/committees/digital-lending",
+          "small": ""
         },
         {
           "label": "RegTech",
-          "href": "/committees/regtech"
+          "href": "/committees/regtech",
+          "small": ""
         },
         {
           "label": "WealthTech",
-          "href": "/committees/wealthtech"
+          "href": "/committees/wealthtech",
+          "small": ""
         },
         {
           "label": "InsurTech",
-          "href": "/committees/insurtech"
+          "href": "/committees/insurtech",
+          "small": ""
         },
         {
           "label": "Credit Bureau",
-          "href": "/committees/credit-bureau"
+          "href": "/committees/credit-bureau",
+          "small": ""
         }
       ]
     },
@@ -259,6 +264,15 @@
         {
           "label": "Partnerships",
           "href": "/partners"
+        }
+      ]
+    },
+    {
+      "title": "Test Footer Coulmn",
+      "links": [
+        {
+          "label": "test",
+          "href": "/contact"
         }
       ]
     }
