@@ -17,6 +17,13 @@
       "website": "https://www.iamai.in/",
       "category": "Association",
       "logo": ""
+    },
+    {
+      "name": "Test Partner",
+      "description": "This is for testing",
+      "website": "https://www.iamai.in/",
+      "category": "test category",
+      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg"
     }
   ]
 }
