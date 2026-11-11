@@ -9,28 +9,45 @@
       "day": "02",
       "month": "Apr 2026",
       "time": "3:30–4:30 PM IST · Virtual",
-      "year_tag": "y2026"
+      "year_tag": "y2026",
+      "cover_image": "",
+      "registration_link": ""
     },
     {
       "title": "Alternative Investment Funds in India: FY 2025 in review",
       "day": "17",
       "month": "Mar 2026",
       "time": "3:00 PM IST · Virtual",
-      "year_tag": "y2026"
+      "year_tag": "y2026",
+      "cover_image": "",
+      "registration_link": ""
     },
     {
       "title": "Evolving GST implementation: law and practice",
       "day": "16",
       "month": "Mar 2026",
       "time": "3:00–4:30 PM IST · Virtual",
-      "year_tag": "y2026"
+      "year_tag": "y2026",
+      "cover_image": "",
+      "registration_link": ""
     },
     {
       "title": "RE–LSP compliance essentials",
       "day": "13",
       "month": "Mar 2026",
       "time": "3:00–4:00 PM IST · Virtual",
-      "year_tag": "y2026"
+      "year_tag": "y2026",
+      "cover_image": "",
+      "registration_link": ""
+    },
+    {
+      "title": "Test Event",
+      "day": "2",
+      "month": "2",
+      "time": "3:00-4:30PM",
+      "year_tag": "yyyy",
+      "cover_image": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg",
+      "registration_link": "NA"
     }
   ]
 }
