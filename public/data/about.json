@@ -29,12 +29,16 @@
     {
       "title": "Convergence & collaboration",
       "description": "We find opportunities for large financial institutions in banking, payments, insurance and investments to work with fintech companies, so both sides grow faster.",
-      "items": []
+      "items": [
+        "this is for testing this section"
+      ]
     },
     {
       "title": "Development",
       "description": "Through committees, best-practice sharing, industry discussions and knowledge sessions, we help the sector mature and reach more people.",
-      "items": []
+      "items": [
+        "Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing"
+      ]
     }
   ],
   "journey": {
