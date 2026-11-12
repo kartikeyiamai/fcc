@@ -271,7 +271,155 @@ export type PartnerItem = {
 
 export type PartnersContent = {
   page: { title: string; description?: string };
+  partner_network?: {
+    eyebrow?: string;
+    heading: string;
+    lead?: string;
+    cta_label?: string;
+    cta_href?: string;
+  };
   items: PartnerItem[];
+  what_we_do?: {
+    eyebrow?: string;
+    heading: string;
+    see_all_label?: string;
+    see_all_href?: string;
+    items: { title: string }[];
+  };
+  bottom_cta?: {
+    eyebrow?: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
+};
+
+export type MembershipBenefitsContent = {
+  hero: {
+    title: string;
+    description: string;
+  };
+  why_join: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    card_title?: string;
+    card_member_tag?: string;
+    card_member_of?: string;
+    card_sub_note?: string;
+  };
+  benefits_section: {
+    eyebrow: string;
+    heading: string;
+    items: {
+      num: string;
+      title: string;
+      description: string;
+    }[];
+    ready_card: {
+      title: string;
+      subtitle: string;
+      href: string;
+    };
+  };
+  process_section: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    steps: {
+      num: string;
+      title: string;
+      description: string;
+    }[];
+  };
+};
+
+export type ApplyMembershipContent = {
+  hero: {
+    title: string;
+    description: string;
+  };
+  sidebar: {
+    what_happens_next: {
+      eyebrow: string;
+      steps: {
+        num: string;
+        title: string;
+        description: string;
+      }[];
+    };
+    need_help: {
+      heading: string;
+      lead?: string;
+      phone: string;
+      phone_href: string;
+      email: string;
+    };
+  };
+};
+
+export type PartnershipBenefitsContent = {
+  hero: {
+    title: string;
+    description: string;
+  };
+  reach: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    cta_label: string;
+    cta_href: string;
+  };
+  benefits_section: {
+    eyebrow: string;
+    heading: string;
+    items: {
+      title: string;
+      description: string;
+    }[];
+  };
+  bottom_cta: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
+};
+
+export type ApplyPartnershipContent = {
+  hero: {
+    title: string;
+    description: string;
+  };
+  sidebar: {
+    how_it_works: {
+      eyebrow: string;
+      steps: {
+        num: string;
+        title: string;
+        description: string;
+      }[];
+    };
+    need_help: {
+      heading: string;
+      lead?: string;
+      phone: string;
+      phone_href: string;
+      email: string;
+    };
+  };
 };
 
 export type LiveEventItem = {

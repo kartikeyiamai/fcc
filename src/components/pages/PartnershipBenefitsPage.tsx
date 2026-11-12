@@ -1,6 +1,18 @@
 import membersData from "../../../public/data/members.json";
+import type { PartnershipBenefitsContent } from "@/lib/cms-types";
 
-export function PartnershipBenefitsPage() {
+const partnerBenefitIcons = [
+  // 01 Access to the ecosystem
+  <svg key="0" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2.5"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.5-4.5 3-4.5S21 17.5 21 20"></path></svg>,
+  // 02 Collaborations
+  <svg key="1" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path><path d="M2 12l4-4 4 4M22 8l-4 4"></path></svg>,
+  // 03 Branding
+  <svg key="2" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 11v2a2 2 0 0 0 2 2h2l5 4V5L7 9H5a2 2 0 0 0-2 2zM16 8a5 5 0 0 1 0 8"></path></svg>,
+  // 04 Knowledge exchange
+  <svg key="3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"></path></svg>,
+];
+
+export function PartnershipBenefitsPage({ content }: { content: PartnershipBenefitsContent }) {
   const memberCount = Array.isArray(membersData?.items) ? membersData.items.length : 201;
   return (
     <>
@@ -11,8 +23,8 @@ export function PartnershipBenefitsPage() {
               <a href="/">Home</a> <span>/</span> <a href="/partners">Partnership</a> <span>/</span>
               Benefits
             </div>{" "}
-            <h1>Partnership Benefits</h1>{" "}
-            <p>Why organisations partner with the Fintech Convergence Council.</p>
+            <h1>{content.hero?.title || "Partnership Benefits"}</h1>{" "}
+            <p>{content.hero?.description || "Why organisations partner with the Fintech Convergence Council."}</p>
           </div>{" "}
           <div className="ph-art">
             <svg viewBox="0 0 300 240" aria-hidden="true">
@@ -61,15 +73,15 @@ export function PartnershipBenefitsPage() {
       <section>
         <div className="wrap split">
           <div className="reveal">
-            <span className="eyebrow">Partner with FCC</span>{" "}
-            <h2>Reach the people building Indian fintech</h2>{" "}
+            <span className="eyebrow">{content.reach?.eyebrow || "Partner with FCC"}</span>{" "}
+            <h2>{content.reach?.heading || "Reach the people building Indian fintech"}</h2>{" "}
             <p className="lead">
-              Partnerships connect your organisation with FCC's member companies, committees and
-              audience, through programmes that benefit everyone involved.
+              {content.reach?.lead ||
+                "Partnerships connect your organisation with FCC's member companies, committees and audience, through programmes that benefit everyone involved."}
             </p>
             <div style={{ marginTop: "28px" }}>
-              <a href="/apply-partnership" className="btn btn-primary">
-                Apply for partnership
+              <a href={content.reach?.cta_href || "/apply-partnership"} className="btn btn-primary">
+                {content.reach?.cta_label || "Apply for partnership"}
               </a>
             </div>
           </div>
@@ -141,98 +153,26 @@ export function PartnershipBenefitsPage() {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Benefits</span> <h2>Four ways partners benefit</h2>
+              <span className="eyebrow">{content.benefits_section?.eyebrow || "Benefits"}</span>{" "}
+              <h2>{content.benefits_section?.heading || "Four ways partners benefit"}</h2>
             </div>
           </div>
           <div className="grid-2 reveal">
-            <div className="benefit">
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="9" cy="8" r="3"></circle> <circle cx="17" cy="10" r="2.5"></circle>{" "}
-                  <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 20c0-2.5 1.5-4.5 3-4.5S21 17.5 21 20"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <h4>Access to the ecosystem</h4>{" "}
-                <p>
-                  Access to FCC members for events, programmes, workshops, think tanks, hackathons
-                  and knowledge sessions you organise.
-                </p>
+            {(content.benefits_section?.items || []).map((b, idx) => (
+              <div className="benefit" key={idx}>
+                <div className="icon-box">
+                  {partnerBenefitIcons[idx] || (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"></path>
+                    </svg>
+                  )}
+                </div>{" "}
+                <div>
+                  <h4>{b.title}</h4>{" "}
+                  <p>{b.description}</p>
+                </div>
               </div>
-            </div>{" "}
-            <div className="benefit">
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <h4>Collaborations</h4>{" "}
-                <p>Work together on programmes and initiatives built around shared goals.</p>
-              </div>
-            </div>{" "}
-            <div className="benefit">
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M3 11v2a2 2 0 0 0 2 2h2l5 4V5L7 9H5a2 2 0 0 0-2 2zM16 8a5 5 0 0 1 0 8"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <h4>Branding</h4> <p>FCC shares your company logo on its website and LinkedIn.</p>
-              </div>
-            </div>{" "}
-            <div className="benefit">
-              <div className="icon-box">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"></path>
-                </svg>
-              </div>{" "}
-              <div>
-                <h4>Knowledge exchange</h4>{" "}
-                <p>Share expertise with FCC members, and learn from theirs.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -652,23 +592,38 @@ export function PartnershipBenefitsPage() {
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Ready to partner with FCC?</h2>{" "}
-              <p>Tell us about your organisation and we'll find the right way to work together.</p>
+              <span className="eyebrow">
+                {content.bottom_cta?.eyebrow || "Membership & partnership"}
+              </span>{" "}
+              <h2>{content.bottom_cta?.heading || "Ready to partner with FCC?"}</h2>{" "}
+              <p>
+                {content.bottom_cta?.description ||
+                  "Tell us about your organisation and we'll find the right way to work together."}
+              </p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a
+                  href={content.bottom_cta?.primary_cta_href || "/apply-membership"}
+                  className="btn btn-light"
+                >
+                  {content.bottom_cta?.primary_cta_label || "Apply for membership"}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a
+                  href={content.bottom_cta?.secondary_cta_href || "/apply-partnership"}
+                  className="btn btn-ghost"
+                >
+                  {content.bottom_cta?.secondary_cta_label || "Partner with us"}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {(content.bottom_cta?.benefits || [
+                "Direct input into representations to regulators",
+                "A seat on sector committees with industry peers",
+                "Complimentary passes to FCC and IAMAI conferences",
+                "Members-only roundtables and every FCC report",
+              ]).map((benefit, i) => (
+                <li key={i}>{benefit}</li>
+              ))}
             </ul>
           </div>
         </div>

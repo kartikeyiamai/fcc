@@ -3,6 +3,13 @@
     "title": "Our Partners",
     "description": "Organisations that work with FCC on events, programmes, research and knowledge exchange."
   },
+  "partner_network": {
+    "eyebrow": "Partner network",
+    "heading": "Building the ecosystem together",
+    "lead": "Partner logos are shared here and on FCC's LinkedIn as part of every partnership.",
+    "cta_label": "Become a partner",
+    "cta_href": "/apply-partnership"
+  },
   "items": [
     {
       "name": "Global Fintech Fest",
@@ -25,5 +32,40 @@
       "category": "test category",
       "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg"
     }
-  ]
+  ],
+  "what_we_do": {
+    "eyebrow": "Ways to partner",
+    "heading": "What we do with partners",
+    "see_all_label": "See all benefits",
+    "see_all_href": "/partnership-benefits",
+    "items": [
+      {
+        "title": "Events & workshops"
+      },
+      {
+        "title": "Knowledge sessions"
+      },
+      {
+        "title": "Hackathons & think tanks"
+      },
+      {
+        "title": "Research & reports"
+      }
+    ]
+  },
+  "bottom_cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Let's build something for the ecosystem.",
+    "description": "Partner with FCC to reach 201 member companies through events, programmes and knowledge sessions.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
 }

@@ -2,8 +2,9 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import type { ApplyMembershipContent } from "@/lib/cms-types";
 
-export function ApplyMembershipPage() {
+export function ApplyMembershipPage({ content }: { content: ApplyMembershipContent }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (typeof (window as any).zf_SetDateAndMonthRegexBasedOnDateFormate === "function") {
@@ -32,10 +33,10 @@ export function ApplyMembershipPage() {
               <a href="/">Home</a> <span>/</span> <a href="/members">Membership</a> <span>/</span>
               Apply
             </div>{" "}
-            <h1>Apply for Membership</h1>{" "}
+            <h1>{content.hero?.title || "Apply for Membership"}</h1>{" "}
             <p>
-              FCC works with all its members to promote the growth of the fintech industry. Tell us
-              about your company and we'll get in touch.
+              {content.hero?.description ||
+                "FCC works with all its members to promote the growth of the fintech industry. Tell us about your company and we'll get in touch."}
             </p>
           </div>{" "}
           <div className="ph-art">
@@ -319,27 +320,34 @@ export function ApplyMembershipPage() {
           </div>
           <aside className="reveal">
             <div className="card">
-              <span className="eyebrow">What happens next</span>{" "}
+              <span className="eyebrow">
+                {content.sidebar?.what_happens_next?.eyebrow || "What happens next"}
+              </span>{" "}
               <div className="steps-v" style={{ marginTop: "20px" }}>
-                <div className="s">
-                  <span className="n">01</span>{" "}
-                  <div>
-                    <h4>We review your application</h4>{" "}
-                    <p>The membership team looks at your details.</p>
+                {(content.sidebar?.what_happens_next?.steps || [
+                  {
+                    num: "01",
+                    title: "We review your application",
+                    description: "The membership team looks at your details.",
+                  },
+                  {
+                    num: "02",
+                    title: "We reach out",
+                    description: "You'll hear from us about the next steps.",
+                  },
+                  {
+                    num: "03",
+                    title: "Welcome aboard",
+                    description: "Join committees and start taking part.",
+                  },
+                ]).map((step, idx) => (
+                  <div className="s" key={idx}>
+                    <span className="n">{step.num || `0${idx + 1}`}</span>{" "}
+                    <div>
+                      <h4>{step.title}</h4> <p>{step.description}</p>
+                    </div>
                   </div>
-                </div>{" "}
-                <div className="s">
-                  <span className="n">02</span>{" "}
-                  <div>
-                    <h4>We reach out</h4> <p>You'll hear from us about the next steps.</p>
-                  </div>
-                </div>{" "}
-                <div className="s">
-                  <span className="n">03</span>{" "}
-                  <div>
-                    <h4>Welcome aboard</h4> <p>Join committees and start taking part.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div
@@ -351,18 +359,23 @@ export function ApplyMembershipPage() {
                 border: "0",
               }}
             >
-              <h4 style={{ marginBottom: "6px" }}>Need help?</h4>{" "}
+              <h4 style={{ marginBottom: "6px" }}>
+                {content.sidebar?.need_help?.heading || "Need help?"}
+              </h4>{" "}
               <p style={{ color: "#bbb", fontSize: ".88rem" }}>
-                Call{" "}
-                <a href="tel:02261766666" style={{ color: "#fff", fontWeight: "700" }}>
-                  022-61766666
+                {content.sidebar?.need_help?.lead || "Call"}{" "}
+                <a
+                  href={content.sidebar?.need_help?.phone_href || "tel:02261766666"}
+                  style={{ color: "#fff", fontWeight: "700" }}
+                >
+                  {content.sidebar?.need_help?.phone || "022-61766666"}
                 </a>{" "}
                 or email{" "}
                 <a
-                  href="mailto:info@fintechcouncil.in"
+                  href={`mailto:${content.sidebar?.need_help?.email || "info@fintechcouncil.in"}`}
                   style={{ color: "#fff", fontWeight: "700" }}
                 >
-                  info@fintechcouncil.in
+                  {content.sidebar?.need_help?.email || "info@fintechcouncil.in"}
                 </a>
               </p>
             </div>

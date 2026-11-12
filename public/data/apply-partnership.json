@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "Apply for Partnership",
+    "description": "As an industry voice that upholds best practice and promotes access to markets and discussions, we invite you to partner with FCC."
+  },
+  "sidebar": {
+    "how_it_works": {
+      "eyebrow": "How partnership works",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Tell us about you",
+          "description": "Share your organisation and the work you do."
+        },
+        {
+          "num": "02",
+          "title": "Explore fit",
+          "description": "We find programmes where we can work together."
+        },
+        {
+          "num": "03",
+          "title": "Launch together",
+          "description": "Co-create events, sessions and initiatives."
+        }
+      ]
+    },
+    "need_help": {
+      "heading": "Need help?",
+      "lead": "Call",
+      "phone": "022-61766666",
+      "phone_href": "tel:02261766666",
+      "email": "info@fintechcouncil.in"
+    }
+  }
+}
+

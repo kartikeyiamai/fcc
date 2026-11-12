@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "title": "Partnership Benefits",
+    "description": "Why organisations partner with the Fintech Convergence Council."
+  },
+  "reach": {
+    "eyebrow": "Partner with FCC",
+    "heading": "Reach the people building Indian fintech",
+    "lead": "Partnerships connect your organisation with FCC's member companies, committees and audience, through programmes that benefit everyone involved.",
+    "cta_label": "Apply for partnership",
+    "cta_href": "/apply-partnership"
+  },
+  "benefits_section": {
+    "eyebrow": "Benefits",
+    "heading": "Four ways partners benefit",
+    "items": [
+      {
+        "title": "Access to the ecosystem",
+        "description": "Access to FCC members for events, programmes, workshops, think tanks, hackathons and knowledge sessions you organise."
+      },
+      {
+        "title": "Collaborations",
+        "description": "Work together on programmes and initiatives built around shared goals."
+      },
+      {
+        "title": "Branding",
+        "description": "FCC shares your company logo on its website and LinkedIn."
+      },
+      {
+        "title": "Knowledge exchange",
+        "description": "Share expertise with FCC members, and learn from theirs."
+      }
+    ]
+  },
+  "bottom_cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Ready to partner with FCC?",
+    "description": "Tell us about your organisation and we'll find the right way to work together.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
+}
+

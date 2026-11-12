@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "Apply for Membership",
+    "description": "FCC works with all its members to promote the growth of the fintech industry. Tell us about your company and we'll get in touch."
+  },
+  "sidebar": {
+    "what_happens_next": {
+      "eyebrow": "What happens next",
+      "steps": [
+        {
+          "num": "01",
+          "title": "We review your application",
+          "description": "The membership team looks at your details."
+        },
+        {
+          "num": "02",
+          "title": "We reach out",
+          "description": "You'll hear from us about the next steps."
+        },
+        {
+          "num": "03",
+          "title": "Welcome aboard",
+          "description": "Join committees and start taking part."
+        }
+      ]
+    },
+    "need_help": {
+      "heading": "Need help?",
+      "lead": "Call",
+      "phone": "022-61766666",
+      "phone_href": "tel:02261766666",
+      "email": "info@fintechcouncil.in"
+    }
+  }
+}
+

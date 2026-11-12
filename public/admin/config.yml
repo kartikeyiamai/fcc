@@ -334,11 +334,116 @@ collections:
                   name: aws_s3
               - { label: Logo Filename, name: logo_filename, widget: string, required: false }
 
+  - name: membership_benefits
+    label: Membership Benefits
+    files:
+      - name: membership_benefits
+        label: Membership Benefits Page
+        file: public/data/membership-benefits.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, default: "Membership Benefits" }
+              - { label: Description, name: description, widget: text, default: "What your company gets as a member of the Fintech Convergence Council." }
+          - label: Why Join Section
+            name: why_join
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Why join" }
+              - { label: Heading, name: heading, widget: string, default: "A seat at the table, and everything around it" }
+              - { label: Lead, name: lead, widget: text, default: "Members get a direct line into policy conversations, plus the events, research and network that come with being part of IAMAI." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply now" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "See our members" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/members" }
+              - { label: Card Title, name: card_title, widget: string, default: "FCC", required: false }
+              - { label: Card Member Tag, name: card_member_tag, widget: string, default: "MEMBER · 2026", required: false }
+              - { label: Card Member Of, name: card_member_of, widget: string, default: "Fintech Convergence Council", required: false }
+              - { label: Card Sub Note, name: card_sub_note, widget: string, default: "IAMAI INCLUDED", required: false }
+          - label: Benefits Section
+            name: benefits_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Benefits" }
+              - { label: Heading, name: heading, widget: string, default: "Seven reasons members join" }
+              - label: Reasons List
+                name: items
+                widget: list
+                summary: "{{fields.num}} - {{fields.title}}"
+                fields:
+                  - { label: Number, name: num, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+              - label: Ready to Join Box
+                name: ready_card
+                widget: object
+                fields:
+                  - { label: Title, name: title, widget: string, default: "Ready to join?" }
+                  - { label: Subtitle / Link Text, name: subtitle, widget: string, default: "Apply in under two minutes →" }
+                  - { label: Href, name: href, widget: string, default: "/apply-membership" }
+          - label: Process Section
+            name: process_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Process" }
+              - { label: Heading, name: heading, widget: string, default: "How membership works" }
+              - { label: Lead / Contact Note, name: lead, widget: text, default: "Questions? Call 022-61766666 or write to swati.s@fintechcouncil.in" }
+              - label: Steps
+                name: steps
+                widget: list
+                summary: "{{fields.num}} - {{fields.title}}"
+                fields:
+                  - { label: Step Number, name: num, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+
+  - name: apply_membership
+    label: Apply for Membership
+    files:
+      - name: apply_membership
+        label: Apply for Membership Page
+        file: public/data/apply-membership.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, default: "Apply for Membership" }
+              - { label: Description, name: description, widget: text, default: "FCC works with all its members to promote the growth of the fintech industry. Tell us about your company and we'll get in touch." }
+          - label: Sidebar
+            name: sidebar
+            widget: object
+            fields:
+              - label: What Happens Next
+                name: what_happens_next
+                widget: object
+                fields:
+                  - { label: Eyebrow, name: eyebrow, widget: string, default: "What happens next" }
+                  - label: Steps
+                    name: steps
+                    widget: list
+                    summary: "{{fields.num}} - {{fields.title}}"
+                    fields:
+                      - { label: Step Number, name: num, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Description, name: description, widget: text }
+              - label: Need Help Box
+                name: need_help
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string, default: "Need help?" }
+                  - { label: Lead Text, name: lead, widget: string, default: "Call", required: false }
+                  - { label: Phone, name: phone, widget: string, default: "022-61766666" }
+                  - { label: Phone Href, name: phone_href, widget: string, default: "tel:02261766666" }
+                  - { label: Email, name: email, widget: string, default: "info@fintechcouncil.in" }
+
   - name: partners
     label: Partners
     files:
       - name: partners
-        label: Partners
+        label: Partners Page
         file: public/data/partners.json
         fields:
           - label: Page
@@ -347,6 +452,15 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
+          - label: Partner Network Intro
+            name: partner_network
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Partner network" }
+              - { label: Heading, name: heading, widget: string, default: "Building the ecosystem together" }
+              - { label: Lead, name: lead, widget: text, default: "Partner logos are shared here and on FCC's LinkedIn as part of every partnership." }
+              - { label: CTA Label, name: cta_label, widget: string, default: "Become a partner" }
+              - { label: CTA Href, name: cta_href, widget: string, default: "/apply-partnership" }
           - label: Partners
             name: items
             widget: list
@@ -363,6 +477,136 @@ collections:
                 choose_url: false
                 media_library:
                   name: aws_s3
+          - label: What We Do With Partners
+            name: what_we_do
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Ways to partner" }
+              - { label: Heading, name: heading, widget: string, default: "What we do with partners" }
+              - { label: See All Link Text, name: see_all_label, widget: string, default: "See all benefits" }
+              - { label: See All Link Href, name: see_all_href, widget: string, default: "/partnership-benefits" }
+              - label: Items
+                name: items
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Let's build something for the ecosystem." }
+              - { label: Description, name: description, widget: text, default: "Partner with FCC to reach 201 member companies through events, programmes and knowledge sessions." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
+
+  - name: partnership_benefits
+    label: Partnership Benefits
+    files:
+      - name: partnership_benefits
+        label: Partnership Benefits Page
+        file: public/data/partnership-benefits.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, default: "Partnership Benefits" }
+              - { label: Description, name: description, widget: text, default: "Why organisations partner with the Fintech Convergence Council." }
+          - label: Reach Section
+            name: reach
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Partner with FCC" }
+              - { label: Heading, name: heading, widget: string, default: "Reach the people building Indian fintech" }
+              - { label: Lead, name: lead, widget: text, default: "Partnerships connect your organisation with FCC's member companies, committees and audience, through programmes that benefit everyone involved." }
+              - { label: CTA Label, name: cta_label, widget: string, default: "Apply for partnership" }
+              - { label: CTA Href, name: cta_href, widget: string, default: "/apply-partnership" }
+          - label: Benefits Section
+            name: benefits_section
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Benefits" }
+              - { label: Heading, name: heading, widget: string, default: "Four ways partners benefit" }
+              - label: Benefits List
+                name: items
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Ready to partner with FCC?" }
+              - { label: Description, name: description, widget: text, default: "Tell us about your organisation and we'll find the right way to work together." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
+
+  - name: apply_partnership
+    label: Apply for Partnership
+    files:
+      - name: apply_partnership
+        label: Apply for Partnership Page
+        file: public/data/apply-partnership.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, default: "Apply for Partnership" }
+              - { label: Description, name: description, widget: text, default: "As an industry voice that upholds best practice and promotes access to markets and discussions, we invite you to partner with FCC." }
+          - label: Sidebar
+            name: sidebar
+            widget: object
+            fields:
+              - label: How It Works
+                name: how_it_works
+                widget: object
+                fields:
+                  - { label: Eyebrow, name: eyebrow, widget: string, default: "How partnership works" }
+                  - label: Steps
+                    name: steps
+                    widget: list
+                    summary: "{{fields.num}} - {{fields.title}}"
+                    fields:
+                      - { label: Step Number, name: num, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Description, name: description, widget: text }
+              - label: Need Help Box
+                name: need_help
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string, default: "Need help?" }
+                  - { label: Lead Text, name: lead, widget: string, default: "Call", required: false }
+                  - { label: Phone, name: phone, widget: string, default: "022-61766666" }
+                  - { label: Phone Href, name: phone_href, widget: string, default: "tel:02261766666" }
+                  - { label: Email, name: email, widget: string, default: "info@fintechcouncil.in" }
 
   - name: committees
     label: Committees (Overview)

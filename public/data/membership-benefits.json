@@ -1,0 +1,93 @@
+{
+  "hero": {
+    "title": "Membership Benefits",
+    "description": "What your company gets as a member of the Fintech Convergence Council."
+  },
+  "why_join": {
+    "eyebrow": "Why join",
+    "heading": "A seat at the table, and everything around it",
+    "lead": "Members get a direct line into policy conversations, plus the events, research and network that come with being part of IAMAI.",
+    "primary_cta_label": "Apply now",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "See our members",
+    "secondary_cta_href": "/members",
+    "card_title": "FCC",
+    "card_member_tag": "MEMBER · 2026",
+    "card_member_of": "Fintech Convergence Council",
+    "card_sub_note": "IAMAI INCLUDED"
+  },
+  "benefits_section": {
+    "eyebrow": "Benefits",
+    "heading": "Seven reasons members join",
+    "items": [
+      {
+        "num": "01",
+        "title": "Shape regulation",
+        "description": "Take part in working groups, committees and regulatory representations based on your area of business."
+      },
+      {
+        "num": "02",
+        "title": "Conference passes",
+        "description": "Complimentary passes to all FCC and IAMAI conferences."
+      },
+      {
+        "num": "03",
+        "title": "Every report",
+        "description": "Access to all FCC reports and research."
+      },
+      {
+        "num": "04",
+        "title": "Share your views",
+        "description": "A chance to write for IAMAI's online monthly magazine."
+      },
+      {
+        "num": "05",
+        "title": "Closed-door roundtables",
+        "description": "Invitations to FCC and IAMAI roundtables for your business area. These are not open to non-members."
+      },
+      {
+        "num": "06",
+        "title": "Network & grow",
+        "description": "Networking and business development through events, committee meetings and AGMs."
+      },
+      {
+        "num": "07",
+        "title": "IAMAI membership",
+        "description": "FCC membership includes membership of IAMAI."
+      }
+    ],
+    "ready_card": {
+      "title": "Ready to join?",
+      "subtitle": "Apply in under two minutes →",
+      "href": "/apply-membership"
+    }
+  },
+  "process_section": {
+    "eyebrow": "Process",
+    "heading": "How membership works",
+    "lead": "Questions? Call 022-61766666 or write to swati.s@fintechcouncil.in",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Share your details",
+        "description": "Fill in the short application form."
+      },
+      {
+        "num": "02",
+        "title": "We get in touch",
+        "description": "The FCC team contacts you about the next steps."
+      },
+      {
+        "num": "03",
+        "title": "Join committees",
+        "description": "Pick the committees that match your business."
+      },
+      {
+        "num": "04",
+        "title": "Get involved",
+        "description": "Take part in representations, roundtables and events."
+      }
+    ]
+  }
+}
+

@@ -122,14 +122,15 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Partner network</span>{" "}
-              <h2>Building the ecosystem together</h2>{" "}
+              <span className="eyebrow">{content.partner_network?.eyebrow || "Partner network"}</span>{" "}
+              <h2>{content.partner_network?.heading || "Building the ecosystem together"}</h2>{" "}
               <p className="lead">
-                Partner logos are shared here and on FCC&apos;s LinkedIn as part of every partnership.
+                {content.partner_network?.lead ||
+                  "Partner logos are shared here and on FCC's LinkedIn as part of every partnership."}
               </p>
             </div>{" "}
-            <a href="/apply-partnership" className="btn btn-primary">
-              Become a partner
+            <a href={content.partner_network?.cta_href || "/apply-partnership"} className="btn btn-primary">
+              {content.partner_network?.cta_label || "Become a partner"}
             </a>
           </div>
           <div className="mgrid reveal">
@@ -144,10 +145,11 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
         <div className="wrap">
           <div className="sec-head">
             <div>
-              <span className="eyebrow">Ways to partner</span> <h2>What we do with partners</h2>
+              <span className="eyebrow">{content.what_we_do?.eyebrow || "Ways to partner"}</span>{" "}
+              <h2>{content.what_we_do?.heading || "What we do with partners"}</h2>
             </div>{" "}
-            <a href="/partnership-benefits" className="link-arrow">
-              See all benefits{" "}
+            <a href={content.what_we_do?.see_all_href || "/partnership-benefits"} className="link-arrow">
+              {content.what_we_do?.see_all_label || "See all benefits"}{" "}
               <svg
                 width="16"
                 height="16"
@@ -164,80 +166,77 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
             </a>
           </div>
           <div className="grid-4 reveal">
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "14px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="16" rx="2"></rect>{" "}
-                  <path d="M3 10h18M8 3v4M16 3v4"></path>
-                </svg>
-              </div>{" "}
-              <h4>Events & workshops</h4>
-            </div>{" "}
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "14px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="9" y="3" width="6" height="11" rx="3"></rect>{" "}
-                  <path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path>
-                </svg>
-              </div>{" "}
-              <h4>Knowledge sessions</h4>
-            </div>{" "}
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "14px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"></path>
-                </svg>
-              </div>{" "}
-              <h4>Hackathons & think tanks</h4>
-            </div>{" "}
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "14px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"></path>
-                </svg>
-              </div>{" "}
-              <h4>Research & reports</h4>
-            </div>
+            {(content.what_we_do?.items || [
+              { title: "Events & workshops" },
+              { title: "Knowledge sessions" },
+              { title: "Hackathons & think tanks" },
+              { title: "Research & reports" },
+            ]).map((item, idx) => (
+              <div className="card" key={idx}>
+                <div className="icon-box" style={{ marginBottom: "14px" }}>
+                  {idx === 0 ? (
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="5" width="18" height="16" rx="2"></rect>{" "}
+                      <path d="M3 10h18M8 3v4M16 3v4"></path>
+                    </svg>
+                  ) : idx === 1 ? (
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="9" y="3" width="6" height="11" rx="3"></rect>{" "}
+                      <path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path>
+                    </svg>
+                  ) : idx === 2 ? (
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"></path>
+                    </svg>
+                  ) : (
+                    <svg
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM8 7h6M8 11h6"></path>
+                    </svg>
+                  )}
+                </div>{" "}
+                <h4>{item.title}</h4>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -657,26 +656,40 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Let&apos;s build something for the ecosystem.</h2>{" "}
+              <span className="eyebrow">
+                {content.bottom_cta?.eyebrow || "Membership & partnership"}
+              </span>{" "}
+              <h2>
+                {content.bottom_cta?.heading || "Let's build something for the ecosystem."}
+              </h2>{" "}
               <p>
-                Partner with FCC to reach {Array.isArray(membersData?.items) ? membersData.items.length : 201} member companies through events, programmes and
-                knowledge sessions.
+                {content.bottom_cta?.description ||
+                  `Partner with FCC to reach ${Array.isArray(membersData?.items) ? membersData.items.length : 201} member companies through events, programmes and knowledge sessions.`}
               </p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a
+                  href={content.bottom_cta?.primary_cta_href || "/apply-membership"}
+                  className="btn btn-light"
+                >
+                  {content.bottom_cta?.primary_cta_label || "Apply for membership"}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a
+                  href={content.bottom_cta?.secondary_cta_href || "/apply-partnership"}
+                  className="btn btn-ghost"
+                >
+                  {content.bottom_cta?.secondary_cta_label || "Partner with us"}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {(content.bottom_cta?.benefits || [
+                "Direct input into representations to regulators",
+                "A seat on sector committees with industry peers",
+                "Complimentary passes to FCC and IAMAI conferences",
+                "Members-only roundtables and every FCC report",
+              ]).map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
             </ul>
           </div>
         </div>

@@ -9,6 +9,10 @@ import partners from "../../public/data/partners.json";
 import publications from "../../public/data/publications.json";
 import siteSettings from "../../public/data/site-settings.json";
 import virtualEvents from "../../public/data/virtual-events.json";
+import membershipBenefits from "../../public/data/membership-benefits.json";
+import applyMembership from "../../public/data/apply-membership.json";
+import partnershipBenefits from "../../public/data/partnership-benefits.json";
+import applyPartnership from "../../public/data/apply-partnership.json";
 
 import digitalLendingCommittee from "../../public/data/committees/digital-lending.json";
 import regtechCommittee from "../../public/data/committees/regtech.json";
@@ -19,14 +23,18 @@ import creditBureauCommittee from "../../public/data/committees/credit-bureau.js
 import type {
   AboutContent,
   AnnualReportsContent,
+  ApplyMembershipContent,
+  ApplyPartnershipContent,
   CommitteeDetailPageContent,
   CommitteesContent,
   ContactContent,
   HomepageContent,
   LiveEventsContent,
   MembersContent,
+  MembershipBenefitsContent,
   NavChild,
   PartnersContent,
+  PartnershipBenefitsContent,
   PublicationsContent,
   SiteSettings,
   VirtualEventsContent,
@@ -176,7 +184,37 @@ export async function loadMembers(): Promise<MembersContent> {
 }
 
 export async function loadPartners(): Promise<PartnersContent> {
-  return partners as PartnersContent;
+  const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
+  const rawDesc = partners.bottom_cta?.description || "";
+  const dynamicDesc = rawDesc
+    ? rawDesc.replace(/\b\d+(\+)?\s*member companies\b/i, `${memberCount} member companies`)
+    : rawDesc;
+
+  return {
+    ...partners,
+    bottom_cta: partners.bottom_cta
+      ? {
+          ...partners.bottom_cta,
+          description: dynamicDesc,
+        }
+      : undefined,
+  } as PartnersContent;
+}
+
+export async function loadMembershipBenefits(): Promise<MembershipBenefitsContent> {
+  return membershipBenefits as MembershipBenefitsContent;
+}
+
+export async function loadApplyMembership(): Promise<ApplyMembershipContent> {
+  return applyMembership as ApplyMembershipContent;
+}
+
+export async function loadPartnershipBenefits(): Promise<PartnershipBenefitsContent> {
+  return partnershipBenefits as PartnershipBenefitsContent;
+}
+
+export async function loadApplyPartnership(): Promise<ApplyPartnershipContent> {
+  return applyPartnership as ApplyPartnershipContent;
 }
 
 export async function loadLiveEvents(): Promise<LiveEventsContent> {
