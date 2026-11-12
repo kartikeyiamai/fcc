@@ -1086,23 +1086,38 @@ export function LiveEventsPage({ content }: { content: LiveEventsContent }) {
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Meet the ecosystem in person.</h2>{" "}
-              <p>Members receive complimentary passes to FCC and IAMAI conferences.</p>
+              <span className="eyebrow">
+                {content.bottom_cta?.eyebrow || "Membership & partnership"}
+              </span>{" "}
+              <h2>{content.bottom_cta?.heading || "Meet the ecosystem in person."}</h2>{" "}
+              <p>
+                {content.bottom_cta?.description ||
+                  "Members receive complimentary passes to FCC and IAMAI conferences."}
+              </p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a
+                  href={content.bottom_cta?.primary_cta_href || "/apply-membership"}
+                  className="btn btn-light"
+                >
+                  {content.bottom_cta?.primary_cta_label || "Apply for membership"}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a
+                  href={content.bottom_cta?.secondary_cta_href || "/apply-partnership"}
+                  className="btn btn-ghost"
+                >
+                  {content.bottom_cta?.secondary_cta_label || "Partner with us"}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {(content.bottom_cta?.benefits || [
+                "Direct input into representations to regulators",
+                "A seat on sector committees with industry peers",
+                "Complimentary passes to FCC and IAMAI conferences",
+                "Members-only roundtables and every FCC report",
+              ]).map((b, i) => (
+                <li key={i}>{b}</li>
+              ))}
             </ul>
           </div>
         </div>

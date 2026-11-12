@@ -1,6 +1,29 @@
+"use client";
+
+import { useState } from "react";
 import type { VirtualEventsContent } from "@/lib/cms-types";
 
 export function VirtualEventsPage({ content }: { content: VirtualEventsContent }) {
+  const [selectedYear, setSelectedYear] = useState("all");
+  const [showAll, setShowAll] = useState(false);
+
+  const items = content.items || [];
+
+  // Filter items
+  const filteredItems = items.filter((item) => {
+    if (selectedYear === "all") return true;
+    const tag = (item.year_tag || "").toLowerCase();
+    const month = (item.month || "").toLowerCase();
+    return tag.includes(selectedYear.toLowerCase()) || month.includes(selectedYear.toLowerCase());
+  });
+
+  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 12);
+
+  // Compute year counts
+  const count2026 = items.filter((i) => (i.year_tag || "").includes("2026") || (i.month || "").includes("2026")).length;
+  const count2025 = items.filter((i) => (i.year_tag || "").includes("2025") || (i.month || "").includes("2025")).length;
+  const count2024 = items.filter((i) => (i.year_tag || "").includes("2024") || (i.month || "").includes("2024")).length;
+
   return (
     <>
       <section className="page-hero grid-bg">
@@ -98,73 +121,53 @@ export function VirtualEventsPage({ content }: { content: VirtualEventsContent }
           </a>
         </div>
       </nav>
+
       <section>
         <div className="wrap split" style={{ alignItems: "start" }}>
           <div className="reveal">
-            <span className="eyebrow">Knowledge sessions</span> <h2>38 sessions since 2024</h2>{" "}
+            <span className="eyebrow">{content.summary?.eyebrow || "Knowledge sessions"}</span>{" "}
+            <h2>{content.summary?.heading || `${items.length} sessions since 2024`}</h2>{" "}
             <p className="lead">
-              Most sessions run as one-hour virtual panels in the afternoon (IST), open to members
-              and the wider ecosystem. Registrations:{" "}
+              {content.summary?.lead ||
+                "Most sessions run as one-hour virtual panels in the afternoon (IST), open to members and the wider ecosystem. Registrations: "}{" "}
               <a
-                href="mailto:register@fintechcouncil.in"
+                href={`mailto:${content.summary?.email || "register@fintechcouncil.in"}`}
                 style={{ color: "var(--red)", fontWeight: "700" }}
               >
-                register@fintechcouncil.in
+                {content.summary?.email || "register@fintechcouncil.in"}
               </a>
             </p>
             <div style={{ display: "flex", gap: "28px", marginTop: "22px", flexWrap: "wrap" }}>
-              <div>
-                <b style={{ fontSize: "1.8rem", fontWeight: "800" }}>11</b>{" "}
-                <div style={{ color: "var(--muted)", fontSize: ".85rem" }}>in 2026</div>
-              </div>{" "}
-              <div>
-                <b style={{ fontSize: "1.8rem", fontWeight: "800" }}>14</b>{" "}
-                <div style={{ color: "var(--muted)", fontSize: ".85rem" }}>in 2025</div>
-              </div>{" "}
-              <div>
-                <b style={{ fontSize: "1.8rem", fontWeight: "800" }}>13</b>{" "}
-                <div style={{ color: "var(--muted)", fontSize: ".85rem" }}>in 2024</div>
-              </div>
+              {(content.summary?.year_counts || [
+                { count: String(count2026 || 11), year: "in 2026" },
+                { count: String(count2025 || 14), year: "in 2025" },
+                { count: String(count2024 || 13), year: "in 2024" },
+              ]).map((yc, idx) => (
+                <div key={idx}>
+                  <b style={{ fontSize: "1.8rem", fontWeight: "800" }}>{yc.count}</b>{" "}
+                  <div style={{ color: "var(--muted)", fontSize: ".85rem" }}>{yc.year}</div>
+                </div>
+              ))}
             </div>
           </div>
           <div className="card reveal">
             <span className="eyebrow">Topics covered</span>{" "}
             <div className="hbar" style={{ marginTop: "18px" }}>
-              <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }}>
-                <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>RegTech & compliance</b>{" "}
-                <div className="track">
-                  <div className="fill" data-w="100%"></div>
-                </div>{" "}
-                <span className="v">19</span>
-              </div>{" "}
-              <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }}>
-                <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>Lending</b>{" "}
-                <div className="track">
-                  <div className="fill" data-w="32%"></div>
-                </div>{" "}
-                <span className="v">6</span>
-              </div>{" "}
-              <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }}>
-                <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>Insurance</b>{" "}
-                <div className="track">
-                  <div className="fill" data-w="26%"></div>
-                </div>{" "}
-                <span className="v">5</span>
-              </div>{" "}
-              <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }}>
-                <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>Investments</b>{" "}
-                <div className="track">
-                  <div className="fill" data-w="21%"></div>
-                </div>{" "}
-                <span className="v">4</span>
-              </div>{" "}
-              <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }}>
-                <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>Credit</b>{" "}
-                <div className="track">
-                  <div className="fill" data-w="5%"></div>
-                </div>{" "}
-                <span className="v">1</span>
-              </div>
+              {(content.topics || [
+                { topic: "RegTech & compliance", count: "19", width: "100%" },
+                { topic: "Lending", count: "6", width: "32%" },
+                { topic: "Insurance", count: "5", width: "26%" },
+                { topic: "Investments", count: "4", width: "21%" },
+                { topic: "Credit", count: "1", width: "5%" },
+              ]).map((top, idx) => (
+                <div className="r" style={{ gridTemplateColumns: "150px 1fr 30px" }} key={idx}>
+                  <b style={{ fontFamily: "var(--sans)", fontWeight: "600" }}>{top.topic}</b>{" "}
+                  <div className="track">
+                    <div className="fill" style={{ width: top.width }}></div>
+                  </div>{" "}
+                  <span className="v">{top.count}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -177,976 +180,86 @@ export function VirtualEventsPage({ content }: { content: VirtualEventsContent }
               <span className="eyebrow">Archive</span> <h2>All sessions</h2>
             </div>
           </div>
-          <div className="filters" data-filter-for="webs">
-            <button className="chip active" data-f="all">
-              All <span className="n">38</span>
+          <div className="filters">
+            <button
+              className={`chip ${selectedYear === "all" ? "active" : ""}`}
+              onClick={() => setSelectedYear("all")}
+            >
+              All <span className="n">{items.length}</span>
             </button>{" "}
-            <button className="chip" data-f="y2026">
-              2026 <span className="n">11</span>
+            <button
+              className={`chip ${selectedYear === "2026" ? "active" : ""}`}
+              onClick={() => setSelectedYear("2026")}
+            >
+              2026 <span className="n">{count2026}</span>
             </button>{" "}
-            <button className="chip" data-f="y2025">
-              2025 <span className="n">14</span>
+            <button
+              className={`chip ${selectedYear === "2025" ? "active" : ""}`}
+              onClick={() => setSelectedYear("2025")}
+            >
+              2025 <span className="n">{count2025}</span>
             </button>{" "}
-            <button className="chip" data-f="y2024">
-              2024 <span className="n">13</span>
+            <button
+              className={`chip ${selectedYear === "2024" ? "active" : ""}`}
+              onClick={() => setSelectedYear("2024")}
+            >
+              2024 <span className="n">{count2024}</span>
             </button>
           </div>
-          <div className="web-grid" id="webs" data-limit="12">
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">02</div> <div className="m">Apr 2026</div>
+          <div className="web-grid" id="webs">
+            {displayedItems.map((event, idx) => (
+              <div className="web" data-r={event.year_tag} key={idx}>
+                <div className="wtop">
+                  <div>
+                    <div className="d">{event.day}</div> <div className="m">{event.month}</div>
+                  </div>{" "}
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
+                    <path d="M16 10l5-3v10l-5-3"></path>
+                  </svg>
                 </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Role of AI in transforming insurance processing</h4>{" "}
-                <span className="time">3:30–4:30 PM IST · Virtual</span>
+                <div className="wbody">
+                  <h4>{event.title}</h4>{" "}
+                  <span className="time">{event.time}</span>
+                  {event.registration_link && (
+                    <div style={{ marginTop: "10px" }}>
+                      <a
+                        href={event.registration_link}
+                        target="_blank"
+                        rel="noopener"
+                        className="link-arrow"
+                        style={{ fontSize: ".82rem" }}
+                      >
+                        Register / Details →
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">17</div> <div className="m">Mar 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Alternative Investment Funds in India: FY 2025 in review</h4>{" "}
-                <span className="time">3:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">16</div> <div className="m">Mar 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Evolving GST implementation: law and practice</h4>{" "}
-                <span className="time">3:00–4:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">13</div> <div className="m">Mar 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>RE–LSP compliance essentials</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">02</div> <div className="m">Mar 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Why healthcare in India remains a push market</h4>{" "}
-                <span className="time">2:00–3:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">24</div> <div className="m">Feb 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Legal architecture of the digital lending process</h4>{" "}
-                <span className="time">12:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Feb 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Practical applications of AI in AML &amp; fraud monitoring</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">13</div> <div className="m">Feb 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Redrawing the boundaries of insurance in India</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">12</div> <div className="m">Feb 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Implementing RBI&#x27;s Digital Lending Guidelines</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">06</div> <div className="m">Feb 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Budget 2026 unpacked</h4>{" "}
-                <span className="time">4:30–5:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2026">
-              <div className="wtop">
-                <div>
-                  <div className="d">29</div> <div className="m">Jan 2026</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Simplification of client onboarding with KRAs</h4>{" "}
-                <span className="time">3:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">28</div> <div className="m">May 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Updation and periodic updation of KYC</h4>{" "}
-                <span className="time">3:30–4:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">28</div> <div className="m">May 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Union Budget session</h4>{" "}
-                <span className="time">5:00–6:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">24</div> <div className="m">Apr 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Credit trends unveiled</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">21</div> <div className="m">Apr 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Co-lending and lending against gold collateral</h4>{" "}
-                <span className="time">4:00–5:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">17</div> <div className="m">Apr 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Transaction monitoring and red-flag monitoring</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">15</div> <div className="m">Apr 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Cyber resilience strategies</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">24</div> <div className="m">Mar 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Impact of the DPDP Rules</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Mar 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Data security &amp; compliance in IT asset disposal</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">26</div> <div className="m">Feb 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Impact of the DPDP Act and Rules</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Feb 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Budget 2025 and the Insurance Amendment Bill</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">05</div> <div className="m">Feb 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Union Budget 2025–26</h4>{" "}
-                <span className="time">11:00 AM–12:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">05</div> <div className="m">Feb 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>DPDP Rules 2025</h4> <span className="time">4:00–5:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">09</div> <div className="m">Jan 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Banning of unregulated lending activities</h4>{" "}
-                <span className="time">3:30–4:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2025">
-              <div className="wtop">
-                <div>
-                  <div className="d">08</div> <div className="m">Jan 2025</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Digital Personal Data Protection Rules</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Dec 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Unlocking opportunities in GIFT IFSC</h4>{" "}
-                <span className="time">4:00–5:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">16</div> <div className="m">Dec 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Navigating cyber and fraud risk in the fintech ecosystem</h4>{" "}
-                <span className="time">3:30–4:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">13</div> <div className="m">Dec 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Legal Entity Identifier</h4>{" "}
-                <span className="time">4:00–5:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">10</div> <div className="m">Dec 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Ministry of Communications on DIGIPIN</h4>{" "}
-                <span className="time">10:30–11:30 AM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">18</div> <div className="m">Nov 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Amendments to the KYC Master Direction</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">01</div> <div className="m">Oct 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>NPCI on e-KYC Setu</h4>{" "}
-                <span className="time">12:00–1:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">28</div> <div className="m">Jun 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Webinar on health insurance</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Jun 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Investing in fixed income</h4>{" "}
-                <span className="time">4:00–5:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">02</div> <div className="m">May 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Common tax issues for fintech entities</h4>{" "}
-                <span className="time">2:00–3:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Mar 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Regulatory compliance solutions</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">23</div> <div className="m">Feb 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>Managing risk and compliance</h4>{" "}
-                <span className="time">3:30–4:30 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">20</div> <div className="m">Feb 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>The future of remote onboarding</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
-            </div>{" "}
-            <div className="web" data-r="y2024">
-              <div className="wtop">
-                <div>
-                  <div className="d">14</div> <div className="m">Feb 2024</div>
-                </div>{" "}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                  <path d="M16 10l5-3v10l-5-3"></path>
-                </svg>
-              </div>{" "}
-              <div className="wbody">
-                <h4>A wake-up call for the fintech industry</h4>{" "}
-                <span className="time">3:00–4:00 PM IST · Virtual</span>
-              </div>
+            ))}
+          </div>
+
+          {filteredItems.length > 12 && (
+            <div style={{ textAlign: "center", marginTop: "28px" }}>
+              <button
+                type="button"
+                className="btn btn-outline"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? "Show less" : `Show all ${filteredItems.length}`}
+              </button>
             </div>
-          </div>
-          <div className="center mt-28">
-            <button className="btn btn-outline" data-more-for="webs">
-              Show all
-            </button>
-          </div>
+          )}
         </div>
       </section>
 
@@ -1179,365 +292,6 @@ export function VirtualEventsPage({ content }: { content: VirtualEventsContent }
                   ></animateTransform>
                 </circle>{" "}
                 <circle cx="250" cy="250" r="96" stroke="rgba(255,255,255,.18)"></circle>{" "}
-                <circle cx="307.4" cy="25.2" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="312.3"
-                  y="9.8"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="start"
-                >
-                  RBI
-                </text>{" "}
-                <circle cx="461.5" cy="154.7" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="479.8"
-                  y="150.5"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="start"
-                >
-                  SEBI
-                </text>{" "}
-                <circle cx="456.4" cy="356.0" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="474.2"
-                  y="369.1"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="start"
-                >
-                  IRDAI
-                </text>{" "}
-                <circle cx="295.8" cy="477.4" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="299.8"
-                  y="501.0"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="middle"
-                >
-                  NPCI
-                </text>{" "}
-                <circle cx="100.8" cy="427.6" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="87.9"
-                  y="446.9"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="end"
-                >
-                  MeitY
-                </text>{" "}
-                <circle cx="18.1" cy="244.1" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="-1.9"
-                  y="247.5"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="end"
-                >
-                  CERSAI
-                </text>{" "}
-                <circle cx="110.0" cy="65.0" r="4" fill="#fff" opacity=".7"></circle>{" "}
-                <text
-                  x="98.0"
-                  y="53.0"
-                  fill="rgba(255,255,255,.75)"
-                  fontFamily="JetBrains Mono,monospace"
-                  fontSize="11"
-                  textAnchor="end"
-                >
-                  IBBI
-                </text>{" "}
-                <path
-                  id="p0"
-                  d="M250.0 85.0 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="2.60s" repeatCount="indefinite" begin="-0.1s">
-                    <mpath href="#p0"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="250.0"
-                    cy="85.0"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="250.0" cy="85.0" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="0.0s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="0.0s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="250.0"
-                    y="89.0"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    Lending
-                  </text>
-                </g>{" "}
-                <path
-                  id="p1"
-                  d="M392.9 167.5 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="2.95s" repeatCount="indefinite" begin="-0.5s">
-                    <mpath href="#p1"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="392.9"
-                    cy="167.5"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="392.9" cy="167.5" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="0.6s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="0.6s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="392.9"
-                    y="171.5"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    InsurTech
-                  </text>
-                </g>{" "}
-                <path
-                  id="p2"
-                  d="M392.9 332.5 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="3.30s" repeatCount="indefinite" begin="-0.9s">
-                    <mpath href="#p2"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="392.9"
-                    cy="332.5"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="392.9" cy="332.5" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="1.2s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="1.2s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="392.9"
-                    y="336.5"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    WealthTech
-                  </text>
-                </g>{" "}
-                <path
-                  id="p3"
-                  d="M250.0 415.0 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="3.65s" repeatCount="indefinite" begin="-1.3s">
-                    <mpath href="#p3"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="250.0"
-                    cy="415.0"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="250.0" cy="415.0" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="1.8s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="1.8s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="250.0"
-                    y="419.0"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    RegTech
-                  </text>
-                </g>{" "}
-                <path
-                  id="p4"
-                  d="M107.1 332.5 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="4.00s" repeatCount="indefinite" begin="-1.7s">
-                    <mpath href="#p4"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="107.1"
-                    cy="332.5"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="107.1" cy="332.5" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="2.4s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="2.4s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="107.1"
-                    y="336.5"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    Bureaus
-                  </text>
-                </g>{" "}
-                <path
-                  id="p5"
-                  d="M107.1 167.5 L250 250"
-                  stroke="rgba(255,255,255,.35)"
-                  strokeWidth="1.2"
-                ></path>{" "}
-                <circle r="3.5" fill="#fff">
-                  <animateMotion dur="4.35s" repeatCount="indefinite" begin="-2.1s">
-                    <mpath href="#p5"></mpath>
-                  </animateMotion>
-                </circle>{" "}
-                <g>
-                  <circle
-                    cx="107.1"
-                    cy="167.5"
-                    r="34"
-                    fill="rgba(255,255,255,.12)"
-                    stroke="rgba(255,255,255,.5)"
-                  ></circle>{" "}
-                  <circle cx="107.1" cy="167.5" r="34" stroke="#fff" strokeOpacity=".5">
-                    <animate
-                      attributeName="r"
-                      values="34;44;34"
-                      dur="4s"
-                      begin="3.0s"
-                      repeatCount="indefinite"
-                    ></animate>{" "}
-                    <animate
-                      attributeName="stroke-opacity"
-                      values=".5;0;.5"
-                      dur="4s"
-                      begin="3.0s"
-                      repeatCount="indefinite"
-                    ></animate>
-                  </circle>{" "}
-                  <text
-                    x="107.1"
-                    y="171.5"
-                    fill="#fff"
-                    fontFamily="Plus Jakarta Sans,sans-serif"
-                    fontSize="11.5"
-                    fontWeight="700"
-                    textAnchor="middle"
-                  >
-                    Payments
-                  </text>
-                </g>{" "}
                 <circle cx="250" cy="250" r="62" fill="#fff"></circle>{" "}
                 <circle cx="250" cy="250" r="70" stroke="#fff" strokeOpacity=".4"></circle>{" "}
                 <text
@@ -1565,25 +319,38 @@ export function VirtualEventsPage({ content }: { content: VirtualEventsContent }
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Want to host a session with FCC?</h2>{" "}
+              <span className="eyebrow">
+                {content.bottom_cta?.eyebrow || "Membership & partnership"}
+              </span>{" "}
+              <h2>{content.bottom_cta?.heading || "Want to host a session with FCC?"}</h2>{" "}
               <p>
-                Partners can run knowledge sessions, workshops and think tanks with FCC members.
+                {content.bottom_cta?.description ||
+                  "Partners can run knowledge sessions, workshops and think tanks with FCC members."}
               </p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a
+                  href={content.bottom_cta?.primary_cta_href || "/apply-membership"}
+                  className="btn btn-light"
+                >
+                  {content.bottom_cta?.primary_cta_label || "Apply for membership"}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a
+                  href={content.bottom_cta?.secondary_cta_href || "/apply-partnership"}
+                  className="btn btn-ghost"
+                >
+                  {content.bottom_cta?.secondary_cta_label || "Partner with us"}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {(content.bottom_cta?.benefits || [
+                "Direct input into representations to regulators",
+                "A seat on sector committees with industry peers",
+                "Complimentary passes to FCC and IAMAI conferences",
+                "Members-only roundtables and every FCC report",
+              ]).map((b, idx) => (
+                <li key={idx}>{b}</li>
+              ))}
             </ul>
           </div>
         </div>

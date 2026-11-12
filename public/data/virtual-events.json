@@ -3,6 +3,53 @@
     "title": "Virtual Events",
     "description": "Webinars and knowledge sessions where members hear directly from regulators, experts and peers on the rules that shape their business."
   },
+  "summary": {
+    "eyebrow": "Knowledge sessions",
+    "heading": "38 sessions since 2024",
+    "lead": "Most sessions run as one-hour virtual panels in the afternoon (IST), open to members and the wider ecosystem. Registrations:",
+    "email": "register@fintechcouncil.in",
+    "year_counts": [
+      {
+        "count": "11",
+        "year": "in 2026"
+      },
+      {
+        "count": "14",
+        "year": "in 2025"
+      },
+      {
+        "count": "13",
+        "year": "in 2024"
+      }
+    ]
+  },
+  "topics": [
+    {
+      "topic": "RegTech & compliance",
+      "count": "19",
+      "width": "100%"
+    },
+    {
+      "topic": "Lending",
+      "count": "6",
+      "width": "32%"
+    },
+    {
+      "topic": "Insurance",
+      "count": "5",
+      "width": "26%"
+    },
+    {
+      "topic": "Investments",
+      "count": "4",
+      "width": "21%"
+    },
+    {
+      "topic": "Credit",
+      "count": "1",
+      "width": "5%"
+    }
+  ],
   "items": [
     {
       "title": "Role of AI in transforming insurance processing",
@@ -10,7 +57,6 @@
       "month": "Apr 2026",
       "time": "3:30–4:30 PM IST · Virtual",
       "year_tag": "y2026",
-      "cover_image": "",
       "registration_link": ""
     },
     {
@@ -19,7 +65,6 @@
       "month": "Mar 2026",
       "time": "3:00 PM IST · Virtual",
       "year_tag": "y2026",
-      "cover_image": "",
       "registration_link": ""
     },
     {
@@ -28,7 +73,6 @@
       "month": "Mar 2026",
       "time": "3:00–4:30 PM IST · Virtual",
       "year_tag": "y2026",
-      "cover_image": "",
       "registration_link": ""
     },
     {
@@ -37,17 +81,294 @@
       "month": "Mar 2026",
       "time": "3:00–4:00 PM IST · Virtual",
       "year_tag": "y2026",
-      "cover_image": "",
       "registration_link": ""
     },
     {
-      "title": "Test Event",
-      "day": "2",
-      "month": "2",
-      "time": "3:00-4:30PM",
+      "title": "Why healthcare in India remains a push market",
+      "day": "02",
+      "month": "Mar 2026",
+      "time": "2:00–3:00 PM IST · Virtual",
       "year_tag": "y2026",
-      "cover_image": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg",
-      "registration_link": "NA"
+      "registration_link": ""
+    },
+    {
+      "title": "Legal architecture of the digital lending process",
+      "day": "24",
+      "month": "Feb 2026",
+      "time": "12:00 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Practical applications of AI in AML &amp; fraud monitoring",
+      "day": "20",
+      "month": "Feb 2026",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Redrawing the boundaries of insurance in India",
+      "day": "13",
+      "month": "Feb 2026",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Implementing RBI&#x27;s Digital Lending Guidelines",
+      "day": "12",
+      "month": "Feb 2026",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Budget 2026 unpacked",
+      "day": "06",
+      "month": "Feb 2026",
+      "time": "4:30–5:30 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Simplification of client onboarding with KRAs",
+      "day": "29",
+      "month": "Jan 2026",
+      "time": "3:00 PM IST · Virtual",
+      "year_tag": "y2026",
+      "registration_link": ""
+    },
+    {
+      "title": "Updation and periodic updation of KYC",
+      "day": "28",
+      "month": "May 2025",
+      "time": "3:30–4:30 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Union Budget session",
+      "day": "28",
+      "month": "May 2025",
+      "time": "5:00–6:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Credit trends unveiled",
+      "day": "24",
+      "month": "Apr 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Co-lending and lending against gold collateral",
+      "day": "21",
+      "month": "Apr 2025",
+      "time": "4:00–5:30 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Transaction monitoring and red-flag monitoring",
+      "day": "17",
+      "month": "Apr 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Cyber resilience strategies",
+      "day": "15",
+      "month": "Apr 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Impact of the DPDP Rules",
+      "day": "24",
+      "month": "Mar 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Data security &amp; compliance in IT asset disposal",
+      "day": "20",
+      "month": "Mar 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Impact of the DPDP Act and Rules",
+      "day": "26",
+      "month": "Feb 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Budget 2025 and the Insurance Amendment Bill",
+      "day": "20",
+      "month": "Feb 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Union Budget 2025–26",
+      "day": "05",
+      "month": "Feb 2025",
+      "time": "11:00 AM–12:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "DPDP Rules 2025",
+      "day": "05",
+      "month": "Feb 2025",
+      "time": "4:00–5:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Banning of unregulated lending activities",
+      "day": "09",
+      "month": "Jan 2025",
+      "time": "3:30–4:30 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Digital Personal Data Protection Rules",
+      "day": "08",
+      "month": "Jan 2025",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2025",
+      "registration_link": ""
+    },
+    {
+      "title": "Unlocking opportunities in GIFT IFSC",
+      "day": "20",
+      "month": "Dec 2024",
+      "time": "4:00–5:30 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Navigating cyber and fraud risk in the fintech ecosystem",
+      "day": "16",
+      "month": "Dec 2024",
+      "time": "3:30–4:30 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Legal Entity Identifier",
+      "day": "13",
+      "month": "Dec 2024",
+      "time": "4:00–5:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Ministry of Communications on DIGIPIN",
+      "day": "10",
+      "month": "Dec 2024",
+      "time": "10:30–11:30 AM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Amendments to the KYC Master Direction",
+      "day": "18",
+      "month": "Nov 2024",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "NPCI on e-KYC Setu",
+      "day": "01",
+      "month": "Oct 2024",
+      "time": "12:00–1:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Webinar on health insurance",
+      "day": "28",
+      "month": "Jun 2024",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Investing in fixed income",
+      "day": "20",
+      "month": "Jun 2024",
+      "time": "4:00–5:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Common tax issues for fintech entities",
+      "day": "02",
+      "month": "May 2024",
+      "time": "2:00–3:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Regulatory compliance solutions",
+      "day": "20",
+      "month": "Mar 2024",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "Managing risk and compliance",
+      "day": "23",
+      "month": "Feb 2024",
+      "time": "3:30–4:30 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "The future of remote onboarding",
+      "day": "20",
+      "month": "Feb 2024",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
+    },
+    {
+      "title": "A wake-up call for the fintech industry",
+      "day": "14",
+      "month": "Feb 2024",
+      "time": "3:00–4:00 PM IST · Virtual",
+      "year_tag": "y2024",
+      "registration_link": ""
     }
-  ]
+  ],
+  "bottom_cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Want to host a session with FCC?",
+    "description": "Partners can run knowledge sessions, workshops and think tanks with FCC members.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
 }

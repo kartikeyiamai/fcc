@@ -792,6 +792,26 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Date and Venue, name: date_venue, widget: string }
               - { label: Link, name: href, widget: string, required: false }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Meet the ecosystem in person." }
+              - { label: Description, name: description, widget: text, default: "Members receive complimentary passes to FCC and IAMAI conferences." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
 
   - name: virtual_events
     label: Virtual Events
@@ -804,26 +824,146 @@ collections:
             name: page
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-          - label: Events
+              - { label: Title, name: title, widget: string, default: "Virtual Events" }
+              - { label: Description, name: description, widget: text, default: "Webinars and knowledge sessions where members hear directly from regulators, experts and peers on the rules that shape their business." }
+          - label: Sessions Summary
+            name: summary
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Knowledge sessions" }
+              - { label: Heading, name: heading, widget: string, default: "38 sessions since 2024" }
+              - { label: Lead Text, name: lead, widget: text, default: "Most sessions run as one-hour virtual panels in the afternoon (IST), open to members and the wider ecosystem. Registrations:" }
+              - { label: Registration Email, name: email, widget: string, default: "register@fintechcouncil.in" }
+              - label: Year Breakdown
+                name: year_counts
+                widget: list
+                fields:
+                  - { label: Count, name: count, widget: string }
+                  - { label: Year Label, name: year, widget: string }
+          - label: Topics Covered
+            name: topics
+            widget: list
+            summary: "{{fields.topic}}: {{fields.count}}"
+            fields:
+              - { label: Topic, name: topic, widget: string }
+              - { label: Count, name: count, widget: string }
+              - { label: Bar Width, name: width, widget: string, default: "50%" }
+          - label: Events Archive
             name: items
             widget: list
-            summary: "{{fields.title}}"
+            summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Day, name: day, widget: string }
-              - { label: Month / Year, name: month, widget: string }
+              - { label: Month & Year, name: month, widget: string }
               - { label: Time Label, name: time, widget: string }
-              - { label: Year Tag, name: year_tag, widget: string }
+              - { label: Year Tag, name: year_tag, widget: string, default: "y2026" }
+              - { label: Registration or Details Link, name: registration_link, widget: string, required: false }
               - { label: Cover Image, name: cover_image, widget: image, required: false }
-              - { label: Registration Link, name: registration_link, widget: string, required: false }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Want to host a session with FCC?" }
+              - { label: Description, name: description, widget: text, default: "Partners can run knowledge sessions, workshops and think tanks with FCC members." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
+
+  - name: policy
+    label: Policy
+    files:
+      - name: policy
+        label: Policy Page
+        file: public/data/policy.json
+        fields:
+          - label: Page
+            name: page
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string, default: "Policy" }
+              - { label: Description, name: description, widget: text, default: "How FCC represents member companies before government, representations, consultations, white papers and representations." }
+          - label: At a Glance Section
+            name: at_a_glance
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "At a glance" }
+              - { label: Heading, name: heading, widget: string, default: "Where our representations go" }
+              - { label: Lead Text, name: lead, widget: text, default: "Count of representations listed on this page, by regulator or government body." }
+              - label: Summary Stats
+                name: stats
+                widget: list
+                fields:
+                  - { label: Value, name: value, widget: string }
+                  - { label: Label, name: label, widget: string }
+              - label: Regulator Breakdown Bars
+                name: breakdown
+                widget: list
+                summary: "{{fields.regulator}}: {{fields.count}}"
+                fields:
+                  - { label: Regulator, name: regulator, widget: string }
+                  - { label: Count, name: count, widget: string }
+                  - { label: Bar Width Percentage, name: width, widget: string, default: "50%" }
+          - label: Key Representations (Concept Notes)
+            name: key_representations
+            widget: list
+            summary: "{{fields.regulator}}: {{fields.title}}"
+            fields:
+              - { label: ID / Slug, name: id, widget: string }
+              - { label: Regulator, name: regulator, widget: string }
+              - { label: Filter Key, name: data_r, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Tag / Metadata, name: tag, widget: string }
+              - label: Paragraphs / Note Content
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: paragraph, widget: text }
+          - label: Recent Submissions & Sessions
+            name: recent_submissions
+            widget: list
+            summary: "{{fields.tag}}: {{fields.title}}"
+            fields:
+              - { label: Filter Key, name: data_r, widget: string }
+              - { label: Tag / Regulator, name: tag, widget: string }
+              - { label: Status, name: status, widget: string, default: "Submitted" }
+              - { label: Title, name: title, widget: string }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Have a seat at the table where fintech policy is shaped." }
+              - { label: Description, name: description, widget: text, default: "Join FCC as a member, or partner with us on events, research and industry programmes." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
 
   - name: publications
-    label: Research & Publications
+    label: Research
     files:
       - name: publications
-        label: Research & Publications
+        label: Research
         file: public/data/publications.json
         fields:
           - label: Page
@@ -832,19 +972,42 @@ collections:
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
-          - label: Publications
+          - label: Featured Publication
+            name: featured
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Featured report" }
+              - { label: Title, name: title, widget: string, default: "Building Bridges for the Next Decade of Finance" }
+              - { label: Lead Text, name: lead, widget: text, default: "The latest FCC publication on where Indian finance is heading next." }
+              - { label: Document URL / Link, name: href, widget: string }
+              - { label: CTA Button Label, name: cta_label, widget: string, default: "Download PDF" }
+              - { label: Badge Text, name: badge, widget: string, default: "FCC · Featured", required: false }
+              - { label: Year Label, name: year_label, widget: string, default: "Latest", required: false }
+              - { label: Cover Variant, name: cover_variant, widget: string, default: "b1", required: false }
+          - label: Publications Library
             name: items
             widget: list
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: Kind / Category, name: kind, widget: string }
-              - { label: Year Label, name: year_label, widget: string }
+              - { label: Kind / Badge, name: kind, widget: string, default: "FCC · Report" }
+              - { label: Year Label / Author, name: year_label, widget: string, default: "FCC × IAMAI" }
+              - { label: Category, name: category, widget: string, default: "Report" }
               - { label: Document or External Link, name: href, widget: string }
-              - { label: Cover Variant, name: cover_variant, widget: string, required: false }
+              - { label: Cover Variant (b1, b2, b3, b4), name: cover_variant, widget: string, default: "b1", required: false }
               - { label: Cover Image, name: cover_image, widget: image, required: false }
               - { label: Publication Date, name: publication_date, widget: datetime, required: false }
               - { label: Description, name: description, widget: text, required: false }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string, default: "Looking for more?" }
+              - { label: Lead Text, name: lead, widget: text, default: "Read our 2024–2025 annual report, or learn about FCC's representations." }
+              - { label: Primary Button Label, name: primary_cta_label, widget: string, default: "All annual reports" }
+              - { label: Primary Button Href, name: primary_cta_href, widget: string, default: "/annual-report" }
+              - { label: Secondary Button Label, name: secondary_cta_label, widget: string, default: "Policy representations" }
+              - { label: Secondary Button Href, name: secondary_cta_href, widget: string, default: "/policy" }
 
   - name: annual_reports
     label: Annual Reports

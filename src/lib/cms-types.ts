@@ -437,28 +437,123 @@ export type LiveEventsContent = {
   page: { title: string; description: string };
   flagship: HomepageContent["events_section"]["flagship"];
   items: LiveEventItem[];
+  bottom_cta?: {
+    eyebrow?: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
+};
+
+export type VirtualEventItem = {
+  title: string;
+  day: string;
+  month: string;
+  time: string;
+  year_tag: string;
+  registration_link?: string;
+  cover_image?: string;
 };
 
 export type VirtualEventsContent = {
   page: { title: string; description: string };
-  items: {
-    title: string;
-    day: string;
-    month: string;
-    time: string;
-    year_tag: string;
-  }[];
+  summary?: {
+    eyebrow?: string;
+    heading: string;
+    lead?: string;
+    email?: string;
+    year_counts?: { count: string; year: string }[];
+  };
+  topics?: { topic: string; count: string; width: string }[];
+  items: VirtualEventItem[];
+  bottom_cta?: {
+    eyebrow?: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
+};
+
+export type PublicationItem = {
+  title: string;
+  kind: string;
+  year_label: string;
+  href: string;
+  cover_variant?: string;
+  category?: string;
+  cover_image?: string;
+  publication_date?: string;
+  description?: string;
 };
 
 export type PublicationsContent = {
   page: { title: string; description: string };
-  items: {
+  featured?: {
+    eyebrow?: string;
     title: string;
-    kind: string;
-    year_label: string;
+    lead?: string;
     href: string;
+    cta_label?: string;
+    badge?: string;
+    year_label?: string;
     cover_variant?: string;
-  }[];
+  };
+  items: PublicationItem[];
+  bottom_cta?: {
+    heading: string;
+    lead: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+  };
+};
+
+export type PolicyRepresentationItem = {
+  id: string;
+  regulator: string;
+  data_r: string;
+  title: string;
+  tag: string;
+  paragraphs: string[];
+};
+
+export type PolicySubmissionItem = {
+  data_r: string;
+  tag: string;
+  status: string;
+  title: string;
+};
+
+export type PolicyContent = {
+  page: { title: string; description: string };
+  at_a_glance: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    stats: { value: string; label: string }[];
+    breakdown: { regulator: string; count: string; width: string }[];
+  };
+  key_representations: PolicyRepresentationItem[];
+  recent_submissions: PolicySubmissionItem[];
+  bottom_cta: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
 };
 
 export type AnnualReportsContent = {

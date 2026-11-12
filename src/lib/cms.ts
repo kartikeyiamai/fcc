@@ -13,6 +13,7 @@ import membershipBenefits from "../../public/data/membership-benefits.json";
 import applyMembership from "../../public/data/apply-membership.json";
 import partnershipBenefits from "../../public/data/partnership-benefits.json";
 import applyPartnership from "../../public/data/apply-partnership.json";
+import policy from "../../public/data/policy.json";
 
 import digitalLendingCommittee from "../../public/data/committees/digital-lending.json";
 import regtechCommittee from "../../public/data/committees/regtech.json";
@@ -35,6 +36,7 @@ import type {
   NavChild,
   PartnersContent,
   PartnershipBenefitsContent,
+  PolicyContent,
   PublicationsContent,
   SiteSettings,
   VirtualEventsContent,
@@ -215,6 +217,10 @@ export async function loadPartnershipBenefits(): Promise<PartnershipBenefitsCont
 
 export async function loadApplyPartnership(): Promise<ApplyPartnershipContent> {
   return applyPartnership as ApplyPartnershipContent;
+}
+
+export async function loadPolicy(): Promise<PolicyContent> {
+  return policy as PolicyContent;
 }
 
 export async function loadLiveEvents(): Promise<LiveEventsContent> {

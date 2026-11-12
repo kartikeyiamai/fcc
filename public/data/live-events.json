@@ -100,5 +100,20 @@
       "date_venue": "Test Event",
       "href": "Test Event"
     }
-  ]
+  ],
+  "bottom_cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Meet the ecosystem in person.",
+    "description": "Members receive complimentary passes to FCC and IAMAI conferences.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
 }
