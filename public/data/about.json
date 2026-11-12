@@ -119,5 +119,20 @@
         "role": "Test Position"
       }
     ]
+  },
+  "cta": {
+    "eyebrow": "Membership & partnership",
+    "heading": "Have a seat at the table where fintech policy is shaped.",
+    "description": "Join FCC as a member, or partner with us on events, research and industry programmes.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
   }
 }

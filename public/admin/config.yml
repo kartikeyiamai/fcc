@@ -207,16 +207,21 @@ collections:
             name: cta
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
-              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
-              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
-              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Have a seat at the table where fintech policy is shaped." }
+              - { label: Description, name: description, widget: text, default: "Join FCC as a member, or partner with us on events, research and industry programmes." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
               - label: Benefits
                 name: benefits
                 widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
                 field: { label: Benefit, name: benefit, widget: string }
 
   - name: about
@@ -280,6 +285,26 @@ collections:
                 fields:
                   - { label: Name, name: name, widget: string }
                   - { label: Role, name: role, widget: string }
+          - label: Bottom CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, default: "Membership & partnership" }
+              - { label: Heading, name: heading, widget: string, default: "Have a seat at the table where fintech policy is shaped." }
+              - { label: Description, name: description, widget: text, default: "Join FCC as a member, or partner with us on events, research and industry programmes." }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string, default: "Apply for membership" }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string, default: "/apply-membership" }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string, default: "Partner with us" }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string, default: "/apply-partnership" }
+              - label: Benefits
+                name: benefits
+                widget: list
+                default:
+                  - "Direct input into representations to regulators"
+                  - "A seat on sector committees with industry peers"
+                  - "Complimentary passes to FCC and IAMAI conferences"
+                  - "Members-only roundtables and every FCC report"
+                field: { label: Benefit, name: benefit, widget: string }
 
   - name: members
     label: Members

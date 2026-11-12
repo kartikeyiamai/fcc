@@ -556,82 +556,91 @@ export function AboutPage({ content }: { content: AboutContent }) {
             </div>
           </div>
           <div className="grid-3 reveal">
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "16px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M3 11v2a2 2 0 0 0 2 2h2l5 4V5L7 9H5a2 2 0 0 0-2 2zM16 8a5 5 0 0 1 0 8"></path>
-                </svg>
-              </div>{" "}
-              <h3 style={{ marginBottom: "12px" }}>Advocacy</h3>{" "}
-              <ul className="checks dark-txt" style={{ fontSize: ".9rem", gap: "8px" }}>
-                <li>Review regulatory, legal and policy developments, including drafts</li>{" "}
-                <li>Submit feedback on papers released for public comment</li>{" "}
-                <li>Share proactive opinions with lawmakers</li>{" "}
-                <li>Work with government and regulators on a fair policy environment</li>{" "}
-                <li>Collaborate with other associations</li>
-              </ul>
-            </div>
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "16px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
-                  <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
-                </svg>
-              </div>{" "}
-              <h3 style={{ marginBottom: "12px" }}>Convergence &amp; collaboration</h3>{" "}
-              <p style={{ color: "var(--muted)", fontSize: ".92rem" }}>
-                We find opportunities for large financial institutions in banking, payments,
-                insurance and investments to work with fintech companies, so both sides grow faster.
-              </p>
-            </div>
-            <div className="card">
-              <div className="icon-box" style={{ marginBottom: "16px" }}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>
-                </svg>
-              </div>{" "}
-              <h3 style={{ marginBottom: "12px" }}>Development</h3>{" "}
-              <p style={{ color: "var(--muted)", fontSize: ".92rem" }}>
-                Through committees, best-practice sharing, industry discussions and knowledge
-                sessions, we help the sector mature and reach more people.
-              </p>
-              <div style={{ marginTop: "16px", display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                <span className="tag g">Digital Lending</span>{" "}
-                <span className="tag g">WealthTech</span> <span className="tag g">InsurTech</span>{" "}
-                <span className="tag g">DFSP</span> <span className="tag g">RegTech</span>{" "}
-                <span className="tag g">AgriFintech</span> <span className="tag g">Bureaus</span>
-              </div>
-            </div>
+            {content.pillars?.map((pillar, idx) => {
+              return (
+                <div className="card" key={`${pillar.title}-${idx}`}>
+                  <div className="icon-box" style={{ marginBottom: "16px" }}>
+                    {idx === 0 ? (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M3 11v2a2 2 0 0 0 2 2h2l5 4V5L7 9H5a2 2 0 0 0-2 2zM16 8a5 5 0 0 1 0 8"></path>
+                      </svg>
+                    ) : idx === 1 ? (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 13l3 3 7-7M3 12l5 5M21 7l-3-3"></path>{" "}
+                        <path d="M2 12l4-4 4 4M22 8l-4 4"></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>
+                      </svg>
+                    )}
+                  </div>{" "}
+                  <h3 style={{ marginBottom: "12px" }}>{pillar.title}</h3>{" "}
+                  {pillar.description ? (
+                    <p style={{ color: "var(--muted)", fontSize: ".92rem" }}>
+                      {pillar.description}
+                    </p>
+                  ) : null}
+                  {pillar.items && pillar.items.length > 0 ? (
+                    idx === 2 ? (
+                      <div
+                        style={{
+                          marginTop: "16px",
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: "6px",
+                        }}
+                      >
+                        {pillar.items.map((item, i) => (
+                          <span className="tag g" key={i}>
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <ul
+                        className="checks dark-txt"
+                        style={{ fontSize: ".9rem", gap: "8px" }}
+                      >
+                        {pillar.items.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    )
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -640,60 +649,18 @@ export function AboutPage({ content }: { content: AboutContent }) {
         <div className="wrap split" style={{ alignItems: "start" }}>
           <div>
             <span className="eyebrow">Our journey</span> <h2>{content.journey.heading}</h2>{" "}
-            <p className="lead">Key moments in FCC's story so far.</p>
+            <p className="lead">{content.journey.lead || "Key moments in FCC's story so far."}</p>
           </div>
           <div className="timeline reveal">
-            <div className="tl">
-              <div className="yr">2017</div>{" "}
-              <div className="body">
-                <h4>Fintech committee at IAMAI</h4>{" "}
-                <p>Industry members come together under IAMAI to discuss fintech policy.</p>
+            {content.journey?.milestones?.map((milestone, idx) => (
+              <div className="tl" key={`${milestone.year}-${milestone.title}-${idx}`}>
+                <div className="yr">{milestone.year}</div>{" "}
+                <div className="body">
+                  <h4>{milestone.title}</h4>{" "}
+                  <p>{milestone.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="tl">
-              <div className="yr">2018</div>{" "}
-              <div className="body">
-                <h4>FCC launches</h4>{" "}
-                <p>
-                  The Fintech Convergence Council is launched on 19 September at The St. Regis,
-                  Mumbai.
-                </p>
-              </div>
-            </div>
-            <div className="tl">
-              <div className="yr">2020</div>{" "}
-              <div className="body">
-                <h4>First Global Fintech Fest</h4>{" "}
-                <p>
-                  GFF debuts as a virtual event and becomes the flagship of India's fintech
-                  calendar.
-                </p>
-              </div>
-            </div>
-            <div className="tl">
-              <div className="yr">2023</div>{" "}
-              <div className="body">
-                <h4>GFF moves to Jio World Centre</h4>{" "}
-                <p>The festival grows into one of the world's largest fintech gatherings.</p>
-              </div>
-            </div>
-            <div className="tl">
-              <div className="yr">2025</div>{" "}
-              <div className="body">
-                <h4>Mission trip to Japan</h4>{" "}
-                <p>An industry delegation visits Tokyo to build cross-border fintech ties.</p>
-              </div>
-            </div>
-            <div className="tl">
-              <div className="yr">Today</div>{" "}
-              <div className="body">
-                <h4>
-                  {content.journey?.milestones?.find((m) => /members/i.test(m.title))?.title ||
-                    "201 members, 5 committees"}
-                </h4>{" "}
-                <p>A regular calendar of representations, webinars and research.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -704,63 +671,39 @@ export function AboutPage({ content }: { content: AboutContent }) {
             <div>
               <span className="eyebrow">Governing Council</span> <h2>{content.council.heading}</h2>{" "}
               <p className="lead">
-                FCC is governed by a seven-member Executive Council drawn from its member companies.
+                {content.council.lead || "FCC is governed by a seven-member Executive Council drawn from its member companies."}
               </p>
             </div>
           </div>
           <div className="people reveal">
-            <div className="person lead-card">
-              <div className="avatar">VH</div> <h4>Vibhav Hathi</h4>{" "}
-              <div className="org">Co-Founder, OneCard</div>{" "}
-              <div className="role">
-                <span className="tag">Chair, FCC</span>{" "}
-                <span className="tag">Chair, Digital Lending</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">PR</div> <h4>Praveena Rai</h4>{" "}
-              <div className="org">MD &amp; CEO, MCX India</div>{" "}
-              <div className="role">
-                <span className="tag">Co-Chair, FCC</span>{" "}
-                <span className="tag">Co-Chair, WealthTech</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">AR</div> <h4>Ajay Rajan</h4>{" "}
-              <div className="org">MD &amp; CEO, Protean e-Gov</div>{" "}
-              <div className="role">
-                <span className="tag">Co-Chair, FCC</span>{" "}
-                <span className="tag">Chair, RegTech</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">MS</div> <h4>Miten Sampat</h4>{" "}
-              <div className="org">Interim CEO, CRED</div>{" "}
-              <div className="role">
-                <span className="tag">Co-Chair, Digital Lending</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">SJ</div> <h4>Srinivas Jain</h4>{" "}
-              <div className="org">Executive Director, SBI Funds</div>{" "}
-              <div className="role">
-                <span className="tag">Chair, WealthTech</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">DS</div> <h4>Deval Sheth</h4>{" "}
-              <div className="org">MD, Asia Pacific, Utimaco</div>{" "}
-              <div className="role">
-                <span className="tag">Co-Chair, RegTech</span>
-              </div>
-            </div>{" "}
-            <div className="person">
-              <div className="avatar">SS</div> <h4>Sarbvir Singh</h4>{" "}
-              <div className="org">Joint Group CEO, PB Fintech</div>{" "}
-              <div className="role">
-                <span className="tag">Chair, InsurTech</span>
-              </div>
-            </div>
+            {content.council?.members?.map((member, idx) => {
+              const words = (member.name || "").trim().split(/\s+/).filter(Boolean);
+              const initials =
+                words.length > 1
+                  ? (words[0][0] + words[words.length - 1][0]).toUpperCase()
+                  : (words[0] || "").slice(0, 2).toUpperCase() || "FC";
+              const isLead = idx === 0;
+              const rawRole = member.role || "";
+              const parts = rawRole.split("·").map((s) => s.trim());
+              const org = parts.length > 1 ? parts.slice(1).join(" · ") : parts[0] || "";
+              const roleTag = parts.length > 1 ? parts[0] : "";
+
+              return (
+                <div
+                  className={`person ${isLead ? "lead-card" : ""}`}
+                  key={`${member.name}-${idx}`}
+                >
+                  <div className="avatar">{initials}</div>
+                  <h4>{member.name}</h4>
+                  {org ? <div className="org">{org}</div> : null}
+                  {roleTag ? (
+                    <div className="role">
+                      <span className="tag">{roleTag}</span>
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
             <a
               href="/committees"
               className="person"
@@ -1208,26 +1151,43 @@ export function AboutPage({ content }: { content: AboutContent }) {
               </svg>
             </div>{" "}
             <div style={{ position: "relative" }}>
-              <span className="eyebrow">Membership &amp; partnership</span>{" "}
-              <h2>Have a seat at the table where fintech policy is shaped.</h2>{" "}
+              <span className="eyebrow">
+                {content.cta?.eyebrow || "Membership & partnership"}
+              </span>{" "}
+              <h2>
+                {content.cta?.heading || "Have a seat at the table where fintech policy is shaped."}
+              </h2>{" "}
               <p>
-                Join FCC as a member, or partner with us on events, research and industry
-                programmes.
+                {content.cta?.description ||
+                  "Join FCC as a member, or partner with us on events, research and industry programmes."}
               </p>
               <div className="cta-actions">
-                <a href="/apply-membership" className="btn btn-light">
-                  Apply for membership
+                <a
+                  href={content.cta?.primary_cta_href || "/apply-membership"}
+                  className="btn btn-light"
+                >
+                  {content.cta?.primary_cta_label || "Apply for membership"}
                 </a>{" "}
-                <a href="/apply-partnership" className="btn btn-ghost">
-                  Partner with us
+                <a
+                  href={content.cta?.secondary_cta_href || "/apply-partnership"}
+                  className="btn btn-ghost"
+                >
+                  {content.cta?.secondary_cta_label || "Partner with us"}
                 </a>
               </div>
             </div>
             <ul className="checks">
-              <li>Direct input into representations to regulators</li>{" "}
-              <li>A seat on sector committees with industry peers</li>{" "}
-              <li>Complimentary passes to FCC and IAMAI conferences</li>{" "}
-              <li>Members-only roundtables and every FCC report</li>
+              {(content.cta?.benefits && content.cta.benefits.length > 0
+                ? content.cta.benefits
+                : [
+                    "Direct input into representations to regulators",
+                    "A seat on sector committees with industry peers",
+                    "Complimentary passes to FCC and IAMAI conferences",
+                    "Members-only roundtables and every FCC report",
+                  ]
+              ).map((benefit, i) => (
+                <li key={i}>{benefit}</li>
+              ))}
             </ul>
           </div>
         </div>

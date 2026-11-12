@@ -149,6 +149,16 @@ export type AboutContent = {
     lead: string;
     members: { name: string; role: string }[];
   };
+  cta?: {
+    eyebrow: string;
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
 };
 
 export type CommitteeItem = {
