@@ -920,11 +920,9 @@ collections:
             widget: list
             summary: "{{fields.regulator}}: {{fields.title}}"
             fields:
-              - { label: ID / Slug, name: id, widget: string }
-              - { label: Regulator, name: regulator, widget: string }
-              - { label: Filter Key, name: data_r, widget: string }
+              - { label: Regulator (e.g. RBI, SEBI, IRDAI), name: regulator, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Tag / Metadata, name: tag, widget: string }
+              - { label: Tag / Subtitle, name: tag, widget: string }
               - label: Paragraphs / Note Content
                 name: paragraphs
                 widget: list
@@ -934,8 +932,7 @@ collections:
             widget: list
             summary: "{{fields.tag}}: {{fields.title}}"
             fields:
-              - { label: Filter Key, name: data_r, widget: string }
-              - { label: Tag / Regulator, name: tag, widget: string }
+              - { label: Tag / Regulator (e.g. RBI, SEBI, Session), name: tag, widget: string }
               - { label: Status, name: status, widget: string, default: "Submitted" }
               - { label: Title, name: title, widget: string }
           - label: Bottom CTA

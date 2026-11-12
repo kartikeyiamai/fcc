@@ -166,10 +166,11 @@ export function PolicyPage({ content }: { content: PolicyContent }) {
             ))}
           </div>
           <div id="notes" style={{ display: "grid", gap: "12px" }}>
-            {filteredReps.map((rep) => {
-              const isExpanded = !!expandedReps[rep.id];
+            {filteredReps.map((rep, idx) => {
+              const repKey = rep.id || `rep-${idx}`;
+              const isExpanded = !!expandedReps[repKey];
               return (
-                <div className="rep" data-r={rep.data_r} key={rep.id}>
+                <div className="rep" data-r={rep.data_r} key={repKey}>
                   <div className="doc">{rep.regulator}</div>{" "}
                   <div className="rep-main">
                     <h4>{rep.title}</h4>{" "}
@@ -190,7 +191,7 @@ export function PolicyPage({ content }: { content: PolicyContent }) {
                     className="go rep-toggle"
                     aria-expanded={isExpanded}
                     aria-label={`Read more about ${rep.title}`}
-                    onClick={() => toggleRep(rep.id)}
+                    onClick={() => toggleRep(repKey)}
                     style={{ background: "transparent", border: "0", cursor: "pointer" }}
                   >
                     <span className="rep-toggle-label">{isExpanded ? "Read Less" : "Read More"}</span>{" "}

@@ -518,16 +518,16 @@ export type PublicationsContent = {
 };
 
 export type PolicyRepresentationItem = {
-  id: string;
+  id?: string;
   regulator: string;
-  data_r: string;
+  data_r?: string;
   title: string;
   tag: string;
   paragraphs: string[];
 };
 
 export type PolicySubmissionItem = {
-  data_r: string;
+  data_r?: string;
   tag: string;
   status: string;
   title: string;
