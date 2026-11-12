@@ -52,12 +52,16 @@ export function HomePage({
               </a>
             </div>
             <div className="hero-trust">
-              {hero.trust.map((item) => (
-                <div key={item.label}>
-                  <b>{item.value}</b>
-                  {item.label}
-                </div>
-              ))}
+              {hero.trust.map((item) => {
+                const isMemberStat = /member\s*companies/i.test(item.label) || /companies/i.test(item.label);
+                const displayVal = isMemberStat ? item.value.replace(/\+/g, "") : item.value;
+                return (
+                  <div key={item.label}>
+                    <b>{displayVal}</b>
+                    {item.label}
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="hero-art">
@@ -542,19 +546,23 @@ export function HomePage({
       <div className="stats">
         <div className="wrap">
           <div className="grid">
-            {content.stats.map((stat) => (
-              <div className="stat" key={stat.label}>
-                <b>
-                  {stat.value}
-                  {stat.suffix ? <sup>{stat.suffix}</sup> : null}
-                </b>{" "}
-                <span>{stat.label}</span>{" "}
-                <i
-                  className="bar"
-                  style={{ ["--p" as string]: stat.bar } as React.CSSProperties}
-                ></i>
-              </div>
-            ))}
+            {content.stats.map((stat) => {
+              const isMemberStat = /member\s*companies/i.test(stat.label) || /companies/i.test(stat.label);
+              const displayVal = isMemberStat ? stat.value.replace(/\+/g, "") : stat.value;
+              return (
+                <div className="stat" key={stat.label}>
+                  <b>
+                    {displayVal}
+                    {!isMemberStat && stat.suffix ? <sup>{stat.suffix}</sup> : null}
+                  </b>{" "}
+                  <span>{stat.label}</span>{" "}
+                  <i
+                    className="bar"
+                    style={{ ["--p" as string]: stat.bar } as React.CSSProperties}
+                  ></i>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

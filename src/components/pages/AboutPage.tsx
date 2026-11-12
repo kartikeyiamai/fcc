@@ -687,7 +687,10 @@ export function AboutPage({ content }: { content: AboutContent }) {
             <div className="tl">
               <div className="yr">Today</div>{" "}
               <div className="body">
-                <h4>175+ members, 5 committees</h4>{" "}
+                <h4>
+                  {content.journey?.milestones?.find((m) => /members/i.test(m.title))?.title ||
+                    "201 members, 5 committees"}
+                </h4>{" "}
                 <p>A regular calendar of representations, webinars and research.</p>
               </div>
             </div>

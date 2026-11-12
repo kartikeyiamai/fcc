@@ -1,4 +1,7 @@
+import membersData from "../../../public/data/members.json";
+
 export function PartnershipBenefitsPage() {
+  const memberCount = Array.isArray(membersData?.items) ? membersData.items.length : 201;
   return (
     <>
       <section className="page-hero grid-bg">
@@ -107,7 +110,7 @@ export function PartnershipBenefitsPage() {
                 textAnchor="middle"
                 fontFamily="JetBrains Mono"
               >
-                175+ MEMBERS
+                {memberCount} MEMBERS
               </text>
               <text x="305" y="155" fill="#222" fontWeight="800" fontSize="18" textAnchor="middle">
                 You

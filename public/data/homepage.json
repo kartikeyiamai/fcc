@@ -4,14 +4,14 @@
     "heading_before": "Where finance and technology",
     "heading_emphasis": "converge",
     "heading_after": "to shape policy",
-    "description": "FCC brings together policymakers, regulators and 175+ fintech companies to build a fair policy environment and widen access to financial services across India",
+    "description": "FCC brings together policymakers, regulators and 201 fintech companies to build a fair policy environment and widen access to financial services across India",
     "primary_cta_label": "Join the Council",
     "primary_cta_href": "/apply-membership",
     "secondary_cta_label": "See our policy work",
     "secondary_cta_href": "/policy",
     "trust": [
       {
-        "value": "175+",
+        "value": "201",
         "label": "member companies"
       },
       {
@@ -26,8 +26,8 @@
   },
   "stats": [
     {
-      "value": "175",
-      "suffix": "+",
+      "value": "201",
+      "suffix": "",
       "label": "Member companies",
       "bar": "88%"
     },

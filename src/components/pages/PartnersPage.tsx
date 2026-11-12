@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import membersData from "../../../public/data/members.json";
 import type { PartnersContent, PartnerItem } from "@/lib/cms-types";
 
 function getInitials(name: string): string {
@@ -659,7 +660,7 @@ export function PartnersPage({ content }: { content: PartnersContent }) {
               <span className="eyebrow">Membership &amp; partnership</span>{" "}
               <h2>Let&apos;s build something for the ecosystem.</h2>{" "}
               <p>
-                Partner with FCC to reach 175+ member companies through events, programmes and
+                Partner with FCC to reach {Array.isArray(membersData?.items) ? membersData.items.length : 201} member companies through events, programmes and
                 knowledge sessions.
               </p>
               <div className="cta-actions">

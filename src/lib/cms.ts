@@ -25,7 +25,7 @@ import type {
 } from "@/lib/cms-types";
 
 export async function loadSiteSettings(): Promise<SiteSettings> {
-  const memberCount = Array.isArray(members?.items) ? members.items.length : 200;
+  const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
   const navigation = siteSettings.navigation.map((item) => {
     if (!item.children) return item;
     return {
@@ -51,11 +51,77 @@ export async function loadSiteSettings(): Promise<SiteSettings> {
 }
 
 export async function loadHomepage(): Promise<HomepageContent> {
-  return homepage as HomepageContent;
+  const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
+
+  // 1. Dynamic Hero Description: e.g. "201 fintech companies" (exact number, no +)
+  const rawHeroDesc = homepage.hero?.description || "";
+  const dynamicHeroDesc = rawHeroDesc
+    ? rawHeroDesc.replace(/\b\d+(\+)?\s*fintech companies/i, `${memberCount} fintech companies`)
+    : rawHeroDesc;
+
+  // 2. Dynamic Hero Trust: "201" for "member companies" (exact number, no +)
+  const heroTrust = (homepage.hero?.trust || []).map((item) => {
+    if (/member\s*companies/i.test(item.label) || /companies/i.test(item.label)) {
+      return {
+        ...item,
+        value: String(memberCount),
+      };
+    }
+    return item;
+  });
+
+  // 3. Dynamic Stats Bar: "201" for "Member companies", suffix "" (no +)
+  const stats = (homepage.stats || []).map((stat) => {
+    if (/member\s*companies/i.test(stat.label) || /companies/i.test(stat.label)) {
+      return {
+        ...stat,
+        value: String(memberCount),
+        suffix: "",
+      };
+    }
+    return stat;
+  });
+
+  return {
+    ...homepage,
+    hero: {
+      ...homepage.hero,
+      description: dynamicHeroDesc,
+      trust: heroTrust,
+    },
+    stats,
+  } as HomepageContent;
 }
 
 export async function loadAbout(): Promise<AboutContent> {
-  return about as AboutContent;
+  const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
+
+  const rawParagraphs = about.overview?.paragraphs || [];
+  const dynamicParagraphs = rawParagraphs.map((p) =>
+    p.replace(/\b(more than\s+)?\d+(\+)?\s*companies\b/i, `more than ${memberCount} companies`)
+  );
+
+  const dynamicMilestones = (about.journey?.milestones || []).map((m) => {
+    if (m.title && /\b\d+(\+)?\s*members\b/i.test(m.title)) {
+      return {
+        ...m,
+        title: m.title.replace(/\b\d+(\+)?\s*members\b/i, `${memberCount} members`),
+      };
+    }
+    return m;
+  });
+
+  return {
+    ...about,
+    overview: {
+      ...about.overview,
+      paragraphs: dynamicParagraphs,
+    },
+    journey: {
+      ...about.journey,
+      milestones: dynamicMilestones,
+    },
+  } as AboutContent;
 }
 
 export async function loadCommittees(): Promise<CommitteesContent> {
@@ -63,7 +129,7 @@ export async function loadCommittees(): Promise<CommitteesContent> {
 }
 
 export async function loadMembers(): Promise<MembersContent> {
-  const memberCount = Array.isArray(members?.items) ? members.items.length : 200;
+  const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
   const rawDesc = members.page?.description || "";
   const dynamicDescription = rawDesc
     ? rawDesc.replace(/\b\d+(\+)?\s*companies/i, `${memberCount} companies`)
