@@ -9,9 +9,17 @@ import partners from "../../public/data/partners.json";
 import publications from "../../public/data/publications.json";
 import siteSettings from "../../public/data/site-settings.json";
 import virtualEvents from "../../public/data/virtual-events.json";
+
+import digitalLendingCommittee from "../../public/data/committees/digital-lending.json";
+import regtechCommittee from "../../public/data/committees/regtech.json";
+import wealthtechCommittee from "../../public/data/committees/wealthtech.json";
+import insurtechCommittee from "../../public/data/committees/insurtech.json";
+import creditBureauCommittee from "../../public/data/committees/credit-bureau.json";
+
 import type {
   AboutContent,
   AnnualReportsContent,
+  CommitteeDetailPageContent,
   CommitteesContent,
   ContactContent,
   HomepageContent,
@@ -126,6 +134,29 @@ export async function loadAbout(): Promise<AboutContent> {
 
 export async function loadCommittees(): Promise<CommitteesContent> {
   return committees as CommitteesContent;
+}
+
+const committeePagesMap: Record<string, CommitteeDetailPageContent> = {
+  "digital-lending": digitalLendingCommittee as CommitteeDetailPageContent,
+  regtech: regtechCommittee as CommitteeDetailPageContent,
+  wealthtech: wealthtechCommittee as CommitteeDetailPageContent,
+  insurtech: insurtechCommittee as CommitteeDetailPageContent,
+  "credit-bureau": creditBureauCommittee as CommitteeDetailPageContent,
+};
+
+export async function loadCommitteePage(slug: string): Promise<CommitteeDetailPageContent | null> {
+  if (committeePagesMap[slug]) {
+    return committeePagesMap[slug];
+  }
+  try {
+    const fs = await import("fs/promises");
+    const path = await import("path");
+    const filePath = path.join(process.cwd(), "public", "data", "committees", `${slug}.json`);
+    const fileContent = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(fileContent) as CommitteeDetailPageContent;
+  } catch {
+    return null;
+  }
 }
 
 export async function loadMembers(): Promise<MembersContent> {

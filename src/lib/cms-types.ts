@@ -161,19 +161,91 @@ export type AboutContent = {
   };
 };
 
+export type CommitteeLeader = {
+  name: string;
+  role?: string;
+  org?: string;
+  tag?: string;
+  avatar?: string;
+};
+
 export type CommitteeItem = {
   slug: string;
-  code: string;
+  code?: string;
   name: string;
-  href: string;
+  href?: string;
   description: string;
-  chair_name: string;
-  chair_role: string;
+  who_can_join?: string;
+  tags?: string[];
+  chair_name?: string;
+  chair_role?: string;
+  co_chair_name?: string;
+  co_chair_role?: string;
+  leaders?: CommitteeLeader[];
+  accent_color?: string;
 };
 
 export type CommitteesContent = {
   page?: { title: string; description: string };
   items: CommitteeItem[];
+  join_box?: {
+    heading: string;
+    description: string;
+    email: string;
+    cta_label: string;
+    cta_href: string;
+  };
+};
+
+export type CommitteePolicyItem = {
+  regulator: string;
+  status: string;
+  title: string;
+};
+
+export type CommitteeWebinarItem = {
+  day: string;
+  month: string;
+  year_tag?: string;
+  title: string;
+  time: string;
+};
+
+export type CommitteeDetailPageContent = {
+  hero: {
+    code: string;
+    title: string;
+    description: string;
+    join_email?: string;
+    join_label?: string;
+  };
+  focus_areas: {
+    heading: string;
+    open_to: string;
+    items: string[];
+  };
+  leadership: {
+    heading: string;
+    leaders: CommitteeLeader[];
+  };
+  policy_work: {
+    heading: string;
+    lead: string;
+    items: CommitteePolicyItem[];
+  };
+  webinars: {
+    heading: string;
+    items: CommitteeWebinarItem[];
+  };
+  bottom_cta: {
+    heading: string;
+    description: string;
+    primary_cta_label: string;
+    primary_cta_href: string;
+    secondary_cta_label: string;
+    secondary_cta_href: string;
+    benefits: string[];
+  };
 };
 
 export type MemberItem = {

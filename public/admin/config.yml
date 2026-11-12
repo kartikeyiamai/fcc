@@ -365,30 +365,150 @@ collections:
                   name: aws_s3
 
   - name: committees
-    label: Committees
+    label: Committees (Overview)
     files:
       - name: committees
-        label: Committees
+        label: Committees Page
         file: public/data/committees.json
         fields:
           - label: Page
             name: page
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
+              - { label: Title, name: title, widget: string, default: "Committees" }
+              - { label: Description, name: description, widget: text, default: "Five sector committees lead FCC's work, each bringing together member companies to share best practice, discuss industry issues and shape representations." }
           - label: Committees
             name: items
             widget: list
             summary: "{{fields.name}}"
             fields:
               - { label: Slug, name: slug, widget: string }
-              - { label: Code, name: code, widget: string }
+              - { label: Code, name: code, widget: string, required: false }
               - { label: Name, name: name, widget: string }
               - { label: Href, name: href, widget: string }
               - { label: Description, name: description, widget: text }
-              - { label: Chair Name, name: chair_name, widget: string }
-              - { label: Chair Role, name: chair_role, widget: string }
+              - { label: Who can join, name: who_can_join, widget: text, required: false }
+              - label: Focus Tags
+                name: tags
+                widget: list
+                required: false
+                field: { label: Tag, name: tag, widget: string }
+              - { label: Chair Name, name: chair_name, widget: string, required: false }
+              - { label: Chair Role, name: chair_role, widget: string, required: false }
+              - { label: Co-Chair Name, name: co_chair_name, widget: string, required: false }
+              - { label: Co-Chair Role, name: co_chair_role, widget: string, required: false }
+          - label: Join Committee Box
+            name: join_box
+            widget: object
+            required: false
+            fields:
+              - { label: Heading, name: heading, widget: string, default: "Want to join a committee?" }
+              - { label: Description, name: description, widget: text, default: "Members can take part based on their area of business. Write to" }
+              - { label: Contact Email, name: email, widget: string, default: "swati.s@fintechcouncil.in" }
+              - { label: CTA Label, name: cta_label, widget: string, default: "Become a member" }
+              - { label: CTA Href, name: cta_href, widget: string, default: "/apply-membership" }
+
+  - name: committee_pages
+    label: Committee Detail Pages
+    files:
+      - name: digital_lending
+        label: Digital Lending Committee
+        file: public/data/committees/digital-lending.json
+        fields: &committee_detail_fields
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Committee Code, name: code, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Join Email URL, name: join_email, widget: string, required: false }
+              - { label: Join Button Label, name: join_label, widget: string, required: false }
+          - label: Focus Areas
+            name: focus_areas
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Open To Lead Text, name: open_to, widget: text }
+              - label: Focus Area Items
+                name: items
+                widget: list
+                field: { label: Focus Area, name: item, widget: string }
+          - label: Leadership
+            name: leadership
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Leaders
+                name: leaders
+                widget: list
+                summary: "{{fields.name}} ({{fields.tag}})"
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Tag / Position, name: tag, widget: string }
+                  - { label: Organisation & Title, name: org, widget: string }
+                  - { label: Avatar Initials, name: avatar, widget: string, required: false }
+          - label: Policy Work
+            name: policy_work
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Lead Text, name: lead, widget: text }
+              - label: Representations & Submissions
+                name: items
+                widget: list
+                summary: "{{fields.regulator}}: {{fields.title}}"
+                fields:
+                  - { label: Regulator / Type, name: regulator, widget: string }
+                  - { label: Status, name: status, widget: string }
+                  - { label: Title, name: title, widget: string }
+          - label: Webinars
+            name: webinars
+            widget: object
+            required: false
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Webinars List
+                name: items
+                widget: list
+                required: false
+                summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
+                fields:
+                  - { label: Day, name: day, widget: string }
+                  - { label: Month & Year, name: month, widget: string }
+                  - { label: Year Tag, name: year_tag, widget: string, required: false }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Time / Venue, name: time, widget: string }
+          - label: Bottom CTA
+            name: bottom_cta
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
+              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
+              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
+              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+              - label: Benefits
+                name: benefits
+                widget: list
+                field: { label: Benefit, name: benefit, widget: string }
+      - name: regtech
+        label: RegTech Committee
+        file: public/data/committees/regtech.json
+        fields: *committee_detail_fields
+      - name: wealthtech
+        label: WealthTech Committee
+        file: public/data/committees/wealthtech.json
+        fields: *committee_detail_fields
+      - name: insurtech
+        label: InsurTech Committee
+        file: public/data/committees/insurtech.json
+        fields: *committee_detail_fields
+      - name: credit_bureau
+        label: Credit Bureau Committee
+        file: public/data/committees/credit-bureau.json
+        fields: *committee_detail_fields
 
   - name: live_events
     label: Live Events

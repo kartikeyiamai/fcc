@@ -7,56 +7,110 @@
     {
       "slug": "digital-lending",
       "code": "DL-01",
-      "name": "Digital Lending",
+      "name": "Digital Lending Committee",
       "href": "/committees/digital-lending",
-      "description": "Growth and fair regulation for P2P, SME, personal and other digital lending.",
+      "description": "Works on industry issues, representation and growth of the lending industry in India.",
+      "who_can_join": "Entities in P2P, SME, personal and other lending.",
+      "tags": [
+        "Digital lending guidelines",
+        "Lending Service Providers (LSPs)",
+        "Co-lending & FLDG",
+        "MSME credit"
+      ],
       "chair_name": "Vibhav Hathi",
-      "chair_role": "Chair · Co-Founder, OneCard"
+      "chair_role": "Chair · Co-Founder, OneCard",
+      "co_chair_name": "Miten Sampat",
+      "co_chair_role": "Co-Chair · Interim CEO, CRED"
     },
     {
       "slug": "regtech",
       "code": "RT-02",
-      "name": "RegTech",
+      "name": "RegTech Committee",
       "href": "/committees/regtech",
-      "description": "KYC, AML, data protection and cyber resilience for the compliance tech ecosystem.",
+      "description": "Works on industry issues, representation and growth of the regulatory technology ecosystem in India.",
+      "who_can_join": "Security, compliance and regulatory technology companies.",
+      "tags": [
+        "KYC & CKYC",
+        "AML / CFT",
+        "RegTech-API",
+        "Data protection (DPDP)"
+      ],
       "chair_name": "Ajay Rajan",
-      "chair_role": "Chair · MD & CEO, Protean e-Gov"
+      "chair_role": "Chair · MD & CEO, Protean e-Gov",
+      "co_chair_name": "Deval Sheth",
+      "co_chair_role": "Co-Chair · Managing Director, Asia Pacific, Utimaco"
     },
     {
       "slug": "wealthtech",
       "code": "WT-03",
-      "name": "WealthTech",
+      "name": "WealthTech Committee",
       "href": "/committees/wealthtech",
-      "description": "Investor access, mutual funds, settlement and onboarding across India's investments ecosystem.",
+      "description": "Works on industry issues, representation and growth of India's investments ecosystem.",
+      "who_can_join": "Investment entities, including personal financial management platforms.",
+      "tags": [
+        "Mutual fund distribution",
+        "Settlement cycles (T+0)",
+        "Investor onboarding & KRAs",
+        "PAN verification"
+      ],
       "chair_name": "Srinivas Jain",
-      "chair_role": "Chair · Executive Director, SBI Funds"
+      "chair_role": "Chair · Executive Director, SBI Funds",
+      "co_chair_name": "Praveena Rai",
+      "co_chair_role": "Co-Chair · MD & CEO, MCX India"
     },
     {
       "slug": "insurtech",
       "code": "IT-04",
-      "name": "InsurTech",
+      "name": "InsurTech Committee",
       "href": "/committees/insurtech",
-      "description": "Life, general and health insurance, and aggregators, in a digital-first market.",
+      "description": "Works on industry issues, representation and growth of India's insurance industry.",
+      "who_can_join": "All segments including life, general and health insurance, and aggregators.",
+      "tags": [
+        "Bima Sugam",
+        "Bima Vahak",
+        "Insurance literacy",
+        "IIB data access"
+      ],
       "chair_name": "Sarbvir Singh",
       "chair_role": "Chair · Joint Group CEO, PB Fintech"
     },
     {
       "slug": "credit-bureau",
       "code": "CB-05",
-      "name": "Credit Bureau",
+      "name": "Credit Bureau Committee",
       "href": "/committees/credit-bureau",
-      "description": "Credit information, inclusion and prudent lending through advocacy.",
-      "chair_name": "Open for nominations",
-      "chair_role": "Chair to be announced"
+      "description": "Addresses industry issues through advocacy, with a charter covering financial inclusion, digitisation, prudent lending, compliance and access to information.",
+      "who_can_join": "Credit information companies and the wider credit-data ecosystem.",
+      "tags": [
+        "Financial inclusion",
+        "Driving digitisation",
+        "Prudent lending",
+        "Compliance"
+      ],
+      "chair_name": "Leadership to be announced",
+      "chair_role": "Write to us to get involved"
     },
     {
       "slug": "test-committee",
       "code": "CB-06",
       "name": "Test Committee",
-      "href": "/Test Committee",
+      "href": "/committees/test-committee",
       "description": "this is for testing the committee listing",
+      "who_can_join": "All members interested in testing.",
+      "tags": [
+        "Testing",
+        "Innovation",
+        "Development"
+      ],
       "chair_name": "Himanshu",
       "chair_role": "PMO"
     }
-  ]
+  ],
+  "join_box": {
+    "heading": "Want to join a committee?",
+    "description": "Members can take part based on their area of business. Write to",
+    "email": "swati.s@fintechcouncil.in",
+    "cta_label": "Become a member",
+    "cta_href": "/apply-membership"
+  }
 }

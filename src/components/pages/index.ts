@@ -7,6 +7,7 @@ export { RegTechPage } from "./RegTechPage";
 export { WealthTechPage } from "./WealthTechPage";
 export { InsurTechPage } from "./InsurTechPage";
 export { CreditBureauPage } from "./CreditBureauPage";
+export { CommitteeDetailPage } from "./CommitteeDetailPage";
 export { MembersPage } from "./MembersPage";
 export { MembershipBenefitsPage } from "./MembershipBenefitsPage";
 export { ApplyMembershipPage } from "./ApplyMembershipPage";
