@@ -1144,31 +1144,31 @@ export function HomePage({
           </div>
           <div className="filters" data-filter-for="tracker">
             <button className="chip active" data-f="all">
-              All <span className="n">32</span>
+              All
             </button>{" "}
             <button className="chip" data-f="RBI">
-              RBI <span className="n">11</span>
+              RBI
             </button>{" "}
             <button className="chip" data-f="SEBI">
-              SEBI <span className="n">3</span>
+              SEBI
             </button>{" "}
             <button className="chip" data-f="IRDAI">
-              IRDAI <span className="n">6</span>
+              IRDAI
             </button>{" "}
             <button className="chip" data-f="NPCI">
-              NPCI <span className="n">2</span>
+              NPCI
             </button>{" "}
             <button className="chip" data-f="MeitY">
-              MeitY <span className="n">1</span>
+              MeitY
             </button>{" "}
             <button className="chip" data-f="CERSAI">
-              CERSAI <span className="n">1</span>
+              CERSAI
             </button>{" "}
             <button className="chip" data-f="IBBI">
-              IBBI <span className="n">1</span>
+              IBBI
             </button>{" "}
             <button className="chip" data-f="Session">
-              Knowledge sessions <span className="n">7</span>
+              Knowledge sessions
             </button>
           </div>{" "}
           <div className="tracker" id="tracker" data-limit="9">
