@@ -46,6 +46,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="theme-color" content="#BF1A1F" />
         <link rel="icon" type="image/png" href="/FCC-tab-logo-main.png" />
         <link rel="apple-touch-icon" href="/FCC-tab-logo-main.png" />
+        <link href="/css/zoho-form.css" rel="stylesheet" type="text/css" />
+        <script src="/js/zoho-validation.js" defer></script>
       </head>
       <body>{children}</body>
     </html>

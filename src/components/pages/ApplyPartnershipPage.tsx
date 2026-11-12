@@ -1,4 +1,28 @@
-﻿export function ApplyPartnershipPage() {
+"use client";
+
+import { useEffect } from "react";
+import Script from "next/script";
+
+export function ApplyPartnershipPage() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (typeof (window as any).zf_SetDateAndMonthRegexBasedOnDateFormate === "function") {
+        (window as any).dateAndMonthRegexFormateArray = (window as any).zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
+        (window as any).zf_DateRegex = new RegExp((window as any).dateAndMonthRegexFormateArray[0]);
+        (window as any).zf_MonthYearRegex = new RegExp((window as any).dateAndMonthRegexFormateArray[1]);
+      }
+      (window as any).zf_MandArray = ["Name_First", "Email", "SingleLine", "SingleLine1", "SingleLine3"];
+      (window as any).zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "SingleLine", "SingleLine1", "SingleLine2", "SingleLine3", "SingleLine4", "SingleLine5", "MultiLine"];
+      (window as any).isSalesIQIntegrationEnabled = false;
+      (window as any).salesIQFieldsArray = [];
+
+      const form = document.getElementById("form") as HTMLFormElement;
+      if (form) {
+        form.setAttribute("onsubmit", 'javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();');
+      }
+    }
+  }, []);
+
   return (
     <>
       <section className="page-hero grid-bg">
@@ -69,104 +93,363 @@
           }}
           id="formwrap"
         >
-          <form className="form-card reveal" data-preview="">
-            <p className="lead" style={{ marginBottom: "22px", fontSize: ".98rem" }}>
-              Please fill in the form below and we will get in touch with you about the next steps.
-            </p>{" "}
-            <div className="form-grid">
-              <div className="field">
-                <label>
-                  First name <i>*</i>
-                </label>{" "}
-                <input type="text" name="First name" required />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Last name <i>*</i>
-                </label>{" "}
-                <input type="text" name="Last name" required />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Email <i>*</i>
-                </label>{" "}
-                <input type="email" name="Email" required />
-              </div>{" "}
-              <div className="field">
-                <label>Phone</label> <input type="tel" name="Phone" minLength={6} />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Designation <i>*</i>
-                </label>{" "}
-                <input type="text" name="Designation" required />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Organisation <i>*</i>
-                </label>{" "}
-                <input type="text" name="Organisation" required />
-              </div>{" "}
-              <div className="field">
-                <label>Sector / field</label> <input type="text" name="Sector / field" />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Your location <i>*</i>
-                </label>{" "}
-                <input type="text" name="Your location" required />
-              </div>{" "}
-              <div className="field">
-                <label>Website link</label> <input type="url" name="Website link" />
-              </div>{" "}
-              <div className="field">
-                <label>LinkedIn page</label> <input type="url" name="LinkedIn page" />
-              </div>{" "}
-              <div className="field full">
-                <label>Brief on the kind of work you do</label>{" "}
-                <textarea name="Brief on the kind of work you do"></textarea>
-              </div>
-            </div>
-            <div
-              style={{
-                marginTop: "22px",
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                flexWrap: "wrap",
+          <div className="zf-templateWidth">
+            <link href="/css/zoho-form.css" rel="stylesheet" type="text/css" />
+            <form
+              action="https://forms.zohopublic.in/ia/form/ApplyforPartnership/formperma/s1kOHWTdXdcHjmGz4n-euPMXH4Ni5J8s18fZMFBxECI/htmlRecords/submit"
+              name="form"
+              method="POST"
+              onSubmit={(e) => {
+                try {
+                  (document as any).charset = "UTF-8";
+                } catch {}
+                if (typeof (window as any).zf_ValidateAndSubmit === "function") {
+                  if (!(window as any).zf_ValidateAndSubmit()) {
+                    e.preventDefault();
+                    return false;
+                  }
+                }
               }}
+              acceptCharset="UTF-8"
+              encType="multipart/form-data"
+              id="form"
             >
-              <button className="btn btn-primary" type="submit">
-                Submit application{" "}
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14M13 6l6 6-6 6"></path>
-                </svg>
-              </button>{" "}
-              <span className="form-note" style={{ margin: "0" }}>
-                Or write to{" "}
-                <a
-                  href="mailto:s.yashaswi@fintechcouncil.in"
-                  style={{ color: "var(--red)", fontWeight: "700" }}
-                >
-                  s.yashaswi@fintechcouncil.in
-                </a>
-              </span>
-            </div>
-            <div className="form-ok">
-              <span className="tick">✓</span>Thanks! The FCC team will get in touch with you about
-              the next steps.
-            </div>
-          </form>
+              <input type="hidden" name="zf_referrer_name" value="" />
+              <input type="hidden" name="zf_redirect_url" value="" />
+              <input type="hidden" name="zc_gad" value="" />
+
+              <div className="zf-templateWrapper">
+                <div className="zf-subContWrap zf-topAlign">
+                  <ul>
+                    {/* Name */}
+                    <div className="zf-tempFrmWrapper zf-name zf-namelarge">
+                      <label className="zf-labelName">
+                        Name <em className="zf-important">*</em>
+                      </label>
+                      <div className="zf-tempContDiv zf-twoType">
+                        <div className="zf-nameWrapper">
+                          <span>
+                            <input
+                              type="text"
+                              maxLength={255}
+                              name="Name_First"
+                              fieldType={7}
+                              placeholder=""
+                            />
+                            <label>First Name</label>
+                          </span>
+                          <span>
+                            <input
+                              type="text"
+                              maxLength={255}
+                              name="Name_Last"
+                              fieldType={7}
+                              placeholder=""
+                            />
+                            <label>Last Name</label>
+                          </span>
+                          <div className="zf-clearBoth"></div>
+                        </div>
+                        <p id="Name_error" className="zf-errorMessage" style={{ display: "none" }}>
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+
+                    {/* Email & Phone */}
+                    <div className="zfgrid_Wrapper">
+                      <div className="zftwoColumn zfMultiColGrid">
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">
+                              Email <em className="zf-important">*</em>
+                            </label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="Email"
+                                  checktype="c5"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={9}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="Email_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">Phone</label>
+                            <div className="zf-tempContDiv zf-phonefld">
+                              <div className="zf-phwrapper zf-phNumber">
+                                <span>
+                                  <input
+                                    type="text"
+                                    compname="PhoneNumber"
+                                    name="PhoneNumber_countrycode"
+                                    maxLength={20}
+                                    checktype="c7"
+                                    defaultValue=""
+                                    phoneFormat="1"
+                                    isCountryCodeEnabled="false"
+                                    fieldType="11"
+                                    id="international_PhoneNumber_countrycode"
+                                    valType="number"
+                                    phoneFormatType="1"
+                                    placeholder=""
+                                  />
+                                  <label>Number</label>
+                                </span>
+                                <div className="zf-clearBoth"></div>
+                              </div>
+                              <p
+                                id="PhoneNumber_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                You must enter at least 6 digits.
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Designation, Organization, Sector/Field */}
+                    <div className="zfgrid_Wrapper">
+                      <div className="zfthreeColumn zfMultiColGrid">
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">
+                              Designation <em className="zf-important">*</em>
+                            </label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">
+                              Organization <em className="zf-important">*</em>
+                            </label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine1"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine1_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">Sector/Field</label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine2"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine2_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Location, Website, LinkedIn */}
+                    <div className="zfgrid_Wrapper">
+                      <div className="zfthreeColumn zfMultiColGrid">
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">
+                              Your Location <em className="zf-important">*</em>
+                            </label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine3"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine3_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">Website Link</label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine4"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine4_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                        <div className="zfCol">
+                          <div className="zf-tempFrmWrapper zf-large">
+                            <label className="zf-labelName">LinkedIn Page</label>
+                            <div className="zf-tempContDiv">
+                              <span>
+                                <input
+                                  type="text"
+                                  name="SingleLine5"
+                                  checktype="c1"
+                                  defaultValue=""
+                                  maxLength={255}
+                                  fieldType={1}
+                                  placeholder=""
+                                />
+                              </span>
+                              <p
+                                id="SingleLine5_error"
+                                className="zf-errorMessage"
+                                style={{ display: "none" }}
+                              >
+                                Invalid value
+                              </p>
+                            </div>
+                            <div className="zf-clearBoth"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Comments / Remarks */}
+                    <div className="zf-tempFrmWrapper zf-large">
+                      <label className="zf-labelName">How can we partner?</label>
+                      <div className="zf-tempContDiv">
+                        <span>
+                          <textarea
+                            name="MultiLine"
+                            checktype="c1"
+                            maxLength={65535}
+                            placeholder=""
+                          ></textarea>
+                        </span>
+                        <p
+                          id="MultiLine_error"
+                          className="zf-errorMessage"
+                          style={{ display: "none" }}
+                        >
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+                  </ul>
+                </div>
+                <ul>
+                  <li className="zf-fmFooter">
+                    <button className="zf-submitColor" type="submit">
+                      Submit
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </form>
+            <Script
+              id="zoho-script-partnership"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  var dateAndMonthRegexFormateArray = typeof zf_SetDateAndMonthRegexBasedOnDateFormate === 'function' ? zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy') : [];
+                  var zf_DateRegex = dateAndMonthRegexFormateArray[0] ? new RegExp(dateAndMonthRegexFormateArray[0]) : null;
+                  var zf_MonthYearRegex = dateAndMonthRegexFormateArray[1] ? new RegExp(dateAndMonthRegexFormateArray[1]) : null;
+                  var zf_MandArray = ["Name_First", "Email", "SingleLine", "SingleLine1", "SingleLine3"];
+                  var zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "SingleLine", "SingleLine1", "SingleLine2", "SingleLine3", "SingleLine4", "SingleLine5", "MultiLine"];
+                  var isSalesIQIntegrationEnabled = false;
+                  var salesIQFieldsArray = [];
+                `,
+              }}
+            />
+          </div>
           <aside className="reveal">
             <div className="card">
               <span className="eyebrow">How partnership works</span>{" "}

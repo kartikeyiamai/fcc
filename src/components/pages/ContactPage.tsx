@@ -1,6 +1,165 @@
-﻿import type { ContactContent } from "@/lib/cms-types";
+"use client";
+
+import { useEffect } from "react";
+import Script from "next/script";
+import type { ContactContent } from "@/lib/cms-types";
+
+const COUNTRIES = [
+  "-Select-",
+  "India",
+  "United States",
+  "United Kingdom",
+  "United Arab Emirates",
+  "Singapore",
+  "Australia",
+  "Canada",
+  "Germany",
+  "France",
+  "Japan",
+  "Afghanistan",
+  "Albania",
+  "Algeria",
+  "Andorra",
+  "Angola",
+  "Argentina",
+  "Armenia",
+  "Austria",
+  "Azerbaijan",
+  "Bahamas",
+  "Bahrain",
+  "Bangladesh",
+  "Barbados",
+  "Belarus",
+  "Belgium",
+  "Belize",
+  "Benin",
+  "Bhutan",
+  "Bolivia",
+  "Bosnia and Herzegovina",
+  "Botswana",
+  "Brazil",
+  "Brunei",
+  "Bulgaria",
+  "Burkina Faso",
+  "Burundi",
+  "Cambodia",
+  "Cameroon",
+  "Chile",
+  "China",
+  "Colombia",
+  "Costa Rica",
+  "Croatia",
+  "Cuba",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Djibouti",
+  "Dominica",
+  "Dominican Republic",
+  "Ecuador",
+  "Egypt",
+  "El Salvador",
+  "Estonia",
+  "Ethiopia",
+  "Fiji",
+  "Finland",
+  "Georgia",
+  "Ghana",
+  "Greece",
+  "Guatemala",
+  "Hong Kong",
+  "Hungary",
+  "Iceland",
+  "Indonesia",
+  "Iran",
+  "Iraq",
+  "Ireland",
+  "Israel",
+  "Italy",
+  "Jamaica",
+  "Jordan",
+  "Kazakhstan",
+  "Kenya",
+  "Kuwait",
+  "Latvia",
+  "Lebanon",
+  "Lithuania",
+  "Luxembourg",
+  "Malaysia",
+  "Maldives",
+  "Malta",
+  "Mauritius",
+  "Mexico",
+  "Monaco",
+  "Mongolia",
+  "Montenegro",
+  "Morocco",
+  "Myanmar",
+  "Nepal",
+  "Netherlands",
+  "New Zealand",
+  "Nigeria",
+  "Norway",
+  "Oman",
+  "Pakistan",
+  "Panama",
+  "Peru",
+  "Philippines",
+  "Poland",
+  "Portugal",
+  "Qatar",
+  "Romania",
+  "Russia",
+  "Rwanda",
+  "Saudi Arabia",
+  "Senegal",
+  "Serbia",
+  "Seychelles",
+  "Slovakia",
+  "Slovenia",
+  "South Africa",
+  "South Korea",
+  "Spain",
+  "Sri Lanka",
+  "Sweden",
+  "Switzerland",
+  "Taiwan",
+  "Tanzania",
+  "Thailand",
+  "Tunisia",
+  "Turkey",
+  "Uganda",
+  "Ukraine",
+  "Uruguay",
+  "Uzbekistan",
+  "Vatican City",
+  "Venezuela",
+  "Vietnam",
+  "Yemen",
+  "Zambia",
+  "Zimbabwe",
+];
 
 export function ContactPage({ content }: { content: ContactContent }) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (typeof (window as any).zf_SetDateAndMonthRegexBasedOnDateFormate === "function") {
+        (window as any).dateAndMonthRegexFormateArray = (window as any).zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy');
+        (window as any).zf_DateRegex = new RegExp((window as any).dateAndMonthRegexFormateArray[0]);
+        (window as any).zf_MonthYearRegex = new RegExp((window as any).dateAndMonthRegexFormateArray[1]);
+      }
+      (window as any).zf_MandArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "MultiLine"];
+      (window as any).zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_AddressLine2", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "MultiLine"];
+      (window as any).isSalesIQIntegrationEnabled = false;
+      (window as any).salesIQFieldsArray = [];
+
+      const form = document.getElementById("form") as HTMLFormElement;
+      if (form) {
+        form.setAttribute("onsubmit", 'javascript:document.charset="UTF-8"; return zf_ValidateAndSubmit();');
+      }
+    }
+  }, []);
+
   return (
     <>
       <section className="page-hero grid-bg">
@@ -109,71 +268,290 @@ export function ContactPage({ content }: { content: ContactContent }) {
           }}
           id="cwrap"
         >
-          <form className="form-card reveal" data-preview="">
-            <span className="eyebrow">Send a query</span>{" "}
-            <h2 style={{ fontSize: "1.6rem" }}>How can we help?</h2>
-            <div className="form-grid" style={{ marginTop: "16px" }}>
-              <div className="field">
-                <label>
-                  First name <i>*</i>
-                </label>{" "}
-                <input required />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Last name <i>*</i>
-                </label>{" "}
-                <input required />
+          <div className="zf-templateWidth">
+            <link href="/css/zoho-form.css" rel="stylesheet" type="text/css" />
+            <form
+              action="https://forms.zohopublic.in/ia/form/FCCQuery/formperma/euVQtYRZCAJbxWp7Zxx2vORP7iW6Wlh9h1pM0gkkpNQ/htmlRecords/submit"
+              name="form"
+              method="POST"
+              onSubmit={(e) => {
+                try {
+                  (document as any).charset = "UTF-8";
+                } catch {}
+                if (typeof (window as any).zf_ValidateAndSubmit === "function") {
+                  if (!(window as any).zf_ValidateAndSubmit()) {
+                    e.preventDefault();
+                    return false;
+                  }
+                }
+              }}
+              acceptCharset="UTF-8"
+              encType="multipart/form-data"
+              id="form"
+            >
+              <input type="hidden" name="zf_referrer_name" value="" />
+              <input type="hidden" name="zf_redirect_url" value="" />
+              <input type="hidden" name="zc_gad" value="" />
+
+              <div className="zf-templateWrapper">
+                <div className="zf-subContWrap zf-topAlign">
+                  <ul>
+                    {/* Name */}
+                    <div className="zf-tempFrmWrapper zf-name zf-namelarge">
+                      <label className="zf-labelName">
+                        Name <em className="zf-important">*</em>
+                      </label>
+                      <div className="zf-tempContDiv zf-twoType">
+                        <div className="zf-nameWrapper">
+                          <span>
+                            <input
+                              type="text"
+                              maxLength={255}
+                              name="Name_First"
+                              fieldType={7}
+                              placeholder=""
+                            />
+                            <label>First Name</label>
+                          </span>
+                          <span>
+                            <input
+                              type="text"
+                              maxLength={255}
+                              name="Name_Last"
+                              fieldType={7}
+                              placeholder=""
+                            />
+                            <label>Last Name</label>
+                          </span>
+                          <div className="zf-clearBoth"></div>
+                        </div>
+                        <p id="Name_error" className="zf-errorMessage" style={{ display: "none" }}>
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+
+                    {/* Email */}
+                    <div className="zf-tempFrmWrapper zf-large">
+                      <label className="zf-labelName">
+                        Email <em className="zf-important">*</em>
+                      </label>
+                      <div className="zf-tempContDiv">
+                        <span>
+                          <input
+                            type="text"
+                            name="Email"
+                            checktype="c5"
+                            defaultValue=""
+                            maxLength={255}
+                            fieldType={9}
+                            placeholder=""
+                          />
+                        </span>
+                        <p id="Email_error" className="zf-errorMessage" style={{ display: "none" }}>
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+
+                    {/* Phone */}
+                    <div className="zf-tempFrmWrapper zf-large">
+                      <label className="zf-labelName">
+                        Phone <em className="zf-important">*</em>
+                      </label>
+                      <div className="zf-tempContDiv zf-phonefld">
+                        <div className="zf-phwrapper zf-phNumber">
+                          <span>
+                            <input
+                              type="text"
+                              compname="PhoneNumber"
+                              name="PhoneNumber_countrycode"
+                              maxLength={20}
+                              checktype="c7"
+                              defaultValue=""
+                              phoneFormat="1"
+                              isCountryCodeEnabled="false"
+                              fieldType="11"
+                              id="international_PhoneNumber_countrycode"
+                              valType="number"
+                              phoneFormatType="2"
+                              placeholder=""
+                            />
+                            <label>Number</label>
+                          </span>
+                          <div className="zf-clearBoth"></div>
+                        </div>
+                        <p
+                          id="PhoneNumber_error"
+                          className="zf-errorMessage"
+                          style={{ display: "none" }}
+                        >
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+
+                    {/* Full Address Block */}
+                    <div id="Address" className="zf-tempFrmWrapper zf-address zf-addrlarge">
+                      <label className="zf-labelName">Address</label>
+                      <div className="zf-tempContDiv zf-address">
+                        <div className="zf-addrCont">
+                          <div className="address_row_1">
+                            <span className="zf-addresCols">
+                              <input
+                                type="text"
+                                maxLength={255}
+                                name="Address_AddressLine1"
+                                checktype="c1"
+                                placeholder=""
+                              />
+                              <label>Street Address</label>
+                            </span>
+                          </div>
+                          <div className="address_row_2">
+                            <span className="zf-addresCols">
+                              <input
+                                type="text"
+                                maxLength={255}
+                                name="Address_AddressLine2"
+                                checktype="c1"
+                                placeholder=""
+                              />
+                              <label>Address Line 2</label>
+                            </span>
+                          </div>
+                          <div className="address_row_3">
+                            <span className="zf-addresCols">
+                              <input
+                                type="text"
+                                maxLength={255}
+                                name="Address_City"
+                                checktype="c1"
+                                placeholder=""
+                              />
+                              <label>City</label>
+                            </span>
+                            <span className="zf-addresCols">
+                              <input
+                                type="text"
+                                maxLength={255}
+                                name="Address_Region"
+                                checktype="c1"
+                                placeholder=""
+                              />
+                              <label>State/Region/Province</label>
+                            </span>
+                          </div>
+                          <div className="address_row_4">
+                            <span className="zf-addresCols">
+                              <input
+                                type="text"
+                                maxLength={255}
+                                name="Address_ZipCode"
+                                checktype="c1"
+                                placeholder=""
+                              />
+                              <label>Postal / Zip Code</label>
+                            </span>
+                            <span className="zf-addresCols">
+                              <select
+                                className="zf-form-sBox"
+                                name="Address_Country"
+                                checktype="c1"
+                                defaultValue="-Select-"
+                              >
+                                <option value="-Select-">-Select-</option>
+                                <option value="India">India</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                {COUNTRIES.filter(
+                                  (c) =>
+                                    ![
+                                      "-Select-",
+                                      "India",
+                                      "United States",
+                                      "United Kingdom",
+                                      "Singapore",
+                                      "United Arab Emirates",
+                                    ].includes(c)
+                                ).map((c) => (
+                                  <option key={c} value={c}>
+                                    {c}
+                                  </option>
+                                ))}
+                              </select>
+                              <label>Country</label>
+                            </span>
+                          </div>
+                          <div className="zf-clearBoth"></div>
+                          <p
+                            id="Address_error"
+                            className="zf-errorMessage"
+                            style={{ display: "none" }}
+                          >
+                            Invalid value
+                          </p>
+                        </div>
+                      </div>
+                      <div className="zf-eclearBoth"></div>
+                    </div>
+
+                    {/* Query / Message */}
+                    <div className="zf-tempFrmWrapper zf-large">
+                      <label className="zf-labelName">
+                        Query <em className="zf-important">*</em>
+                      </label>
+                      <div className="zf-tempContDiv">
+                        <span>
+                          <textarea
+                            name="MultiLine"
+                            checktype="c1"
+                            maxLength={65535}
+                            placeholder=""
+                          ></textarea>
+                        </span>
+                        <p
+                          id="MultiLine_error"
+                          className="zf-errorMessage"
+                          style={{ display: "none" }}
+                        >
+                          Invalid value
+                        </p>
+                      </div>
+                      <div className="zf-clearBoth"></div>
+                    </div>
+                  </ul>
+                </div>
+                <ul>
+                  <li className="zf-fmFooter">
+                    <button className="zf-submitColor" type="submit">
+                      Submit
+                    </button>
+                  </li>
+                </ul>
               </div>
-              <div className="field">
-                <label>
-                  Email <i>*</i>
-                </label>{" "}
-                <input type="email" required />
-              </div>{" "}
-              <div className="field">
-                <label>
-                  Phone <i>*</i>
-                </label>{" "}
-                <input type="tel" required minLength={6} />
-              </div>
-              <div className="field">
-                <label>City</label> <input />
-              </div>{" "}
-              <div className="field">
-                <label>Topic</label>{" "}
-                <select>
-                  <option>General</option> <option>Membership</option> <option>Committees</option>{" "}
-                  <option>Partnership</option> <option>Events</option> <option>Media</option>
-                </select>
-              </div>
-              <div className="field full">
-                <label>
-                  Your query <i>*</i>
-                </label>{" "}
-                <textarea required></textarea>
-              </div>
-            </div>
-            <button className="btn btn-primary" style={{ marginTop: "20px" }} type="submit">
-              Send query{" "}
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6"></path>
-              </svg>
-            </button>{" "}
-            <div className="form-ok">
-              <span className="tick">✓</span>Thanks! We'll get back to you soon.
-            </div>
-          </form>
+            </form>
+            <Script
+              id="zoho-script-contact"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  var dateAndMonthRegexFormateArray = typeof zf_SetDateAndMonthRegexBasedOnDateFormate === 'function' ? zf_SetDateAndMonthRegexBasedOnDateFormate('dd-MMM-yyyy') : [];
+                  var zf_DateRegex = dateAndMonthRegexFormateArray[0] ? new RegExp(dateAndMonthRegexFormateArray[0]) : null;
+                  var zf_MonthYearRegex = dateAndMonthRegexFormateArray[1] ? new RegExp(dateAndMonthRegexFormateArray[1]) : null;
+                  var zf_MandArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "MultiLine"];
+                  var zf_FieldArray = ["Name_First", "Name_Last", "Email", "PhoneNumber_countrycode", "Address_AddressLine1", "Address_AddressLine2", "Address_City", "Address_Region", "Address_ZipCode", "Address_Country", "MultiLine"];
+                  var isSalesIQIntegrationEnabled = false;
+                  var salesIQFieldsArray = [];
+                `,
+              }}
+            />
+          </div>
           <aside className="reveal">
             <div className="card">
               <div className="contact-line">

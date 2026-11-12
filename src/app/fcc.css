@@ -271,8 +271,77 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;backgroun
 .benefit p{font-size:.88rem;color:var(--muted)}
 
 /* Forms */
+.zf-fmFooter .zf-submitColor,
+.zf-submitColor {
+  background: var(--red, #BF1A1F) !important;
+  color: #fff !important;
+  border-radius: 9999px !important;
+  padding: 12px 48px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+}
+.zf-fmFooter .zf-submitColor:hover,
+.zf-submitColor:hover {
+  background: #9e1519 !important;
+}
+.zf-fmFooter .zf-submitColor:active,
+.zf-submitColor:active {
+  transform: scale(0.98) !important;
+}
+.zf-templateWidth {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+.zf-templateWrapper {
+  border-radius: 18px !important;
+  border: 1px solid var(--line, #e2e8f0) !important;
+  box-shadow: var(--shadow) !important;
+  padding: 34px !important;
+}
+.zf-tempContDiv input[type="text"],
+.zf-tempContDiv input[type="email"],
+.zf-tempContDiv input[type="tel"],
+.zf-tempContDiv input[type="url"],
+.zf-tempContDiv textarea,
+.zf-tempContDiv select {
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  padding: 10px 14px !important;
+  font-size: 0.95rem !important;
+  color: #111 !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+}
+.zf-tempContDiv input:focus,
+.zf-tempContDiv textarea:focus,
+.zf-tempContDiv select:focus {
+  outline: 0 !important;
+  border-color: var(--red, #BF1A1F) !important;
+  box-shadow: 0 0 0 3px rgba(191, 26, 31, 0.12) !important;
+}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px;box-shadow:var(--shadow)}
+.form-stack{display:flex;flex-direction:column;gap:18px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-subgrid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-subgrid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.form-field-group{display:flex;flex-direction:column;gap:6px}
+.form-field-group.full{grid-column:1/-1}
+.form-field-label{font-size:.88rem;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:3px;margin-bottom:2px}
+.form-field-label .req{color:var(--red);font-weight:700}
+.form-sublabel{display:block;font-size:.76rem;color:var(--muted);margin-top:5px;line-height:1.2}
+.form-card input,.form-card select,.form-card textarea{font:inherit;font-size:.93rem;padding:10px 14px;border:1px solid #d1d5db;border-radius:6px;background:#fff;transition:.15s;color:var(--ink);width:100%;box-sizing:border-box}
+.form-card textarea{min-height:110px;resize:vertical}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 3px rgba(191,26,31,0.12)}
+.btn-fcc-submit{background:var(--red);color:#fff;border:none;border-radius:9999px;padding:12px 42px;font-size:1rem;font-weight:600;cursor:pointer;transition:background-color .15s ease,transform .1s ease;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(0,0,0,0.06)}
+.btn-fcc-submit:hover{background:#9e1519}
+.btn-fcc-submit:active{transform:scale(.98)}
 .field{display:flex;flex-direction:column;gap:6px}
 .field.full{grid-column:1/-1}
 .field label{font-size:.82rem;font-weight:700}
@@ -435,7 +504,7 @@ footer .brand-logo{background:#fff;padding:4px 8px;border-radius:8px;height:42px
   .hero-art{max-width:330px;margin:10px auto 0}
   .float.f2,.float.f3{display:none}.float.f1{left:-2%;top:-4%}
   .hero{padding:56px 0 100px}
-  .cards5,.tracker,.web-grid,.covers,.people,.grid-4,.flow,.form-grid{grid-template-columns:1fr}
+  .cards5,.tracker,.web-grid,.covers,.people,.grid-4,.flow,.form-grid,.form-subgrid-2,.form-subgrid-3{grid-template-columns:1fr}
   .mgrid{grid-template-columns:repeat(2,1fr)}
   .foot{grid-template-columns:1fr}
   .float.f1{left:0}.float.f2{right:0}
