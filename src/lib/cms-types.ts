@@ -171,7 +171,6 @@ export type CommitteeLeader = {
 
 export type CommitteeItem = {
   slug: string;
-  code?: string;
   name: string;
   href?: string;
   description: string;
@@ -213,7 +212,7 @@ export type CommitteeWebinarItem = {
 
 export type CommitteeDetailPageContent = {
   hero: {
-    code: string;
+    code?: string;
     title: string;
     description: string;
     join_email?: string;

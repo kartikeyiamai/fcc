@@ -427,7 +427,7 @@ function renderCommitteeArt(item: CommitteeItem, idx: number) {
           letterSpacing="2"
           textAnchor="middle"
         >
-          {item.code || "FCC"}
+          FCC
         </text>
         <text
           x="150"

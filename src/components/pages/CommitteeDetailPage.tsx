@@ -44,10 +44,6 @@ export function CommitteeDetailPage({
               <span>/</span>
               {content.hero.title.replace(/\s*Committee\s*$/i, "")}
             </div>
-            <span className="pill" style={{ marginBottom: "14px" }}>
-              <i></i>
-              {content.hero.code} · Committee
-            </span>{" "}
             <h1>{content.hero.title}</h1> <p>{content.hero.description}</p>
             <div
               className="actions"
@@ -252,7 +248,6 @@ export function CommitteeDetailPage({
                 className="ccard"
                 key={c.slug}
               >
-                <span className="code">{c.code || "FCC"}</span>{" "}
                 <div className="icon-box">
                   <svg
                     width="22"

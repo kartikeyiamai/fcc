@@ -383,7 +383,6 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: Slug, name: slug, widget: string }
-              - { label: Code, name: code, widget: string, required: false }
               - { label: Name, name: name, widget: string }
               - { label: Href, name: href, widget: string }
               - { label: Description, name: description, widget: text }
@@ -419,7 +418,6 @@ collections:
             name: hero
             widget: object
             fields:
-              - { label: Committee Code, name: code, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
               - { label: Join Email URL, name: join_email, widget: string, required: false }

@@ -6,7 +6,6 @@
   "items": [
     {
       "slug": "digital-lending",
-      "code": "DL-01",
       "name": "Digital Lending Committee",
       "href": "/committees/digital-lending",
       "description": "Works on industry issues, representation and growth of the lending industry in India.",
@@ -24,7 +23,6 @@
     },
     {
       "slug": "regtech",
-      "code": "RT-02",
       "name": "RegTech Committee",
       "href": "/committees/regtech",
       "description": "Works on industry issues, representation and growth of the regulatory technology ecosystem in India.",
@@ -42,7 +40,6 @@
     },
     {
       "slug": "wealthtech",
-      "code": "WT-03",
       "name": "WealthTech Committee",
       "href": "/committees/wealthtech",
       "description": "Works on industry issues, representation and growth of India's investments ecosystem.",
@@ -60,7 +57,6 @@
     },
     {
       "slug": "insurtech",
-      "code": "IT-04",
       "name": "InsurTech Committee",
       "href": "/committees/insurtech",
       "description": "Works on industry issues, representation and growth of India's insurance industry.",
@@ -76,7 +72,6 @@
     },
     {
       "slug": "credit-bureau",
-      "code": "CB-05",
       "name": "Credit Bureau Committee",
       "href": "/committees/credit-bureau",
       "description": "Addresses industry issues through advocacy, with a charter covering financial inclusion, digitisation, prudent lending, compliance and access to information.",
@@ -92,7 +87,6 @@
     },
     {
       "slug": "test-committee",
-      "code": "CB-06",
       "name": "Test Committee",
       "href": "/committees/test-committee",
       "description": "this is for testing the committee listing",

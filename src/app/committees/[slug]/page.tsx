@@ -37,7 +37,6 @@ export default async function Page({
   // If specific page json doesn't exist yet, synthesize one from committees.json
   const content: CommitteeDetailPageContent = pageContent || {
     hero: {
-      code: committeeMeta?.code || "FCC",
       title: committeeMeta?.name || "Committee",
       description: committeeMeta?.description || "",
       join_email: "mailto:swati.s@fintechcouncil.in",
@@ -145,7 +144,7 @@ export default async function Page({
         letterSpacing="2"
         textAnchor="middle"
       >
-        {committeeMeta?.code || "FCC"}
+        FCC
       </text>
       <text
         x="150"
