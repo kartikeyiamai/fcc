@@ -6,1001 +6,1201 @@
   "items": [
     {
       "name": "ALT.DRX",
+      "link": "www.google.com",
       "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/unnamed.jpg",
       "logo_filename": "alt-drx.jpg"
     },
     {
       "name": "Ambak",
+      "link": "",
       "logo": "",
       "logo_filename": "ambak.png"
     },
     {
       "name": "Angel One",
+      "link": "",
       "logo": "",
       "logo_filename": "angelone-new.jpeg"
     },
     {
       "name": "Arya.ai",
+      "link": "",
       "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/8894757.png",
       "logo_filename": "arya.jfif"
     },
     {
       "name": "Aska",
+      "link": "",
       "logo": "",
       "logo_filename": "aska.png"
     },
     {
       "name": "Assetgro",
+      "link": "",
       "logo": "",
       "logo_filename": "Assetgro.jpg"
     },
     {
       "name": "Axio",
+      "link": "",
       "logo": "",
       "logo_filename": "Axio.jpg"
     },
     {
       "name": "Backspace Tech",
+      "link": "",
       "logo": "",
       "logo_filename": "backspace.jpg"
     },
     {
       "name": "Bankify",
+      "link": "",
       "logo": "",
       "logo_filename": "Bankify.jpg"
     },
     {
       "name": "Bima Plan",
+      "link": "",
       "logo": "",
       "logo_filename": "Bimaplan.jpg"
     },
     {
       "name": "Bitsyyloan",
+      "link": "",
       "logo": "",
       "logo_filename": "bitsyyloan.png"
     },
     {
       "name": "Biz2x",
+      "link": "",
       "logo": "",
       "logo_filename": "biz2x.jpeg"
     },
     {
       "name": "Bondbazaar",
+      "link": "",
       "logo": "",
       "logo_filename": "bondbazaar.jpeg"
     },
     {
       "name": "BuddyLoan",
+      "link": "",
       "logo": "",
       "logo_filename": "Buddy-loan.jpg"
     },
     {
       "name": "Bureau.Id",
+      "link": "",
       "logo": "",
       "logo_filename": "Burera.jpg"
     },
     {
       "name": "Butter Money",
+      "link": "",
       "logo": "",
       "logo_filename": "butttermoney.png"
     },
     {
       "name": "Care Pay",
+      "link": "",
       "logo": "",
       "logo_filename": "carepay.jpg"
     },
     {
       "name": "Cashe",
+      "link": "",
       "logo": "",
       "logo_filename": "Cash.jpg"
     },
     {
       "name": "Castler",
+      "link": "",
       "logo": "",
       "logo_filename": "Castler.jpg"
     },
     {
       "name": "Cherry",
+      "link": "",
       "logo": "",
       "logo_filename": "cherry.jpg"
     },
     {
       "name": "CIBIL",
+      "link": "",
       "logo": "",
       "logo_filename": "cibil.jpg"
     },
     {
       "name": "Ckers",
+      "link": "",
       "logo": "",
       "logo_filename": "ckers.png"
     },
     {
       "name": "Credilio",
+      "link": "",
       "logo": "",
       "logo_filename": "Credilo.jpg"
     },
     {
       "name": "Credit Mantri",
+      "link": "",
       "logo": "",
       "logo_filename": "creditmantri.png"
     },
     {
       "name": "Credit Saison India",
+      "link": "",
       "logo": "",
       "logo_filename": "credit-saison-india.jpeg"
     },
     {
       "name": "Creditt",
+      "link": "",
       "logo": "",
       "logo_filename": "creditt.png"
     },
     {
       "name": "Credresolve",
+      "link": "",
       "logo": "",
       "logo_filename": "credresolve.png"
     },
     {
       "name": "CRIF High Mark",
+      "link": "",
       "logo": "",
       "logo_filename": "Crif.jpg"
     },
     {
       "name": "Curie Money",
+      "link": "",
       "logo": "",
       "logo_filename": "curie.jfif"
     },
     {
       "name": "Data Science Wizard",
+      "link": "",
       "logo": "",
       "logo_filename": "Data-Science-Wizard.png"
     },
     {
       "name": "Decentro",
+      "link": "",
       "logo": "",
       "logo_filename": "decentro.jpg"
     },
     {
       "name": "Deepvue",
+      "link": "",
       "logo": "",
       "logo_filename": "Deepvue.png"
     },
     {
       "name": "Dhan",
+      "link": "",
       "logo": "",
       "logo_filename": "dhan.webp"
     },
     {
       "name": "Digio",
+      "link": "",
       "logo": "",
       "logo_filename": "digio.jpeg"
     },
     {
       "name": "Digiqt",
+      "link": "",
       "logo": "",
       "logo_filename": "Digiqt.jpg"
     },
     {
       "name": "DMI Finance",
+      "link": "",
       "logo": "",
       "logo_filename": "DMI-Capital.jpg"
     },
     {
       "name": "Doqfy",
+      "link": "",
       "logo": "",
       "logo_filename": "doqfy.jpg"
     },
     {
       "name": "Drip Capital",
+      "link": "",
       "logo": "",
       "logo_filename": "dripc.jpeg"
     },
     {
       "name": "Easemydeal",
+      "link": "",
       "logo": "",
       "logo_filename": "easemydeal.jpeg"
     },
     {
       "name": "Eliteeye Consulting",
+      "link": "",
       "logo": "",
       "logo_filename": "Eliteeye.png"
     },
     {
       "name": "Emudhra",
+      "link": "",
       "logo": "",
       "logo_filename": "e-mudhra.jpeg"
     },
     {
       "name": "EnKash",
+      "link": "",
       "logo": "",
       "logo_filename": "enkash.jpg"
     },
     {
       "name": "Equifax",
+      "link": "",
       "logo": "",
       "logo_filename": "equifax.jpg"
     },
     {
       "name": "ET Money",
+      "link": "",
       "logo": "",
       "logo_filename": "Et-money.jpg"
     },
     {
       "name": "Experian",
+      "link": "",
       "logo": "",
       "logo_filename": "Experiab.jpg"
     },
     {
       "name": "Facctum",
+      "link": "",
       "logo": "",
       "logo_filename": "facctum.png"
     },
     {
       "name": "Faircent",
+      "link": "",
       "logo": "",
       "logo_filename": "Faircent.jpg"
     },
     {
       "name": "Falcon",
+      "link": "",
       "logo": "",
       "logo_filename": "falcon.jpg"
     },
     {
       "name": "Fampay",
+      "link": "",
       "logo": "",
       "logo_filename": "fampay.jpg"
     },
     {
       "name": "Fatakpay",
+      "link": "",
       "logo": "",
       "logo_filename": "fatakpay.png"
     },
     {
       "name": "Finart",
+      "link": "",
       "logo": "",
       "logo_filename": "Fi.jpg"
     },
     {
       "name": "FINB",
+      "link": "",
       "logo": "",
       "logo_filename": "FINB.png"
     },
     {
       "name": "Finbox",
+      "link": "",
       "logo": "",
       "logo_filename": "Finbox.jpg"
     },
     {
       "name": "Finnup Solutions",
+      "link": "",
       "logo": "",
       "logo_filename": "Finnup.jpg"
     },
     {
       "name": "Finsall",
+      "link": "",
       "logo": "",
       "logo_filename": "finsall.jpeg"
     },
     {
       "name": "Fintoo",
+      "link": "",
       "logo": "",
       "logo_filename": "Fintoo.jpg"
     },
     {
       "name": "Fios",
+      "link": "",
       "logo": "",
       "logo_filename": "fios.jpg"
     },
     {
       "name": "Flexiloans",
+      "link": "",
       "logo": "",
       "logo_filename": "Flexiloan.jpg"
     },
     {
       "name": "Flexpay",
+      "link": "",
       "logo": "",
       "logo_filename": "Flexpay.jpg"
     },
     {
       "name": "Flywire",
+      "link": "",
       "logo": "",
       "logo_filename": "flywire.jpeg"
     },
     {
       "name": "FPL",
+      "link": "",
       "logo": "",
       "logo_filename": "FPL.jpg"
     },
     {
       "name": "Freo",
+      "link": "",
       "logo": "",
       "logo_filename": "Freo.jpg"
     },
     {
       "name": "Ginteja",
+      "link": "",
       "logo": "",
       "logo_filename": "ginteja.jpeg"
     },
     {
       "name": "GoCredit",
+      "link": "",
       "logo": "",
       "logo_filename": "GoCredit.png"
     },
     {
       "name": "Gridlines",
+      "link": "",
       "logo": "",
       "logo_filename": "gridlines.png"
     },
     {
       "name": "Grip",
+      "link": "",
       "logo": "",
       "logo_filename": "grip.jpeg"
     },
     {
       "name": "Gromo",
+      "link": "",
       "logo": "",
       "logo_filename": "gromo.png"
     },
     {
       "name": "Groww",
+      "link": "",
       "logo": "",
       "logo_filename": "Groww.jpg"
     },
     {
       "name": "Huey Tech",
+      "link": "",
       "logo": "",
       "logo_filename": "hueytech.png"
     },
     {
       "name": "Hyperverge",
+      "link": "",
       "logo": "",
       "logo_filename": "Hyderverge.jpg"
     },
     {
       "name": "ICICI Lombard",
+      "link": "",
       "logo": "",
       "logo_filename": "icicilombard.png"
     },
     {
       "name": "ICICI Securities",
+      "link": "",
       "logo": "",
       "logo_filename": "ICICI-secuirties.jpg"
     },
     {
       "name": "IDfy",
+      "link": "",
       "logo": "",
       "logo_filename": "IDFY.jpg"
     },
     {
       "name": "IDIGICLOUD",
+      "link": "",
       "logo": "",
       "logo_filename": "idigi_logo.jpg"
     },
     {
       "name": "India P2P",
+      "link": "",
       "logo": "",
       "logo_filename": "indiap2p.png"
     },
     {
       "name": "Indiagold",
+      "link": "",
       "logo": "",
       "logo_filename": "indiagold.jpg"
     },
     {
       "name": "Indifi",
+      "link": "",
       "logo": "",
       "logo_filename": "Indifi.jpg"
     },
     {
       "name": "INDMoney",
+      "link": "",
       "logo": "",
       "logo_filename": "ind-money.jpg"
     },
     {
       "name": "Indus Net Technologies",
+      "link": "",
       "logo": "",
       "logo_filename": "int.jpg"
     },
     {
       "name": "Insurance Dekho",
+      "link": "",
       "logo": "",
       "logo_filename": "Insurance-dekho.jpg"
     },
     {
       "name": "Intellewings",
+      "link": "",
       "logo": "",
       "logo_filename": "intellewings.png"
     },
     {
       "name": "Iserveu",
+      "link": "",
       "logo": "",
       "logo_filename": "iserveu.jpeg"
     },
     {
       "name": "JAR",
+      "link": "",
       "logo": "",
       "logo_filename": "jar.jpeg"
     },
     {
       "name": "JISA",
+      "link": "",
       "logo": "",
       "logo_filename": "jisa_softech_logo.jfif"
     },
     {
       "name": "Jocata",
+      "link": "",
       "logo": "",
       "logo_filename": "jocata.png"
     },
     {
       "name": "Karma Life",
+      "link": "",
       "logo": "",
       "logo_filename": "karma.jpg"
     },
     {
       "name": "Kissht",
+      "link": "",
       "logo": "",
       "logo_filename": "kissht.jpeg"
     },
     {
       "name": "Kreditbee",
+      "link": "",
       "logo": "",
       "logo_filename": "Kreditbee.jpg"
     },
     {
       "name": "Kuhoo",
+      "link": "",
       "logo": "",
       "logo_filename": "kuhoo.png"
     },
     {
       "name": "KYCKART",
+      "link": "",
       "logo": "",
       "logo_filename": "kyckart.png"
     },
     {
       "name": "Lark",
+      "link": "",
       "logo": "",
       "logo_filename": "Lark.png"
     },
     {
       "name": "Leadsquared",
+      "link": "",
       "logo": "",
       "logo_filename": "leadsquared.png"
     },
     {
       "name": "Lei Register",
+      "link": "",
       "logo": "",
       "logo_filename": "Lei register.png"
     },
     {
       "name": "Lendbox",
+      "link": "",
       "logo": "",
       "logo_filename": "Lendbox.jpg"
     },
     {
       "name": "Lendenclub",
+      "link": "",
       "logo": "",
       "logo_filename": "lenden.jpg"
     },
     {
       "name": "Lendingkart",
+      "link": "",
       "logo": "",
       "logo_filename": "Lendingkart.jpg"
     },
     {
       "name": "Lexcomply",
+      "link": "",
       "logo": "",
       "logo_filename": "LEX.jpg"
     },
     {
       "name": "LexisNexis",
+      "link": "",
       "logo": "",
       "logo_filename": "LexisNexis.jpg"
     },
     {
       "name": "Liquify",
+      "link": "",
       "logo": "",
       "logo_filename": "liquify.jpeg"
     },
     {
       "name": "Liquiloans",
+      "link": "",
       "logo": "",
       "logo_filename": "Liquiloan.jpg"
     },
     {
       "name": "Loantap",
+      "link": "",
       "logo": "",
       "logo_filename": "LoanTap.jpg"
     },
     {
       "name": "Lombard",
+      "link": "",
       "logo": "",
       "logo_filename": "Lombard.jpg"
     },
     {
       "name": "LXME",
+      "link": "",
       "logo": "",
       "logo_filename": "lxme.jpg"
     },
     {
       "name": "Magicbricks",
+      "link": "",
       "logo": "",
       "logo_filename": "Magic_Bricks_logo.png"
     },
     {
       "name": "Mahindra Finance",
+      "link": "",
       "logo": "",
       "logo_filename": "mahindra-finance.png"
     },
     {
       "name": "MCX",
+      "link": "",
       "logo": "",
       "logo_filename": "mcx.jpeg"
     },
     {
       "name": "Minasa",
+      "link": "",
       "logo": "",
       "logo_filename": "minasa.jfif"
     },
     {
       "name": "Mindgate",
+      "link": "",
       "logo": "",
       "logo_filename": "mindgate.png"
     },
     {
       "name": "MLNO",
+      "link": "",
       "logo": "",
       "logo_filename": "mlno.jpeg"
     },
     {
       "name": "Moneyview",
+      "link": "",
       "logo": "",
       "logo_filename": "Moneyview.jpg"
     },
     {
       "name": "Multipl",
+      "link": "",
       "logo": "",
       "logo_filename": "multipl.jpg"
     },
     {
       "name": "Muthoot Fincorp",
+      "link": "",
       "logo": "",
       "logo_filename": "muthoot.png"
     },
     {
       "name": "My Mudra",
+      "link": "",
       "logo": "",
       "logo_filename": "My Mudra.png"
     },
     {
       "name": "Navi",
+      "link": "",
       "logo": "",
       "logo_filename": "navi.png"
     },
     {
       "name": "Neokred",
+      "link": "",
       "logo": "",
       "logo_filename": "NeoKred.jpg"
     },
     {
       "name": "Nerve",
+      "link": "",
       "logo": "",
       "logo_filename": "nerve.jpeg"
     },
     {
       "name": "NeuralDefend",
+      "link": "",
       "logo": "",
       "logo_filename": "NeuralDefend.png"
     },
     {
       "name": "New India Assurance",
+      "link": "",
       "logo": "",
       "logo_filename": "nia.jpeg"
     },
     {
       "name": "Ninjacart",
+      "link": "",
       "logo": "",
       "logo_filename": "ninja.jpg"
     },
     {
       "name": "Nivesh",
+      "link": "",
       "logo": "",
       "logo_filename": "nivesh.jpg"
     },
     {
       "name": "Niyara Capital",
+      "link": "",
       "logo": "",
       "logo_filename": "niyara.jpg"
     },
     {
       "name": "Niyo",
+      "link": "",
       "logo": "",
       "logo_filename": "Niyo.jpg"
     },
     {
       "name": "NJOCATA",
+      "link": "",
       "logo": "",
       "logo_filename": "njocata.jpg"
     },
     {
       "name": "Northern Arc",
+      "link": "",
       "logo": "",
       "logo_filename": "NorthernArc.png"
     },
     {
       "name": "OkCredit",
+      "link": "",
       "logo": "",
       "logo_filename": "okcredit.jpg"
     },
     {
       "name": "Ola Financial",
+      "link": "",
       "logo": "",
       "logo_filename": "ola2.jpg"
     },
     {
       "name": "One Score",
+      "link": "",
       "logo": "",
       "logo_filename": "one-score.jpg"
     },
     {
       "name": "Onsurity",
+      "link": "",
       "logo": "",
       "logo_filename": "Onsurity.jpg"
     },
     {
       "name": "Open",
+      "link": "",
       "logo": "",
       "logo_filename": "open.jpg"
     },
     {
       "name": "OPL",
+      "link": "",
       "logo": "",
       "logo_filename": "OPL.jpg"
     },
     {
       "name": "Paisabazaar",
+      "link": "",
       "logo": "",
       "logo_filename": "Paisabazaar.jpg"
     },
     {
       "name": "Parrami",
+      "link": "",
       "logo": "",
       "logo_filename": "parrami.png"
     },
     {
       "name": "Payme",
+      "link": "",
       "logo": "",
       "logo_filename": "Payme.jpg"
     },
     {
       "name": "Paysprint",
+      "link": "",
       "logo": "",
       "logo_filename": "Paysprint.jpg"
     },
     {
       "name": "Paytm",
+      "link": "",
       "logo": "",
       "logo_filename": "paytm.jfif"
     },
     {
       "name": "PensionBox",
+      "link": "",
       "logo": "",
       "logo_filename": "PensionBox.png"
     },
     {
       "name": "Perfios",
+      "link": "",
       "logo": "",
       "logo_filename": "perfios.png"
     },
     {
       "name": "PhonePe",
+      "link": "",
       "logo": "",
       "logo_filename": "phonepe.png"
     },
     {
       "name": "Piramal Finance",
+      "link": "",
       "logo": "",
       "logo_filename": "piramal.png"
     },
     {
       "name": "Predixion AI",
+      "link": "",
       "logo": "",
       "logo_filename": "predixion-ai.png"
     },
     {
       "name": "Profintech Technologies",
+      "link": "",
       "logo": "",
       "logo_filename": "profintech.jpg"
     },
     {
       "name": "Progcap",
+      "link": "",
       "logo": "",
       "logo_filename": "Progcap.jpg"
     },
     {
       "name": "Protectt",
+      "link": "",
       "logo": "",
       "logo_filename": "protectt.svg"
     },
     {
       "name": "Prove",
+      "link": "",
       "logo": "",
       "logo_filename": "prove.jpg"
     },
     {
       "name": "Quicklend",
+      "link": "",
       "logo": "",
       "logo_filename": "Quicklend.png"
     },
     {
       "name": "Razorpay",
+      "link": "",
       "logo": "",
       "logo_filename": "RazorPay.jpg"
     },
     {
       "name": "Recordent",
+      "link": "",
       "logo": "",
       "logo_filename": "Recordent.jpg"
     },
     {
       "name": "Recqarz",
+      "link": "",
       "logo": "",
       "logo_filename": "recqarz.jpeg"
     },
     {
       "name": "Ruloans",
+      "link": "",
       "logo": "",
       "logo_filename": "Ruloans.png"
     },
     {
       "name": "Rupeek",
+      "link": "",
       "logo": "",
       "logo_filename": "rupeek.jfif"
     },
     {
       "name": "RupeeRedee",
+      "link": "",
       "logo": "",
       "logo_filename": "RupeeRedee.jpg"
     },
     {
       "name": "Sahibandu",
+      "link": "",
       "logo": "",
       "logo_filename": "sahibandu.jpg"
     },
     {
       "name": "Satmat Technologies",
+      "link": "",
       "logo": "",
       "logo_filename": "satmat-technologies.jpeg"
     },
     {
       "name": "SaveIn",
+      "link": "",
       "logo": "",
       "logo_filename": "savein.jpg"
     },
     {
       "name": "SBI Funds",
+      "link": "",
       "logo": "",
       "logo_filename": "sbi-funds.jfif"
     },
     {
       "name": "SBI General Insurance",
+      "link": "",
       "logo": "",
       "logo_filename": "SBI-General.jpg"
     },
     {
       "name": "Scapia",
+      "link": "",
       "logo": "",
       "logo_filename": "scapia.jpeg"
     },
     {
       "name": "Scripbox",
+      "link": "",
       "logo": "",
       "logo_filename": "Scripbox.jpg"
     },
     {
       "name": "Settle",
+      "link": "",
       "logo": "",
       "logo_filename": "settle.jpeg"
     },
     {
       "name": "Setu",
+      "link": "",
       "logo": "",
       "logo_filename": "Setu.jpg"
     },
     {
       "name": "Signzy",
+      "link": "",
       "logo": "",
       "logo_filename": "Signzy.jpg"
     },
     {
       "name": "SilverBullet",
+      "link": "",
       "logo": "",
       "logo_filename": "silverbullet.jpeg"
     },
     {
       "name": "Simpl",
+      "link": "",
       "logo": "",
       "logo_filename": "Simpl.jpg"
     },
     {
       "name": "Slice",
+      "link": "",
       "logo": "",
       "logo_filename": "Slice.jpg"
     },
     {
       "name": "SMFG",
+      "link": "",
       "logo": "",
       "logo_filename": "SMFG.jpg"
     },
     {
       "name": "Snapmint",
+      "link": "",
       "logo": "",
       "logo_filename": "Snapmint.jpg"
     },
     {
       "name": "Stockgro",
+      "link": "",
       "logo": "",
       "logo_filename": "stockgrow.jpg"
     },
     {
       "name": "Stride One",
+      "link": "",
       "logo": "",
       "logo_filename": "stride-one.png"
     },
     {
       "name": "Sub K Impact",
+      "link": "",
       "logo": "",
       "logo_filename": "Sub-K-Impact.jpg"
     },
     {
       "name": "Sumsub",
+      "link": "",
       "logo": "",
       "logo_filename": "sumsub.jpeg"
     },
     {
       "name": "Tally Capital",
+      "link": "",
       "logo": "",
       "logo_filename": "tally-capital.jpeg"
     },
     {
       "name": "Tata Capital Housing Finance",
+      "link": "",
       "logo": "",
       "logo_filename": "Tata_Capital.jpg"
     },
     {
       "name": "Tazapay",
+      "link": "",
       "logo": "",
       "logo_filename": "tazapay.png"
     },
     {
       "name": "Techurate Systems",
+      "link": "",
       "logo": "",
       "logo_filename": "techurate.png"
     },
     {
       "name": "Tide",
+      "link": "",
       "logo": "",
       "logo_filename": "tide.jpg"
     },
     {
       "name": "Timble Tech",
+      "link": "",
       "logo": "",
       "logo_filename": "timbletech.jpg"
     },
     {
       "name": "TIREN",
+      "link": "",
       "logo": "",
       "logo_filename": "TIREN.png"
     },
     {
       "name": "Trackwizz",
+      "link": "",
       "logo": "",
       "logo_filename": "TSS-Consultancy.jpg"
     },
     {
       "name": "Trust Group",
+      "link": "",
       "logo": "",
       "logo_filename": "trust.png"
     },
     {
       "name": "UNI",
+      "link": "",
       "logo": "",
       "logo_filename": "uni.jpg"
     },
     {
       "name": "UTI Mutual Fund",
+      "link": "",
       "logo": "",
       "logo_filename": "uti.png"
     },
     {
       "name": "Utimaco",
+      "link": "",
       "logo": "",
       "logo_filename": "Utimaco.jpg"
     },
     {
       "name": "Vance",
+      "link": "",
       "logo": "",
       "logo_filename": "Vance.jpg"
     },
     {
       "name": "Vayana",
+      "link": "",
       "logo": "",
       "logo_filename": "vayana.jpg"
     },
     {
       "name": "Velocity",
+      "link": "",
       "logo": "",
       "logo_filename": "velocity.jpg"
     },
     {
       "name": "Vested Finance",
+      "link": "",
       "logo": "",
       "logo_filename": "vested.jpg"
     },
     {
       "name": "Vidyuttech",
+      "link": "",
       "logo": "",
       "logo_filename": "vidyuttech.jpg"
     },
     {
       "name": "Viva Money",
+      "link": "",
       "logo": "",
       "logo_filename": "Viva.jpg"
     },
     {
       "name": "Vivifi",
+      "link": "",
       "logo": "",
       "logo_filename": "vivifi.jpg"
     },
     {
       "name": "Vivriti Capital",
+      "link": "",
       "logo": "",
       "logo_filename": "vivriti.jpg"
     },
     {
       "name": "Wegofin",
+      "link": "",
       "logo": "",
       "logo_filename": "wegofin.jpeg"
     },
     {
       "name": "WeRize",
+      "link": "",
       "logo": "",
       "logo_filename": "werize.jpg"
     },
     {
       "name": "Whatsloan",
+      "link": "",
       "logo": "",
       "logo_filename": "whatsloan.jpg"
     },
     {
       "name": "Yes Bank",
+      "link": "",
       "logo": "",
       "logo_filename": "yes-bank.jpg"
     },
     {
       "name": "Zaggle",
+      "link": "",
       "logo": "",
       "logo_filename": "zaggle.jpg"
     },
     {
       "name": "Zerodha",
+      "link": "",
       "logo": "",
       "logo_filename": "Zerodha.jpg"
     },
     {
       "name": "Zigram",
+      "link": "",
       "logo": "",
       "logo_filename": "zigram.png"
     },
     {
       "name": "Zolve",
+      "link": "",
       "logo": "",
       "logo_filename": "Zolve.jpg"
     },
     {
       "name": "Zoop",
+      "link": "",
       "logo": "",
       "logo_filename": "zoop.jpg"
     },
     {
       "name": "Zoven",
+      "link": "",
       "logo": "",
       "logo_filename": "zoven.png"
     }
