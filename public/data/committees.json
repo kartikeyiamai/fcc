@@ -68,7 +68,9 @@
         "IIB data access"
       ],
       "chair_name": "Sarbvir Singh",
-      "chair_role": "Chair · Joint Group CEO, PB Fintech"
+      "chair_role": "Chair · Joint Group CEO, PB Fintech",
+      "co_chair_name": "",
+      "co_chair_role": ""
     },
     {
       "slug": "credit-bureau",
@@ -83,21 +85,9 @@
         "Compliance"
       ],
       "chair_name": "Leadership to be announced",
-      "chair_role": "Write to us to get involved"
-    },
-    {
-      "slug": "test-committee",
-      "name": "Test Committee",
-      "href": "/committees/test-committee",
-      "description": "this is for testing the committee listing",
-      "who_can_join": "All members interested in testing.",
-      "tags": [
-        "Testing",
-        "Innovation",
-        "Development"
-      ],
-      "chair_name": "Himanshu",
-      "chair_role": "PMO"
+      "chair_role": "Write to us to get involved",
+      "co_chair_name": "",
+      "co_chair_role": ""
     }
   ],
   "join_box": {
