@@ -20,6 +20,7 @@ import regtechCommittee from "../../public/data/committees/regtech.json";
 import wealthtechCommittee from "../../public/data/committees/wealthtech.json";
 import insurtechCommittee from "../../public/data/committees/insurtech.json";
 import creditBureauCommittee from "../../public/data/committees/credit-bureau.json";
+import testCommittee from "../../public/data/committees/test-committee.json";
 
 import type {
   AboutContent,
@@ -190,9 +191,13 @@ const committeePagesMap: Record<string, CommitteeDetailPageContent> = {
   wealthtech: wealthtechCommittee as CommitteeDetailPageContent,
   insurtech: insurtechCommittee as CommitteeDetailPageContent,
   "credit-bureau": creditBureauCommittee as CommitteeDetailPageContent,
+  "test-committee": testCommittee as CommitteeDetailPageContent,
 };
 
 export async function loadCommitteePage(slug: string): Promise<CommitteeDetailPageContent | null> {
+  if (committeePagesMap[slug]) {
+    return committeePagesMap[slug];
+  }
   try {
     const fs = await import("fs/promises");
     const path = await import("path");
@@ -200,9 +205,6 @@ export async function loadCommitteePage(slug: string): Promise<CommitteeDetailPa
     const fileContent = await fs.readFile(filePath, "utf-8");
     return JSON.parse(fileContent) as CommitteeDetailPageContent;
   } catch {
-    if (committeePagesMap[slug]) {
-      return committeePagesMap[slug];
-    }
     return null;
   }
 }

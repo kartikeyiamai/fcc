@@ -6,11 +6,21 @@ import { CommitteeDetailPage } from "@/components/pages/CommitteeDetailPage";
 import { loadCommitteePage, loadCommittees } from "@/lib/cms";
 import type { CommitteeDetailPageContent } from "@/lib/cms-types";
 
+const STATIC_SLUGS = new Set([
+  "digital-lending",
+  "regtech",
+  "wealthtech",
+  "insurtech",
+  "credit-bureau",
+]);
+
 export async function generateStaticParams() {
   const committees = await loadCommittees();
-  return (committees.items || []).map((c) => ({
-    slug: c.slug,
-  }));
+  return (committees.items || [])
+    .filter((c) => !STATIC_SLUGS.has(c.slug))
+    .map((c) => ({
+      slug: c.slug,
+    }));
 }
 
 export async function generateMetadata({
