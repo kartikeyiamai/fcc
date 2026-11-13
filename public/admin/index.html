@@ -123,6 +123,7 @@
 
             // Securely retrieve AWS S3 credentials and populate into Sveltia prefs
             // before loading the Sveltia script so Sveltia reads them directly on startup.
+            // Also enforce closeOnSave = false so saving an entry keeps the user on the current entry.
             return fetch('/api/cms-s3-credentials', { credentials: 'include', cache: 'no-store' })
               .then(function (res) {
                 if (res.ok) {
@@ -131,21 +132,28 @@
                 return null;
               })
               .then(function (data) {
-                if (data && data.secretAccessKey) {
-                  try {
-                    var prefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
-                    if (!prefs || typeof prefs !== 'object') prefs = {};
+                try {
+                  var prefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
+                  if (!prefs || typeof prefs !== 'object') prefs = {};
+                  prefs.closeOnSave = false;
+                  if (data && data.secretAccessKey) {
                     if (!prefs.apiKeys || typeof prefs.apiKeys !== 'object') prefs.apiKeys = {};
                     prefs.apiKeys.aws_s3 = data.secretAccessKey;
-                    localStorage.setItem('sveltia-cms.prefs', JSON.stringify(prefs));
-                  } catch (e) {
-                    console.warn('[CMS_S3] Failed to store S3 credentials into localStorage:', e);
                   }
+                  localStorage.setItem('sveltia-cms.prefs', JSON.stringify(prefs));
+                } catch (e) {
+                  console.warn('[CMS_PREFS] Failed to store preferences into localStorage:', e);
                 }
                 initSveltiaCMS();
               })
               .catch(function (err) {
                 console.warn('[CMS_S3] Could not fetch S3 credentials:', err);
+                try {
+                  var fallbackPrefs = JSON.parse(localStorage.getItem('sveltia-cms.prefs') || '{}');
+                  if (!fallbackPrefs || typeof fallbackPrefs !== 'object') fallbackPrefs = {};
+                  fallbackPrefs.closeOnSave = false;
+                  localStorage.setItem('sveltia-cms.prefs', JSON.stringify(fallbackPrefs));
+                } catch (e) {}
                 initSveltiaCMS();
               });
           })
