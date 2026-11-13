@@ -102,6 +102,156 @@
     <script>
       (function () {
         // =========================================================================
+        // Multi-User Git Attribution & Audit Interceptor
+        // Injects active Microsoft Entra ID user into Git commit headlines & bodies,
+        // enables GitHub Co-authorship attribution, and updates Sveltia CMS history.
+        // =========================================================================
+        var originalFetch = window.fetch;
+        window.fetch = function (resource, init) {
+          var url = typeof resource === 'string' ? resource : (resource && resource.url ? resource.url : '');
+
+          if (
+            url.indexOf('api.github.com') !== -1 &&
+            url.indexOf('graphql') !== -1 &&
+            init &&
+            init.method === 'POST' &&
+            typeof init.body === 'string'
+          ) {
+            try {
+              var bodyObj = JSON.parse(init.body);
+              var queryStr = bodyObj.query || '';
+
+              // Case 1: Intercept createCommitOnBranch mutation
+              if (
+                queryStr.indexOf('createCommitOnBranch') !== -1 &&
+                bodyObj.variables &&
+                bodyObj.variables.input
+              ) {
+                var input = bodyObj.variables.input;
+
+                // Retrieve active Microsoft user identity
+                var user = window.__FCC_USER__;
+                if (!user || !user.email) {
+                  try {
+                    user = JSON.parse(localStorage.getItem('fcc_cms_user') || 'null');
+                  } catch (e) {}
+                }
+
+                var userName = (user && user.name) ? user.name.trim() : '';
+                var userEmail = (user && user.email) ? user.email.trim() : '';
+                if (!userName && userEmail) {
+                  userName = userEmail.split('@')[0];
+                }
+                if (!userName) userName = 'FCC Editor';
+                if (!userEmail) userEmail = 'fcc-cms@iamai.in';
+
+                // 1. Enrich commit headline with editor's name
+                if (input.message && typeof input.message.headline === 'string') {
+                  var rawHeadline = input.message.headline.trim();
+                  if (rawHeadline.indexOf('(by ') === -1 && rawHeadline.indexOf('[by ') === -1) {
+                    input.message.headline = rawHeadline + ' (by ' + userName + ')';
+                  }
+                }
+
+                // 2. Append Git trailers to commit body for GitHub co-authorship & audit sign-off
+                var trailer =
+                  '\n\nEdited-by: ' + userName + ' <' + userEmail + '>\n' +
+                  'Co-authored-by: ' + userName + ' <' + userEmail + '>\n' +
+                  'Signed-off-by: ' + userName + ' <' + userEmail + '>';
+
+                if (input.message) {
+                  if (typeof input.message.body === 'string' && input.message.body.trim()) {
+                    input.message.body = input.message.body.trim() + trailer;
+                  } else {
+                    input.message.body = trailer.trim();
+                  }
+                }
+
+                console.log('[CMS_AUDIT] Injected author into commit:', userName, userEmail);
+
+                // Asynchronously record audit event to backend API
+                try {
+                  var addedFiles = (input.fileChanges && input.fileChanges.additions)
+                    ? input.fileChanges.additions.map(function (f) { return f.path; })
+                    : [];
+                  var deletedFiles = (input.fileChanges && input.fileChanges.deletions)
+                    ? input.fileChanges.deletions.map(function (f) { return f.path; })
+                    : [];
+                  originalFetch('/api/cms-audit/log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      user: userEmail,
+                      name: userName,
+                      headline: input.message ? input.message.headline : '',
+                      files: addedFiles.concat(deletedFiles),
+                      timestamp: new Date().toISOString()
+                    })
+                  }).catch(function () {});
+                } catch (e) {}
+
+                init.body = JSON.stringify(bodyObj);
+              }
+
+              // Case 2: Intercept history query to show editor's name in Sveltia CMS History UI
+              var isHistoryQuery = queryStr.indexOf('history(') !== -1 && queryStr.indexOf('messageHeadline') !== -1;
+              if (isHistoryQuery) {
+                var responsePromise = originalFetch.call(this, resource, init);
+                return responsePromise.then(async function (res) {
+                  try {
+                    if (res.ok) {
+                      var clone = res.clone();
+                      var data = await clone.json();
+                      if (data && data.data && data.data.repository) {
+                        var modified = false;
+
+                        function patchNodes(obj) {
+                          if (!obj || typeof obj !== 'object') return;
+                          if (Array.isArray(obj.nodes)) {
+                            obj.nodes.forEach(function (node) {
+                              if (node && typeof node.messageHeadline === 'string') {
+                                var m = node.messageHeadline.match(/\(by ([^)]+)\)$/);
+                                if (m && m[1]) {
+                                  if (!node.author) node.author = {};
+                                  node.author.name = m[1].trim();
+                                  modified = true;
+                                }
+                              }
+                            });
+                          }
+                          for (var key in obj) {
+                            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                              patchNodes(obj[key]);
+                            }
+                          }
+                        }
+
+                        patchNodes(data.data.repository);
+
+                        if (modified) {
+                          return new Response(JSON.stringify(data), {
+                            status: res.status,
+                            statusText: res.statusText,
+                            headers: res.headers
+                          });
+                        }
+                      }
+                    }
+                  } catch (err) {
+                    console.warn('[CMS_AUDIT] Failed to patch history nodes:', err);
+                  }
+                  return res;
+                });
+              }
+            } catch (err) {
+              console.warn('[CMS_AUDIT] Fetch interceptor error:', err);
+            }
+          }
+
+          return originalFetch.apply(this, arguments);
+        };
+
+        // =========================================================================
         // Defense-in-depth: Verify Microsoft Entra session before loading Sveltia CMS.
         // Static assets in public/admin served by CloudFront/S3 may bypass SSR middleware.
         // Unauthenticated visitors are immediately redirected to /cms-login.
@@ -120,6 +270,15 @@
             }
 
             console.log('[CMS_AUTH_DIAGNOSTIC] SESSION_ACTIVE_PREPARING_CMS');
+
+            // Save active Microsoft identity for Git author attribution
+            window.__FCC_USER__ = {
+              name: (session.user.name || '').trim(),
+              email: (session.user.email || '').trim()
+            };
+            try {
+              localStorage.setItem('fcc_cms_user', JSON.stringify(window.__FCC_USER__));
+            } catch (e) {}
 
             // Securely retrieve AWS S3 credentials and populate into Sveltia prefs
             // before loading the Sveltia script so Sveltia reads them directly on startup.
