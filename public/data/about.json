@@ -46,44 +46,34 @@
     "lead": "Key moments in FCC's story so far.",
     "milestones": [
       {
-        "year": 2017,
+        "year": "2017",
         "title": "Fintech committee at IAMAI",
         "description": "Industry members come together under IAMAI to discuss fintech policy."
       },
       {
-        "year": 2018,
+        "year": "2018",
         "title": "FCC launches",
         "description": "The Fintech Convergence Council is launched on 19 September at The St. Regis, Mumbai."
       },
       {
-        "year": 2020,
+        "year": "2020",
         "title": "First Global Fintech Fest",
         "description": "GFF debuts as a virtual event and becomes the flagship of India's fintech calendar."
       },
       {
-        "year": 2022,
+        "year": "2022",
         "title": "GFF moves to Jio World Centre",
         "description": "The festival grows into one of the world's largest fintech gatherings."
       },
       {
-        "year": 2025,
+        "year": "2025",
         "title": "Mission trip to Japan",
         "description": "An industry delegation visits Tokyo to build cross-border fintech ties."
       },
       {
-        "year": 2026,
+        "year": "2026",
         "title": "201 members, 5 committees",
         "description": "A regular calendar of representations, webinars and research."
-      },
-      {
-        "year": 2026,
-        "title": "Test title",
-        "description": "this is to check the timeline"
-      },
-      {
-        "year": 2021,
-        "title": "TEST 21",
-        "description": "THIS IS TO TEST IF DATA VELIDATION IMPLEMENTED OR NOT"
       }
     ]
   },
