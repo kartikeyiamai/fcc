@@ -2,18 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FormEvent } from "react";
 import type { SiteSettings } from "@/lib/cms-types";
 
 export function SiteFooter({ settings }: { settings: SiteSettings }) {
-  function onSubscribe(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const input = e.currentTarget.querySelector("input");
-    if (!input) return;
-    input.value = "";
-    input.placeholder = "Thanks! You're on the list.";
-  }
-
   return (
     <footer>
       <div className="wrap">
@@ -68,16 +59,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
               <br />
               <a href={`mailto:${settings.contact_email}`}>{settings.contact_email}</a>
             </p>
-            <form className="newsletter" onSubmit={onSubscribe}>
-              <input
-                type="email"
-                placeholder={settings.newsletter_placeholder}
-                aria-label="Email"
-              />
-              <button type="submit" className="btn btn-primary btn-sm">
-                Subscribe
-              </button>
-            </form>
+            {/* Newsletter subscription form hidden for now */}
           </div>
         </div>
         <div className="foot-bottom">
