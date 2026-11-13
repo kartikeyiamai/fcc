@@ -36,9 +36,7 @@
     {
       "title": "Development",
       "description": "Through committees, best-practice sharing, industry discussions and knowledge sessions, we help the sector mature and reach more people.",
-      "items": [
-        "TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING TESTING"
-      ]
+      "items": []
     }
   ],
   "journey": {
@@ -108,10 +106,6 @@
       {
         "name": "Sarbvir Singh",
         "role": "Joint Group CEO, PB Fintech"
-      },
-      {
-        "name": "Test Member on about",
-        "role": "Test Position"
       }
     ]
   },
@@ -127,8 +121,7 @@
       "Direct input into representations to regulators",
       "A seat on sector committees with industry peers",
       "Complimentary passes to FCC and IAMAI conferences",
-      "Members-only roundtables and every FCC report",
-      "TEST BENEFITS OF THE MEMBERSHIP"
+      "Members-only roundtables and every FCC report"
     ]
   }
 }
