@@ -837,7 +837,7 @@ collections:
                 name: year_counts
                 widget: list
                 fields:
-                  - { label: Count, name: count, widget: string }
+                  - { label: Count, name: count, widget: number, value_type: int }
                   - { label: Year Label, name: year, widget: string }
           - label: Topics Covered
             name: topics
@@ -845,7 +845,7 @@ collections:
             summary: "{{fields.topic}}: {{fields.count}}"
             fields:
               - { label: Topic, name: topic, widget: string }
-              - { label: Count, name: count, widget: string }
+              - { label: Count, name: count, widget: number, value_type: int }
               - { label: Bar Width, name: width, widget: string, default: "50%" }
           - label: Events Archive
             name: items

@@ -10,15 +10,15 @@
     "email": "register@fintechcouncil.in",
     "year_counts": [
       {
-        "count": "11",
+        "count": 11,
         "year": "in 2026"
       },
       {
-        "count": "14",
+        "count": 14,
         "year": "in 2025"
       },
       {
-        "count": "13",
+        "count": 13,
         "year": "in 2024"
       }
     ]
@@ -26,27 +26,27 @@
   "topics": [
     {
       "topic": "RegTech & compliance",
-      "count": "19",
+      "count": 19,
       "width": "100%"
     },
     {
       "topic": "Lending",
-      "count": "6",
+      "count": 6,
       "width": "32%"
     },
     {
       "topic": "Insurance",
-      "count": "5",
+      "count": 5,
       "width": "26%"
     },
     {
       "topic": "Investments",
-      "count": "4",
+      "count": 4,
       "width": "21%"
     },
     {
       "topic": "Credit",
-      "count": "1",
+      "count": 1,
       "width": "5%"
     }
   ],

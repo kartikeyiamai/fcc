@@ -466,9 +466,9 @@ export type VirtualEventsContent = {
     heading: string;
     lead?: string;
     email?: string;
-    year_counts?: { count: string; year: string }[];
+    year_counts?: { count: string | number; year: string }[];
   };
-  topics?: { topic: string; count: string; width: string }[];
+  topics?: { topic: string; count: string | number; width: string }[];
   items: VirtualEventItem[];
   bottom_cta?: {
     eyebrow?: string;
