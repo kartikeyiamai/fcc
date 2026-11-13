@@ -272,15 +272,6 @@
           "href": "/partners"
         }
       ]
-    },
-    {
-      "title": "Test Footer Coulmn",
-      "links": [
-        {
-          "label": "test",
-          "href": "/contact"
-        }
-      ]
     }
   ]
 }
