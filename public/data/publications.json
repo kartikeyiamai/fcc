@@ -20,7 +20,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/images/Building%20Bridges%20for%20the%20Next%20Decade%20of%20Finance.pdf",
-      "cover_variant": "b1"
+      "cover_variant": "b1",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "UPI for Her",
@@ -28,7 +31,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/images/UPI%20for%20Her.pdf",
-      "cover_variant": "b2"
+      "cover_variant": "b2",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Mapping the FinTech Innovation Landscape in India",
@@ -36,7 +42,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/images/Mapping%20the%20FinTech%20Innovation%20Landscape%20in%20India%20and%20comparing%20it%20with%20global%20trends.pdf",
-      "cover_variant": "b3"
+      "cover_variant": "b3",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "SuperApps: Breaking down barriers, building bridges",
@@ -44,7 +53,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/images/4.pdf",
-      "cover_variant": "b4"
+      "cover_variant": "b4",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Indian Payment Handbook 2024–2029",
@@ -52,7 +64,10 @@
       "year_label": "2024",
       "category": "Handbook",
       "href": "https://www.fintechcouncil.in/images/5.pdf",
-      "cover_variant": "b1"
+      "cover_variant": "b1",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Fast Forward, Rewind: India&#x27;s Golden Decade in Fintech",
@@ -60,7 +75,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/images/6.pdf",
-      "cover_variant": "b2"
+      "cover_variant": "b2",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Fabric of Fintech 3.0",
@@ -68,7 +86,10 @@
       "year_label": "2023",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/Fabric%20of%20Fintech%20-%20Heavy_compressed.pdf",
-      "cover_variant": "b3"
+      "cover_variant": "b3",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Growing Inclusion in India",
@@ -76,7 +97,10 @@
       "year_label": "2023",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/Growing%20inclusion%20in%20India%20-%20Unveiled%20at%20GFF%202023_compressed.pdf",
-      "cover_variant": "b4"
+      "cover_variant": "b4",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "State of the Fintech Union",
@@ -84,7 +108,10 @@
       "year_label": "2023",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/State%20of%20the%20Fintech%20Union%20-%20Unveilled%20at%20GFF%202023.pdf",
-      "cover_variant": "b1"
+      "cover_variant": "b1",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "The Rise and Evolution of India&#x27;s Digital Finance",
@@ -92,7 +119,10 @@
       "year_label": "2023",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/The%20Rise%20and%20Evolution%20of%20India%27s%20Digital%20Finance%2020th%20Oct%202023.pdf",
-      "cover_variant": "b2"
+      "cover_variant": "b2",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "The Second Wave: Resilient, Inclusive, Exponential Fintechs",
@@ -100,7 +130,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/The%20Second%20Wave_Resilient%2C%20Inclusive%2C%20Exponential%20Fintechs.pdf",
-      "cover_variant": "b3"
+      "cover_variant": "b3",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "The Winds of Change, Edition II",
@@ -108,7 +141,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/The%20Winds%20of%20Change-%20Edition%20II.pdf",
-      "cover_variant": "b4"
+      "cover_variant": "b4",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Empowering Payments: Digital India on the Path of Revolution",
@@ -116,7 +152,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/Empowering_payments.pdf",
-      "cover_variant": "b1"
+      "cover_variant": "b1",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "India Fintech Report 2020 — Executive Summary",
@@ -124,7 +163,10 @@
       "year_label": "2020",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/India-Fintech-Report-2020-Executive-Summary.pdf",
-      "cover_variant": "b2"
+      "cover_variant": "b2",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Global Fintech Fest 2021 — Event Report",
@@ -132,7 +174,10 @@
       "year_label": "2021",
       "category": "Event-report",
       "href": "https://www.fintechcouncil.in/pdf/GFF21-Event-report.pdf",
-      "cover_variant": "b3"
+      "cover_variant": "b3",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Global Fintech Fest 2020 — Event Report",
@@ -140,7 +185,10 @@
       "year_label": "2020",
       "category": "Event-report",
       "href": "https://www.fintechcouncil.in/pdf/GFF20-Event-report.pdf",
-      "cover_variant": "b4"
+      "cover_variant": "b4",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "KYC Bureau: A Centralised Repository for KYC Data",
@@ -148,7 +196,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Whitepaper",
       "href": "https://www.fintechcouncil.in/pdf/Whitepaper-KYC-Bureau.pdf",
-      "cover_variant": "b1"
+      "cover_variant": "b1",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Whitepaper on Digital KYC Solutions",
@@ -156,7 +207,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Whitepaper",
       "href": "https://www.fintechcouncil.in/pdf/White-Paper-on-Digital-KYC-Solutions.pdf",
-      "cover_variant": "b2"
+      "cover_variant": "b2",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "The Evolution of Neobanks in India",
@@ -164,7 +218,10 @@
       "year_label": "FCC × IAMAI",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/Neobanking-Final-report.pdf",
-      "cover_variant": "b3"
+      "cover_variant": "b3",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
     },
     {
       "title": "Fintech in India: Ready for Breakout",
@@ -172,7 +229,21 @@
       "year_label": "2017",
       "category": "Report",
       "href": "https://www.fintechcouncil.in/pdf/IAMAI-Deloitte-Fintech-Report-July-17.pdf",
-      "cover_variant": "b4"
+      "cover_variant": "b4",
+      "cover_image": "",
+      "publication_date": "",
+      "description": ""
+    },
+    {
+      "title": "Test Research",
+      "kind": "FCC · Report",
+      "year_label": "FCC × IAMAI",
+      "category": "Report",
+      "href": "https://main.d2fqkki8q9kcbn.amplifyapp.com/",
+      "cover_variant": "b1",
+      "cover_image": "/uploads/IDA_023.png",
+      "publication_date": "2026-11-10T12:29:00",
+      "description": "this is to test the research section cms enviroment"
     }
   ],
   "bottom_cta": {
