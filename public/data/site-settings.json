@@ -201,12 +201,6 @@
         "/contact"
       ],
       "children": []
-    },
-    {
-      "label": "Test",
-      "href": "/test",
-      "match": [],
-      "children": []
     }
   ],
   "footer_columns": [
