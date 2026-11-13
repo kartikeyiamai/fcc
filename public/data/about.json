@@ -79,6 +79,11 @@
         "year": "Test entry",
         "title": "Test title",
         "description": "this is to check the timeline"
+      },
+      {
+        "year": "TEST YEAR 21",
+        "title": "TEST 21",
+        "description": "THIS IS TO TEST IF DATA VELIDATION IMPLEMENTED OR NOT"
       }
     ]
   },
