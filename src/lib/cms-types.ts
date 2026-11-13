@@ -539,8 +539,8 @@ export type PolicyContent = {
     eyebrow: string;
     heading: string;
     lead: string;
-    stats: { value: string; label: string }[];
-    breakdown: { regulator: string; count: string; width: string }[];
+    stats: { value: string | number; label: string }[];
+    breakdown: { regulator: string; count: string | number; width: string }[];
   };
   key_representations: PolicyRepresentationItem[];
   recent_submissions: PolicySubmissionItem[];

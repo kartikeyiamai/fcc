@@ -901,7 +901,7 @@ collections:
                 name: stats
                 widget: list
                 fields:
-                  - { label: Value, name: value, widget: string }
+                  - { label: Value, name: value, widget: number, value_type: int }
                   - { label: Label, name: label, widget: string }
               - label: Regulator Breakdown Bars
                 name: breakdown
@@ -909,7 +909,7 @@ collections:
                 summary: "{{fields.regulator}}: {{fields.count}}"
                 fields:
                   - { label: Regulator, name: regulator, widget: string }
-                  - { label: Count, name: count, widget: string }
+                  - { label: Count, name: count, widget: number, value_type: int }
                   - { label: Bar Width Percentage, name: width, widget: string, default: "50%" }
           - label: Key Representations (Concept Notes)
             name: key_representations

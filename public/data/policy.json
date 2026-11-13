@@ -9,52 +9,52 @@
     "lead": "Count of representations listed on this page, by regulator or government body.",
     "stats": [
       {
-        "value": "36",
+        "value": 36,
         "label": "representations"
       },
       {
-        "value": "7",
+        "value": 7,
         "label": "bodies engaged"
       },
       {
-        "value": "7",
+        "value": 7,
         "label": "policy sessions"
       }
     ],
     "breakdown": [
       {
         "regulator": "RBI",
-        "count": "18",
+        "count": 18,
         "width": "100%"
       },
       {
         "regulator": "IRDAI",
-        "count": "7",
+        "count": 7,
         "width": "39%"
       },
       {
         "regulator": "SEBI",
-        "count": "4",
+        "count": 4,
         "width": "22%"
       },
       {
         "regulator": "NPCI",
-        "count": "3",
+        "count": 3,
         "width": "17%"
       },
       {
         "regulator": "MeitY",
-        "count": "2",
+        "count": 2,
         "width": "11%"
       },
       {
         "regulator": "CERSAI",
-        "count": "1",
+        "count": 1,
         "width": "6%"
       },
       {
         "regulator": "IBBI",
-        "count": "1",
+        "count": 1,
         "width": "6%"
       }
     ]
