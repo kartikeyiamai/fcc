@@ -16,11 +16,18 @@ const STATIC_SLUGS = new Set([
 
 export async function generateStaticParams() {
   const committees = await loadCommittees();
-  return (committees.items || [])
-    .filter((c) => !STATIC_SLUGS.has(c.slug))
-    .map((c) => ({
-      slug: c.slug,
-    }));
+  const dynamicItems = (committees.items || []).filter(
+    (c) => !STATIC_SLUGS.has(c.slug)
+  );
+
+  if (dynamicItems.length === 0) {
+    // Next.js with Cache Components requires at least one static param
+    return [{ slug: "__placeholder" }];
+  }
+
+  return dynamicItems.map((c) => ({
+    slug: c.slug,
+  }));
 }
 
 export async function generateMetadata({
