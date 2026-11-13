@@ -10,15 +10,15 @@
     "email": "register@fintechcouncil.in",
     "year_counts": [
       {
-        "count": 11,
+        "count": "11",
         "year": "in 2026"
       },
       {
-        "count": 14,
+        "count": "14",
         "year": "in 2025"
       },
       {
-        "count": 13,
+        "count": "13",
         "year": "in 2024"
       }
     ]
@@ -26,27 +26,27 @@
   "topics": [
     {
       "topic": "RegTech & compliance",
-      "count": 19,
+      "count": "19",
       "width": "100%"
     },
     {
       "topic": "Lending",
-      "count": 6,
+      "count": "6",
       "width": "32%"
     },
     {
       "topic": "Insurance",
-      "count": 5,
+      "count": "5",
       "width": "26%"
     },
     {
       "topic": "Investments",
-      "count": 4,
+      "count": "4",
       "width": "21%"
     },
     {
       "topic": "Credit",
-      "count": 1,
+      "count": "1",
       "width": "5%"
     }
   ],
@@ -278,6 +278,12 @@
       "day": 14,
       "month": "Feb 2024",
       "time": "3:00–4:00 PM IST · Virtual"
+    },
+    {
+      "title": "Test Virtual Event",
+      "day": 4,
+      "month": "year 24",
+      "time": "time label"
     }
   ],
   "bottom_cta": {
