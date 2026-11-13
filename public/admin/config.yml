@@ -654,103 +654,90 @@ collections:
 
   - name: committee_pages
     label: Committee Detail Pages
-    files:
-      - name: digital_lending
-        label: Digital Lending Committee
-        file: public/data/committees/digital-lending.json
-        fields: &committee_detail_fields
-          - label: Hero
-            name: hero
-            widget: object
+    folder: public/data/committees
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{hero.title}}"
+    fields:
+      - { label: Slug, name: slug, widget: string, hint: "URL slug, e.g. test-committee (must match the slug in Committees Overview)" }
+      - label: Hero
+        name: hero
+        widget: object
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Join Email URL, name: join_email, widget: string, required: false }
+          - { label: Join Button Label, name: join_label, widget: string, required: false }
+      - label: Focus Areas
+        name: focus_areas
+        widget: object
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Open To Lead Text, name: open_to, widget: text }
+          - label: Focus Area Items
+            name: items
+            widget: list
+            field: { label: Focus Area, name: item, widget: string }
+      - label: Leadership
+        name: leadership
+        widget: object
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - label: Leaders
+            name: leaders
+            widget: list
+            summary: "{{fields.name}} ({{fields.tag}})"
             fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Tag / Position, name: tag, widget: string }
+              - { label: Organisation & Title, name: org, widget: string }
+              - { label: Avatar Initials, name: avatar, widget: string, required: false }
+      - label: Policy Work
+        name: policy_work
+        widget: object
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Lead Text, name: lead, widget: text }
+          - label: Representations & Submissions
+            name: items
+            widget: list
+            summary: "{{fields.regulator}}: {{fields.title}}"
+            fields:
+              - { label: Regulator / Type, name: regulator, widget: string }
+              - { label: Status, name: status, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Join Email URL, name: join_email, widget: string, required: false }
-              - { label: Join Button Label, name: join_label, widget: string, required: false }
-          - label: Focus Areas
-            name: focus_areas
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Open To Lead Text, name: open_to, widget: text }
-              - label: Focus Area Items
-                name: items
-                widget: list
-                field: { label: Focus Area, name: item, widget: string }
-          - label: Leadership
-            name: leadership
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - label: Leaders
-                name: leaders
-                widget: list
-                summary: "{{fields.name}} ({{fields.tag}})"
-                fields:
-                  - { label: Name, name: name, widget: string }
-                  - { label: Tag / Position, name: tag, widget: string }
-                  - { label: Organisation & Title, name: org, widget: string }
-                  - { label: Avatar Initials, name: avatar, widget: string, required: false }
-          - label: Policy Work
-            name: policy_work
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Lead Text, name: lead, widget: text }
-              - label: Representations & Submissions
-                name: items
-                widget: list
-                summary: "{{fields.regulator}}: {{fields.title}}"
-                fields:
-                  - { label: Regulator / Type, name: regulator, widget: string }
-                  - { label: Status, name: status, widget: string }
-                  - { label: Title, name: title, widget: string }
-          - label: Webinars
-            name: webinars
-            widget: object
+      - label: Webinars
+        name: webinars
+        widget: object
+        required: false
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - label: Webinars List
+            name: items
+            widget: list
             required: false
+            summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
             fields:
-              - { label: Heading, name: heading, widget: string }
-              - label: Webinars List
-                name: items
-                widget: list
-                required: false
-                summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
-                fields:
-                  - { label: Day, name: day, widget: number, value_type: int, min: 1, max: 31 }
-                  - { label: Month & Year, name: month, widget: string }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Time / Venue, name: time, widget: string }
-          - label: Bottom CTA
-            name: bottom_cta
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Primary CTA Label, name: primary_cta_label, widget: string }
-              - { label: Primary CTA Href, name: primary_cta_href, widget: string }
-              - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
-              - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
-              - label: Benefits
-                name: benefits
-                widget: list
-                field: { label: Benefit, name: benefit, widget: string }
-      - name: regtech
-        label: RegTech Committee
-        file: public/data/committees/regtech.json
-        fields: *committee_detail_fields
-      - name: wealthtech
-        label: WealthTech Committee
-        file: public/data/committees/wealthtech.json
-        fields: *committee_detail_fields
-      - name: insurtech
-        label: InsurTech Committee
-        file: public/data/committees/insurtech.json
-        fields: *committee_detail_fields
-      - name: credit_bureau
-        label: Credit Bureau Committee
-        file: public/data/committees/credit-bureau.json
-        fields: *committee_detail_fields
+              - { label: Day, name: day, widget: number, value_type: int, min: 1, max: 31 }
+              - { label: Month & Year, name: month, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Time / Venue, name: time, widget: string }
+      - label: Bottom CTA
+        name: bottom_cta
+        widget: object
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Primary CTA Label, name: primary_cta_label, widget: string }
+          - { label: Primary CTA Href, name: primary_cta_href, widget: string }
+          - { label: Secondary CTA Label, name: secondary_cta_label, widget: string }
+          - { label: Secondary CTA Href, name: secondary_cta_href, widget: string }
+          - label: Benefits
+            name: benefits
+            widget: list
+            field: { label: Benefit, name: benefit, widget: string }
 
   - name: live_events
     label: Live Events

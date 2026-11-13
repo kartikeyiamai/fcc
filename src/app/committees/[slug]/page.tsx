@@ -170,7 +170,12 @@ async function CommitteeDetailView({
 
   return (
     <PageShell active={`/committees/${slug}`}>
-      <CommitteeDetailPage slug={slug} content={content} heroArt={heroArt} />
+      <CommitteeDetailPage
+        slug={slug}
+        content={content}
+        heroArt={heroArt}
+        allCommittees={committees.items}
+      />
     </PageShell>
   );
 }

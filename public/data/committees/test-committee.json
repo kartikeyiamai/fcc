@@ -1,0 +1,53 @@
+{
+  "slug": "test-committee",
+  "hero": {
+    "title": "Test Committee",
+    "description": "this is for testing the committee listing",
+    "join_email": "mailto:swati.s@fintechcouncil.in?subject=Joining%20the%20Test%20Committee",
+    "join_label": "Join this committee"
+  },
+  "focus_areas": {
+    "heading": "What this committee works on",
+    "open_to": "All members interested in testing.",
+    "items": [
+      "Testing",
+      "Innovation",
+      "Development"
+    ]
+  },
+  "leadership": {
+    "heading": "Who leads it",
+    "leaders": [
+      {
+        "name": "Himanshu",
+        "tag": "Chair",
+        "org": "PMO",
+        "avatar": "H"
+      }
+    ]
+  },
+  "policy_work": {
+    "heading": "Representations & sessions",
+    "lead": "Recent submissions and knowledge sessions linked to Test Committee.",
+    "items": []
+  },
+  "webinars": {
+    "heading": "Related webinars",
+    "items": []
+  },
+  "bottom_cta": {
+    "heading": "Bring your company's voice to the Test Committee.",
+    "description": "Members take part in working groups and regulatory representations based on their area of business.",
+    "primary_cta_label": "Apply for membership",
+    "primary_cta_href": "/apply-membership",
+    "secondary_cta_label": "Partner with us",
+    "secondary_cta_href": "/apply-partnership",
+    "benefits": [
+      "Direct input into representations to regulators",
+      "A seat on sector committees with industry peers",
+      "Complimentary passes to FCC and IAMAI conferences",
+      "Members-only roundtables and every FCC report"
+    ]
+  }
+}
+

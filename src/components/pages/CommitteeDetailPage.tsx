@@ -1,5 +1,5 @@
 import React from "react";
-import type { CommitteeDetailPageContent } from "@/lib/cms-types";
+import type { CommitteeDetailPageContent, CommitteeItem } from "@/lib/cms-types";
 import committeesData from "../../../public/data/committees.json";
 
 export function CommitteeDetailPage({
@@ -7,13 +7,16 @@ export function CommitteeDetailPage({
   content,
   heroArt,
   focusIcon,
+  allCommittees,
 }: {
   slug: string;
   content: CommitteeDetailPageContent;
   heroArt: React.ReactNode;
   focusIcon?: React.ReactNode;
+  allCommittees?: CommitteeItem[];
 }) {
-  const otherCommittees = (committeesData.items || []).filter(
+  const committeeList = allCommittees || committeesData.items || [];
+  const otherCommittees = committeeList.filter(
     (c) => c.slug !== slug
   );
 
@@ -78,7 +81,7 @@ export function CommitteeDetailPage({
 
       <nav className="subnav">
         <div className="wrap">
-          {(committeesData.items || []).slice(0, 5).map((c) => (
+          {committeeList.map((c) => (
             <a
               key={c.slug}
               href={`/committees/${c.slug}`}

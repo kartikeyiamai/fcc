@@ -211,6 +211,7 @@ export type CommitteeWebinarItem = {
 };
 
 export type CommitteeDetailPageContent = {
+  slug?: string;
   hero: {
     code?: string;
     title: string;

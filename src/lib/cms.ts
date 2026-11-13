@@ -45,6 +45,16 @@ import type {
 export async function loadSiteSettings(): Promise<SiteSettings> {
   const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
   const navigation = siteSettings.navigation.map((item) => {
+    if (item.label === "Committees") {
+      return {
+        ...item,
+        children: (committees.items || []).map((c) => ({
+          label: c.name.replace(/\s+Committee$/i, ""),
+          href: c.href || `/committees/${c.slug}`,
+          small: "",
+        })),
+      };
+    }
     if (!item.children) return item;
     return {
       ...item,
@@ -70,6 +80,7 @@ export async function loadSiteSettings(): Promise<SiteSettings> {
 
 export async function loadHomepage(): Promise<HomepageContent> {
   const memberCount = Array.isArray(members?.items) ? members.items.length : 201;
+  const committeeCount = Array.isArray(committees?.items) ? committees.items.length : 5;
 
   // 1. Dynamic Hero Description: e.g. "201 fintech companies" (exact number, no +)
   const rawHeroDesc = homepage.hero?.description || "";
@@ -77,7 +88,7 @@ export async function loadHomepage(): Promise<HomepageContent> {
     ? rawHeroDesc.replace(/\b\d+(\+)?\s*fintech companies/i, `${memberCount} fintech companies`)
     : rawHeroDesc;
 
-  // 2. Dynamic Hero Trust: "201" for "member companies" (exact number, no +)
+  // 2. Dynamic Hero Trust: "201" for "member companies", dynamic committeeCount for "sector committees"
   const heroTrust = (homepage.hero?.trust || []).map((item) => {
     if (/member\s*companies/i.test(item.label) || /companies/i.test(item.label)) {
       return {
@@ -85,15 +96,28 @@ export async function loadHomepage(): Promise<HomepageContent> {
         value: String(memberCount),
       };
     }
+    if (/sector\s*committees|committees/i.test(item.label)) {
+      return {
+        ...item,
+        value: String(committeeCount),
+      };
+    }
     return item;
   });
 
-  // 3. Dynamic Stats Bar: "201" for "Member companies", suffix "" (no +)
+  // 3. Dynamic Stats Bar: "201" for "Member companies", dynamic committeeCount for "Sector committees"
   const stats = (homepage.stats || []).map((stat) => {
     if (/member\s*companies/i.test(stat.label) || /companies/i.test(stat.label)) {
       return {
         ...stat,
         value: String(memberCount),
+        suffix: "",
+      };
+    }
+    if (/sector\s*committees|committees/i.test(stat.label)) {
+      return {
+        ...stat,
+        value: String(committeeCount),
         suffix: "",
       };
     }
@@ -143,7 +167,21 @@ export async function loadAbout(): Promise<AboutContent> {
 }
 
 export async function loadCommittees(): Promise<CommitteesContent> {
-  return committees as CommitteesContent;
+  const count = Array.isArray(committees?.items) ? committees.items.length : 5;
+  const words = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+  const countWord = words[count] || String(count);
+  const rawDesc = committees.page?.description || "";
+  const dynamicDesc = rawDesc
+    ? rawDesc.replace(/\b\w+\s*sector committees/i, `${countWord} sector committees`)
+    : rawDesc;
+
+  return {
+    ...committees,
+    page: {
+      ...committees.page,
+      description: dynamicDesc,
+    },
+  } as CommitteesContent;
 }
 
 const committeePagesMap: Record<string, CommitteeDetailPageContent> = {
@@ -155,9 +193,6 @@ const committeePagesMap: Record<string, CommitteeDetailPageContent> = {
 };
 
 export async function loadCommitteePage(slug: string): Promise<CommitteeDetailPageContent | null> {
-  if (committeePagesMap[slug]) {
-    return committeePagesMap[slug];
-  }
   try {
     const fs = await import("fs/promises");
     const path = await import("path");
@@ -165,6 +200,9 @@ export async function loadCommitteePage(slug: string): Promise<CommitteeDetailPa
     const fileContent = await fs.readFile(filePath, "utf-8");
     return JSON.parse(fileContent) as CommitteeDetailPageContent;
   } catch {
+    if (committeePagesMap[slug]) {
+      return committeePagesMap[slug];
+    }
     return null;
   }
 }

@@ -99,6 +99,11 @@
           "label": "Credit Bureau",
           "href": "/committees/credit-bureau",
           "small": ""
+        },
+        {
+          "label": "Test Committee",
+          "href": "/committees/test-committee",
+          "small": ""
         }
       ]
     },
