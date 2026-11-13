@@ -1003,11 +1003,6 @@
       "name": "Zoven",
       "logo": "",
       "logo_filename": "zoven.png"
-    },
-    {
-      "name": "IAMAI",
-      "logo": "https://fcc-cms-media.s3.ap-southeast-2.amazonaws.com/cms-uploads/moto.jpg",
-      "logo_filename": "IAMAI"
     }
   ]
 }
