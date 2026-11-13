@@ -8,9 +8,14 @@ export function PolicyPage({ content }: { content: PolicyContent }) {
   const [expandedReps, setExpandedReps] = useState<Record<string, boolean>>({});
   const [subFilter, setSubFilter] = useState("all");
   const [showAllSubs, setShowAllSubs] = useState(false);
+  const [expandedSubs, setExpandedSubs] = useState<Record<string, boolean>>({});
 
   const toggleRep = (id: string) => {
     setExpandedReps((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const toggleSub = (key: string) => {
+    setExpandedSubs((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   const keyReps = content.key_representations || [];
@@ -241,14 +246,58 @@ export function PolicyPage({ content }: { content: PolicyContent }) {
             ))}
           </div>{" "}
           <div className="tracker" id="tracker">
-            {displayedSubs.map((sub, i) => (
-              <div className="sub" data-r={sub.data_r} key={i}>
-                <div className="top">
-                  <span className="tag">{sub.tag}</span> <span className="status">{sub.status}</span>
-                </div>{" "}
-                <h4>{sub.title}</h4>
-              </div>
-            ))}
+            {displayedSubs.map((sub, i) => {
+              const subKey = sub.title ? `sub-${sub.title}-${i}` : `sub-${i}`;
+              const isExpanded = !!expandedSubs[subKey];
+              const hasDesc = Boolean(sub.description && sub.description.trim());
+
+              return (
+                <div className="sub" data-r={sub.data_r} key={subKey}>
+                  <div className="top">
+                    <span className="tag">{sub.tag}</span> <span className="status">{sub.status}</span>
+                  </div>{" "}
+                  <h4>{sub.title}</h4>
+                  {hasDesc && isExpanded && (
+                    <p className="sub-desc">{sub.description}</p>
+                  )}
+                  {hasDesc && (
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        marginTop: "auto",
+                        paddingTop: "4px",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        className="sub-toggle"
+                        aria-expanded={isExpanded}
+                        aria-label={isExpanded ? "Collapse description" : "Expand description"}
+                        onClick={() => toggleSub(subKey)}
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                          style={{
+                            transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                          }}
+                        >
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
           {filteredSubs.length > 12 && (
             <div style={{ textAlign: "center", marginTop: "24px" }}>

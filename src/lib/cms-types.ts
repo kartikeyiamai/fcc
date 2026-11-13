@@ -532,6 +532,7 @@ export type PolicySubmissionItem = {
   tag: string;
   status: string;
   title: string;
+  description?: string;
 };
 
 export type PolicyContent = {

@@ -932,6 +932,7 @@ collections:
               - { label: Tag / Regulator (e.g. RBI, SEBI, Session), name: tag, widget: string }
               - { label: Status, name: status, widget: string, default: "Submitted" }
               - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
           - label: Bottom CTA
             name: bottom_cta
             widget: object
