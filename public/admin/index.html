@@ -153,11 +153,8 @@
                   }
                 }
 
-                // 2. Append Git trailers to commit body for GitHub co-authorship & audit sign-off
-                var trailer =
-                  '\n\nEdited-by: ' + userName + ' <' + userEmail + '>\n' +
-                  'Co-authored-by: ' + userName + ' <' + userEmail + '>\n' +
-                  'Signed-off-by: ' + userName + ' <' + userEmail + '>';
+                // 2. Append Co-authored-by trailer for native GitHub co-author attribution
+                var trailer = '\n\nCo-authored-by: ' + userName + ' <' + userEmail + '>';
 
                 if (input.message) {
                   if (typeof input.message.body === 'string' && input.message.body.trim()) {
