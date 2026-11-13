@@ -1,5 +1,4 @@
 {
-  "slug": "digital-lending",
   "hero": {
     "title": "Digital Lending Committee",
     "description": "Works on industry issues, representation and growth of the lending industry in India.",
@@ -143,11 +142,6 @@
         "regulator": "RBI",
         "status": "Submitted",
         "title": "Industry concerns regarding peer-to-peer (P2P) lending"
-      },
-      {
-        "regulator": "RBI",
-        "status": "Drafted",
-        "title": "test the policy section for digital landing"
       }
     ]
   },
@@ -197,5 +191,6 @@
       "Complimentary passes to FCC and IAMAI conferences",
       "Members-only roundtables and every FCC report"
     ]
-  }
+  },
+  "slug": "digital-lending"
 }
