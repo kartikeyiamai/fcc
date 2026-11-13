@@ -294,15 +294,13 @@ export function ResearchPage({ content }: { content: PublicationsContent }) {
                   href={content.bottom_cta.primary_cta_href || "/annual-report"}
                   className="btn btn-outline"
                 >
-                  {content.bottom_cta.primary_cta_label || "Annual reports"}
+                  {content.bottom_cta.primary_cta_label || "All annual reports"}
                 </a>{" "}
                 <a
-                  href={content.bottom_cta.secondary_cta_href || "https://www.iamai.in/search"}
-                  target="_blank"
-                  rel="noopener"
+                  href={content.bottom_cta.secondary_cta_href || "/policy"}
                   className="btn btn-primary"
                 >
-                  {content.bottom_cta.secondary_cta_label || "IAMAI research"}
+                  {content.bottom_cta.secondary_cta_label || "Policy representations"}
                 </a>
               </div>
             </div>
