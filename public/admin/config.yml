@@ -854,12 +854,9 @@ collections:
             summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
-              - { label: Day, name: day, widget: string }
+              - { label: Day, name: day, widget: number, value_type: int, min: 1, max: 31 }
               - { label: Month & Year, name: month, widget: string }
               - { label: Time Label, name: time, widget: string }
-              - { label: Year Tag, name: year_tag, widget: string, default: "y2026" }
-              - { label: Registration or Details Link, name: registration_link, widget: string, required: false }
-              - { label: Cover Image, name: cover_image, widget: image, required: false }
           - label: Bottom CTA
             name: bottom_cta
             widget: object

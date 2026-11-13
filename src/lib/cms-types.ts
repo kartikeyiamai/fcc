@@ -451,10 +451,10 @@ export type LiveEventsContent = {
 
 export type VirtualEventItem = {
   title: string;
-  day: string;
+  day: string | number;
   month: string;
   time: string;
-  year_tag: string;
+  year_tag?: string;
   registration_link?: string;
   cover_image?: string;
 };

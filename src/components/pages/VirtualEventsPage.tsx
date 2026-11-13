@@ -207,46 +207,40 @@ export function VirtualEventsPage({ content }: { content: VirtualEventsContent }
             </button>
           </div>
           <div className="web-grid" id="webs">
-            {displayedItems.map((event, idx) => (
-              <div className="web" data-r={event.year_tag} key={idx}>
-                <div className="wtop">
-                  <div>
-                    <div className="d">{event.day}</div> <div className="m">{event.month}</div>
+            {displayedItems.map((event, idx) => {
+              const dayStr =
+                typeof event.day === "number"
+                  ? String(event.day).padStart(2, "0")
+                  : String(event.day || "");
+
+              return (
+                <div className="web" data-r={event.year_tag} key={idx}>
+                  <div className="wtop">
+                    <div>
+                      <div className="d">{dayStr}</div> <div className="m">{event.month}</div>
+                    </div>{" "}
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
+                      <path d="M16 10l5-3v10l-5-3"></path>
+                    </svg>
                   </div>{" "}
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <rect x="3" y="6" width="13" height="12" rx="2"></rect>{" "}
-                    <path d="M16 10l5-3v10l-5-3"></path>
-                  </svg>
-                </div>{" "}
-                <div className="wbody">
-                  <h4>{event.title}</h4>{" "}
-                  <span className="time">{event.time}</span>
-                  {event.registration_link && (
-                    <div style={{ marginTop: "10px" }}>
-                      <a
-                        href={event.registration_link}
-                        target="_blank"
-                        rel="noopener"
-                        className="link-arrow"
-                        style={{ fontSize: ".82rem" }}
-                      >
-                        Register / Details →
-                      </a>
-                    </div>
-                  )}
+                  <div className="wbody">
+                    <h4>{event.title}</h4>{" "}
+                    <span className="time">{event.time}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {filteredItems.length > 12 && (
