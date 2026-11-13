@@ -150,7 +150,7 @@ export function MembershipBenefitsPage({ content }: { content: MembershipBenefit
                 </div>{" "}
                 <div>
                   <span className="mono" style={{ fontSize: ".7rem", color: "var(--red)" }}>
-                    {b.num || `0${idx + 1}`}
+                    {typeof b.num === "number" ? String(b.num).padStart(2, "0") : (b.num || `0${idx + 1}`)}
                   </span>{" "}
                   <h4>{b.title}</h4>{" "}
                   <p>{b.description}</p>

@@ -320,7 +320,7 @@ export type MembershipBenefitsContent = {
     eyebrow: string;
     heading: string;
     items: {
-      num: string;
+      num: string | number;
       title: string;
       description: string;
     }[];

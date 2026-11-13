@@ -21,37 +21,37 @@
     "heading": "Seven reasons members join",
     "items": [
       {
-        "num": "01",
+        "num": 1,
         "title": "Shape regulation",
         "description": "Take part in working groups, committees and regulatory representations based on your area of business."
       },
       {
-        "num": "02",
+        "num": 2,
         "title": "Conference passes",
         "description": "Complimentary passes to all FCC and IAMAI conferences."
       },
       {
-        "num": "03",
+        "num": 3,
         "title": "Every report",
         "description": "Access to all FCC reports and research."
       },
       {
-        "num": "04",
+        "num": 4,
         "title": "Share your views",
         "description": "A chance to write for IAMAI's online monthly magazine."
       },
       {
-        "num": "05",
+        "num": 5,
         "title": "Closed-door roundtables",
         "description": "Invitations to FCC and IAMAI roundtables for your business area. These are not open to non-members."
       },
       {
-        "num": "06",
+        "num": 6,
         "title": "Network & grow",
         "description": "Networking and business development through events, committee meetings and AGMs."
       },
       {
-        "num": "07",
+        "num": 7,
         "title": "IAMAI membership",
         "description": "FCC membership includes membership of IAMAI."
       }

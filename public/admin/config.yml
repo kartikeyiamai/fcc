@@ -373,7 +373,7 @@ collections:
                 widget: list
                 summary: "{{fields.num}} - {{fields.title}}"
                 fields:
-                  - { label: Number, name: num, widget: string }
+                  - { label: Number, name: num, widget: number, value_type: int, min: 1 }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: text }
               - label: Ready to Join Box
