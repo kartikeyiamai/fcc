@@ -249,9 +249,10 @@ export type CommitteeDetailPageContent = {
 
 export type MemberItem = {
   name: string;
+  link?: string;
+  website?: string;
   logo?: string;
   logo_filename?: string;
-  website?: string;
   category?: string;
   description?: string;
 };

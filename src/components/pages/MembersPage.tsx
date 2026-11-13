@@ -117,6 +117,11 @@ export function MembersPage({ content }: { content: MembersContent }) {
           <div className="count-line" id="mcount">
             {`Showing ${content.items?.length || 200} of ${content.items?.length || 200} members`}
           </div>
+          <script
+            id="members-data"
+            type="application/json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(content.items || []) }}
+          />
           <div className="mgrid" id="mgrid"></div>
         </div>
       </section>

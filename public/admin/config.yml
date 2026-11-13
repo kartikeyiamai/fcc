@@ -325,6 +325,7 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - { label: Organization Name, name: name, widget: string }
+              - { label: Link, name: link, widget: string, required: false }
               - label: Logo
                 name: logo
                 widget: image

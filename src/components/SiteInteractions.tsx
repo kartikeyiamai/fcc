@@ -78,15 +78,45 @@ export function SiteInteractions() {
       // Clear any prior tiles (Strict Mode remount)
       mg.innerHTML = "";
       if (az) az.innerHTML = "";
-      const tiles = FCC_MEMBERS.map((m) => {
+
+      let membersList: (typeof FCC_MEMBERS)[number][] = FCC_MEMBERS;
+      const dataScript = document.getElementById("members-data");
+      if (dataScript?.textContent) {
+        try {
+          const parsed = JSON.parse(dataScript.textContent);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            membersList = parsed;
+          }
+        } catch {
+          // fallback to FCC_MEMBERS
+        }
+      }
+
+      const tiles = membersList.map((m) => {
         const n = m.name;
         const logo = (m.logo || "").trim();
         const fName = (m.logo_filename || "").trim();
+        const rawLink = (m.link || m.website || "").trim();
+        const link = rawLink
+          ? /^https?:\/\//i.test(rawLink)
+            ? rawLink
+            : rawLink.startsWith("/")
+            ? rawLink
+            : `https://${rawLink}`
+          : "";
 
-        const a = document.createElement("div");
+        const a = document.createElement(link ? "a" : "div");
         a.className = "mtile";
         a.dataset.n = n.toLowerCase();
         a.dataset.l = /[a-z]/i.test(n[0]) ? n[0].toUpperCase() : "#";
+
+        if (link) {
+          (a as HTMLAnchorElement).href = link;
+          if (/^https?:\/\//i.test(link)) {
+            (a as HTMLAnchorElement).target = "_blank";
+            (a as HTMLAnchorElement).rel = "noopener noreferrer";
+          }
+        }
         const lg = document.createElement("div");
         lg.className = "logo";
         const av = document.createElement("div");
