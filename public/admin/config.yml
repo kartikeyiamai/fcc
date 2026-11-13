@@ -780,7 +780,7 @@ collections:
             widget: list
             summary: "{{fields.year}}: {{fields.title}}"
             fields:
-              - { label: Year, name: year, widget: string }
+              - { label: Year, name: year, widget: number, value_type: int }
               - { label: Tag, name: tag, widget: string, default: "FLAGSHIP" }
               - label: Tag Color
                 name: tag_style

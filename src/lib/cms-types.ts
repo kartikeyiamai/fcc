@@ -423,7 +423,7 @@ export type ApplyPartnershipContent = {
 };
 
 export type LiveEventItem = {
-  year: string;
+  year: string | number;
   tag?: string;
   tag_style?: string;
   title: string;
