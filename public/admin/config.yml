@@ -988,9 +988,6 @@ collections:
               - { label: Category, name: category, widget: string, default: "Report" }
               - { label: Document or External Link, name: href, widget: string }
               - { label: Cover Variant (b1, b2, b3, b4), name: cover_variant, widget: string, default: "b1", required: false }
-              - { label: Cover Image, name: cover_image, widget: image, required: false }
-              - { label: Publication Date, name: publication_date, widget: datetime, required: false }
-              - { label: Description, name: description, widget: text, required: false }
           - label: Bottom CTA
             name: bottom_cta
             widget: object
