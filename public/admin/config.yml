@@ -270,7 +270,7 @@ collections:
                 name: milestones
                 widget: list
                 fields:
-                  - { label: Year, name: year, widget: string }
+                  - { label: Year, name: year, widget: number, value_type: int }
                   - { label: Title, name: title, widget: string }
                   - { label: Description, name: description, widget: text }
           - label: Governing Council

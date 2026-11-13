@@ -142,7 +142,7 @@ export type AboutContent = {
   journey: {
     heading: string;
     lead: string;
-    milestones: { year: string; title: string; description: string }[];
+    milestones: { year: string | number; title: string; description: string }[];
   };
   council: {
     heading: string;
