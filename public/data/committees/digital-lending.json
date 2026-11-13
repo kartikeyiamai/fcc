@@ -142,6 +142,11 @@
         "regulator": "RBI",
         "status": "Submitted",
         "title": "Industry concerns regarding peer-to-peer (P2P) lending"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Drafted",
+        "title": "test the policy section for digital landing"
       }
     ]
   },
@@ -149,26 +154,30 @@
     "heading": "Related webinars",
     "items": [
       {
-        "day": 13,
+        "day": "13",
         "month": "Mar 2026",
+        "year_tag": "",
         "title": "RE–LSP compliance essentials",
         "time": "3:00–4:00 PM IST · Virtual"
       },
       {
-        "day": 24,
+        "day": "24",
         "month": "Feb 2026",
+        "year_tag": "",
         "title": "Legal architecture of the digital lending process",
         "time": "12:00 PM IST · Virtual"
       },
       {
-        "day": 12,
+        "day": "12",
         "month": "Feb 2026",
+        "year_tag": "",
         "title": "Implementing RBI's Digital Lending Guidelines",
         "time": "3:00–4:00 PM IST · Virtual"
       },
       {
-        "day": 24,
+        "day": "24",
         "month": "Apr 2025",
+        "year_tag": "",
         "title": "Credit trends unveiled",
         "time": "3:00–4:00 PM IST · Virtual"
       }
