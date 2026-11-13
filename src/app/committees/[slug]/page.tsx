@@ -1,9 +1,17 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { CommitteeDetailPage } from "@/components/pages/CommitteeDetailPage";
 import { loadCommitteePage, loadCommittees } from "@/lib/cms";
 import type { CommitteeDetailPageContent } from "@/lib/cms-types";
+
+export async function generateStaticParams() {
+  const committees = await loadCommittees();
+  return (committees.items || []).map((c) => ({
+    slug: c.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -20,7 +28,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
+async function CommitteeDetailView({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -164,6 +172,36 @@ export default async function Page({
     <PageShell active={`/committees/${slug}`}>
       <CommitteeDetailPage slug={slug} content={content} heroArt={heroArt} />
     </PageShell>
+  );
+}
+
+function CommitteeFallback() {
+  return (
+    <PageShell active="/committees">
+      <section className="page-hero grid-bg">
+        <div className="wrap">
+          <div>
+            <div className="crumbs">
+              <a href="/">Home</a> <span>/</span> <a href="/committees">Committees</a>
+            </div>
+            <h1>Committee</h1>
+            <p>Loading committee details...</p>
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+}
+
+export default function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  return (
+    <Suspense fallback={<CommitteeFallback />}>
+      <CommitteeDetailView params={params} />
+    </Suspense>
   );
 }
 
