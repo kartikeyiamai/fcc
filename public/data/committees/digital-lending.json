@@ -38,36 +38,140 @@
     "heading": "Representations & sessions",
     "lead": "Recent submissions and knowledge sessions linked to Digital Lending.",
     "items": [
-      { "regulator": "RBI", "status": "Submitted", "title": "PAN verification access for Lending Service Providers" },
-      { "regulator": "IBBI", "status": "Submitted", "title": "Submission of information for unsecured loans" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Simplification of KYC for MSMEs" },
-      { "regulator": "NPCI", "status": "Submitted", "title": "UPI mandate and UPI AutoPay" },
-      { "regulator": "NPCI", "status": "Submitted", "title": "Streamlining e-mandate registration for MSMEs" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Aggregation of loan products from multiple lenders" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Suggestions on gold loans" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Impact of recent regulations on the securitisation market" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Digital lending guidelines: direct disbursal of funds" },
-      { "regulator": "RBI", "status": "Submitted", "title": "FLDG on KCC lending" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Access to data ecosystem for AgriFintech" },
-      { "regulator": "Session", "status": "Held", "title": "Empowering MSMEs: OCEN in lending's digital transformation" },
-      { "regulator": "Session", "status": "Held", "title": "Account Aggregator as a growth accelerator for lending, with Sahamati" },
-      { "regulator": "Session", "status": "Held", "title": "NPCI Fintech Outreach Programme, with PCI" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Fintech LSPs: the case for a better data access framework" },
-      { "regulator": "RBI", "status": "Submitted", "title": "FLDG: a lever for financial inclusion" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Guidelines on digital lending: industry representation" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Industry challenges and recommendations in MSME lending" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Regulatory framework for Digital Financial Service Providers" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Representation against RBI regulations for lending against e-gold" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Industry concerns regarding peer-to-peer (P2P) lending" }
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "PAN verification access for Lending Service Providers"
+      },
+      {
+        "regulator": "IBBI",
+        "status": "Submitted",
+        "title": "Submission of information for unsecured loans"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Simplification of KYC for MSMEs"
+      },
+      {
+        "regulator": "NPCI",
+        "status": "Submitted",
+        "title": "UPI mandate and UPI AutoPay"
+      },
+      {
+        "regulator": "NPCI",
+        "status": "Submitted",
+        "title": "Streamlining e-mandate registration for MSMEs"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Aggregation of loan products from multiple lenders"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Suggestions on gold loans"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Impact of recent regulations on the securitisation market"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Digital lending guidelines: direct disbursal of funds"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "FLDG on KCC lending"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Access to data ecosystem for AgriFintech"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "Empowering MSMEs: OCEN in lending's digital transformation"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "Account Aggregator as a growth accelerator for lending, with Sahamati"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "NPCI Fintech Outreach Programme, with PCI"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Fintech LSPs: the case for a better data access framework"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "FLDG: a lever for financial inclusion"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Guidelines on digital lending: industry representation"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Industry challenges and recommendations in MSME lending"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Regulatory framework for Digital Financial Service Providers"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Representation against RBI regulations for lending against e-gold"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Industry concerns regarding peer-to-peer (P2P) lending"
+      }
     ]
   },
   "webinars": {
     "heading": "Related webinars",
     "items": [
-      { "day": "13", "month": "Mar 2026", "year_tag": "y2026", "title": "RE–LSP compliance essentials", "time": "3:00–4:00 PM IST · Virtual" },
-      { "day": "24", "month": "Feb 2026", "year_tag": "y2026", "title": "Legal architecture of the digital lending process", "time": "12:00 PM IST · Virtual" },
-      { "day": "12", "month": "Feb 2026", "year_tag": "y2026", "title": "Implementing RBI's Digital Lending Guidelines", "time": "3:00–4:00 PM IST · Virtual" },
-      { "day": "24", "month": "Apr 2025", "year_tag": "y2025", "title": "Credit trends unveiled", "time": "3:00–4:00 PM IST · Virtual" }
+      {
+        "day": 13,
+        "month": "Mar 2026",
+        "title": "RE–LSP compliance essentials",
+        "time": "3:00–4:00 PM IST · Virtual"
+      },
+      {
+        "day": 24,
+        "month": "Feb 2026",
+        "title": "Legal architecture of the digital lending process",
+        "time": "12:00 PM IST · Virtual"
+      },
+      {
+        "day": 12,
+        "month": "Feb 2026",
+        "title": "Implementing RBI's Digital Lending Guidelines",
+        "time": "3:00–4:00 PM IST · Virtual"
+      },
+      {
+        "day": 24,
+        "month": "Apr 2025",
+        "title": "Credit trends unveiled",
+        "time": "3:00–4:00 PM IST · Virtual"
+      }
     ]
   },
   "bottom_cta": {
@@ -85,4 +189,3 @@
     ]
   }
 }
-

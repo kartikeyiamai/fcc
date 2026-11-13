@@ -200,34 +200,41 @@ export function CommitteeDetailPage({
               </a>
             </div>{" "}
             <div className="web-grid reveal">
-              {content.webinars.items.map((web, idx) => (
-                <div className="web" data-r={web.year_tag || "y2026"} key={idx}>
-                  <div className="wtop">
-                    <div>
-                      <div className="d">{web.day}</div>{" "}
-                      <div className="m">{web.month}</div>
+              {content.webinars.items.map((web, idx) => {
+                const dayStr =
+                  typeof web.day === "number"
+                    ? String(web.day).padStart(2, "0")
+                    : String(web.day || "");
+
+                return (
+                  <div className="web" key={idx}>
+                    <div className="wtop">
+                      <div>
+                        <div className="d">{dayStr}</div>{" "}
+                        <div className="m">{web.month}</div>
+                      </div>{" "}
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="6" width="13" height="12" rx="2"></rect>
+                        <path d="M16 10l5-3v10l-5-3"></path>
+                      </svg>
                     </div>{" "}
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                    >
-                      <rect x="3" y="6" width="13" height="12" rx="2"></rect>
-                      <path d="M16 10l5-3v10l-5-3"></path>
-                    </svg>
-                  </div>{" "}
-                  <div className="wbody">
-                    <h4>{web.title}</h4>{" "}
-                    <span className="time">{web.time}</span>
+                    <div className="wbody">
+                      <h4>{web.title}</h4>{" "}
+                      <span className="time">{web.time}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

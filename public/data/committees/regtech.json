@@ -39,24 +39,80 @@
     "heading": "Representations & sessions",
     "lead": "Recent submissions and knowledge sessions linked to RegTech.",
     "items": [
-      { "regulator": "RBI", "status": "Submitted", "title": "Feedback on the draft omnibus framework for recognising SROs for regulated entities" },
-      { "regulator": "CERSAI", "status": "Submitted", "title": "Improving the quality of KYC data in C-KYCR" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Simplification of KYC for MSMEs" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Proposal to introduce Self-V-CIP" },
-      { "regulator": "MeitY", "status": "Submitted", "title": "Discussion on the Digital Personal Data Protection Bill, 2022" },
-      { "regulator": "RBI", "status": "Submitted", "title": "Cyber resilience and digital payment security controls for PSOs" },
-      { "regulator": "Session", "status": "Held", "title": "Masterclass: DPDP and its impact across the fintech ecosystem" },
-      { "regulator": "Session", "status": "Held", "title": "Impact of the DPDP Act, 2023 on the insurance sector" },
-      { "regulator": "Session", "status": "Held", "title": "Roundtable on the proposed IFSCA (Payment Services) Regulations" }
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Feedback on the draft omnibus framework for recognising SROs for regulated entities"
+      },
+      {
+        "regulator": "CERSAI",
+        "status": "Submitted",
+        "title": "Improving the quality of KYC data in C-KYCR"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Simplification of KYC for MSMEs"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Proposal to introduce Self-V-CIP"
+      },
+      {
+        "regulator": "MeitY",
+        "status": "Submitted",
+        "title": "Discussion on the Digital Personal Data Protection Bill, 2022"
+      },
+      {
+        "regulator": "RBI",
+        "status": "Submitted",
+        "title": "Cyber resilience and digital payment security controls for PSOs"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "Masterclass: DPDP and its impact across the fintech ecosystem"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "Impact of the DPDP Act, 2023 on the insurance sector"
+      },
+      {
+        "regulator": "Session",
+        "status": "Held",
+        "title": "Roundtable on the proposed IFSCA (Payment Services) Regulations"
+      }
     ]
   },
   "webinars": {
     "heading": "Related webinars",
     "items": [
-      { "day": "13", "month": "Mar 2026", "year_tag": "y2026", "title": "RE–LSP compliance essentials", "time": "3:00–4:00 PM IST · Virtual" },
-      { "day": "20", "month": "Feb 2026", "year_tag": "y2026", "title": "Practical applications of AI in AML & fraud monitoring", "time": "3:00–4:00 PM IST · Virtual" },
-      { "day": "29", "month": "Jan 2026", "year_tag": "y2026", "title": "Simplification of client onboarding with KRAs", "time": "3:00 PM IST · Virtual" },
-      { "day": "28", "month": "May 2025", "year_tag": "y2025", "title": "Updation and periodic updation of KYC", "time": "3:30–4:30 PM IST · Virtual" }
+      {
+        "day": 13,
+        "month": "Mar 2026",
+        "title": "RE–LSP compliance essentials",
+        "time": "3:00–4:00 PM IST · Virtual"
+      },
+      {
+        "day": 20,
+        "month": "Feb 2026",
+        "title": "Practical applications of AI in AML & fraud monitoring",
+        "time": "3:00–4:00 PM IST · Virtual"
+      },
+      {
+        "day": 29,
+        "month": "Jan 2026",
+        "title": "Simplification of client onboarding with KRAs",
+        "time": "3:00 PM IST · Virtual"
+      },
+      {
+        "day": 28,
+        "month": "May 2025",
+        "title": "Updation and periodic updation of KYC",
+        "time": "3:30–4:30 PM IST · Virtual"
+      }
     ]
   },
   "bottom_cta": {
@@ -74,4 +130,3 @@
     ]
   }
 }
-

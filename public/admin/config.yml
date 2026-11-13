@@ -716,9 +716,8 @@ collections:
                 required: false
                 summary: "{{fields.day}} {{fields.month}}: {{fields.title}}"
                 fields:
-                  - { label: Day, name: day, widget: string }
+                  - { label: Day, name: day, widget: number, value_type: int, min: 1, max: 31 }
                   - { label: Month & Year, name: month, widget: string }
-                  - { label: Year Tag, name: year_tag, widget: string, required: false }
                   - { label: Title, name: title, widget: string }
                   - { label: Time / Venue, name: time, widget: string }
           - label: Bottom CTA

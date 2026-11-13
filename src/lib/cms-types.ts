@@ -203,7 +203,7 @@ export type CommitteePolicyItem = {
 };
 
 export type CommitteeWebinarItem = {
-  day: string;
+  day: string | number;
   month: string;
   year_tag?: string;
   title: string;

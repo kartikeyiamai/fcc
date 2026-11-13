@@ -43,9 +43,8 @@
     "heading": "Related webinars",
     "items": [
       {
-        "day": "24",
+        "day": 24,
         "month": "Apr 2025",
-        "year_tag": "y2025",
         "title": "Credit trends unveiled",
         "time": "3:00–4:00 PM IST · Virtual"
       }
@@ -66,4 +65,3 @@
     ]
   }
 }
-
