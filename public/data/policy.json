@@ -61,277 +61,302 @@
   },
   "key_representations": [
     {
-      "id": "fintech-lsps",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Fintech LSPs: The case for a better data access framework",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The concept note discusses the rapid growth of India's fintech sector and the importance of a clear and consistent data access framework for fintech companies.",
         "Fintech companies are playing a crucial role in improving access to credit and enabling greater participation in the economy, particularly for underserved segments. However, certain restrictions under RBI guidelines on digital lending are impacting the ability of fintech companies to collect customer data, which is crucial for their growth and ability to innovate. The note proposes suggestions that may allow fintech LSPs to access data while balancing the regulatory objective to safeguard consumer interests and manage data privacy risks. The note also discusses the role of fintech LSPs, customer expectations from them, and the importance of personalized services and data security measures. The proposed suggestions prioritize data privacy and protection and aim to balance the needs of Fintech LSPs with the concerns of regulators."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "fintech-lsps"
     },
     {
-      "id": "fldg",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "FLDG- A lever for financial inclusion",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The Fintech Convergence Council's Lending Council in India has identified First Loan Default Guarantee (FLDG) as a concern area in the lending industry.",
         "The council has suggested mitigants to address the concerns, including linking FLDG to the underlying portfolio pool and capping it at 10% of receivables, ensuring FLDG is backed by cash or cash equivalent collateral for enforceability, and requiring disclosure of FLDG arrangements by Regulated Entities (REs) to regulators on a quarterly basis. The proposed mitigants aim to promote responsible growth, better financial inclusion, and credit expansion in India's aspirational economy."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "fldg"
     },
     {
-      "id": "execution-only-platforms",
       "regulator": "SEBI",
-      "data_r": "SEBI wealth",
       "title": "Framework for platforms providing “execution-only” services in direct plans of Mutual Funds",
       "tag": "Representation · SEBI · WealthTech",
       "paragraphs": [
         "The (SEBI) has released a Consultation Paper on a regulatory framework for platforms providing execution-only services in direct plans of Mutual Funds.",
         "The paper proposes Approach 2, which would require EOPs to obtain registration from AMFI and act as agents of AMC. The EOPs may receive a transaction-based fee from the AMC and a minimum-flat fee should be defined to cover platform costs. The proposal to allow EOPs to provide both financial and non-financial services is deemed appropriate. Cybersecurity-related requirements are sufficient, but data protection and KYC requirements should be established. Data sharing among divisions of a body corporate should be encouraged, and transparency and grievance redressal norms are adequate. EOPs should be allowed to connect through any exchange platform, and the EOP code should be considered for transaction-based fees."
-      ]
+      ],
+      "data_r": "SEBI wealth",
+      "id": "execution-only-platforms"
     },
     {
-      "id": "guidelines-digital-lending",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Guidelines on Digital Lending - Industry Representation",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The Reserve Bank of India (RBI) has released the 'Guidelines on Digital Lending,' which provide regulatory oversight on digital lending practices and offer clarity on operational and regulatory aspects concerning the digital lending arena.",
         "The Guidelines have been positively received by the industry as a progressive step towards regulating the digital lending space while prioritizing customer protection at all levels. However, the industry is facing implementation challenges with certain clauses of the Guidelines, and they are seeking RBI's guidance to navigate through these changes. Some of the matters requiring consideration include implementation timelines, scope of digital lending, storage of data in servers located in India, loan disbursals, servicing, and repayment, digitally signed documents, and loss-sharing arrangement in case of default. The industry requests an extension of at least 6 months to comply with the Guidelines' requirements and seeks clarification on several clauses, including the scope of lending service providers and the retention of processing fees. The industry is excited about having an established regulatory environment governing digital lending in the future and is willing to support RBI in designing innovative use cases within the regulatory boundaries."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "guidelines-digital-lending"
     },
     {
-      "id": "msme-lending",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Industry Challenges and recommendations in MSME lending",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The Fintech Convergence Council (FCC), representing the MSME lending ecosystem, expresses its gratitude to the Reserve Bank of India for its support of fintech and the expansion of financial services.",
         "While fintech has contributed to increased access to financial services, it has also presented the MSME sector with a unique opportunity for growth. FCC recommends that the RBI consider several critical issues affecting the sustainability and expansion of MSME lending, including concerns about FLDG arrangements, borrower classification in case of delinquencies, and co-lending arrangements between two REs. To address these concerns, FCC proposes several mitigants, such as linking FLDG to the underlying portfolio pool, requiring FLDG to be backed by collateral, and creating specific disclosures and monitoring mechanisms. FCC also requests clarification on co-lending arrangements between two REs and suggests incorporating loss sharing arrangements in case of default into the Digital Lending Circular."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "msme-lending"
     },
     {
-      "id": "two-factor-authentication",
       "regulator": "SEBI",
-      "data_r": "SEBI wealth",
       "title": "Industry recommendation on ‘Two-Factor Authentication for transactions in units of Mutual Funds’",
       "tag": "Representation · SEBI · WealthTech",
       "paragraphs": [
         "The Securities and Exchange Board of India (SEBI) has mandated Two-Factor Authentication (2FA) for online subscription transactions of units of Mutual Funds from April 1, 2023, to ensure investor safety and security.",
         "While the industry appreciates SEBI's investor-first approach, they, with the help of fintech convergence council have requested a review of the Circular to simplify the transaction experience for investors in specific scenarios. The industry has adopted all measures outlined by SEBI in its extant regulations regarding the implementation of the 2FA mechanism. The industry recommends exempting the 2FA mandate for net banking and UPI facilitated orders and enabling a 'time-window' for investors to undertake multiple orders within a single login session for MF Orders under OTM to improve efficiency and facilitate a seamless investor experience."
-      ]
+      ],
+      "data_r": "SEBI wealth",
+      "id": "two-factor-authentication"
     },
     {
-      "id": "digital-financial-service-providers",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Introduction of Regulatory Framework for Digital Financial Service Providers",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The FinTech Convergence Council (FCC) has put forward a regulatory framework for Digital Financial Service Providers (DFSPs) in India, which includes all FinTech entities involved in managing savings and current bank accounts in partnership with RBI licensed banks.",
         "This framework is intended to set standards for good conduct, enable monitoring of DFSPs, and establish a fully regulated environment in the future. The proposed framework includes key components such as applicability to all DFSPs in India, adherence to principles such as good governance, transparency, customer protection, compliance, risk management, and information security, as well as compliance with Know Your Customer (KYC) norms and outsourcing guidelines. Additionally, it includes grievance redressal and disclosure mechanisms for customers, ensuring information security and partner bank visibility. The FCC also proposes to introduce a new concept of Digital Business Correspondent (Digital BC) by amending the current Business Correspondent Guidelines to expand digital banking services and enhance customer satisfaction."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "digital-financial-service-providers"
     },
     {
-      "id": "irdai-recommendations",
       "regulator": "IRDAI",
-      "data_r": "IRDAI insur",
       "title": "Key Industry Recommendations for IRDAI's consideration",
       "tag": "Representation · IRDAI · InsurTech",
       "paragraphs": [
         "The Insurance Regulatory and Development Authority of India (IRDAI) has taken proactive measures to encourage the growth of Insurance Technology (InsurTech) in India, leading to advancements in the sector through the use of artificial intelligence, big data, and the internet of things.",
         "InsurTech players have successfully catered to the personalized needs of India's relatively underpenetrated insurance market, but their growth and innovation have been constrained due to the highly regulated nature of the industry. The FinTech Convergence Council suggests various recommendations for IRDAI's consideration, including relaxing the regulations around Point-of Sale Person (POSP) onboarding and permissible activities, enabling the Managing General Agent (MGA) model, and allowing Insurance Brokers to undertake Aadhaar Authentication for Insurance Companies. Other recommendations include the creation of a claims repository, the need for flexibility in the expense of management, and the removal of caps on commissions for various voluntary pure risk products and de-tariffed premiums"
-      ]
+      ],
+      "data_r": "IRDAI insur",
+      "id": "irdai-recommendations"
     },
     {
-      "id": "lending-against-e-gold",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Representation against RBI regulations for Lending against e-Gold",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The representation highlights the restrictions imposed by the Reserve Bank of India (RBI) on lending against e-gold, as the current regulations only allow lending against gold jewelry.",
         "The representation recommends increasing the limit of loan against coins to 100 grams and allowing e-gold loans up to 100 grams. This move is expected to encourage young investors to invest in smaller quantities of gold and subsequently borrow loans against such gold digitally with an e pledge form. The representation further suggests enabling FinTechs to work with RBI and SEBI to build e-gold loan products and integrating blockchain technology to trace, buy, sell, stock, pledge, accept, and release gold. The recommendations are expected to enhance and further e gold investments, increase liquidity, and help financial institutions enter first-level secured loans without physical infrastructure. The representation believes that e-gold loans offer convenience for consumers, safety for lenders, and can help further financial inclusion, especially for the rural population."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "lending-against-e-gold"
     },
     {
-      "id": "p2p-lending",
       "regulator": "RBI",
-      "data_r": "RBI lend",
       "title": "Representation on industry Concerns regarding Peer-to-Peer (P2P) Lending",
       "tag": "Representation · RBI · Digital Lending",
       "paragraphs": [
         "The Fintech Convergence Council (FCC), representing the P2P lending ecosystem, expresses its gratitude to the Reserve Bank of India for its support of fintech and the expansion of financial services.",
         "The P2P lending landscape in India has experienced significant growth, driven by technological advancements and supportive regulations from the Reserve Bank of India (RBI). With an estimated market size projected to reach $10.5 billion by 2026, the sector has transformed traditional borrowing, providing individuals and SMEs with faster and more cost-effective access to credit. The recommendations presented to the RBI include advocating for instant loan disbursals by placing responsibility on P2P platforms, proposing secured lending options to cater to borrowers with weak credit profiles, seeking tax concessions to categorize P2P lenders as debt-fund investors, and urging an increase in lending limits for both lenders and borrowers. These proposals aim to streamline operations, enhance financial inclusion, and stimulate economic growth through increased investments in P2P lending."
-      ]
+      ],
+      "data_r": "RBI lend",
+      "id": "p2p-lending"
     },
     {
-      "id": "nomination-mutual-fund",
       "regulator": "SEBI",
-      "data_r": "SEBI wealth",
       "title": "Representation on Nomination for Mutual Fund Unit Holders",
       "tag": "Representation · SEBI · WealthTech",
       "paragraphs": [
         "The Fintech Convergence Council (FCC) has raised concerns regarding the implementation of SEBI's circular on the subject of Nomination for Mutual Fund Unit Holders,",
         "as operational clarity is still awaited from the Association of Mutual Funds in India (AMFI) despite an interim note issued by RTAs. The guidelines issued by RTAs have some operational challenges and may result in customer inconvenience and higher operational costs. The FCC requests clarifications on the definition of e-signatures, a list of authorized non-Aadhaar based e-sign providers, and an additional 30-day period for implementation to allow time for substantial IT changes to comply with proposed norms."
-      ]
+      ],
+      "data_r": "SEBI wealth",
+      "id": "nomination-mutual-fund"
     }
   ],
   "recent_submissions": [
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "PAN verification access for Lending Service Providers"
+      "title": "PAN verification access for Lending Service Providers",
+      "description": "testingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtestingtesting",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "RBI reg",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Feedback on the draft omnibus framework for recognising SROs for regulated entities"
+      "title": "Feedback on the draft omnibus framework for recognising SROs for regulated entities",
+      "description": "",
+      "data_r": "RBI reg"
     },
     {
-      "data_r": "CERSAI reg",
       "tag": "CERSAI",
       "status": "Submitted",
-      "title": "Improving the quality of KYC data in C-KYCR"
+      "title": "Improving the quality of KYC data in C-KYCR",
+      "description": "",
+      "data_r": "CERSAI reg"
     },
     {
-      "data_r": "SEBI wealth",
       "tag": "SEBI",
       "status": "Submitted",
-      "title": "Industry feedback on T+0 settlement"
+      "title": "Industry feedback on T+0 settlement",
+      "description": "",
+      "data_r": "SEBI wealth"
     },
     {
-      "data_r": "IBBI lend",
       "tag": "IBBI",
       "status": "Submitted",
-      "title": "Submission of information for unsecured loans"
+      "title": "Submission of information for unsecured loans",
+      "description": "",
+      "data_r": "IBBI lend"
     },
     {
-      "data_r": "RBI reg lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Simplification of KYC for MSMEs"
+      "title": "Simplification of KYC for MSMEs",
+      "description": "",
+      "data_r": "RBI reg lend"
     },
     {
-      "data_r": "NPCI lend",
       "tag": "NPCI",
       "status": "Submitted",
-      "title": "UPI mandate and UPI AutoPay"
+      "title": "UPI mandate and UPI AutoPay",
+      "description": "",
+      "data_r": "NPCI lend"
     },
     {
-      "data_r": "NPCI lend",
       "tag": "NPCI",
       "status": "Submitted",
-      "title": "Streamlining e-mandate registration for MSMEs"
+      "title": "Streamlining e-mandate registration for MSMEs",
+      "description": "",
+      "data_r": "NPCI lend"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Aggregation of loan products from multiple lenders"
+      "title": "Aggregation of loan products from multiple lenders",
+      "description": "",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "IRDAI insur",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "Industry representation on insurance literacy"
+      "title": "Industry representation on insurance literacy",
+      "description": "",
+      "data_r": "IRDAI insur"
     },
     {
-      "data_r": "SEBI wealth",
       "tag": "SEBI",
       "status": "Submitted",
-      "title": "New PAN verification system deadline"
+      "title": "New PAN verification system deadline",
+      "description": "",
+      "data_r": "SEBI wealth"
     },
     {
-      "data_r": "RBI reg",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Proposal to introduce Self-V-CIP"
+      "title": "Proposal to introduce Self-V-CIP",
+      "description": "",
+      "data_r": "RBI reg"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Suggestions on gold loans"
+      "title": "Suggestions on gold loans",
+      "description": "",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Impact of recent regulations on the securitisation market"
+      "title": "Impact of recent regulations on the securitisation market",
+      "description": "",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Digital lending guidelines: direct disbursal of funds"
+      "title": "Digital lending guidelines: direct disbursal of funds",
+      "description": "",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "SEBI wealth",
       "tag": "SEBI",
       "status": "Submitted",
-      "title": "Blocking of funds for trading in the secondary market (2023)"
+      "title": "Blocking of funds for trading in the secondary market (2023)",
+      "description": "",
+      "data_r": "SEBI wealth"
     },
     {
-      "data_r": "MeitY reg",
       "tag": "MeitY",
       "status": "Submitted",
-      "title": "Discussion on the Digital Personal Data Protection Bill, 2022"
+      "title": "Discussion on the Digital Personal Data Protection Bill, 2022",
+      "description": "",
+      "data_r": "MeitY reg"
     },
     {
-      "data_r": "IRDAI insur",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "Draft IRDAI (Bima Sugam Insurance E-Marketplace) Regulations, 2024"
+      "title": "Draft IRDAI (Bima Sugam Insurance E-Marketplace) Regulations, 2024",
+      "description": "",
+      "data_r": "IRDAI insur"
     },
     {
-      "data_r": "IRDAI insur",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "Representation on Bima Vahak guidelines"
+      "title": "Representation on Bima Vahak guidelines",
+      "description": "",
+      "data_r": "IRDAI insur"
     },
     {
-      "data_r": "IRDAI bureau",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "Support for CICs on overlaps between the CIC (Regulation) Act, 2005 and the DPDPA"
+      "title": "Support for CICs on overlaps between the CIC (Regulation) Act, 2005 and the DPDPA",
+      "description": "",
+      "data_r": "IRDAI bureau"
     },
     {
-      "data_r": "RBI reg",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Cyber resilience and digital payment security controls for PSOs"
+      "title": "Cyber resilience and digital payment security controls for PSOs",
+      "description": "",
+      "data_r": "RBI reg"
     },
     {
-      "data_r": "IRDAI insur",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "Access to IIB data for insurance intermediaries"
+      "title": "Access to IIB data for insurance intermediaries",
+      "description": "",
+      "data_r": "IRDAI insur"
     },
     {
-      "data_r": "IRDAI insur",
       "tag": "IRDAI",
       "status": "Submitted",
-      "title": "ISNP: digital advertising"
+      "title": "ISNP: digital advertising",
+      "description": "",
+      "data_r": "IRDAI insur"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "FLDG on KCC lending"
+      "title": "FLDG on KCC lending",
+      "description": "",
+      "data_r": "RBI lend"
     },
     {
-      "data_r": "RBI lend",
       "tag": "RBI",
       "status": "Submitted",
-      "title": "Access to data ecosystem for AgriFintech"
+      "title": "Access to data ecosystem for AgriFintech",
+      "description": "",
+      "data_r": "RBI lend"
     }
   ],
   "bottom_cta": {
